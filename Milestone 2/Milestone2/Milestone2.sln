@@ -5,6 +5,8 @@ Project("{ABB857C0-C1C1-EE77-CBFF-D5ED8839C957}") = "Milestone2", "Assembly-CSha
 EndProject
 Project("{ABB857C0-C1C1-EE77-CBFF-D5ED8839C957}") = "Milestone2", "Assembly-CSharp.csproj", "{942BEBD3-9816-57F3-962D-F07091822301}"
 EndProject
+Project("{ABB857C0-C1C1-EE77-CBFF-D5ED8839C957}") = "Milestone2", "Assembly-UnityScript-firstpass.unityproj", "{10EAE2B6-644D-2B49-50A2-454626234C0A}"
+EndProject
 Project("{ABB857C0-C1C1-EE77-CBFF-D5ED8839C957}") = "Milestone2", "Assembly-UnityScript.unityproj", "{B4F0E573-0DB6-B6F6-CCDC-5E876D38E0A1}"
 EndProject
 Global
@@ -21,6 +23,10 @@ Global
 		{942BEBD3-9816-57F3-962D-F07091822301}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{942BEBD3-9816-57F3-962D-F07091822301}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{942BEBD3-9816-57F3-962D-F07091822301}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10EAE2B6-644D-2B49-50A2-454626234C0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10EAE2B6-644D-2B49-50A2-454626234C0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10EAE2B6-644D-2B49-50A2-454626234C0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10EAE2B6-644D-2B49-50A2-454626234C0A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B4F0E573-0DB6-B6F6-CCDC-5E876D38E0A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B4F0E573-0DB6-B6F6-CCDC-5E876D38E0A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4F0E573-0DB6-B6F6-CCDC-5E876D38E0A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -29,7 +35,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-														GlobalSection(MonoDevelopProperties) = preSolution
+																GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1
