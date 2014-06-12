@@ -14,3 +14,9 @@
 /*.userprefs
 /*.pidb
 /*.booproj
+
+*.csproj
+
+*.sln
+
+*.userprefs
