@@ -395,7 +395,7 @@ function OnControllerColliderHit (hit : ControllerColliderHit )
 	var forceAmount = 50f;
 	var body : Rigidbody = hit.collider.attachedRigidbody;
 		
-	if (GameObject.Find("Door").rigidbody == body) {
+	if (GameObject.Find("Door Left").rigidbody == body) {
 			
 		body.AddForce(body.transform.right * forceAmount, ForceMode.Acceleration);
 		body.useGravity = true;
