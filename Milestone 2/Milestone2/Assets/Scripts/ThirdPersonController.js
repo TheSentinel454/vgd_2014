@@ -395,11 +395,13 @@ function OnControllerColliderHit (hit : ControllerColliderHit )
 	var forceAmount = 50f;
 	var body : Rigidbody = hit.collider.attachedRigidbody;
 		
-	if (GameObject.Find("Door Left").rigidbody == body) {
-			
-		body.AddForce(body.transform.right * forceAmount, ForceMode.Acceleration);
-		body.useGravity = true;
-	} 
+	if (GameObject.Find("Door Left")) { //couldn't find Door Left when in other scenes; was causing error
+		if (GameObject.Find("Door Left").rigidbody == body) {
+				
+			body.AddForce(body.transform.right * forceAmount, ForceMode.Acceleration);
+			body.useGravity = true;
+		}
+	}
 	
 		
 //	Debug.DrawRay(hit.point, hit.normal);
