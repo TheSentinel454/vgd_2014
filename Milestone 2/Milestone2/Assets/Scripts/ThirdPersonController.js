@@ -388,22 +388,7 @@ function Update() {
 
 function OnControllerColliderHit (hit : ControllerColliderHit )
 {
-
 	
-	//move the door if we hit it, would like to have this in door script though...not sure how to with CharacterController
-			
-	var forceAmount = 50f;
-	var body : Rigidbody = hit.collider.attachedRigidbody;
-		
-	if (GameObject.Find("Door Left")) { //couldn't find Door Left when in other scenes; was causing error
-		if (GameObject.Find("Door Left").rigidbody == body) {
-				
-			body.AddForce(body.transform.right * forceAmount, ForceMode.Acceleration);
-			body.useGravity = true;
-		}
-	}
-	
-		
 //	Debug.DrawRay(hit.point, hit.normal);
 	if (hit.moveDirection.y > 0.01) {
 		return;

@@ -7,6 +7,10 @@ using UnityEngine;
 public class WaterSimple : MonoBehaviour
 {
 
+	private float resetTime = 0f;
+
+	public GameObject player;
+
 	void Update()
 	{
 		if( !renderer )
@@ -29,8 +33,32 @@ public class WaterSimple : MonoBehaviour
 				
 		scrollMatrix = Matrix4x4.TRS( new Vector3(offsetClamped.z,offsetClamped.w,0), Quaternion.identity, scale * 0.45f );
 		mat.SetMatrix( "_WaveMatrix2", scrollMatrix );
+
+		resetTime += Time.deltaTime;
 		
 	}
 
+	void OnTriggerStay(Collider other) {
+		if (other.tag == "Player") {
+			if (Input.GetKey (KeyCode.LeftShift) || Input.GetKey (KeyCode.RightShift)) {
+				print ("running");
+				if (resetTime >= 0.2 || resetTime == 0) {
+					AudioSource.PlayClipAtPoint(audio.clip, other.transform.position);
+					resetTime = 0;
+				}
+			} else {
 
+				//if isMoving, taken from ThirdPersonController.js
+				if (Mathf.Abs(Input.GetAxisRaw("Vertical")) + Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0.5){ 
+					print("not running");
+					if (resetTime >= 0.3 || resetTime == 0) {
+						AudioSource.PlayClipAtPoint(audio.clip, other.transform.position);
+						resetTime = 0;
+					}
+				}
+			}
+		}				
+	}
+	
+	
 }
