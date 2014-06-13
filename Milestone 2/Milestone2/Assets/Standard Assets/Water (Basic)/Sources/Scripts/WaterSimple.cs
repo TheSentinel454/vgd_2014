@@ -6,6 +6,7 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class WaterSimple : MonoBehaviour
 {
+
 	void Update()
 	{
 		if( !renderer )
@@ -28,5 +29,8 @@ public class WaterSimple : MonoBehaviour
 				
 		scrollMatrix = Matrix4x4.TRS( new Vector3(offsetClamped.z,offsetClamped.w,0), Quaternion.identity, scale * 0.45f );
 		mat.SetMatrix( "_WaveMatrix2", scrollMatrix );
+		
 	}
+
+
 }
