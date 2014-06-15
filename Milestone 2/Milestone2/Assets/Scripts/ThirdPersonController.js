@@ -386,13 +386,31 @@ function Update() {
 	}
 }
 
-function OnControllerColliderHit (hit : ControllerColliderHit )
+var pushPower = 3.0F;
+
+function OnControllerColliderHit (hit : ControllerColliderHit)
 {
-	
-//	Debug.DrawRay(hit.point, hit.normal);
-	if (hit.moveDirection.y > 0.01) {
+	var body : Rigidbody = hit.collider.attachedRigidbody;
+	// We dont want to push objects below us
+	if (hit.moveDirection.y < -0.3 || !body || body.isKinematic) 
 		return;
+	
+	// Check to see if the collided game object has an OnCollision
+	var onCollide : OnCollision = hit.gameObject.GetComponent(OnCollision);
+	if (onCollide != null)
+	{
+		// Broadcast to the game object that there was a player collision
+		hit.gameObject.BroadcastMessage("PlayerCollision", hit);
 	}
+		
+	// Calculate push direction from move direction, 
+	// we only push objects to the sides never up and down
+	var pushDir : Vector3 = Vector3 (hit.moveDirection.x, 0, hit.moveDirection.z);
+	// If you know how fast your character is trying to move,
+	// then you can also multiply the push velocity by that.
+		
+	// Apply the push
+	body.velocity = pushDir * pushPower;
 }
 
 function GetSpeed () {
