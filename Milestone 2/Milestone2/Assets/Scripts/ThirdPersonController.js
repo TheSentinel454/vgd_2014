@@ -396,12 +396,12 @@ function OnControllerColliderHit (hit : ControllerColliderHit)
 		return;
 	
 	// Check to see if the collided game object has an OnCollision
-	var onCollide : OnCollision = hit.gameObject.GetComponent(OnCollision);
-	if (onCollide != null)
-	{
+	//var onCollide : OnCollision = hit.gameObject.GetComponent(OnCollision);
+	//if (onCollide != null)
+	//{
 		// Broadcast to the game object that there was a player collision
-		hit.gameObject.BroadcastMessage("PlayerCollision", hit);
-	}
+	//	hit.gameObject.BroadcastMessage("PlayerCollision", hit);
+	//}
 		
 	// Calculate push direction from move direction, 
 	// we only push objects to the sides never up and down

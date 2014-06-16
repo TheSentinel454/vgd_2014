@@ -1,7 +1,10 @@
 ﻿// The target we are following
 var target : Transform;
 // The distance in the x-z plane to the target
-var distance = 10.0;
+var minDistance = 5;
+var maxDistance = 15;
+var zoomSpeed = 5;
+private var distance = 10.0;
 
 /** Mouse Orbit Variables **/
 var xSpeed = 250.0;
@@ -23,12 +26,16 @@ var rotationDamping = 3.0;
 // Place the script in the Camera-Control group in the component menu
 @script AddComponentMenu("Camera-Control/Combo Camera")
 
-
 function LateUpdate ()
 {
 	// Make sure we have a target
 	if (!target)
 		return;
+		
+	// Check for mouse scroll
+	var scroll = Input.GetAxis("Mouse ScrollWheel");
+	// Alter the distance if there was any scrolling
+	distance = Mathf.Clamp(distance + scroll * (-zoomSpeed), minDistance, maxDistance);
 		
 	// Mouse Orbit
 	if (Input.GetMouseButton(1))
