@@ -9,8 +9,6 @@ public class WaterSimple : MonoBehaviour
 
 	private float resetTime = 0f;
 
-	public GameObject player;
-
 	void Update()
 	{
 		if( !renderer )
@@ -41,7 +39,8 @@ public class WaterSimple : MonoBehaviour
 	void OnTriggerStay(Collider other) {
 		if (other.tag == "Player") {
 			if (Input.GetKey (KeyCode.LeftShift) || Input.GetKey (KeyCode.RightShift)) {
-				print ("running");
+
+				//reset faster while running 
 				if (resetTime >= 0.2 || resetTime == 0) {
 					AudioSource.PlayClipAtPoint(audio.clip, other.transform.position);
 					resetTime = 0;
@@ -50,7 +49,8 @@ public class WaterSimple : MonoBehaviour
 
 				//if isMoving, taken from ThirdPersonController.js
 				if (Mathf.Abs(Input.GetAxisRaw("Vertical")) + Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0.5){ 
-					print("not running");
+
+					//reset slower if walking 
 					if (resetTime >= 0.3 || resetTime == 0) {
 						AudioSource.PlayClipAtPoint(audio.clip, other.transform.position);
 						resetTime = 0;

@@ -392,15 +392,15 @@ function OnControllerColliderHit (hit : ControllerColliderHit)
 {
 	var body : Rigidbody = hit.collider.attachedRigidbody;
 	// We dont want to push objects below us
-	if (hit.moveDirection.y < -0.3 || !body || body.isKinematic) 
-		return;
+	//if (hit.moveDirection.y < -0.3 || !body || body.isKinematic) 
+		//return;
 	
 	// Check to see if the collided game object has an OnCollision
 	//var onCollide : OnCollision = hit.gameObject.GetComponent(OnCollision);
 	//if (onCollide != null)
 	//{
 		// Broadcast to the game object that there was a player collision
-	//	hit.gameObject.BroadcastMessage("PlayerCollision", hit);
+		//hit.gameObject.BroadcastMessage("PlayerCollision", hit);
 	//}
 		
 	// Calculate push direction from move direction, 
@@ -410,7 +410,7 @@ function OnControllerColliderHit (hit : ControllerColliderHit)
 	// then you can also multiply the push velocity by that.
 		
 	// Apply the push
-	body.velocity = pushDir * pushPower;
+	//body.velocity = pushDir * pushPower;
 }
 
 function GetSpeed () {
