@@ -21,6 +21,11 @@ public class Flammable : MonoBehaviour {
 //			Fire.gameObject.transform.Find("Smoke").gameObject.particleEmitter.maxEnergy -= 0.01f;
 //			Fire.gameObject.transform.Find("Lightsource").gameObject.light.range -= 0.01f;
 		}
+
+		// Check if we need to remove the fire.
+		if (Fire != null && !onFire && !permanent) {
+			Destroy(Fire);
+		}
 	}
 
 	// When we have collided with an object, check if it is on fire and catch on fire if it is.
