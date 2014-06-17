@@ -413,6 +413,13 @@ public class NinjaController : MonoBehaviour
 
     void OnControllerColliderHit(ControllerColliderHit hit)
 	{
+		//can't jump up walls (still can manage to jump up if terrain isn't too vertical)
+		if (hit.normal.y <= 0.2) {
+			canJump = false;
+		} else {
+			canJump = true;
+		}
+
 		Rigidbody body = hit.collider.attachedRigidbody;
 		// We dont want to push objects below us
 		if (hit.moveDirection.y < -0.3 || !body || body.isKinematic) 

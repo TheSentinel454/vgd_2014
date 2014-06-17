@@ -14,7 +14,9 @@ public class FireDampen : MonoBehaviour {
 	}
 
 	void OnTriggerStay(Collider other) {
-		particleEmitter.minEmission -= 1;
-		particleEmitter.maxEmission -= 1;
+		if (other.name == "Ninja-Water") {
+			particleEmitter.minEmission -= 1;
+			particleEmitter.maxEmission -= 1;
+		}
 	}
 }
