@@ -410,10 +410,9 @@ public class NinjaController : MonoBehaviour
 		if (hit.moveDirection.y < -0.3 || !body || body.isKinematic) 
 			return;
 		
-		// Check to see if the collided game object has an OnCollision
-		OnCollision onCollide = hit.gameObject.GetComponent<OnCollision>();
-		//var onCollide : OnCollision = hit.gameObject.GetComponent(OnCollision);
-		if (onCollide != null)
+		// Check to see if the collided game object has an InteractiveObject
+		InteractiveObject interactive = hit.gameObject.GetComponent<InteractiveObject>();
+		if (interactive != null)
 		{
 			// Broadcast to the game object that there was a player collision
 			hit.gameObject.BroadcastMessage("PlayerCollision", hit);
