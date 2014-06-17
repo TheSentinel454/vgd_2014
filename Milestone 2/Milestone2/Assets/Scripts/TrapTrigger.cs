@@ -16,8 +16,29 @@ public class TrapTrigger : MonoBehaviour
 		else
 		{
 			Debug.Log ("Trap Triggered!");
-			// Disable this collider
-			collider.enabled = false;
+			// Find the Trigger collider
+			foreach (Collider col in GetComponents<BoxCollider>())
+			{
+				// Check for the trigger collider
+				if (col.isTrigger)
+				{
+					// Destroy the trigger
+					Destroy(col);
+				}
+			}
+			HingeJoint joint = gameObject.AddComponent<HingeJoint>();
+			joint.anchor = new Vector3(0.4f, -0.1f, 0.0f);
+			joint.useLimits = true;
+			JointLimits limits = new JointLimits();
+			limits.min = 0;
+			limits.max = 60;
+			limits.minBounce = 0.25f;
+			limits.maxBounce = 0.75f;
+			joint.limits = limits;
+			// Remove the kinematic
+			gameObject.rigidbody.isKinematic = false;
+			/*
+			//collider.enabled = false;
 
 			// Find the Bridges
 			foreach (Transform trans in transform.parent.gameObject.GetComponentsInChildren<Transform>())
@@ -27,9 +48,10 @@ public class TrapTrigger : MonoBehaviour
 					HingeJoint joint = trans.gameObject.AddComponent<HingeJoint>();
 					joint.anchor = new Vector3(0.0f, -11.9f, 0.0f);
 					joint.useLimits = true;
-					JointLimits limits = joint.limits;
+					JointLimits limits = new JointLimits();//joint.limits;
 					limits.min = -15;
 					limits.max = 0;
+					joint.limits = limits;
 					// Remove the collider
 					Destroy (trans.gameObject.collider);
 					trans.gameObject.rigidbody.isKinematic = false;
@@ -39,7 +61,7 @@ public class TrapTrigger : MonoBehaviour
 					HingeJoint joint = trans.gameObject.AddComponent<HingeJoint>();
 					joint.anchor = new Vector3(0.0f, 11.9f, 0.0f);
 				}
-			}
+			}*/
 		}
 	}
 }
