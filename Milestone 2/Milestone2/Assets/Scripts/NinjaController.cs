@@ -15,6 +15,7 @@ public class NinjaController : MonoBehaviour
     public float runMaxAnimationSpeed = 1.0f;
     public float jumpAnimationSpeed = 1.15f;
     public float landAnimationSpeed = 1.0f;
+	public Type ninjaType;
 
     private Animation _animation;
 
@@ -27,6 +28,13 @@ public class NinjaController : MonoBehaviour
         Running = 2,
         Jumping = 3,
     }
+
+	public enum Type
+	{
+		Air,
+		Water,
+		Fire
+	}
 
     private CharacterState _characterState;
 
@@ -254,9 +262,9 @@ public class NinjaController : MonoBehaviour
 
     public float CalculateJumpVerticalSpeed(float targetJumpHeight)
     {
-        // From the jump height and gravity we deduce the upwards speed 
-        // for the character to reach at the apex.
-        return Mathf.Sqrt(2 * targetJumpHeight * gravity);
+		// From the jump height and gravity we deduce the upwards speed 
+		// for the character to reach at the apex.
+		return Mathf.Sqrt (2 * targetJumpHeight * gravity);
     }
 
     public void DidJump()
@@ -425,7 +433,7 @@ public class NinjaController : MonoBehaviour
 		// If you know how fast your character is trying to move,
 		// then you can also multiply the push velocity by that.
 
-		//open the door faster if they're running
+		// open the door faster if they're running
 		if (Input.GetKey (KeyCode.LeftShift) || Input.GetKey (KeyCode.RightShift)) {
 			pushPower = 4.0f;
 		} else {
