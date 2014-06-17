@@ -1,20 +1,20 @@
 fileFormatVersion: 2
-guid: 067cebb4c5c67481d964d476d964bf7d
+guid: 956842f63dcca1e43bb07e4642eb673b
 TextureImporter:
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
-    linearTexture: 0
+    linearTexture: 1
     correctGamma: 0
     fadeOut: 0
     borderMipMap: 0
     mipMapFadeDistanceStart: 1
     mipMapFadeDistanceEnd: 3
   bumpmap:
-    convertToNormalMap: 0
-    externalNormalMap: 0
-    heightScale: .25
+    convertToNormalMap: 1
+    externalNormalMap: 1
+    heightScale: .0173913036
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
@@ -37,7 +37,7 @@ TextureImporter:
   spritePivot: {x: .5, y: .5}
   spritePixelsToUnits: 100
   alphaIsTransparency: 0
-  textureType: -1
+  textureType: 1
   buildTargetSettings: []
   spriteSheet:
     sprites: []
