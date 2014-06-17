@@ -434,7 +434,6 @@ public class NinjaController : MonoBehaviour
 		//Apply the push
 		body.velocity = pushDir * pushPower;
 	
-
     }
 
     public float GetSpeed()
