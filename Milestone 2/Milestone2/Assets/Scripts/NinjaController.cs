@@ -313,7 +313,7 @@ public class NinjaController : MonoBehaviour
         Vector3 movement = moveDirection * moveSpeed + new Vector3(0, verticalSpeed, 0) + inAirVelocity;
         movement *= Time.deltaTime;
 
-		if (movement != Vector3.zero && !IsJumping())
+		if (movement != Vector3.zero && !IsJumping())// && IsGrounded())
 		{
 			if (walkingAudio != null)
 			{
@@ -439,6 +439,7 @@ public class NinjaController : MonoBehaviour
 		}
 
 		Rigidbody body = hit.collider.attachedRigidbody;
+
 		if (walkingAudio != waterWalkingAudio)
 		{
 			if (hit.gameObject.tag == "Wood" && walkingAudio != woodWalkingAudio)
@@ -452,10 +453,11 @@ public class NinjaController : MonoBehaviour
 				walkingAudio = grassWalkingAudio;
 			}
 		}
+
 		// We dont want to push objects below us
 		if (hit.moveDirection.y < -0.3 || !body || body.isKinematic) 
 			return;
-		
+
 		// Check to see if the collided game object has an InteractiveObject
 		InteractiveObject interactive = hit.gameObject.GetComponent<InteractiveObject>();
 		if (interactive != null)
@@ -477,9 +479,8 @@ public class NinjaController : MonoBehaviour
 		} else {
 			pushPower = 2.0f;
 		}
-		//Apply the push
+		// Apply the push
 		body.velocity = pushDir * pushPower;
-	
     }
 
     public float GetSpeed()
