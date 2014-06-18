@@ -19,7 +19,17 @@ public class NinjaController : MonoBehaviour
 
     private Animation _animation;
 
+	public AudioSource woodWalkingAudio;
+	public AudioSource waterWalkingAudio;
+	public AudioSource grassWalkingAudio;
+
 	public AudioSource walkingAudio;
+
+	enum CharacterGround {
+		Grass,
+		Wood,
+		Water
+	}
 
     enum CharacterState
     {
@@ -400,6 +410,22 @@ public class NinjaController : MonoBehaviour
             }
         }
     }
+
+	void OnTriggerEnter(Collider collider) {
+		if (collider.gameObject.tag == "Water") {
+			if (walkingAudio != waterWalkingAudio) {
+				walkingAudio.Stop ();
+			}
+			walkingAudio = waterWalkingAudio;
+		}
+	}
+
+	void OnTriggerExit(Collider collider) {
+		if (walkingAudio != grassWalkingAudio) {
+			walkingAudio.Stop ();
+		}
+		walkingAudio = grassWalkingAudio;
+	}
 
     void OnControllerColliderHit(ControllerColliderHit hit)
 	{
