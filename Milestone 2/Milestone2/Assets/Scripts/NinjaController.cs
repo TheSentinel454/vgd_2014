@@ -450,6 +450,7 @@ public class NinjaController : MonoBehaviour
 			{
 				walkingAudio.Stop ();
 				walkingAudio = grassWalkingAudio;
+			}
 		}
 		// We dont want to push objects below us
 		if (hit.moveDirection.y < -0.3 || !body || body.isKinematic) 
