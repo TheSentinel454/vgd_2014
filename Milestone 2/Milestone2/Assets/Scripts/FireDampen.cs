@@ -1,4 +1,12 @@
-﻿using UnityEngine;
+﻿/*
+  Team Y-Not
+  
+  Evan LaHurd
+  Luke Tornquist
+  Jonathan Yates
+*/
+
+using UnityEngine;
 using System.Collections;
 
 public class FireDampen : MonoBehaviour {

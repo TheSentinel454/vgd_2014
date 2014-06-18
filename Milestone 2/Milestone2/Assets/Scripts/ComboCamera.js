@@ -1,4 +1,12 @@
-﻿// The target we are following
+﻿/*
+  Team Y-Not
+  
+  Evan LaHurd
+  Luke Tornquist
+  Jonathan Yates
+*/
+
+// The target we are following
 var target : Transform;
 // The distance in the x-z plane to the target
 var minDistance = 5;
