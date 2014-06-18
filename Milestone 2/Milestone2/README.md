@@ -159,4 +159,3 @@ extinguished. Move across the map from where you originally spawned, and run thr
 Move/jump up the stairs (variable height terrain) to the plateau and you'll notice 3 barrels. Push them around (or off the cliff), and notice how they are
 influenced by physics.
 
-
