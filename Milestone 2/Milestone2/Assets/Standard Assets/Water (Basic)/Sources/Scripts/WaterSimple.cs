@@ -35,30 +35,4 @@ public class WaterSimple : MonoBehaviour
 		resetTime += Time.deltaTime;
 		
 	}
-
-	void OnTriggerStay(Collider other) {
-		if (other.tag == "Player") {
-			if (Input.GetKey (KeyCode.LeftShift) || Input.GetKey (KeyCode.RightShift)) {
-
-				//reset faster while running 
-				if (resetTime >= 0.2 || resetTime == 0) {
-					AudioSource.PlayClipAtPoint(audio.clip, other.transform.position);
-					resetTime = 0;
-				}
-			} else {
-
-				//if isMoving, taken from ThirdPersonController.js
-				if (Mathf.Abs(Input.GetAxisRaw("Vertical")) + Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0.5){ 
-
-					//reset slower if walking 
-					if (resetTime >= 0.3 || resetTime == 0) {
-						AudioSource.PlayClipAtPoint(audio.clip, other.transform.position);
-						resetTime = 0;
-					}
-				}
-			}
-		}				
-	}
-	
-	
 }

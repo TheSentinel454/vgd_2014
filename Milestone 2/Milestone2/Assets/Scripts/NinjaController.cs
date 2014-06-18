@@ -108,6 +108,7 @@ public class NinjaController : MonoBehaviour
 
     void Awake()
     {
+		walkingAudio = grassWalkingAudio;
         moveDirection = transform.TransformDirection(Vector3.forward);
 
         _animation = GetComponent<Animation>();
@@ -407,17 +408,22 @@ public class NinjaController : MonoBehaviour
         }
     }
 
-	void OnTriggerEnter(Collider collider) {
-		if (collider.gameObject.tag == "Water") {
-			if (walkingAudio != waterWalkingAudio) {
+	void OnTriggerEnter(Collider collider)
+	{
+		if (collider.gameObject.tag == "Water")
+		{
+			if (walkingAudio != waterWalkingAudio)
+			{
 				walkingAudio.Stop ();
 			}
 			walkingAudio = waterWalkingAudio;
 		}
 	}
 
-	void OnTriggerExit(Collider collider) {
-		if (walkingAudio != grassWalkingAudio) {
+	void OnTriggerExit(Collider collider)
+	{
+		if (walkingAudio != grassWalkingAudio)
+		{
 			walkingAudio.Stop ();
 		}
 		walkingAudio = grassWalkingAudio;
@@ -433,19 +439,18 @@ public class NinjaController : MonoBehaviour
 		}
 
 		Rigidbody body = hit.collider.attachedRigidbody;
-		/*
-		if (inWater hit.gameObject.tag == "Water" && walkingAudio != walkingWaterAudio) {
-						walkingAudio.Stop ();
-						walkingAudio = walkingWaterAudio;
-		} else 
-		*/
-		if (hit.gameObject.tag == "Wood" && walkingAudio != woodWalkingAudio) {
-						walkingAudio.Stop ();
-						walkingAudio = woodWalkingAudio;
-		} else if (hit.gameObject.tag == "Ground" && walkingAudio != grassWalkingAudio) {
-						walkingAudio.Stop ();
-						walkingAudio = grassWalkingAudio;
-				}
+		if (walkingAudio != waterWalkingAudio)
+		{
+			if (hit.gameObject.tag == "Wood" && walkingAudio != woodWalkingAudio)
+			{
+				walkingAudio.Stop ();
+				walkingAudio = woodWalkingAudio;
+			}
+			else if (hit.gameObject.tag == "Ground" && walkingAudio != grassWalkingAudio)
+			{
+				walkingAudio.Stop ();
+				walkingAudio = grassWalkingAudio;
+		}
 		// We dont want to push objects below us
 		if (hit.moveDirection.y < -0.3 || !body || body.isKinematic) 
 			return;
