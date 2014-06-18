@@ -1,16 +1,11 @@
 Milestone 2
 ------------
 
-**Luke Tornquist** (Air Garden)
-*luke.tornquist@gatech.edu*
+**Luke Tornquist** (Air Garden)  -  *luke.tornquist@gatech.edu*
 
-**Jonathan Yates** (Fire Garden)
-*jyates32@gatech.edu*
-*jyates32*
+**Jonathan Yates** (Fire Garden)  -  *jyates32@gatech.edu*  -  *jyates32*
 
-**Evan LaHurd** (Water Garden)
-*elahurd3@gatech.edu*
-*elahurd3*
+**Evan LaHurd** (Water Garden)  -  *elahurd3@gatech.edu*  -  *elahurd3*
 
 ---
 
