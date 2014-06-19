@@ -1,7 +1,7 @@
 Milestone 2
 ------------
 
-**Luke Tornquist** (Air Garden)  -  *luke.tornquist@gatech.edu*
+**Luke Tornquist** (Air Garden)  -  *luke.tornquist@gatech.edu* - *ltornquist3*
 
 **Jonathan Yates** (Fire Garden)  -  *jyates32@gatech.edu*  -  *jyates32*
 
@@ -25,8 +25,9 @@ Milestone 2
 - At least 5 geometry nodes controlled by physics
   - 9 barrels
   - 2 doors
-- 2 joints 
+- 4 joints 
   - Joints attached to the 2 doors
+  - Joints dynamically created on 2 trap doors
 - Variable height terrain implemented
   - Bridges over pond
   - Raised terrain around pond
