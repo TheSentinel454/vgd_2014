@@ -9,6 +9,43 @@ Milestone 2
 
 ---
 
+### External Resources
+
+- (Models)
+- Ninja Model
+  - https://www.assetstore.unity3d.com/en/#!/content/12679
+- Wood Barrel
+  - https://www.assetstore.unity3d.com/en/#!/content/4427
+- Wood Bridges
+  - https://www.assetstore.unity3d.com/en/#!/content/4349
+  - https://www.assetstore.unity3d.com/en/#!/content/819
+- Torch
+  - https://www.assetstore.unity3d.com/en/#!/content/7275
+
+- Big Tree
+  - Assets -> Import Package -> Tree Creator
+- Fire, Flame, Dust, Bubble, Waterfall, Water Fountain, and Sparkle Particle Effects
+  - Assets -> Import Package -> Particles
+
+- Water (Ponds)
+  - Assets -> Import Package -> Water (Basic)
+
+- Rustic Door
+  - https://www.assetstore.unity3d.com/en/#!/content/861
+- Terrain
+  - https://www.assetstore.unity3d.com/en/#!/content/6
+
+- (Audio)
+- Grass Footsteps
+  - http://www.freesfx.co.uk/sfx/footsteps (Footsteps Forest 01)
+- Water Footsteps
+  - http://www.freesfx.co.uk/sfx/footsteps?p=3 (Footsteps In Water 1)
+- Wood Footsteps
+  - http://www.freesfx.co.uk/sfx/footsteps?p=2 (Footsteps on hollow wooden surface)
+- Campfire Sound Effect
+  - http://www.soundjay.com/nature/campfire-1.wav  (Fire Tree Sound Effect)
+
+
 ### Air Garden Fulfilled Requirements
 
 - Physics implemented 
@@ -155,3 +192,14 @@ extinguished. Move across the map from where you originally spawned, and run thr
 Move/jump up the stairs (variable height terrain) to the plateau and you'll notice 3 barrels. Push them around (or off the cliff), and notice how they are
 influenced by physics.
 
+### Incomplete Requirements
+
+- There are no incomplete requirements
+
+### Known Issues
+
+- There are no known issues
+
+### Website
+
+- http://unity.jonathantyates.com/milestone2
