@@ -576,22 +576,10 @@ public class NinjaController : MonoBehaviour
 	{
 		// Set the base ninja type
 		ninjaType = Type.Base;
-		// Set the texture
-		ninjaRenderer.material.mainTexture = baseSettings.texture;
+		// Set Ninja Settings
+		setNinjaSettings (baseSettings);
+		// Set the texture alpha
 		ninjaRenderer.material.color = new Color (1.0f, 1.0f, 1.0f, 1.0f);
-		// Set the animation speeds
-		walkMaxAnimationSpeed = baseSettings.walkMaxAnimationSpeed;
-		runMaxAnimationSpeed = baseSettings.runMaxAnimationSpeed;
-		jumpAnimationSpeed = baseSettings.jumpAnimationSpeed;
-		landAnimationSpeed = baseSettings.landAnimationSpeed;
-		// Set the walk/run/jump values
-		walkSpeed = baseSettings.walkSpeed;
-		runSpeed = baseSettings.runSpeed;
-		jumpHeight = baseSettings.jumpHeight;
-		// Set gravity/speed smoothing/rotate speed
-		gravity = baseSettings.gravity;
-		speedSmoothing = baseSettings.speedSmoothing;
-		rotateSpeed = baseSettings.rotateSpeed;
 
 	}
 	/// <summary>
@@ -601,22 +589,10 @@ public class NinjaController : MonoBehaviour
 	{
 		// Set the air ninja type
 		ninjaType = Type.Air;
-		// Set the texture
-		ninjaRenderer.material.mainTexture = airSettings.texture;
+		// Set Ninja Settings
+		setNinjaSettings (airSettings);
+		// Set the texture alpha
 		ninjaRenderer.material.color = new Color (1.0f, 1.0f, 1.0f, 0.5f);
-		// Set the animation speeds
-		walkMaxAnimationSpeed = airSettings.walkMaxAnimationSpeed;
-		runMaxAnimationSpeed = airSettings.runMaxAnimationSpeed;
-		jumpAnimationSpeed = airSettings.jumpAnimationSpeed;
-		landAnimationSpeed = airSettings.landAnimationSpeed;
-		// Set the walk/run/jump values
-		walkSpeed = airSettings.walkSpeed;
-		runSpeed = airSettings.runSpeed;
-		jumpHeight = airSettings.jumpHeight;
-		// Set gravity/speed smoothing/rotate speed
-		gravity = airSettings.gravity;
-		speedSmoothing = airSettings.speedSmoothing;
-		rotateSpeed = airSettings.rotateSpeed;
 
 	}
 	/// <summary>
@@ -626,22 +602,10 @@ public class NinjaController : MonoBehaviour
 	{
 		// Set the fire ninja type
 		ninjaType = Type.Fire;
-		// Set the texture
-		ninjaRenderer.material.mainTexture = fireSettings.texture;
+		// Set Ninja Settings
+		setNinjaSettings (fireSettings);
+		// Set the texture alpha
 		ninjaRenderer.material.color = new Color (1.0f, 1.0f, 1.0f, 1.0f);
-		// Set the animation speeds
-		walkMaxAnimationSpeed = fireSettings.walkMaxAnimationSpeed;
-		runMaxAnimationSpeed = fireSettings.runMaxAnimationSpeed;
-		jumpAnimationSpeed = fireSettings.jumpAnimationSpeed;
-		landAnimationSpeed = fireSettings.landAnimationSpeed;
-		// Set the walk/run/jump values
-		walkSpeed = fireSettings.walkSpeed;
-		runSpeed = fireSettings.runSpeed;
-		jumpHeight = fireSettings.jumpHeight;
-		// Set gravity/speed smoothing/rotate speed
-		gravity = fireSettings.gravity;
-		speedSmoothing = fireSettings.speedSmoothing;
-		rotateSpeed = fireSettings.rotateSpeed;
 
 	}
 	/// <summary>
@@ -651,22 +615,32 @@ public class NinjaController : MonoBehaviour
 	{
 		// Set the water ninja type
 		ninjaType = Type.Water;
-		// Set the texture
-		ninjaRenderer.material.mainTexture = waterSettings.texture;
+		// Set Ninja Settings
+		setNinjaSettings (waterSettings);
+		// Set the texture alpha
 		ninjaRenderer.material.color = new Color (1.0f, 1.0f, 1.0f, 1.0f);
+	}
+	/// <summary>
+	/// Sets the ninja settings.
+	/// </summary>
+	/// <param name="settings">Ninja Settings.</param>
+	void setNinjaSettings(NinjaSettings settings)
+	{
+		// Set the texture
+		ninjaRenderer.material.mainTexture = settings.texture;
 		// Set the animation speeds
-		walkMaxAnimationSpeed = waterSettings.walkMaxAnimationSpeed;
-		runMaxAnimationSpeed = waterSettings.runMaxAnimationSpeed;
-		jumpAnimationSpeed = waterSettings.jumpAnimationSpeed;
-		landAnimationSpeed = waterSettings.landAnimationSpeed;
+		walkMaxAnimationSpeed = settings.walkMaxAnimationSpeed;
+		runMaxAnimationSpeed = settings.runMaxAnimationSpeed;
+		jumpAnimationSpeed = settings.jumpAnimationSpeed;
+		landAnimationSpeed = settings.landAnimationSpeed;
 		// Set the walk/run/jump values
-		walkSpeed = waterSettings.walkSpeed;
-		runSpeed = waterSettings.runSpeed;
-		jumpHeight = waterSettings.jumpHeight;
+		walkSpeed = settings.walkSpeed;
+		runSpeed = settings.runSpeed;
+		jumpHeight = settings.jumpHeight;
 		// Set gravity/speed smoothing/rotate speed
-		gravity = waterSettings.gravity;
-		speedSmoothing = waterSettings.speedSmoothing;
-		rotateSpeed = waterSettings.rotateSpeed;
+		gravity = settings.gravity;
+		speedSmoothing = settings.speedSmoothing;
+		rotateSpeed = settings.rotateSpeed;
 	}
 
 	void OnTriggerEnter(Collider collider)
