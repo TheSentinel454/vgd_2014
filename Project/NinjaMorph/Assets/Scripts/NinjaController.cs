@@ -542,6 +542,20 @@ public class NinjaController : MonoBehaviour
 		// Set the texture
 		ninjaRenderer.material.mainTexture = baseSettings.texture;
 		ninjaRenderer.material.color = new Color (1.0f, 1.0f, 1.0f, 1.0f);
+		// Set the animation speeds
+		walkMaxAnimationSpeed = baseSettings.walkMaxAnimationSpeed;//0.75f;
+		runMaxAnimationSpeed = baseSettings.runMaxAnimationSpeed;//1.0f;
+		jumpAnimationSpeed = baseSettings.jumpAnimationSpeed;//1.15f;
+		landAnimationSpeed = baseSettings.landAnimationSpeed;//1.0f;
+		// Set the walk/run/jump values
+		walkSpeed = baseSettings.walkSpeed;
+		runSpeed = baseSettings.runSpeed;
+		jumpHeight = baseSettings.jumpHeight;
+		// Set gravity/speed smoothing/rotate speed
+		gravity = baseSettings.gravity;
+		speedSmoothing = baseSettings.speedSmoothing;
+		rotateSpeed = baseSettings.rotateSpeed;
+
 	}
 	/// <summary>
 	/// Sets the air ninja.
