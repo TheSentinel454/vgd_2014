@@ -547,23 +547,30 @@ public class NinjaController : MonoBehaviour
 	/// </summary>
 	void updateEnergyValues()
 	{
-		zenEnergy = 100.0f;
-
+		// Check the air type
 		if (ninjaType == Type.Air)
 		{
+			// Decrement the energy level
 			airEnergy -= 0.1f;
+			// Make sure we don't fall below zero
 			if (airEnergy < 0.0f)
 				airEnergy = 0.0f;
 		}
+		// Check the fire type
 		else if (ninjaType == Type.Fire)
 		{
+			// Decrement the energy level
 			fireEnergy -= 0.1f;
+			// Make sure we don't fall below zero
 			if (fireEnergy < 0.0f)
 				fireEnergy = 0.0f;
 		}
+		// Check the water type
 		else if (ninjaType == Type.Water)
 		{
+			// Decrement the energy level
 			waterEnergy -= 0.1f;
+			// Make sure we don't fall below zero
 			if (waterEnergy < 0.0f)
 				waterEnergy = 0.0f;
 		}
