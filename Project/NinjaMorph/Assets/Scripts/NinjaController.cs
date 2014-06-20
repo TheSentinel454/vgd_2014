@@ -12,28 +12,53 @@ using System.Collections;
 // Require a character controller to be attached to the same game object
 [RequireComponent (typeof (CharacterController))]
 
+[System.Serializable]
+public class NinjaSettings
+{
+	public Texture texture;
+
+	public float walkSpeed;
+	public float runSpeed;
+	public float jumpHeight;
+	
+	public float walkMaxAnimationSpeed;
+	public float runMaxAnimationSpeed;
+	public float jumpAnimationSpeed;
+	public float landAnimationSpeed;
+
+	public float gravity;
+	public float speedSmoothing;
+	public float rotateSpeed;
+}
+
 public class NinjaController : MonoBehaviour
 {
+	private Animation _animation;
     public AnimationClip idleAnimation;
     public AnimationClip walkAnimation;
     public AnimationClip runAnimation;
     public AnimationClip jumpPoseAnimation;
 
+	public NinjaSettings baseSettings;
+	public NinjaSettings airSettings;
+	public NinjaSettings fireSettings;
+	public NinjaSettings waterSettings;
+
     public float walkMaxAnimationSpeed = 0.75f;
     public float runMaxAnimationSpeed = 1.0f;
     public float jumpAnimationSpeed = 1.15f;
     public float landAnimationSpeed = 1.0f;
-	public Type ninjaType;
-
-    private Animation _animation;
 
 	public AudioSource woodWalkingAudio;
 	public AudioSource waterWalkingAudio;
 	public AudioSource grassWalkingAudio;
 
 	private AudioSource walkingAudio;
+	private Type ninjaType;
+	private Renderer ninjaRenderer;
 
-	enum CharacterGround {
+	enum CharacterGround
+	{
 		Grass,
 		Wood,
 		Water
@@ -49,6 +74,7 @@ public class NinjaController : MonoBehaviour
 
 	public enum Type
 	{
+		Base,
 		Air,
 		Water,
 		Fire
@@ -111,11 +137,18 @@ public class NinjaController : MonoBehaviour
 
     private float lastGroundedTime = 0.0f;
 
+	// Energy levels
+	private float zenEnergy = 100.0f;
+	private float airEnergy = 1.0f;
+	private float fireEnergy = 1.0f;
+	private float waterEnergy = 1.0f;
 
     private bool isControllable = true;
 
     void Awake()
     {
+		ninjaRenderer = GetComponentInChildren<Renderer> ();
+		setBaseNinja ();
 		walkingAudio = grassWalkingAudio;
         moveDirection = transform.TransformDirection(Vector3.forward);
 
@@ -295,6 +328,7 @@ public class NinjaController : MonoBehaviour
 
     void Update()
     {
+		handleNinjaChange ();
 
         if (!isControllable)
         {
@@ -415,6 +449,135 @@ public class NinjaController : MonoBehaviour
             }
         }
     }
+
+	void handleNinjaChange()
+	{
+		// Air Ninja
+		if (Input.GetKeyDown ("1"))
+		{
+			// See if we are currently the air ninja
+			if (ninjaType == Type.Air)
+			{
+				// Set the base ninja
+				setBaseNinja();
+			}
+			// Not the air ninja
+			else
+			{
+				// Make sure we have enough air energy
+				if (airEnergy > 0.0f)
+				{
+					// Set the air ninja
+					setAirNinja();
+				}
+				// Not enough energy
+				else
+				{
+					// Show some kind of message?
+
+				}
+			}
+		}
+		// Fire Ninja
+		else if (Input.GetKeyDown ("2"))
+		{
+			// See if we are currently the fire ninja
+			if (ninjaType == Type.Fire)
+			{
+				// Set the base ninja
+				setBaseNinja();
+			}
+			// Not the fire ninja
+			else
+			{
+				// Make sure we have enough fire energy
+				if (fireEnergy > 0.0f)
+				{
+					// Set the fire ninja
+					setFireNinja();
+				}
+				// Not enough energy
+				else
+				{
+					// Show some kind of message?
+					
+				}
+			}
+		}
+		// Water Ninja
+		else if (Input.GetKeyDown ("3"))
+		{
+			// See if we are currently the water ninja
+			if (ninjaType == Type.Water)
+			{
+				// Set the base ninja
+				setBaseNinja();
+			}
+			// Not the water ninja
+			else
+			{
+				// Make sure we have enough water energy
+				if (waterEnergy > 0.0f)
+				{
+					// Set the water ninja
+					setWaterNinja();
+				}
+				// Not enough energy
+				else
+				{
+					// Show some kind of message?
+					
+				}
+			}
+		}
+	}
+
+	/// <summary>
+	/// Sets the base ninja.
+	/// </summary>
+	void setBaseNinja()
+	{
+		// Set the base ninja type
+		ninjaType = Type.Base;
+		// Set the texture
+		ninjaRenderer.material.mainTexture = baseSettings.texture;
+		ninjaRenderer.material.color = new Color (1.0f, 1.0f, 1.0f, 1.0f);
+	}
+	/// <summary>
+	/// Sets the air ninja.
+	/// </summary>
+	void setAirNinja()
+	{
+		// Set the air ninja type
+		ninjaType = Type.Air;
+		// Set the texture
+		ninjaRenderer.material.mainTexture = airSettings.texture;
+		ninjaRenderer.material.color = new Color (1.0f, 1.0f, 1.0f, 0.5f);
+
+	}
+	/// <summary>
+	/// Sets the fire ninja.
+	/// </summary>
+	void setFireNinja()
+	{
+		// Set the fire ninja type
+		ninjaType = Type.Fire;
+		// Set the texture
+		ninjaRenderer.material.mainTexture = fireSettings.texture;
+		ninjaRenderer.material.color = new Color (1.0f, 1.0f, 1.0f, 1.0f);
+
+	}
+	/// <summary>
+	/// Sets the water ninja.
+	/// </summary>
+	void setWaterNinja()
+	{
+		// Set the water ninja type
+		ninjaType = Type.Water;
+		// Set the texture
+		ninjaRenderer.material.mainTexture = waterSettings.texture;
+		ninjaRenderer.material.color = new Color (1.0f, 1.0f, 1.0f, 1.0f);
+	}
 
 	void OnTriggerEnter(Collider collider)
 	{
