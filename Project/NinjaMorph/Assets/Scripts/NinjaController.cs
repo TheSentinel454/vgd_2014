@@ -44,11 +44,7 @@ public class NinjaController : MonoBehaviour
 	public NinjaSettings fireSettings;
 	public NinjaSettings waterSettings;
 
-    public float walkMaxAnimationSpeed = 0.75f;
-    public float runMaxAnimationSpeed = 1.0f;
-    public float jumpAnimationSpeed = 1.15f;
-    public float landAnimationSpeed = 1.0f;
-
+	public AudioSource baseWalkingAudio;
 	public AudioSource woodWalkingAudio;
 	public AudioSource waterWalkingAudio;
 	public AudioSource grassWalkingAudio;
@@ -80,27 +76,29 @@ public class NinjaController : MonoBehaviour
 		Fire
 	}
 
-    private CharacterState _characterState;
+	private CharacterState _characterState;
 
-    // The speed when walking
+	// Animation speeds
+	public float walkMaxAnimationSpeed;
+	public float runMaxAnimationSpeed;
+	public float jumpAnimationSpeed;
+	public float landAnimationSpeed;
+	
+	// The speed when walking
     public float walkSpeed = 2.0f;
     // when pressing "Fire3" button (cmd) we start running
-    public float runSpeed = 6.0f;
+	public float runSpeed = 6.0f;
+	// How high do we jump when pressing jump and letting go immediately
+	public float jumpHeight = 0.5f;
+	// The gravity for the character
+	public float gravity = 20.0f;
+	// The gravity in controlled descent mode
+	public float speedSmoothing = 10.0f;
+	public float rotateSpeed = 500.0f;
+	
+	private float pushPower = 2.0f;
 
-	public float pushPower = 2.0f;
-
-    public float inAirControlAcceleration = 3.0f;
-
-    // How high do we jump when pressing jump and letting go immediately
-    public float jumpHeight = 0.5f;
-
-    // The gravity for the character
-    public float gravity = 20.0f;
-    // The gravity in controlled descent mode
-    public float speedSmoothing = 10.0f;
-    public float rotateSpeed = 500.0f;
-
-    public bool canJump = true;
+    private float inAirControlAcceleration = 3.0f;
 
     private float jumpRepeatTime = 0.05f;
     private float jumpTimeout = 0.15f;
@@ -131,17 +129,20 @@ public class NinjaController : MonoBehaviour
     private float lastJumpButtonTime = -10.0f;
     // Last time we performed a jump
     private float lastJumpTime = -1.0f;
-
-
+	
     private Vector3 inAirVelocity = Vector3.zero;
 
     private float lastGroundedTime = 0.0f;
 
 	// Energy levels
 	private float zenEnergy = 100.0f;
-	private float airEnergy = 1.0f;
-	private float fireEnergy = 1.0f;
-	private float waterEnergy = 1.0f;
+	public float getZen(){return zenEnergy;}
+	private float airEnergy = 100.0f;
+	public float getAirEnergy(){return airEnergy;}
+	private float fireEnergy = 100.0f;
+	public float getFireEnergy(){return fireEnergy;}
+	private float waterEnergy = 100.0f;
+	public float getWaterEnergy(){return waterEnergy;}
 
     private bool isControllable = true;
 
@@ -171,7 +172,7 @@ public class NinjaController : MonoBehaviour
             _animation = null;
             Debug.Log("No run animation found. Turning off animations.");
         }
-        if (!jumpPoseAnimation && canJump)
+        if (!jumpPoseAnimation)
         {
             _animation = null;
             Debug.Log("No jump animation found and the character has canJump enabled. Turning off animations.");
@@ -272,7 +273,7 @@ public class NinjaController : MonoBehaviour
             // Jump
             // - Only when pressing the button down
             // - With a timeout so you can press the button slightly before landing		
-            if (canJump && Time.time < lastJumpButtonTime + jumpTimeout)
+            if (Time.time < lastJumpButtonTime + jumpTimeout)
             {
                 verticalSpeed = CalculateJumpVerticalSpeed(jumpHeight);
                 SendMessage("DidJump", SendMessageOptions.DontRequireReceiver);
@@ -327,7 +328,8 @@ public class NinjaController : MonoBehaviour
 	}
 
     void Update()
-    {
+	{
+		updateEnergyValues ();
 		handleNinjaChange ();
 
         if (!isControllable)
@@ -530,6 +532,41 @@ public class NinjaController : MonoBehaviour
 				}
 			}
 		}
+		// Check for expiring air/water/fire ninja
+		if ((airEnergy <= 0.0f && ninjaType == Type.Air) ||
+		    (waterEnergy <= 0.0f && ninjaType == Type.Water) ||
+		    (fireEnergy <= 0.0f && ninjaType == Type.Fire))
+		{
+			// Go back to the base ninja
+			setBaseNinja();
+		}
+	}
+
+	/// <summary>
+	/// Updates the energy values.
+	/// </summary>
+	void updateEnergyValues()
+	{
+		zenEnergy = 100.0f;
+
+		if (ninjaType == Type.Air)
+		{
+			airEnergy -= 0.1f;
+			if (airEnergy < 0.0f)
+				airEnergy = 0.0f;
+		}
+		else if (ninjaType == Type.Fire)
+		{
+			fireEnergy -= 0.1f;
+			if (fireEnergy < 0.0f)
+				fireEnergy = 0.0f;
+		}
+		else if (ninjaType == Type.Water)
+		{
+			waterEnergy -= 0.1f;
+			if (waterEnergy < 0.0f)
+				waterEnergy = 0.0f;
+		}
 	}
 
 	/// <summary>
@@ -543,10 +580,10 @@ public class NinjaController : MonoBehaviour
 		ninjaRenderer.material.mainTexture = baseSettings.texture;
 		ninjaRenderer.material.color = new Color (1.0f, 1.0f, 1.0f, 1.0f);
 		// Set the animation speeds
-		walkMaxAnimationSpeed = baseSettings.walkMaxAnimationSpeed;//0.75f;
-		runMaxAnimationSpeed = baseSettings.runMaxAnimationSpeed;//1.0f;
-		jumpAnimationSpeed = baseSettings.jumpAnimationSpeed;//1.15f;
-		landAnimationSpeed = baseSettings.landAnimationSpeed;//1.0f;
+		walkMaxAnimationSpeed = baseSettings.walkMaxAnimationSpeed;
+		runMaxAnimationSpeed = baseSettings.runMaxAnimationSpeed;
+		jumpAnimationSpeed = baseSettings.jumpAnimationSpeed;
+		landAnimationSpeed = baseSettings.landAnimationSpeed;
 		// Set the walk/run/jump values
 		walkSpeed = baseSettings.walkSpeed;
 		runSpeed = baseSettings.runSpeed;
@@ -567,6 +604,19 @@ public class NinjaController : MonoBehaviour
 		// Set the texture
 		ninjaRenderer.material.mainTexture = airSettings.texture;
 		ninjaRenderer.material.color = new Color (1.0f, 1.0f, 1.0f, 0.5f);
+		// Set the animation speeds
+		walkMaxAnimationSpeed = airSettings.walkMaxAnimationSpeed;
+		runMaxAnimationSpeed = airSettings.runMaxAnimationSpeed;
+		jumpAnimationSpeed = airSettings.jumpAnimationSpeed;
+		landAnimationSpeed = airSettings.landAnimationSpeed;
+		// Set the walk/run/jump values
+		walkSpeed = airSettings.walkSpeed;
+		runSpeed = airSettings.runSpeed;
+		jumpHeight = airSettings.jumpHeight;
+		// Set gravity/speed smoothing/rotate speed
+		gravity = airSettings.gravity;
+		speedSmoothing = airSettings.speedSmoothing;
+		rotateSpeed = airSettings.rotateSpeed;
 
 	}
 	/// <summary>
@@ -579,6 +629,19 @@ public class NinjaController : MonoBehaviour
 		// Set the texture
 		ninjaRenderer.material.mainTexture = fireSettings.texture;
 		ninjaRenderer.material.color = new Color (1.0f, 1.0f, 1.0f, 1.0f);
+		// Set the animation speeds
+		walkMaxAnimationSpeed = fireSettings.walkMaxAnimationSpeed;
+		runMaxAnimationSpeed = fireSettings.runMaxAnimationSpeed;
+		jumpAnimationSpeed = fireSettings.jumpAnimationSpeed;
+		landAnimationSpeed = fireSettings.landAnimationSpeed;
+		// Set the walk/run/jump values
+		walkSpeed = fireSettings.walkSpeed;
+		runSpeed = fireSettings.runSpeed;
+		jumpHeight = fireSettings.jumpHeight;
+		// Set gravity/speed smoothing/rotate speed
+		gravity = fireSettings.gravity;
+		speedSmoothing = fireSettings.speedSmoothing;
+		rotateSpeed = fireSettings.rotateSpeed;
 
 	}
 	/// <summary>
@@ -591,6 +654,19 @@ public class NinjaController : MonoBehaviour
 		// Set the texture
 		ninjaRenderer.material.mainTexture = waterSettings.texture;
 		ninjaRenderer.material.color = new Color (1.0f, 1.0f, 1.0f, 1.0f);
+		// Set the animation speeds
+		walkMaxAnimationSpeed = waterSettings.walkMaxAnimationSpeed;
+		runMaxAnimationSpeed = waterSettings.runMaxAnimationSpeed;
+		jumpAnimationSpeed = waterSettings.jumpAnimationSpeed;
+		landAnimationSpeed = waterSettings.landAnimationSpeed;
+		// Set the walk/run/jump values
+		walkSpeed = waterSettings.walkSpeed;
+		runSpeed = waterSettings.runSpeed;
+		jumpHeight = waterSettings.jumpHeight;
+		// Set gravity/speed smoothing/rotate speed
+		gravity = waterSettings.gravity;
+		speedSmoothing = waterSettings.speedSmoothing;
+		rotateSpeed = waterSettings.rotateSpeed;
 	}
 
 	void OnTriggerEnter(Collider collider)
@@ -616,13 +692,6 @@ public class NinjaController : MonoBehaviour
 
     void OnControllerColliderHit(ControllerColliderHit hit)
 	{
-		//can't jump up walls (still can manage to jump up if terrain isn't too vertical)
-		if (hit.normal.y <= 0.2) {
-			canJump = false;
-		} else {
-			canJump = true;
-		}
-
 		Rigidbody body = hit.collider.attachedRigidbody;
 
 		if (walkingAudio != waterWalkingAudio)
