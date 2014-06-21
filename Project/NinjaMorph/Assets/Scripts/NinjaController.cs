@@ -29,6 +29,12 @@ public class NinjaSettings
 	public float gravity;
 	public float speedSmoothing;
 	public float rotateSpeed;
+
+	public AudioSource transitionIn;
+	public AudioSource transitionOut;
+
+	public GameObject[] effects;
+	public Vector3[] effectLocations;
 }
 
 public class NinjaController : MonoBehaviour
@@ -52,6 +58,7 @@ public class NinjaController : MonoBehaviour
 	private AudioSource walkingAudio;
 	private Type ninjaType;
 	private Renderer ninjaRenderer;
+	private GameObject ninjaEffects;
 
 	enum CharacterGround
 	{
@@ -149,6 +156,14 @@ public class NinjaController : MonoBehaviour
     void Awake()
     {
 		ninjaRenderer = GetComponentInChildren<Renderer> ();
+		foreach(Transform tf in GetComponentsInChildren<Transform> ())
+		{
+			if (tf.name == "Effects")
+			{
+				ninjaEffects = tf.gameObject;
+				break;
+			}
+		}
 		setBaseNinja ();
 		walkingAudio = grassWalkingAudio;
         moveDirection = transform.TransformDirection(Vector3.forward);
@@ -633,6 +648,16 @@ public class NinjaController : MonoBehaviour
 	/// <param name="settings">Ninja Settings.</param>
 	void setNinjaSettings(NinjaSettings settings)
 	{
+		// Clear the effects
+		for (var i = ninjaEffects.transform.childCount - 1; i >= 0; i--)
+		{
+			// Get the effect
+			Transform effect = ninjaEffects.transform.GetChild(i);
+			// Clear the child/parent relationship
+			effect.parent = null;
+			// Destroy the effect
+			Destroy(effect.gameObject);
+		} 
 		// Set the texture
 		ninjaRenderer.material.mainTexture = settings.texture;
 		// Set the animation speeds
@@ -648,6 +673,19 @@ public class NinjaController : MonoBehaviour
 		gravity = settings.gravity;
 		speedSmoothing = settings.speedSmoothing;
 		rotateSpeed = settings.rotateSpeed;
+		// Add the effects
+		for(int i = 0; i < settings.effects.Length; i++)
+		{
+			// Instantiate the effect
+			GameObject newEffect = (GameObject)Instantiate(settings.effects[i]);
+			Debug.Log ("Position: " + newEffect.transform.position);
+			// Add the effect to the children
+			newEffect.transform.parent = ninjaEffects.transform;
+			Debug.Log ("Desired Position: " + settings.effectLocations[i]);
+			// Set the location?
+			newEffect.transform.position = settings.effectLocations[i];
+			Debug.Log ("New Position: " + newEffect.transform.position);
+		}
 	}
 
 	void OnTriggerEnter(Collider collider)
@@ -668,7 +706,7 @@ public class NinjaController : MonoBehaviour
 		{
 			walkingAudio.Stop ();
 		}
-		walkingAudio = grassWalkingAudio;
+		walkingAudio = baseWalkingAudio;
 	}
 
     void OnControllerColliderHit(ControllerColliderHit hit)
@@ -686,6 +724,11 @@ public class NinjaController : MonoBehaviour
 			{
 				walkingAudio.Stop ();
 				walkingAudio = grassWalkingAudio;
+			}
+			else if (walkingAudio != baseWalkingAudio)
+			{
+				walkingAudio.Stop();
+				walkingAudio = baseWalkingAudio;
 			}
 		}
 
