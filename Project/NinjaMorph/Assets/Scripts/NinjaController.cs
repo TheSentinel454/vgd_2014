@@ -155,17 +155,25 @@ public class NinjaController : MonoBehaviour
 
     void Awake()
     {
+		// Get the ninja renderer
 		ninjaRenderer = GetComponentInChildren<Renderer> ();
+		// Search for the Effects holder
 		foreach(Transform tf in GetComponentsInChildren<Transform> ())
 		{
+			// Is this the effects game object?
 			if (tf.name == "Effects")
 			{
+				// Save the game object
 				ninjaEffects = tf.gameObject;
+				// We are done here
 				break;
 			}
 		}
+		// Set the base ninja
 		setBaseNinja ();
-		walkingAudio = grassWalkingAudio;
+		// Set the base walking audio
+		walkingAudio = baseWalkingAudio;
+		// Initialize the move direction
         moveDirection = transform.TransformDirection(Vector3.forward);
 
         _animation = GetComponent<Animation>();
@@ -678,13 +686,13 @@ public class NinjaController : MonoBehaviour
 		{
 			// Instantiate the effect
 			GameObject newEffect = (GameObject)Instantiate(settings.effects[i]);
-			Debug.Log ("Position: " + newEffect.transform.position);
+			//Debug.Log ("Position: " + newEffect.transform.position);
 			// Add the effect to the children
 			newEffect.transform.parent = ninjaEffects.transform;
-			Debug.Log ("Desired Position: " + settings.effectLocations[i]);
+			//Debug.Log ("Desired Position: " + settings.effectLocations[i]);
 			// Set the location?
 			newEffect.transform.position = settings.effectLocations[i];
-			Debug.Log ("New Position: " + newEffect.transform.position);
+			//Debug.Log ("New Position: " + newEffect.transform.position);
 		}
 	}
 
