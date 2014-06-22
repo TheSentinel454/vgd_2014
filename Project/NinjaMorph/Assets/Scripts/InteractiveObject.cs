@@ -46,6 +46,8 @@ public class InteractiveObject : MonoBehaviour
 
 	public ObjectType type;
 	private ObjectType currentType;
+	private GameObject fire;
+	private GameObject smoke;
 
 	public GameObject fireGameObject;
 	public GameObject smokeGameObject;
@@ -108,7 +110,7 @@ public class InteractiveObject : MonoBehaviour
 			// Set the current type to fire
 			currentType = ObjectType.Fire;
 			// Instantiate the fire prefab
-			GameObject fire = (GameObject)Instantiate(fireGameObject, transform.position, transform.rotation);
+			fire = (GameObject)Instantiate(fireGameObject, transform.position, transform.rotation);
 			fire.transform.parent = transform;
 			break;
 		}
@@ -125,7 +127,13 @@ public class InteractiveObject : MonoBehaviour
 			// Set the current type to initial type
 			currentType = type;
 			// Clear the fire prefab
-			
+			fire.transform.parent = null;
+			Destroy(fire);
+			// Instantiate the smoke prefab
+			smoke = (GameObject)Instantiate(smokeGameObject, transform.position, transform.rotation);
+			smoke.transform.parent = transform;
+			DestroyByTime dbtScript = smoke.AddComponent<DestroyByTime>(); 
+			dbtScript.lifetime = 4.0f;
 			break;
 		}
 	}

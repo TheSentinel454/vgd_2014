@@ -686,8 +686,10 @@ public class NinjaController : MonoBehaviour
 		for(int i = 0; i < settings.effects.Length; i++)
 		{
 			// Instantiate the effect
-			GameObject newEffect = (GameObject)Instantiate(settings.effects[i], 
-			                                               ninjaEffects.transform.position,
+			GameObject newEffect = (GameObject)Instantiate(settings.effects[i],
+			                                               // Set the location of the parent plus the effect location
+			                                               ninjaEffects.transform.position + settings.effectLocations[i],
+			                                               // Set the rotation to that of the parent
 			                                               ninjaEffects.transform.rotation);
 			// Add the effect to the children
 			newEffect.transform.parent = ninjaEffects.transform;
