@@ -11,9 +11,9 @@ GameObject:
   - 33: {fileID: 3300000}
   - 23: {fileID: 2300000}
   - 54: {fileID: 5400000}
-  - 114: {fileID: 11400000}
   - 136: {fileID: 13600000}
   - 65: {fileID: 6500000}
+  - 114: {fileID: 11400000}
   m_Layer: 0
   m_Name: Wood Barrel
   m_TagString: Untagged
@@ -99,6 +99,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  fireGameObject: {fileID: 100006, guid: ba1890e53e92f40dab7c64be4d2667ff, type: 2}
+  smokeGameObject: {fileID: 0}
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1
