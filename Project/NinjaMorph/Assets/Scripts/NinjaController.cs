@@ -37,6 +37,15 @@ public class NinjaSettings
 	public Vector3[] effectLocations;
 }
 
+[System.Serializable]
+public enum NinjaType
+{
+	Base,
+	Air,
+	Water,
+	Fire
+}
+
 public class NinjaController : MonoBehaviour
 {
 	private Animation _animation;
@@ -56,7 +65,7 @@ public class NinjaController : MonoBehaviour
 	public AudioSource grassWalkingAudio;
 
 	private AudioSource walkingAudio;
-	private Type ninjaType;
+	private NinjaType ninjaType;
 	private Renderer ninjaRenderer;
 	private GameObject ninjaEffects;
 
@@ -74,14 +83,6 @@ public class NinjaController : MonoBehaviour
         Running = 2,
         Jumping = 3,
     }
-
-	public enum Type
-	{
-		Base,
-		Air,
-		Water,
-		Fire
-	}
 
 	private CharacterState _characterState;
 
@@ -481,7 +482,7 @@ public class NinjaController : MonoBehaviour
 		if (Input.GetKeyDown ("1"))
 		{
 			// See if we are currently the air ninja
-			if (ninjaType == Type.Air)
+			if (ninjaType == NinjaType.Air)
 			{
 				// Set the base ninja
 				setBaseNinja();
@@ -507,7 +508,7 @@ public class NinjaController : MonoBehaviour
 		else if (Input.GetKeyDown ("2"))
 		{
 			// See if we are currently the fire ninja
-			if (ninjaType == Type.Fire)
+			if (ninjaType == NinjaType.Fire)
 			{
 				// Set the base ninja
 				setBaseNinja();
@@ -533,7 +534,7 @@ public class NinjaController : MonoBehaviour
 		else if (Input.GetKeyDown ("3"))
 		{
 			// See if we are currently the water ninja
-			if (ninjaType == Type.Water)
+			if (ninjaType == NinjaType.Water)
 			{
 				// Set the base ninja
 				setBaseNinja();
@@ -556,9 +557,9 @@ public class NinjaController : MonoBehaviour
 			}
 		}
 		// Check for expiring air/water/fire ninja
-		if ((airEnergy <= 0.0f && ninjaType == Type.Air) ||
-		    (waterEnergy <= 0.0f && ninjaType == Type.Water) ||
-		    (fireEnergy <= 0.0f && ninjaType == Type.Fire))
+		if ((airEnergy <= 0.0f && ninjaType == NinjaType.Air) ||
+		    (waterEnergy <= 0.0f && ninjaType == NinjaType.Water) ||
+		    (fireEnergy <= 0.0f && ninjaType == NinjaType.Fire))
 		{
 			// Go back to the base ninja
 			setBaseNinja();
@@ -571,7 +572,7 @@ public class NinjaController : MonoBehaviour
 	void updateEnergyValues()
 	{
 		// Check the air type
-		if (ninjaType == Type.Air)
+		if (ninjaType == NinjaType.Air)
 		{
 			// Decrement the energy level
 			airEnergy -= 0.1f;
@@ -580,7 +581,7 @@ public class NinjaController : MonoBehaviour
 				airEnergy = 0.0f;
 		}
 		// Check the fire type
-		else if (ninjaType == Type.Fire)
+		else if (ninjaType == NinjaType.Fire)
 		{
 			// Decrement the energy level
 			fireEnergy -= 0.1f;
@@ -589,7 +590,7 @@ public class NinjaController : MonoBehaviour
 				fireEnergy = 0.0f;
 		}
 		// Check the water type
-		else if (ninjaType == Type.Water)
+		else if (ninjaType == NinjaType.Water)
 		{
 			// Decrement the energy level
 			waterEnergy -= 0.1f;
@@ -605,7 +606,7 @@ public class NinjaController : MonoBehaviour
 	void setBaseNinja()
 	{
 		// Set the base ninja type
-		ninjaType = Type.Base;
+		ninjaType = NinjaType.Base;
 		// Set Ninja Settings
 		setNinjaSettings (baseSettings);
 		// Set the texture alpha
@@ -618,7 +619,7 @@ public class NinjaController : MonoBehaviour
 	void setAirNinja()
 	{
 		// Set the air ninja type
-		ninjaType = Type.Air;
+		ninjaType = NinjaType.Air;
 		// Set Ninja Settings
 		setNinjaSettings (airSettings);
 		// Set the texture alpha
@@ -631,7 +632,7 @@ public class NinjaController : MonoBehaviour
 	void setFireNinja()
 	{
 		// Set the fire ninja type
-		ninjaType = Type.Fire;
+		ninjaType = NinjaType.Fire;
 		// Set Ninja Settings
 		setNinjaSettings (fireSettings);
 		// Set the texture alpha
@@ -644,7 +645,7 @@ public class NinjaController : MonoBehaviour
 	void setWaterNinja()
 	{
 		// Set the water ninja type
-		ninjaType = Type.Water;
+		ninjaType = NinjaType.Water;
 		// Set Ninja Settings
 		setNinjaSettings (waterSettings);
 		// Set the texture alpha
@@ -685,14 +686,11 @@ public class NinjaController : MonoBehaviour
 		for(int i = 0; i < settings.effects.Length; i++)
 		{
 			// Instantiate the effect
-			GameObject newEffect = (GameObject)Instantiate(settings.effects[i]);
-			//Debug.Log ("Position: " + newEffect.transform.position);
+			GameObject newEffect = (GameObject)Instantiate(settings.effects[i], 
+			                                               ninjaEffects.transform.position,
+			                                               ninjaEffects.transform.rotation);
 			// Add the effect to the children
 			newEffect.transform.parent = ninjaEffects.transform;
-			//Debug.Log ("Desired Position: " + settings.effectLocations[i]);
-			// Set the location?
-			newEffect.transform.position = settings.effectLocations[i];
-			//Debug.Log ("New Position: " + newEffect.transform.position);
 		}
 	}
 
@@ -749,7 +747,7 @@ public class NinjaController : MonoBehaviour
 		if (interactive != null)
 		{
 			// Broadcast to the game object that there was a player collision
-			hit.gameObject.BroadcastMessage("PlayerCollision", hit);
+			hit.gameObject.BroadcastMessage("PlayerCollision", new InteractiveCollision(hit, ninjaType));
 		}
 		
 		// Calculate push direction from move direction, 
