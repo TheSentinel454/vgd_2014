@@ -35,9 +35,9 @@ public class GameController : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		zenText.text = "Zen: " + ninjaController.getZen ().ToString ();
-		airEnergyText.text = "Air: " + ninjaController.getAirEnergy ().ToString ();
-		fireEnergyText.text = "Fire: " + ninjaController.getFireEnergy ().ToString ();
-		waterEnergyText.text = "Water: " + ninjaController.getWaterEnergy ().ToString ();
+		zenText.text = "Zen: " + (int)ninjaController.getZen () + "%";
+		airEnergyText.text = "Air: " + (int)ninjaController.getAirEnergy () + "%";
+		fireEnergyText.text = "Fire: " + (int)ninjaController.getFireEnergy () + "%";
+		waterEnergyText.text = "Water: " + (int)ninjaController.getWaterEnergy () + "%";
 	}
 }
