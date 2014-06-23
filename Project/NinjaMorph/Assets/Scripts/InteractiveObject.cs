@@ -126,8 +126,7 @@ public class InteractiveObject : MonoBehaviour
 		case ObjectType.Fire:
 			// Set the current type to initial type
 			currentType = type;
-			// Clear the fire prefab
-			fire.transform.parent = null;
+			// Destroy the fire prefab
 			Destroy(fire);
 			// Instantiate the smoke prefab
 			smoke = (GameObject)Instantiate(smokeGameObject, transform.position, transform.rotation);

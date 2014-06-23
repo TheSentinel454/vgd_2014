@@ -53,6 +53,7 @@ public class NinjaController : MonoBehaviour
     public AnimationClip walkAnimation;
     public AnimationClip runAnimation;
     public AnimationClip jumpPoseAnimation;
+	public AnimationClip attackAnimation;
 
 	public NinjaSettings baseSettings;
 	public NinjaSettings airSettings;
@@ -87,22 +88,22 @@ public class NinjaController : MonoBehaviour
 	private CharacterState _characterState;
 
 	// Animation speeds
-	public float walkMaxAnimationSpeed;
-	public float runMaxAnimationSpeed;
-	public float jumpAnimationSpeed;
-	public float landAnimationSpeed;
+	private float walkMaxAnimationSpeed;
+	private float runMaxAnimationSpeed;
+	private float jumpAnimationSpeed;
+	private float landAnimationSpeed;
 	
 	// The speed when walking
-    public float walkSpeed = 2.0f;
+	private float walkSpeed;
     // when pressing "Fire3" button (cmd) we start running
-	public float runSpeed = 6.0f;
+	private float runSpeed;
 	// How high do we jump when pressing jump and letting go immediately
-	public float jumpHeight = 0.5f;
+	private float jumpHeight;
 	// The gravity for the character
-	public float gravity = 20.0f;
+	private float gravity;
 	// The gravity in controlled descent mode
-	public float speedSmoothing = 10.0f;
-	public float rotateSpeed = 500.0f;
+	private float speedSmoothing;
+	private float rotateSpeed;
 	
 	private float pushPower = 2.0f;
 
@@ -137,6 +138,8 @@ public class NinjaController : MonoBehaviour
     private float lastJumpButtonTime = -10.0f;
     // Last time we performed a jump
     private float lastJumpTime = -1.0f;
+
+	private bool attacking = false;
 	
     private Vector3 inAirVelocity = Vector3.zero;
 
@@ -199,9 +202,13 @@ public class NinjaController : MonoBehaviour
         if (!jumpPoseAnimation)
         {
             _animation = null;
-            Debug.Log("No jump animation found and the character has canJump enabled. Turning off animations.");
+            Debug.Log("No jump animation found. Turning off animations.");
         }
-
+		if (!attackAnimation)
+		{
+			_animation = null;
+			Debug.Log("No attack animation found. Turning off animations.");
+		}
     }
 
     void UpdateSmoothedMovementDirection()
@@ -285,6 +292,17 @@ public class NinjaController : MonoBehaviour
         }
     }
 
+	void ApplyAttacking()
+	{
+		// Prevent attacking too fast after each other
+		if (attacking)
+			return;
+		
+		if (!IsAttacking() && Input.GetButtonDown("Fire1"))
+		{
+			DidAttack();
+		}
+	}
 
     void ApplyJumping()
     {
@@ -300,7 +318,8 @@ public class NinjaController : MonoBehaviour
             if (Time.time < lastJumpButtonTime + jumpTimeout)
             {
                 verticalSpeed = CalculateJumpVerticalSpeed(jumpHeight);
-                SendMessage("DidJump", SendMessageOptions.DontRequireReceiver);
+				DidJump();
+                //SendMessage("DidJump", SendMessageOptions.DontRequireReceiver);
             }
         }
     }
@@ -313,7 +332,8 @@ public class NinjaController : MonoBehaviour
             if (jumping && !jumpingReachedApex && verticalSpeed <= 0.0f)
             {
                 jumpingReachedApex = true;
-                SendMessage("DidJumpReachApex", SendMessageOptions.DontRequireReceiver);
+				DidJumpReachApex();
+                //SendMessage("DidJumpReachApex", SendMessageOptions.DontRequireReceiver);
             }
 
             if (IsGrounded())
@@ -330,25 +350,40 @@ public class NinjaController : MonoBehaviour
 		return Mathf.Sqrt (2 * targetJumpHeight * gravity);
     }
 
-    public void DidJump()
-    {
-        jumping = true;
-        jumpingReachedApex = false;
-        lastJumpTime = Time.time;
-        lastJumpButtonTime = -10;
+	public void DidAttack()
+	{
+		attacking = true;
 
+		StartCoroutine(BlockAttack());
+		Debug.Log ("Did Attack!");
+	}
+	
+	IEnumerator BlockAttack()
+	{
+		yield return new WaitForSeconds(_animation[attackAnimation.name].length);
+		attacking = false;
+		print("Attack Complete!");
+	}
+	
+	public void DidJump()
+	{
+		jumping = true;
+		jumpingReachedApex = false;
+		lastJumpTime = Time.time;
+		lastJumpButtonTime = -10;
+		
 		_characterState = CharacterState.Jumping;
-		Debug.Log("Did Jump!");
-    }
+		//Debug.Log("Did Jump!");
+	}
 
 	public void DidJumpReachApex()
 	{
-		Debug.Log("Did Reach Apex!");
+		//Debug.Log("Did Reach Apex!");
 	}
 
 	public void DidLand()
 	{
-		Debug.Log("Did Land!");
+		//Debug.Log("Did Land!");
 	}
 
     void Update()
@@ -376,6 +411,9 @@ public class NinjaController : MonoBehaviour
 
         // Apply jumping logic
         ApplyJumping();
+
+		// Apply jumping logic
+		ApplyAttacking ();
 
         // Calculate actual motion
         Vector3 movement = moveDirection * moveSpeed + new Vector3(0, verticalSpeed, 0) + inAirVelocity;
@@ -445,6 +483,13 @@ public class NinjaController : MonoBehaviour
 
                 }
             }
+			if (attacking)
+			{
+				_animation[attackAnimation.name].speed = 1.0f;
+				_animation[attackAnimation.name].wrapMode = WrapMode.ClampForever;
+				_animation.CrossFade(attackAnimation.name);
+				//attacking = false;
+			}
         }
         // ANIMATION sector
 
@@ -783,6 +828,11 @@ public class NinjaController : MonoBehaviour
     {
         return (collisionFlags & CollisionFlags.CollidedBelow) != 0;
     }
+
+	public bool IsAttacking()
+	{
+		return attacking;
+	}
 
     public Vector3 GetDirection()
     {
