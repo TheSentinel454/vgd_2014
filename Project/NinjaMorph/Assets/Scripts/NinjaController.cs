@@ -59,6 +59,8 @@ public class NinjaController : MonoBehaviour
 	public BoxCollider attackCollider;
 	public CapsuleCollider damageCollider;
 
+	public GameObject warningMsg;
+
 	public NinjaSettings baseSettings;
 	public NinjaSettings airSettings;
 	public NinjaSettings fireSettings;
@@ -540,6 +542,9 @@ public class NinjaController : MonoBehaviour
         }
     }
 
+	/// <summary>
+	/// Handles the ninja change.
+	/// </summary>
 	void handleNinjaChange()
 	{
 		// Air Ninja
@@ -563,8 +568,8 @@ public class NinjaController : MonoBehaviour
 				// Not enough energy
 				else
 				{
-					// Show some kind of message?
-
+					// Create a message
+					createMessage(5.0f, "Cannot use Air Ninja. Not enough energy!");
 				}
 			}
 		}
@@ -589,8 +594,8 @@ public class NinjaController : MonoBehaviour
 				// Not enough energy
 				else
 				{
-					// Show some kind of message?
-					
+					// Create a message
+					createMessage(5.0f, "Cannot use Fire Ninja. Not enough energy!");
 				}
 			}
 		}
@@ -615,8 +620,8 @@ public class NinjaController : MonoBehaviour
 				// Not enough energy
 				else
 				{
-					// Show some kind of message?
-					
+					// Create a message
+					createMessage(5.0f, "Cannot use Water Ninja. Not enough energy!");
 				}
 			}
 		}
@@ -625,9 +630,24 @@ public class NinjaController : MonoBehaviour
 		    (waterEnergy <= 0.0f && ninjaType == NinjaType.Water) ||
 		    (fireEnergy <= 0.0f && ninjaType == NinjaType.Fire))
 		{
+			// Create a message
+			createMessage(5.0f, "Ran out of energy!");
 			// Go back to the base ninja
 			setBaseNinja();
 		}
+	}
+
+	/// <summary>
+	/// Creates a message.
+	/// </summary>
+	/// <param name="lifetime">Lifetime.</param>
+	/// <param name="msg">Message.</param>
+	void createMessage(float lifetime, string msg)
+	{
+		GameObject obj = (GameObject)Instantiate(warningMsg);
+		DestroyGuiTextByTime dest = (DestroyGuiTextByTime)obj.GetComponent<DestroyGuiTextByTime>();
+		dest.lifetime = lifetime;
+		dest.message = msg;
 	}
 
 	/// <summary>
@@ -779,7 +799,8 @@ public class NinjaController : MonoBehaviour
 		if (interactive != null)
 		{
 			// Broadcast to the game object that there was a player collision
-			collider.gameObject.BroadcastMessage("PlayerCollision", new InteractiveCollision(collider, ninjaType));
+			interactive.PlayerCollision(new InteractiveCollision(collider, ninjaType));
+			print ("OnTriggerEnter: " + collider.gameObject.name);
 		}
 	}
 
@@ -796,19 +817,19 @@ public class NinjaController : MonoBehaviour
 			switch(obj.getObjectType())
 			{
 			case ObjectType.Air:
-				print ("Air increase due to: " + collider.gameObject.name);
+				//print ("Air increase due to: " + collider.gameObject.name);
 				airEnergy += 0.1f;
 				if (airEnergy > 100.0f)
 					airEnergy = 100.0f;
 				break;
 			case ObjectType.Fire:
-				print ("Fire increase due to: " + collider.gameObject.name);
+				//print ("Fire increase due to: " + collider.gameObject.name);
 				fireEnergy += 0.1f;
 				if (fireEnergy > 100.0f)
 					fireEnergy = 100.0f;
 				break;
 			case ObjectType.Water:
-				print ("Water increase due to: " + collider.gameObject.name);
+				//print ("Water increase due to: " + collider.gameObject.name);
 				waterEnergy += 0.1f;
 				if (waterEnergy > 100.0f)
 					waterEnergy = 100.0f;
@@ -828,6 +849,13 @@ public class NinjaController : MonoBehaviour
 			walkingAudio.Stop ();
 		}
 		walkingAudio = baseWalkingAudio;
+		
+		// Check to see if the collided game object has an InteractiveObject
+		InteractiveObject interactive = collider.gameObject.GetComponent<InteractiveObject>();
+		if (interactive != null)
+		{
+			print ("OnTriggerExit: " + collider.gameObject.name);
+		}
 	}
 
     void OnControllerColliderHit(ControllerColliderHit hit)

@@ -75,7 +75,7 @@ public class InteractiveObject : MonoBehaviour
 	/// Handle a player collision
 	/// </summary>
 	/// <param name="hit">Hit.</param>
-	void PlayerCollision(InteractiveCollision collision)
+	public void PlayerCollision(InteractiveCollision collision)
 	{
 		switch(collision.GetNinjaType())
 		{
