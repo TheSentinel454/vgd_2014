@@ -23,28 +23,30 @@ public class InteractiveCollision
 		type = ninjaType;
 	}
 }
+[System.Serializable]
+public enum ObjectType
+{
+	Undefined,
+	Air,
+	Wood,
+	Water,
+	Metal,
+	Concrete,
+	Dirt,
+	Fiber,
+	Paper,
+	Glass,
+	Plastic,
+	Rubber,
+	Plant,
+	Ice,
+	Fire
+}
 
 public class InteractiveObject : MonoBehaviour
 {
-	public enum ObjectType
-	{
-		Undefined,
-		Wood,
-		Water,
-		Metal,
-		Concrete,
-		Dirt,
-		Fiber,
-		Paper,
-		Glass,
-		Plastic,
-		Rubber,
-		Plant,
-		Ice,
-		Fire
-	}
-
-	public ObjectType type;
+	public ObjectType type = ObjectType.Undefined;
+	public ObjectType getObjectType(){ return currentType; }
 	private ObjectType currentType;
 	private GameObject fire;
 	private GameObject smoke;

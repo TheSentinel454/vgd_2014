@@ -757,6 +757,10 @@ public class NinjaController : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Raises the trigger enter event.
+	/// </summary>
+	/// <param name="collider">Collider.</param>
 	void OnTriggerEnter(Collider collider)
 	{
 		if (collider.gameObject.tag == "Water")
@@ -769,6 +773,41 @@ public class NinjaController : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Raises the trigger stay event.
+	/// </summary>
+	/// <param name="collider">Collider.</param>
+	void OnTriggerStay(Collider collider)
+	{
+		// Check for the interactive object script
+		InteractiveObject obj = (InteractiveObject)collider.gameObject.GetComponentInChildren<InteractiveObject> ();
+		if (obj != null && ninjaType == NinjaType.Base)
+		{
+			switch(obj.getObjectType())
+			{
+			case ObjectType.Air:
+				airEnergy += 0.1f;
+				if (airEnergy > 100.0f)
+					airEnergy = 100.0f;
+				break;
+			case ObjectType.Fire:
+				fireEnergy += 0.1f;
+				if (fireEnergy > 100.0f)
+					fireEnergy = 100.0f;
+				break;
+			case ObjectType.Water:
+				waterEnergy += 0.1f;
+				if (waterEnergy > 100.0f)
+					waterEnergy = 100.0f;
+				break;
+			}
+		}
+	}
+
+	/// <summary>
+	/// Raises the trigger exit event.
+	/// </summary>
+	/// <param name="collider">Collider.</param>
 	void OnTriggerExit(Collider collider)
 	{
 		if (walkingAudio != grassWalkingAudio)
