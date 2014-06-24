@@ -367,6 +367,25 @@ public class NinjaController : MonoBehaviour
 	
 	IEnumerator BlockAttack()
 	{
+		foreach(DamageObject obj in FindObjectsOfType<DamageObject> ())
+		{
+			// Make sure the object is alive
+			if (!obj.alive)
+				// Move on
+				continue;
+			print ("DamageObject Found: " + obj.name);
+			// See how close we are to the object
+			float dist = Vector3.Distance(transform.position, obj.transform.position);
+			print ("Distance: " + dist);
+			// Are we close enough? (Need to do direction check here as well...)
+			if (dist <= 1.5f)
+			{
+				print ("Close enough, do damage!");
+				// Deal damage to the object
+				obj.DealDamage(15.0f);
+				print ("Object Health: " + obj.health);
+			}
+		}
 		float length;
 		if (_characterState == CharacterState.Running || _characterState == CharacterState.Walking)
 			length = _animation[moveAttackAnimation.name].length;
