@@ -53,7 +53,8 @@ public class NinjaController : MonoBehaviour
     public AnimationClip walkAnimation;
     public AnimationClip runAnimation;
     public AnimationClip jumpPoseAnimation;
-	public AnimationClip attackAnimation;
+	public AnimationClip moveAttackAnimation;
+	public AnimationClip idleAttackAnimation;
 
 	public NinjaSettings baseSettings;
 	public NinjaSettings airSettings;
@@ -204,10 +205,15 @@ public class NinjaController : MonoBehaviour
             _animation = null;
             Debug.Log("No jump animation found. Turning off animations.");
         }
-		if (!attackAnimation)
+		if (!moveAttackAnimation)
 		{
 			_animation = null;
-			Debug.Log("No attack animation found. Turning off animations.");
+			Debug.Log("No move attack animation found. Turning off animations.");
+		}
+		if (!idleAttackAnimation)
+		{
+			_animation = null;
+			Debug.Log("No idle attack animation found. Turning off animations.");
 		}
     }
 
@@ -360,7 +366,12 @@ public class NinjaController : MonoBehaviour
 	
 	IEnumerator BlockAttack()
 	{
-		yield return new WaitForSeconds(_animation[attackAnimation.name].length);
+		float length;
+		if (_characterState == CharacterState.Running || _characterState == CharacterState.Walking)
+			length = _animation[moveAttackAnimation.name].length;
+		else
+			length = _animation[idleAttackAnimation.name].length;
+		yield return new WaitForSeconds(length);
 		attacking = false;
 		print("Attack Complete!");
 	}
@@ -466,7 +477,14 @@ public class NinjaController : MonoBehaviour
             {
                 if (controller.velocity.sqrMagnitude < 0.1f)
                 {
-                    _animation.CrossFade(idleAnimation.name);
+					_animation.CrossFade(idleAnimation.name);
+					
+					if (attacking)
+					{
+						_animation[idleAttackAnimation.name].speed = 1.0f;
+						_animation[idleAttackAnimation.name].wrapMode = WrapMode.ClampForever;
+						_animation.CrossFade(idleAttackAnimation.name);
+					}
                 }
                 else
                 {
@@ -479,17 +497,15 @@ public class NinjaController : MonoBehaviour
                     {
                         _animation[walkAnimation.name].speed = Mathf.Clamp(controller.velocity.magnitude, 0.0f, walkMaxAnimationSpeed);
                         _animation.CrossFade(walkAnimation.name);
-                    }
-
+					}
+					if (attacking)
+					{
+						_animation[moveAttackAnimation.name].speed = 1.0f;
+						_animation[moveAttackAnimation.name].wrapMode = WrapMode.ClampForever;
+						_animation.CrossFade(moveAttackAnimation.name);
+					}
                 }
             }
-			if (attacking)
-			{
-				_animation[attackAnimation.name].speed = 1.0f;
-				_animation[attackAnimation.name].wrapMode = WrapMode.ClampForever;
-				_animation.CrossFade(attackAnimation.name);
-				//attacking = false;
-			}
         }
         // ANIMATION sector
 

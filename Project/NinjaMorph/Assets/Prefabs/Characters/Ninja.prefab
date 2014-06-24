@@ -1318,7 +1318,8 @@ MonoBehaviour:
   walkAnimation: {fileID: 7400006, guid: af2f673d12c724b4bbad8f33c16a54f5, type: 3}
   runAnimation: {fileID: 7400006, guid: af2f673d12c724b4bbad8f33c16a54f5, type: 3}
   jumpPoseAnimation: {fileID: 7400000, guid: af2f673d12c724b4bbad8f33c16a54f5, type: 3}
-  attackAnimation: {fileID: 7400014, guid: af2f673d12c724b4bbad8f33c16a54f5, type: 3}
+  moveAttackAnimation: {fileID: 7400010, guid: af2f673d12c724b4bbad8f33c16a54f5, type: 3}
+  idleAttackAnimation: {fileID: 7400014, guid: af2f673d12c724b4bbad8f33c16a54f5, type: 3}
   baseSettings:
     texture: {fileID: 2800000, guid: dd924b1904e29ae4680aaf675a5a1f17, type: 3}
     walkSpeed: 2
