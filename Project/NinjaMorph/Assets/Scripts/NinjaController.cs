@@ -56,6 +56,9 @@ public class NinjaController : MonoBehaviour
 	public AnimationClip moveAttackAnimation;
 	public AnimationClip idleAttackAnimation;
 
+	public BoxCollider attackCollider;
+	public CapsuleCollider damageCollider;
+
 	public NinjaSettings baseSettings;
 	public NinjaSettings airSettings;
 	public NinjaSettings fireSettings;

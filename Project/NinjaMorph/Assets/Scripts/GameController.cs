@@ -39,5 +39,12 @@ public class GameController : MonoBehaviour
 		airEnergyText.text = "Air: " + (int)ninjaController.getAirEnergy () + "%";
 		fireEnergyText.text = "Fire: " + (int)ninjaController.getFireEnergy () + "%";
 		waterEnergyText.text = "Water: " + (int)ninjaController.getWaterEnergy () + "%";
+
+		// Check for ninja zen being less than 0
+		if (ninjaController.getZen() < 0.0f)
+		{
+			// Reset the scene
+			Application.LoadLevel(0);
+		}
 	}
 }
