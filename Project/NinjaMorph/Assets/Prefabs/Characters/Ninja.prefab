@@ -563,7 +563,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -4.87975311}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400002}
@@ -1318,6 +1318,7 @@ MonoBehaviour:
   walkAnimation: {fileID: 7400006, guid: af2f673d12c724b4bbad8f33c16a54f5, type: 3}
   runAnimation: {fileID: 7400006, guid: af2f673d12c724b4bbad8f33c16a54f5, type: 3}
   jumpPoseAnimation: {fileID: 7400000, guid: af2f673d12c724b4bbad8f33c16a54f5, type: 3}
+  attackAnimation: {fileID: 7400014, guid: af2f673d12c724b4bbad8f33c16a54f5, type: 3}
   baseSettings:
     texture: {fileID: 2800000, guid: dd924b1904e29ae4680aaf675a5a1f17, type: 3}
     walkSpeed: 2
@@ -1392,16 +1393,6 @@ MonoBehaviour:
   woodWalkingAudio: {fileID: 8200000}
   waterWalkingAudio: {fileID: 8200002}
   grassWalkingAudio: {fileID: 8200004}
-  walkMaxAnimationSpeed: .75
-  runMaxAnimationSpeed: 1
-  jumpAnimationSpeed: 1.14999998
-  landAnimationSpeed: 1
-  walkSpeed: 2
-  runSpeed: 6
-  jumpHeight: .5
-  gravity: 20
-  speedSmoothing: 10
-  rotateSpeed: 500
 --- !u!137 &13700000
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

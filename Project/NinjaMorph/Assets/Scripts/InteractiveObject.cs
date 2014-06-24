@@ -131,7 +131,7 @@ public class InteractiveObject : MonoBehaviour
 			// Instantiate the smoke prefab
 			smoke = (GameObject)Instantiate(smokeGameObject, transform.position, transform.rotation);
 			smoke.transform.parent = transform;
-			DestroyByTime dbtScript = smoke.AddComponent<DestroyByTime>(); 
+			DestroyByTime dbtScript = smoke.AddComponent<DestroyByTime>();
 			dbtScript.lifetime = 4.0f;
 			break;
 		}
