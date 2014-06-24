@@ -12,6 +12,7 @@ GameObject:
   - 23: {fileID: 2300000}
   - 114: {fileID: 11400000}
   - 64: {fileID: 6400000}
+  - 114: {fileID: 11400002}
   m_Layer: 4
   m_Name: Pond
   m_TagString: Untagged
@@ -26,8 +27,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.03408051, y: .25, z: -35.8488464}
-  m_LocalScale: {x: 16, y: 1, z: 16}
+  m_LocalPosition: {x: 18.2036266, y: .260196686, z: 15.2170076}
+  m_LocalScale: {x: 8.17406654, y: 1, z: 10.1001787}
   m_Children: []
   m_Father: {fileID: 0}
 --- !u!23 &2300000
@@ -82,6 +83,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d2f50a8e0bb841a5aaa90ae55db8849, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b229d0ebabad4894186db1cbd7d40052, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 3
+  fireGameObject: {fileID: 100006, guid: ba1890e53e92f40dab7c64be4d2667ff, type: 2}
+  smokeGameObject: {fileID: 100000, guid: 9b74bcaf943b34eca836142b61fca2ea, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

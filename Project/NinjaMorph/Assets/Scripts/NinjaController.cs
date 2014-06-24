@@ -771,6 +771,13 @@ public class NinjaController : MonoBehaviour
 			}
 			walkingAudio = waterWalkingAudio;
 		}
+		// Check to see if the collided game object has an InteractiveObject
+		InteractiveObject interactive = collider.gameObject.GetComponent<InteractiveObject>();
+		if (interactive != null)
+		{
+			// Broadcast to the game object that there was a player collision
+			collider.gameObject.BroadcastMessage("PlayerCollision", new InteractiveCollision(collider, ninjaType));
+		}
 	}
 
 	/// <summary>
@@ -786,16 +793,19 @@ public class NinjaController : MonoBehaviour
 			switch(obj.getObjectType())
 			{
 			case ObjectType.Air:
+				print ("Air increase due to: " + collider.gameObject.name);
 				airEnergy += 0.1f;
 				if (airEnergy > 100.0f)
 					airEnergy = 100.0f;
 				break;
 			case ObjectType.Fire:
+				print ("Fire increase due to: " + collider.gameObject.name);
 				fireEnergy += 0.1f;
 				if (fireEnergy > 100.0f)
 					fireEnergy = 100.0f;
 				break;
 			case ObjectType.Water:
+				print ("Water increase due to: " + collider.gameObject.name);
 				waterEnergy += 0.1f;
 				if (waterEnergy > 100.0f)
 					waterEnergy = 100.0f;
@@ -843,14 +853,6 @@ public class NinjaController : MonoBehaviour
 		// We dont want to push objects below us
 		if (hit.moveDirection.y < -0.3 || !body || body.isKinematic) 
 			return;
-
-		// Check to see if the collided game object has an InteractiveObject
-		InteractiveObject interactive = hit.gameObject.GetComponent<InteractiveObject>();
-		if (interactive != null)
-		{
-			// Broadcast to the game object that there was a player collision
-			hit.gameObject.BroadcastMessage("PlayerCollision", new InteractiveCollision(hit, ninjaType));
-		}
 		
 		// Calculate push direction from move direction, 
 		// we only push objects to the sides never up and down
