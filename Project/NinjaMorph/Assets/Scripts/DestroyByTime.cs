@@ -30,7 +30,7 @@ public class DestroyByTime : MonoBehaviour
 		if (particles != null)
 		{
 			// Set the emission rate based on the time passed
-			particles.emissionRate -= ((Time.deltaTime / (endTime - startTime)) * startRate) * 1.5f;
+			particles.emissionRate -= ((Time.deltaTime / lifetime) * startRate) * 1.5f;
 			if (particles.emissionRate < 0.0f)
 				particles.emissionRate = 0.0f;
 		}

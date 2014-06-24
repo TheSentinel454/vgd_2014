@@ -6357,7 +6357,6 @@ GameObject:
   - 4: {fileID: 1827116773}
   - 198: {fileID: 1827116772}
   - 199: {fileID: 1827116771}
-  - 114: {fileID: 1827116770}
   m_Layer: 0
   m_Name: Smoke
   m_TagString: Untagged
@@ -6365,19 +6364,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1827116770
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400000, guid: 9b74bcaf943b34eca836142b61fca2ea,
-    type: 2}
-  m_PrefabInternal: {fileID: 109494826}
-  m_GameObject: {fileID: 1827116769}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab0100b5eebd047cf8e7a34ff6770534, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifetime: 0
 --- !u!199 &1827116771
 ParticleSystemRenderer:
   m_ObjectHideFlags: 0
