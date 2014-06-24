@@ -30,11 +30,6 @@ public class DamageObject : MonoBehaviour
 		}
 	}
 
-	void ObjectDeath()
-	{
-		Debug.Log ("Object Death: " + name);
-	}
-
 	/// <summary>
 	/// Heal the specified heal amount
 	/// </summary>
