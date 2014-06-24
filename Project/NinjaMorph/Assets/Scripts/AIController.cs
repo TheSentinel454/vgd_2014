@@ -32,13 +32,12 @@ public class AIController : MonoBehaviour {
 
 	// Move our agent to the currently active way point.
 	void Update () {
-		patrolling = chasing == false;
-
 		// When we are chasing
 		if (chasing) {
 			// If we are chasing and the player runs out of our max chase range, go back to patrolling 
 			if (Vector3.Distance (transform.position, player_.transform.position) > maxChaseRange) {
 				chasing = false;
+				patrolling = true;
 
 			// Chase the player when we are not within weapon range.
 			} else if (Vector3.Distance (transform.position, player_.transform.position) > weaponRange) {
@@ -78,7 +77,7 @@ public class AIController : MonoBehaviour {
 	}
 
 	// When a rigidbody has entered the trigger area.
-	void OnTriggerEnter (Collider collider) {
+	void OnTriggerStay (Collider collider) {
 		if (collider.name == player_.name) {
 			chasing = true;
 		}
