@@ -989,12 +989,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3223d2cde155848eeacb986cedf424b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chasing: 0
+  patrolling: 1
+  maxChaseRange: 8
+  weaponRange: 2
   wayPoints:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  searchArea: {fileID: 6400000}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
