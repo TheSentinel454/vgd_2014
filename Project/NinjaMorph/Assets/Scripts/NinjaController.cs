@@ -853,16 +853,6 @@ public class NinjaController : MonoBehaviour
 		// We dont want to push objects below us
 		if (hit.moveDirection.y < -0.3 || !body || body.isKinematic) 
 			return;
-
-		/*
-		// Check to see if the collided game object has an InteractiveObject
-		InteractiveObject interactive = hit.gameObject.GetComponent<InteractiveObject>();
-		if (interactive != null)
-		{
-			// Broadcast to the game object that there was a player collision
-			hit.gameObject.BroadcastMessage("PlayerCollision", new InteractiveCollision(hit, ninjaType));
-		}
-		*/
 		
 		// Calculate push direction from move direction, 
 		// we only push objects to the sides never up and down
