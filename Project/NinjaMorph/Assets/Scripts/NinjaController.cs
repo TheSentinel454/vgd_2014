@@ -362,10 +362,10 @@ public class NinjaController : MonoBehaviour
 	public void DidAttack()
 	{
 		attacking = true;
-		StartCoroutine(BlockAttack());
+		StartCoroutine(Attack());
 	}
 	
-	IEnumerator BlockAttack()
+	IEnumerator Attack()
 	{
 		foreach(DamageObject obj in FindObjectsOfType<DamageObject> ())
 		{
@@ -373,17 +373,19 @@ public class NinjaController : MonoBehaviour
 			if (!obj.alive)
 				// Move on
 				continue;
-			print ("DamageObject Found: " + obj.name);
 			// See how close we are to the object
 			float dist = Vector3.Distance(transform.position, obj.transform.position);
-			print ("Distance: " + dist);
-			// Are we close enough? (Need to do direction check here as well...)
+			// Are we close enough?
 			if (dist <= 1.5f)
 			{
-				print ("Close enough, do damage!");
-				// Deal damage to the object
-				obj.DealDamage(15.0f);
-				print ("Object Health: " + obj.health);
+				// Let's check the direction now
+				Vector3 dir = (obj.transform.position - transform.position).normalized;
+				float direction = Vector3.Dot(dir, transform.forward);
+				if (direction > 0.65f)
+				{
+					// Deal damage to the object
+					obj.DealDamage(50.0f);
+				}
 			}
 		}
 		float length;
