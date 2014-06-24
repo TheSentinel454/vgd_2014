@@ -3,10 +3,10 @@ using System.Collections;
 
 public class DamageObject : MonoBehaviour
 {
-	const float MAX_HEALTH = 100.0f;
-	const float MIN_HEALTH = 0.0f;
+	public float maxHealth = 100.0f;
+	public float minHealth = 0.0f;
 
-	public float health = MAX_HEALTH;
+	public float health = 100.0f;
 	public bool alive = true;
 	public bool allowHealWhenDead = false;
 
@@ -19,12 +19,12 @@ public class DamageObject : MonoBehaviour
 		// Decrement the health
 		health -= damage;
 		// Check for death
-		if (health <= MIN_HEALTH)
+		if (health <= minHealth)
 		{
 			// Dead
 			alive = false;
 			// Set the health
-			health = MIN_HEALTH;
+			health = minHealth;
 			// Send the message (Reuqire a receiver)
 			SendMessage("ObjectDeath", SendMessageOptions.RequireReceiver);
 		}
@@ -40,7 +40,7 @@ public class DamageObject : MonoBehaviour
 		if (alive || allowHealWhenDead)
 		{
 			// Heal for the amount or max out
-			health = Mathf.Min (health + heal, MAX_HEALTH);
+			health = Mathf.Min (health + heal, maxHealth);
 		}
 	}
 }
