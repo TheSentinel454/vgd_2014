@@ -14,12 +14,20 @@ public class InteractiveCollision
 {
 	private ControllerColliderHit hit;
 	public ControllerColliderHit GetHit(){ return hit; }
+	private Collider collider;
+	public Collider GetCollider(){ return collider; }
 	private NinjaType type;
 	public NinjaType GetNinjaType(){ return type; }
 
 	public InteractiveCollision(ControllerColliderHit colHit, NinjaType ninjaType)
 	{
 		hit = colHit;
+		type = ninjaType;
+	}
+
+	public InteractiveCollision(Collider col, NinjaType ninjaType)
+	{
+		collider = col;
 		type = ninjaType;
 	}
 }
