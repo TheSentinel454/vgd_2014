@@ -330,7 +330,6 @@ public class NinjaController : MonoBehaviour
             {
                 verticalSpeed = CalculateJumpVerticalSpeed(jumpHeight);
 				DidJump();
-                //SendMessage("DidJump", SendMessageOptions.DontRequireReceiver);
             }
         }
     }
@@ -344,7 +343,6 @@ public class NinjaController : MonoBehaviour
             {
                 jumpingReachedApex = true;
 				DidJumpReachApex();
-                //SendMessage("DidJumpReachApex", SendMessageOptions.DontRequireReceiver);
             }
 
             if (IsGrounded())
@@ -364,9 +362,7 @@ public class NinjaController : MonoBehaviour
 	public void DidAttack()
 	{
 		attacking = true;
-
 		StartCoroutine(BlockAttack());
-		Debug.Log ("Did Attack!");
 	}
 	
 	IEnumerator BlockAttack()
@@ -378,7 +374,6 @@ public class NinjaController : MonoBehaviour
 			length = _animation[idleAttackAnimation.name].length;
 		yield return new WaitForSeconds(length);
 		attacking = false;
-		print("Attack Complete!");
 	}
 	
 	public void DidJump()
@@ -389,17 +384,14 @@ public class NinjaController : MonoBehaviour
 		lastJumpButtonTime = -10;
 		
 		_characterState = CharacterState.Jumping;
-		//Debug.Log("Did Jump!");
 	}
 
 	public void DidJumpReachApex()
 	{
-		//Debug.Log("Did Reach Apex!");
 	}
 
 	public void DidLand()
 	{
-		//Debug.Log("Did Land!");
 	}
 
     void Update()
@@ -537,7 +529,7 @@ public class NinjaController : MonoBehaviour
             if (jumping)
             {
                 jumping = false;
-                SendMessage("DidLand", SendMessageOptions.DontRequireReceiver);
+				DidLand();
             }
         }
     }
