@@ -13,8 +13,9 @@ public class AIController : MonoBehaviour {
 	public bool patrolling = true;
 
 	// RANGES
-	public float maxChaseRange = 10.0f;
-	public float weaponRange = 5.0f;
+	public float maxChaseRange = 12.0f;
+	public float minChaseRange = 4.0f;
+	public float weaponRange = 8.0f;
 
 	// WAY POINTS
 	public Transform[] wayPoints;
@@ -34,17 +35,42 @@ public class AIController : MonoBehaviour {
 	void Update () {
 		// When we are chasing
 		if (chasing) {
+			// Get the distance from the player.
+			float playerDistance = Vector3.Distance (transform.position, player_.transform.position);
+
 			// If we are chasing and the player runs out of our max chase range, go back to patrolling 
-			if (Vector3.Distance (transform.position, player_.transform.position) > maxChaseRange) {
+			if (playerDistance > maxChaseRange) {
 				chasing = false;
 				patrolling = true;
 
 			// Chase the player when we are not within weapon range.
-			} else if (Vector3.Distance (transform.position, player_.transform.position) > weaponRange) {
+			} else if (playerDistance >= weaponRange) {
+				// Turn off attacking animation
 				animationController_.attacking = false;
+
+				// Chase the player.
 				agent.SetDestination(player_.transform.position);
 
-			// Otherwise, we are within attacking distance.
+			// When we are within attacking distance
+			} else if (playerDistance >= minChaseRange) {
+				// Turn on attacking animation
+				animationController_.attacking = true;
+				
+				// Chase the player.
+				if (playerDistance >= minChaseRange + 1) {
+					agent.SetDestination(player_.transform.position);
+				
+				// Otherwise, face towards the player.
+				} else {
+					// Ensure that we are always facing the player
+					transform.rotation = Quaternion.Slerp(
+						transform.rotation, 
+						Quaternion.LookRotation((player_.transform.position - transform.position).normalized), 
+						Time.deltaTime * agent.angularSpeed
+					);
+				}
+
+			// When we are within the minimum chase range.
 			} else {
 				// Ensure that we are always facing the player
 				transform.rotation = Quaternion.Slerp(
@@ -53,7 +79,7 @@ public class AIController : MonoBehaviour {
 					Time.deltaTime * agent.angularSpeed
 				);
 
-				animationController_.attacking = true;
+				// Prevent the AI from getting too close to the player.
 				if (agent.destination != transform.position) {
 					agent.SetDestination(transform.position);
 				}
