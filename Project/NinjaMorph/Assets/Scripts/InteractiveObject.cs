@@ -96,6 +96,8 @@ public class InteractiveObject : MonoBehaviour
 		}
 	}
 
+	public virtual void PlayerCollisionStay(InteractiveCollision col) {}
+
 	/// <summary>
 	/// Handles the base ninja collision.
 	/// </summary>
