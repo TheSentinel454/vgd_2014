@@ -35,6 +35,7 @@ public class ShootBullets : RAINAction
 			bullet_.renderer.enabled = true;
 
 			// Position the bullet within the barrel
+			bullet_.transform.up = (bulletModel_.transform.position - backOfGun_.transform.position).normalized;
 			bullet_.transform.position = bulletModel_.transform.position;
 
 			// FIRE!
