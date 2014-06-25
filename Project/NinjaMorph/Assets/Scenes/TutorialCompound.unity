@@ -18875,15 +18875,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1271442371}
-<<<<<<< HEAD
-=======
-  - {fileID: 2089142698}
-  - {fileID: 384553505}
->>>>>>> 269f510fc0fc7145287dcfeff5b0d40fc9953abd
-  - {fileID: 868483814}
   - {fileID: 1594568364}
   - {fileID: 2089142698}
   - {fileID: 384553505}
+  - {fileID: 868483814}
   - {fileID: 1860509977}
   - {fileID: 994926731}
   - {fileID: 590403354}
