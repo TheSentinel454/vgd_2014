@@ -15,8 +15,11 @@ public class GameController : MonoBehaviour
 
 	private bool airLevelComplete = true;	// Temporarily set to true
 	private GameObject airPuzzle;
+
 	private bool fireLevelComplete = false;
 	private GameObject firePuzzle;
+	private int firePuzzleOrder = 0;
+
 	private bool waterLevelComplete = false;
 	private GameObject waterPuzzle;
 
@@ -79,7 +82,7 @@ public class GameController : MonoBehaviour
 	void CheckGameOver()
 	{
 		// Check for ninja zen being less than 0
-		if (ninjaController.getZen() < 0.0f)
+		if (ninjaController.getZen() <= 0.0f)
 		{
 			// Reset the scene
 			Application.LoadLevel(0);
@@ -99,7 +102,33 @@ public class GameController : MonoBehaviour
 				foreach(InteractiveObject io in objects)
 				{
 					if (io.getObjectType() == ObjectType.Fire)
+					{
 						numberLit++;
+						/*
+						if (!firstTorch)
+						{
+							if (io.gameObject.name.Contains("1"))
+							{
+							}
+						}
+						if (io.gameObject.name.Contains("1") && (!firstTorch && !secondTorch && !thirdTorch && !fourthTorch))
+						{
+							firstTorch = true;
+						}
+						else if (io.gameObject.name.Contains("2") && (firstTorch && !secondTorch && !thirdTorch && !fourthTorch))
+						{
+							secondTorch = true;
+						}
+						else if (io.gameObject.name.Contains("3") && (firstTorch && secondTorch && !thirdTorch && !fourthTorch))
+						{
+							thirdTorch = true;
+						}
+						else if (io.gameObject.name.Contains("4") && (firstTorch && secondTorch && thirdTorch && !fourthTorch))
+						{
+							fourthTorch = true;
+						}
+						 */
+					}
 				}
 				if (numberLit == objects.Length)
 				{

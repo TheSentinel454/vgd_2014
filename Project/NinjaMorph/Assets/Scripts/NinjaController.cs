@@ -813,7 +813,6 @@ public class NinjaController : MonoBehaviour
 		{
 			// Broadcast to the game object that there was a player collision
 			interactive.PlayerCollision(new InteractiveCollision(collider, ninjaType));
-			print ("OnTriggerEnter: " + collider.gameObject.name);
 		}
 	}
 
@@ -862,13 +861,6 @@ public class NinjaController : MonoBehaviour
 			walkingAudio.Stop ();
 		}
 		walkingAudio = baseWalkingAudio;
-		
-		// Check to see if the collided game object has an InteractiveObject
-		InteractiveObject interactive = collider.gameObject.GetComponent<InteractiveObject>();
-		if (interactive != null)
-		{
-			print ("OnTriggerExit: " + collider.gameObject.name);
-		}
 	}
 
     void OnControllerColliderHit(ControllerColliderHit hit)
