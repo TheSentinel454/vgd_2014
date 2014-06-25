@@ -18,10 +18,11 @@ public class GameController : MonoBehaviour
 
 	private bool fireLevelComplete = false;
 	private GameObject firePuzzle;
-	private int firePuzzleOrder = 0;
 
 	private bool waterLevelComplete = false;
 	private GameObject waterPuzzle;
+
+	private bool gameActive = true;
 
 	// Use this for initialization
 	void Start ()
@@ -57,6 +58,9 @@ public class GameController : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
+		// Only update if active
+		if (!gameActive)
+			return;
 		// Update the GUI
 		UpdateGUI ();
 
@@ -84,8 +88,8 @@ public class GameController : MonoBehaviour
 		// Check for ninja zen being less than 0
 		if (ninjaController.getZen() <= 0.0f)
 		{
-			// Reset the scene
-			Application.LoadLevel(0);
+			gameActive = false;
+			StartCoroutine(GameOver());
 		}
 		// Still alive
 		else
@@ -143,7 +147,22 @@ public class GameController : MonoBehaviour
 			{
 				// Create a message
 				ninjaController.createMessage("Level Complete!", 60.0f);
+				gameActive = false;
 			}
 		}
+	}
+
+	/// <summary>
+	/// Games the over.
+	/// </summary>
+	/// <returns>The over.</returns>
+	IEnumerator GameOver()
+	{
+		// Create a message
+		ninjaController.createMessage("Game Over!", 10.0f);
+		// Hold out for 30 seconds
+		yield return new WaitForSeconds(10.0f);
+		// Reset the scene
+		Application.LoadLevel("TutorialCompound");
 	}
 }
