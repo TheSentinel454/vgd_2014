@@ -22,9 +22,9 @@ public class FillableObject : InteractiveObject
 
 	public override void PlayerCollisionStay(InteractiveCollision col) {
 		print ("override player collision stay");
-		if (col.GetNinjaType() == NinjaType.Water && fillAmount <= 0.8) {
+		if (col.GetNinjaType() == NinjaType.Water && fillAmount <= 1.0) {
 			transform.parent.FindChild("bucket_water").Translate(0,0.03f,0);
-			transform.parent.FindChild("bucket_water").localScale += new Vector3(0.00008f, 0, 0.00008f);
+			transform.parent.FindChild("bucket_water").localScale += new Vector3(0.00007f, 0, 0.00007f);
 			fillAmount += 0.03f;
 
 		}
