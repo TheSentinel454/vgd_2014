@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour
 
 	private bool fireLevelComplete = false;
 	private GameObject firePuzzle;
+	private ArrayList torchOrder = new ArrayList(4);
 
 	private bool waterLevelComplete = false;
 	private GameObject waterPuzzle;
@@ -101,10 +102,41 @@ public class GameController : MonoBehaviour
 			}
 			else if (!fireLevelComplete)
 			{
-				if (firePuzzle.GetComponent<RequirementManager>().completedAllRequirements)
+				InteractiveObject[] objects = firePuzzle.GetComponentsInChildren<InteractiveObject>();
+				int numberLit = 0;
+				foreach(InteractiveObject io in objects)
+				{
+					if (io.getObjectType() == ObjectType.Fire)
+					{
+						numberLit++;
+						if (!torchOrder.Contains(io.gameObject.name))
+							torchOrder.Add(io.gameObject.name);
+					}
+				}
+				if (numberLit == objects.Length)
 				{
 					fireLevelComplete = true;
-					ninjaController.createMessage("Fire Room complete!", 5.0f);
+					for(int i = 0; i < torchOrder.Count; i++)
+					{
+						string name = (string)torchOrder[i];
+						print ("Name: " + name);
+						if (!name.Contains(i.ToString()))
+						{
+							ninjaController.createMessage("Incorrect order!", 3.0f);
+							fireLevelComplete = false;
+							break;
+						}
+					}
+					if (fireLevelComplete)
+						ninjaController.createMessage("Fire Room complete!", 5.0f);
+					else
+					{
+						// Clear fire from torches
+						foreach(InteractiveObject io in objects)
+							io.removeFire();
+						// Clear the order
+						torchOrder.Clear();
+					}
 				}
 			}
 			else if (!waterLevelComplete)

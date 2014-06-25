@@ -148,14 +148,11 @@ public class InteractiveObject : MonoBehaviour
 	/// </summary>
 	protected virtual void HandleWaterNinjaCollision()
 	{
-		print ("HandleWaterNinjaCollision!");
 		switch(currentType)
 		{
 		case ObjectType.Fire:
-			// Set the current type to initial type
-			currentType = type;
-			// Destroy the fire prefab
-			Destroy(fire);
+			// Remove the fire
+			removeFire();
 			// Instantiate the smoke prefab
 			smoke = (GameObject)Instantiate(smokeGameObject, transform.position, transform.rotation);
 			smoke.transform.parent = transform;
@@ -163,5 +160,16 @@ public class InteractiveObject : MonoBehaviour
 			dbtScript.lifetime = 4.0f;
 			break;
 		}
+	}
+
+	/// <summary>
+	/// Removes the fire.
+	/// </summary>
+	public void removeFire()
+	{
+		// Set the current type to initial type
+		currentType = type;
+		// Destroy the fire prefab
+		Destroy(fire);
 	}
 }

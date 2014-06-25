@@ -824,35 +824,32 @@ public class NinjaController : MonoBehaviour
 	{
 		// Check for the interactive object script
 		InteractiveObject obj = (InteractiveObject)collider.gameObject.GetComponentInChildren<InteractiveObject> ();
-		
-		if (obj != null) {
-			obj.PlayerCollisionStay (new InteractiveCollision (collider, ninjaType));
-			print ("obj: " + obj);
-		}
-
-	
 		if (obj != null && ninjaType == NinjaType.Base)
 		{
-			switch(obj.getObjectType())
+			obj.PlayerCollisionStay(new InteractiveCollision(collider, ninjaType));
+			if (ninjaType == NinjaType.Base)
 			{
-			case ObjectType.Air:
-				//print ("Air increase due to: " + collider.gameObject.name);
-				airEnergy += 0.1f;
-				if (airEnergy > 100.0f)
-					airEnergy = 100.0f;
-				break;
-			case ObjectType.Fire:
-				//print ("Fire increase due to: " + collider.gameObject.name);
-				fireEnergy += 0.1f;
-				if (fireEnergy > 100.0f)
-					fireEnergy = 100.0f;
-				break;
-			case ObjectType.Water:
-				//print ("Water increase due to: " + collider.gameObject.name);
-				waterEnergy += 0.1f;
-				if (waterEnergy > 100.0f)
-					waterEnergy = 100.0f;
-				break;
+				switch(obj.getObjectType())
+				{
+				case ObjectType.Air:
+					//print ("Air increase due to: " + collider.gameObject.name);
+					airEnergy += 0.1f;
+					if (airEnergy > 100.0f)
+						airEnergy = 100.0f;
+					break;
+				case ObjectType.Fire:
+					//print ("Fire increase due to: " + collider.gameObject.name);
+					fireEnergy += 0.1f;
+					if (fireEnergy > 100.0f)
+						fireEnergy = 100.0f;
+					break;
+				case ObjectType.Water:
+					//print ("Water increase due to: " + collider.gameObject.name);
+					waterEnergy += 0.1f;
+					if (waterEnergy > 100.0f)
+						waterEnergy = 100.0f;
+					break;
+				}
 			}
 		}
 	}
