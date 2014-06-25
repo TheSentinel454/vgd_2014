@@ -581,7 +581,7 @@ public class NinjaController : MonoBehaviour
 				else
 				{
 					// Create a message
-					createMessage(5.0f, "Cannot use Air Ninja. Not enough energy!");
+					createMessage("Cannot use Air Ninja. Not enough energy!", 5.0f);
 				}
 			}
 		}
@@ -607,7 +607,7 @@ public class NinjaController : MonoBehaviour
 				else
 				{
 					// Create a message
-					createMessage(5.0f, "Cannot use Fire Ninja. Not enough energy!");
+					createMessage("Cannot use Fire Ninja. Not enough energy!", 5.0f);
 				}
 			}
 		}
@@ -633,7 +633,7 @@ public class NinjaController : MonoBehaviour
 				else
 				{
 					// Create a message
-					createMessage(5.0f, "Cannot use Water Ninja. Not enough energy!");
+					createMessage("Cannot use Water Ninja. Not enough energy!", 5.0f);
 				}
 			}
 		}
@@ -643,7 +643,7 @@ public class NinjaController : MonoBehaviour
 		    (fireEnergy <= 0.0f && ninjaType == NinjaType.Fire))
 		{
 			// Create a message
-			createMessage(5.0f, "Ran out of energy!");
+			createMessage("Ran out of energy!", 5.0f);
 			// Go back to the base ninja
 			setBaseNinja();
 		}
@@ -652,9 +652,9 @@ public class NinjaController : MonoBehaviour
 	/// <summary>
 	/// Creates a message.
 	/// </summary>
-	/// <param name="lifetime">Lifetime.</param>
 	/// <param name="msg">Message.</param>
-	void createMessage(float lifetime, string msg)
+	/// <param name="lifetime">Lifetime.</param>
+	public void createMessage(string msg, float lifetime)
 	{
 		GameObject obj = (GameObject)Instantiate(warningMsg);
 		DestroyGuiTextByTime dest = (DestroyGuiTextByTime)obj.GetComponent<DestroyGuiTextByTime>();

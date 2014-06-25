@@ -3308,13 +3308,13 @@ Transform:
   m_LocalPosition: {x: -57.2692375, y: 12.7119179, z: -28.9639988}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 536975496}
-  - {fileID: 613432725}
   - {fileID: 625984699}
-  - {fileID: 1958375235}
-  - {fileID: 870687800}
+  - {fileID: 613432725}
   - {fileID: 1043222547}
+  - {fileID: 870687800}
   - {fileID: 1398564424}
+  - {fileID: 536975496}
+  - {fileID: 1958375235}
   m_Father: {fileID: 1995754008}
 --- !u!1 &285592568
 GameObject:
@@ -4959,13 +4959,13 @@ Transform:
   m_LocalPosition: {x: -46.7812119, y: 12.7119179, z: -37.9918785}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1254844044}
   - {fileID: 1461261838}
+  - {fileID: 449920389}
   - {fileID: 955591191}
   - {fileID: 1668791684}
-  - {fileID: 1765934011}
-  - {fileID: 449920389}
-  - {fileID: 1254844044}
   - {fileID: 1729763138}
+  - {fileID: 1765934011}
   m_Father: {fileID: 1995754008}
 --- !u!1001 &374141345
 Prefab:
@@ -6818,12 +6818,12 @@ Transform:
   m_LocalPosition: {x: -46.7812119, y: 12.7119179, z: -37.9918785}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1628143032}
+  - {fileID: 1018074922}
   - {fileID: 68473419}
   - {fileID: 864251287}
-  - {fileID: 104432139}
-  - {fileID: 1018074922}
   - {fileID: 1573261232}
-  - {fileID: 1628143032}
+  - {fileID: 104432139}
   m_Father: {fileID: 1995754008}
 --- !u!1001 &550332062
 Prefab:
@@ -8936,13 +8936,13 @@ Transform:
   m_LocalPosition: {x: -57.269268, y: 12.7119179, z: -47.9932213}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 368999554}
-  - {fileID: 1752319957}
-  - {fileID: 1314242955}
   - {fileID: 2116883004}
-  - {fileID: 899685895}
   - {fileID: 1704929658}
   - {fileID: 1319099114}
+  - {fileID: 899685895}
+  - {fileID: 368999554}
+  - {fileID: 1314242955}
+  - {fileID: 1752319957}
   m_Father: {fileID: 1995754008}
 --- !u!1001 &661436275
 Prefab:
@@ -18309,7 +18309,7 @@ GameObject:
   - 4: {fileID: 1332761155}
   m_Layer: 0
   m_Name: Fire Puzzle
-  m_TagString: Untagged
+  m_TagString: Puzzle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18706,7 +18706,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e23ecaece3f69924aa80f9f4e3f3a2b4, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 31.6928463
+      value: 30.5857391
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: e23ecaece3f69924aa80f9f4e3f3a2b4, type: 2}
       propertyPath: m_LocalPosition.z
@@ -26230,7 +26230,7 @@ Transform:
   m_PrefabInternal: {fileID: 1362557956}
   m_GameObject: {fileID: 1984935033}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.99081516, y: 31.6928463, z: 169.251465}
+  m_LocalPosition: {x: 6.99081516, y: 30.5857391, z: 169.251465}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2143364775}
