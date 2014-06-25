@@ -824,7 +824,7 @@ public class NinjaController : MonoBehaviour
 	{
 		// Check for the interactive object script
 		InteractiveObject obj = (InteractiveObject)collider.gameObject.GetComponentInChildren<InteractiveObject> ();
-		if (obj != null && ninjaType == NinjaType.Base)
+		if (obj != null)
 		{
 			obj.PlayerCollisionStay(new InteractiveCollision(collider, ninjaType));
 			if (ninjaType == NinjaType.Base)
