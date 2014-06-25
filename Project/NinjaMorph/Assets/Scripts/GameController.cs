@@ -1,5 +1,9 @@
-﻿using UnityEngine;
+﻿// Comment the line below if not play testing
+#define PLAY_TESTING
+
+using UnityEngine;
 using System.Collections;
+
 
 public class GameController : MonoBehaviour
 {
@@ -7,6 +11,10 @@ public class GameController : MonoBehaviour
 	public GameObject HUD;
 
 	private NinjaController ninjaController;
+#if PLAY_TESTING
+	private PlayTestInfo testInfo;
+	private PlayTesting playTest;
+#endif
 
 	private GUIText zenText;
 	private GUIText airEnergyText;
@@ -16,11 +24,11 @@ public class GameController : MonoBehaviour
 	private bool airLevelComplete = true;	// Temporarily set to true
 	private GameObject airPuzzle;
 
-	private bool fireLevelComplete = false;
+	private bool fireLevelComplete = true;
 	private GameObject firePuzzle;
 	private ArrayList torchOrder = new ArrayList(4);
 
-	private bool waterLevelComplete = false;
+	private bool waterLevelComplete = true;
 	private GameObject waterPuzzle;
 
 	private bool gameActive = true;
@@ -28,6 +36,11 @@ public class GameController : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
+#if PLAY_TESTING
+		playTest = new PlayTesting ();
+		testInfo = new PlayTestInfo ();
+		testInfo.startTime = Time.time;
+#endif
 		// Find the GUI Text
 		foreach(GUIText gt in HUD.GetComponentsInChildren<GUIText>())
 		{
@@ -102,6 +115,10 @@ public class GameController : MonoBehaviour
 			}
 			else if (!fireLevelComplete)
 			{
+#if PLAY_TESTING
+				if (testInfo.startFireTime < 0.0f)
+					testInfo.startFireTime = Time.time;
+#endif
 				InteractiveObject[] objects = firePuzzle.GetComponentsInChildren<InteractiveObject>();
 				int numberLit = 0;
 				foreach(InteractiveObject io in objects)
@@ -119,7 +136,6 @@ public class GameController : MonoBehaviour
 					for(int i = 0; i < torchOrder.Count; i++)
 					{
 						string name = (string)torchOrder[i];
-						print ("Name: " + name);
 						if (!name.Contains(i.ToString()))
 						{
 							ninjaController.createMessage("Incorrect order!", 3.0f);
@@ -128,7 +144,13 @@ public class GameController : MonoBehaviour
 						}
 					}
 					if (fireLevelComplete)
+					{
 						ninjaController.createMessage("Fire Room complete!", 5.0f);
+#if PLAY_TESTING
+						// Track the end fire time
+						testInfo.endFireTime = Time.time;
+#endif
+					}
 					else
 					{
 						// Clear fire from torches
@@ -136,6 +158,10 @@ public class GameController : MonoBehaviour
 							io.removeFire();
 						// Clear the order
 						torchOrder.Clear();
+#if PLAY_TESTING
+						// Increment the failure count
+						testInfo.failedFirePuzzles++;
+#endif
 					}
 				}
 			}
@@ -144,6 +170,12 @@ public class GameController : MonoBehaviour
 			}
 			else
 			{
+#if PLAY_TESTING
+				// Set the test data
+				testInfo.endTime = Time.time;
+				// Save the play test data
+				playTest.Save(testInfo);
+#endif
 				// Create a message
 				ninjaController.createMessage("Level Complete!", 60.0f);
 				gameActive = false;
