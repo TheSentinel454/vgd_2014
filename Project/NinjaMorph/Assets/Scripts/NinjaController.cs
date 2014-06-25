@@ -56,8 +56,7 @@ public class NinjaController : MonoBehaviour
 	public AnimationClip moveAttackAnimation;
 	public AnimationClip idleAttackAnimation;
 
-	public BoxCollider attackCollider;
-	public CapsuleCollider damageCollider;
+	public float attackDistance = 2.5f;
 
 	public GameObject warningMsg;
 
@@ -362,10 +361,10 @@ public class NinjaController : MonoBehaviour
 	public void DidAttack()
 	{
 		attacking = true;
-		StartCoroutine(BlockAttack());
+		StartCoroutine(Attack());
 	}
 	
-	IEnumerator BlockAttack()
+	IEnumerator Attack()
 	{
 		foreach(DamageObject obj in FindObjectsOfType<DamageObject> ())
 		{
@@ -373,24 +372,26 @@ public class NinjaController : MonoBehaviour
 			if (!obj.alive)
 				// Move on
 				continue;
-			print ("DamageObject Found: " + obj.name);
 			// See how close we are to the object
 			float dist = Vector3.Distance(transform.position, obj.transform.position);
-			print ("Distance: " + dist);
-			// Are we close enough? (Need to do direction check here as well...)
-			if (dist <= 1.5f)
+			// Are we close enough?
+			if (dist <= attackDistance)
 			{
-				print ("Close enough, do damage!");
-				// Deal damage to the object
-				obj.DealDamage(15.0f);
-				print ("Object Health: " + obj.health);
+				// Let's check the direction now
+				Vector3 dir = (obj.transform.position - transform.position).normalized;
+				float direction = Vector3.Dot(dir, transform.forward);
+				if (direction > 0.65f)
+				{
+					// Deal damage to the object
+					obj.DealDamage(50.0f);
+				}
 			}
 		}
 		float length;
 		if (_characterState == CharacterState.Running || _characterState == CharacterState.Walking)
-			length = _animation[moveAttackAnimation.name].length;
+			length = _animation[moveAttackAnimation.name].length / 2.0f;
 		else
-			length = _animation[idleAttackAnimation.name].length;
+			length = _animation[idleAttackAnimation.name].length / 2.0f;
 		yield return new WaitForSeconds(length);
 		attacking = false;
 	}
@@ -497,7 +498,7 @@ public class NinjaController : MonoBehaviour
 					
 					if (attacking)
 					{
-						_animation[idleAttackAnimation.name].speed = 1.0f;
+						_animation[idleAttackAnimation.name].speed = 2.0f;
 						_animation[idleAttackAnimation.name].wrapMode = WrapMode.ClampForever;
 						_animation.CrossFade(idleAttackAnimation.name);
 					}
@@ -516,7 +517,7 @@ public class NinjaController : MonoBehaviour
 					}
 					if (attacking)
 					{
-						_animation[moveAttackAnimation.name].speed = 1.0f;
+						_animation[moveAttackAnimation.name].speed = 2.0f;
 						_animation[moveAttackAnimation.name].wrapMode = WrapMode.ClampForever;
 						_animation.CrossFade(moveAttackAnimation.name);
 					}
@@ -706,7 +707,7 @@ public class NinjaController : MonoBehaviour
 		setNinjaSettings (baseSettings);
 		// Set the texture alpha
 		ninjaRenderer.material.color = new Color (1.0f, 1.0f, 1.0f, 1.0f);
-
+		ninjaRenderer.material.shader = Shader.Find ("Diffuse");
 	}
 	/// <summary>
 	/// Sets the air ninja.
@@ -719,7 +720,7 @@ public class NinjaController : MonoBehaviour
 		setNinjaSettings (airSettings);
 		// Set the texture alpha
 		ninjaRenderer.material.color = new Color (1.0f, 1.0f, 1.0f, 0.5f);
-
+		ninjaRenderer.material.shader = Shader.Find ("Transparent/Diffuse");
 	}
 	/// <summary>
 	/// Sets the fire ninja.
@@ -732,7 +733,7 @@ public class NinjaController : MonoBehaviour
 		setNinjaSettings (fireSettings);
 		// Set the texture alpha
 		ninjaRenderer.material.color = new Color (1.0f, 1.0f, 1.0f, 1.0f);
-
+		ninjaRenderer.material.shader = Shader.Find ("Diffuse");
 	}
 	/// <summary>
 	/// Sets the water ninja.
@@ -745,6 +746,7 @@ public class NinjaController : MonoBehaviour
 		setNinjaSettings (waterSettings);
 		// Set the texture alpha
 		ninjaRenderer.material.color = new Color (1.0f, 1.0f, 1.0f, 1.0f);
+		ninjaRenderer.material.shader = Shader.Find ("Diffuse");
 	}
 	/// <summary>
 	/// Sets the ninja settings.

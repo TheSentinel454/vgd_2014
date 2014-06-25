@@ -61,18 +61,4 @@ public class Torchelight : MonoBehaviour
 		etincelles.emissionRate=IntensityLight*7f;
 		fumee.emissionRate=IntensityLight*12f;
 	}
-
-	void OnTriggerStay(Collider other)
-	{
-		//Debug.Log ("OnTriggerStay: " + other.tag);
-		if (other.tag == "Player")
-		{
-			//Debug.Log ("Intensity: " + IntensityLight);
-			mainFlame.emissionRate -= 2.0f;
-			baseFlame.emissionRate -= 1.5f;
-			etincelles.emissionRate -= 0.7f;
-			fumee.emissionRate -= 1.2f;
-			IntensityLight -= 0.1f;
-		}
-	}
 }
