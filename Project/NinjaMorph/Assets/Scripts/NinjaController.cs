@@ -915,6 +915,10 @@ public class NinjaController : MonoBehaviour
 		body.velocity = pushDir * pushPower;
     }
 
+	public void Damage (float amount) {
+		zenEnergy -= amount;
+	}
+
     public float GetSpeed()
     {
         return moveSpeed;
