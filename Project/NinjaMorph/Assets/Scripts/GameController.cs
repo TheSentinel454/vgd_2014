@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour
 
 	private bool fireLevelComplete = false;
 	private GameObject firePuzzle;
+	private ArrayList torchOrder = new ArrayList(4);
 
 	private bool waterLevelComplete = false;
 	private GameObject waterPuzzle;
@@ -108,36 +109,34 @@ public class GameController : MonoBehaviour
 					if (io.getObjectType() == ObjectType.Fire)
 					{
 						numberLit++;
-						/*
-						if (!firstTorch)
-						{
-							if (io.gameObject.name.Contains("1"))
-							{
-							}
-						}
-						if (io.gameObject.name.Contains("1") && (!firstTorch && !secondTorch && !thirdTorch && !fourthTorch))
-						{
-							firstTorch = true;
-						}
-						else if (io.gameObject.name.Contains("2") && (firstTorch && !secondTorch && !thirdTorch && !fourthTorch))
-						{
-							secondTorch = true;
-						}
-						else if (io.gameObject.name.Contains("3") && (firstTorch && secondTorch && !thirdTorch && !fourthTorch))
-						{
-							thirdTorch = true;
-						}
-						else if (io.gameObject.name.Contains("4") && (firstTorch && secondTorch && thirdTorch && !fourthTorch))
-						{
-							fourthTorch = true;
-						}
-						 */
+						if (!torchOrder.Contains(io.gameObject.name))
+							torchOrder.Add(io.gameObject.name);
 					}
 				}
 				if (numberLit == objects.Length)
 				{
 					fireLevelComplete = true;
-					ninjaController.createMessage("Fire Room complete!", 5.0f);
+					for(int i = 0; i < torchOrder.Count; i++)
+					{
+						string name = (string)torchOrder[i];
+						print ("Name: " + name);
+						if (!name.Contains(i.ToString()))
+						{
+							ninjaController.createMessage("Incorrect order!", 3.0f);
+							fireLevelComplete = false;
+							break;
+						}
+					}
+					if (fireLevelComplete)
+						ninjaController.createMessage("Fire Room complete!", 5.0f);
+					else
+					{
+						// Clear fire from torches
+						foreach(InteractiveObject io in objects)
+							io.removeFire();
+						// Clear the order
+						torchOrder.Clear();
+					}
 				}
 			}
 			else if (!waterLevelComplete)

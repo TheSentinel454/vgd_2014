@@ -755,7 +755,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 23ce66177d4f046e1a3c9f20b59a299e, type: 2}
       propertyPath: m_Name
-      value: Torch4
+      value: Torch3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 23ce66177d4f046e1a3c9f20b59a299e, type: 2}
@@ -1827,7 +1827,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400000, guid: c4fde9b27265ff24d811c28b91dea04e, type: 2}
   m_PrefabInternal: {fileID: 1654458492}
   m_GameObject: {fileID: 104432138}
-  m_LocalRotation: {x: -.707106769, y: -.000282496214, z: -.000282496214, w: .707106769}
+  m_LocalRotation: {x: -.707106709, y: -.000282496185, z: -.000282496185, w: .707106709}
   m_LocalPosition: {x: 2.45893002, y: -10.1740379, z: 22.5360737}
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
@@ -2143,7 +2143,7 @@ GameObject:
   - 114: {fileID: 126444699}
   - 136: {fileID: 126444698}
   m_Layer: 0
-  m_Name: Torch4
+  m_Name: Torch3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2344,7 +2344,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 23ce66177d4f046e1a3c9f20b59a299e, type: 2}
       propertyPath: m_Name
-      value: Torch2
+      value: Torch1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 23ce66177d4f046e1a3c9f20b59a299e, type: 2}
@@ -3383,7 +3383,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 23ce66177d4f046e1a3c9f20b59a299e, type: 2}
       propertyPath: m_Name
-      value: Torch1
+      value: Torch0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 23ce66177d4f046e1a3c9f20b59a299e, type: 2}
@@ -3469,7 +3469,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400036, guid: 0d4b050b0af054c5bbba8ed9453c021c, type: 2}
   m_PrefabInternal: {fileID: 1084959231}
   m_GameObject: {fileID: 245726360}
-  m_LocalRotation: {x: .70710665, y: 0, z: 0, w: -.707107008}
+  m_LocalRotation: {x: .70710659, y: 0, z: 0, w: -.707106948}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -3741,7 +3741,7 @@ GameObject:
   - 114: {fileID: 261360231}
   - 136: {fileID: 261360230}
   m_Layer: 0
-  m_Name: Torch2
+  m_Name: Torch1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4044,7 +4044,7 @@ GameObject:
   - 114: {fileID: 285592571}
   - 136: {fileID: 285592570}
   m_Layer: 0
-  m_Name: Torch3
+  m_Name: Torch2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6125,7 +6125,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400002, guid: 0d4b050b0af054c5bbba8ed9453c021c, type: 2}
   m_PrefabInternal: {fileID: 1084959231}
   m_GameObject: {fileID: 388603029}
-  m_LocalRotation: {x: .707106888, y: 0, z: 0, w: .707106769}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106709}
   m_LocalPosition: {x: .231256843, y: .828057826, z: .723981798}
   m_LocalScale: {x: .0500000007, y: .100000001, z: .0500000007}
   m_Children: []
@@ -12914,7 +12914,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400000, guid: c4fde9b27265ff24d811c28b91dea04e, type: 2}
   m_PrefabInternal: {fileID: 1296880869}
   m_GameObject: {fileID: 864251286}
-  m_LocalRotation: {x: -.705340087, y: -.0499537215, z: -.0499537215, w: .705340087}
+  m_LocalRotation: {x: -.705340147, y: -.0499537289, z: -.0499537289, w: .705340147}
   m_LocalPosition: {x: -2.36322546, y: -10.1740379, z: 22.5079975}
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
@@ -13089,7 +13089,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400000, guid: c4fde9b27265ff24d811c28b91dea04e, type: 2}
   m_PrefabInternal: {fileID: 1035774469}
   m_GameObject: {fileID: 870687799}
-  m_LocalRotation: {x: -.706614614, y: .0263779126, z: .0263779126, w: .706614614}
+  m_LocalRotation: {x: -.706614673, y: .0263779163, z: .0263779163, w: .706614673}
   m_LocalPosition: {x: 2.5278461, y: -10.1740437, z: 4.26145935}
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
@@ -14826,7 +14826,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400000, guid: c4fde9b27265ff24d811c28b91dea04e, type: 2}
   m_PrefabInternal: {fileID: 931391916}
   m_GameObject: {fileID: 955591190}
-  m_LocalRotation: {x: -.706614614, y: .0263779126, z: .0263779126, w: .706614614}
+  m_LocalRotation: {x: -.706614673, y: .0263779163, z: .0263779163, w: .706614673}
   m_LocalPosition: {x: 4.84758043, y: -10.1740437, z: 1.83429301}
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
@@ -18916,9 +18916,9 @@ Transform:
   m_Children:
   - {fileID: 1271442371}
   - {fileID: 868483814}
-  - {fileID: 384553505}
-  - {fileID: 2089142698}
   - {fileID: 1594568364}
+  - {fileID: 2089142698}
+  - {fileID: 384553505}
   - {fileID: 1860509977}
   - {fileID: 994926731}
   - {fileID: 590403354}
@@ -19176,7 +19176,7 @@ GameObject:
   - 114: {fileID: 1245728301}
   - 136: {fileID: 1245728300}
   m_Layer: 0
-  m_Name: Torch1
+  m_Name: Torch0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19484,7 +19484,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 0ad01a88035adb34a897e495f48679f9, type: 2}
   m_PrefabInternal: {fileID: 374141345}
   m_GameObject: {fileID: 1267763219}
-  m_LocalRotation: {x: 0, y: 0, z: .216440007, w: .976296008}
+  m_LocalRotation: {x: 0, y: 0, z: .216439977, w: .976295888}
   m_LocalPosition: {x: 9.42526245, y: -5.71868896, z: -12.3364105}
   m_LocalScale: {x: 3.5, y: 3, z: 1}
   m_Children: []
@@ -21644,7 +21644,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400042, guid: 0d4b050b0af054c5bbba8ed9453c021c, type: 2}
   m_PrefabInternal: {fileID: 1084959231}
   m_GameObject: {fileID: 1422701238}
-  m_LocalRotation: {x: .70710665, y: 0, z: 0, w: -.707107008}
+  m_LocalRotation: {x: .70710659, y: 0, z: 0, w: -.707106948}
   m_LocalPosition: {x: .0941593051, y: .0218448639, z: -.284440219}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -23586,7 +23586,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 23ce66177d4f046e1a3c9f20b59a299e, type: 2}
       propertyPath: m_Name
-      value: Torch3
+      value: Torch2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 23ce66177d4f046e1a3c9f20b59a299e, type: 2}
@@ -29597,7 +29597,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 0ad01a88035adb34a897e495f48679f9, type: 2}
   m_PrefabInternal: {fileID: 929570849}
   m_GameObject: {fileID: 1998855161}
-  m_LocalRotation: {x: 0, y: 0, z: .216440007, w: .976296008}
+  m_LocalRotation: {x: 0, y: 0, z: .216439977, w: .976295888}
   m_LocalPosition: {x: 9.42526245, y: -5.71868896, z: -12.3364105}
   m_LocalScale: {x: 3.5, y: 3, z: 1}
   m_Children: []
