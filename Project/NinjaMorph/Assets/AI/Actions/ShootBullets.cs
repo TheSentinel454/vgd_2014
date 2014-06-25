@@ -34,9 +34,6 @@ public class ShootBullets : RAINAction
 			bullet_.GetComponent<Bullet>().destroyable = true;
 			bullet_.renderer.enabled = true;
 
-			// Add the bullet as a child of the assault troop
-			bullet_.transform.parent = ai.Body.gameObject.transform;
-
 			// Position the bullet within the barrel
 			bullet_.transform.position = bulletModel_.transform.position;
 
