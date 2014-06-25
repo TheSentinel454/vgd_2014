@@ -101,40 +101,7 @@ public class GameController : MonoBehaviour
 			}
 			else if (!fireLevelComplete)
 			{
-				InteractiveObject[] objects = firePuzzle.GetComponentsInChildren<InteractiveObject>();
-				int numberLit = 0;
-				foreach(InteractiveObject io in objects)
-				{
-					if (io.getObjectType() == ObjectType.Fire)
-					{
-						numberLit++;
-						/*
-						if (!firstTorch)
-						{
-							if (io.gameObject.name.Contains("1"))
-							{
-							}
-						}
-						if (io.gameObject.name.Contains("1") && (!firstTorch && !secondTorch && !thirdTorch && !fourthTorch))
-						{
-							firstTorch = true;
-						}
-						else if (io.gameObject.name.Contains("2") && (firstTorch && !secondTorch && !thirdTorch && !fourthTorch))
-						{
-							secondTorch = true;
-						}
-						else if (io.gameObject.name.Contains("3") && (firstTorch && secondTorch && !thirdTorch && !fourthTorch))
-						{
-							thirdTorch = true;
-						}
-						else if (io.gameObject.name.Contains("4") && (firstTorch && secondTorch && thirdTorch && !fourthTorch))
-						{
-							fourthTorch = true;
-						}
-						 */
-					}
-				}
-				if (numberLit == objects.Length)
+				if (firePuzzle.GetComponent<RequirementManager>().completedAllRequirements)
 				{
 					fireLevelComplete = true;
 					ninjaController.createMessage("Fire Room complete!", 5.0f);
