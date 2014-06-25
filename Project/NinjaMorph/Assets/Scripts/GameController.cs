@@ -24,7 +24,7 @@ public class GameController : MonoBehaviour
 	private bool airLevelComplete = true;	// Temporarily set to true
 	private GameObject airPuzzle;
 
-	private bool fireLevelComplete = true;
+	private bool fireLevelComplete = false;
 	private GameObject firePuzzle;
 	private ArrayList torchOrder = new ArrayList(4);
 
@@ -145,6 +145,18 @@ public class GameController : MonoBehaviour
 					}
 					if (fireLevelComplete)
 					{
+
+
+						// Find all of the crates and allow them to be moved.
+						Rigidbody[] crates = GameObject.FindGameObjectWithTag("Crates").GetComponentsInChildren<Rigidbody>();
+						foreach (Rigidbody crate in crates) {
+							crate.isKinematic = false;
+						}
+
+						// Make the cannon ball fire
+						Bullet cannonBall = GameObject.FindGameObjectWithTag("Cannon Ball").GetComponent<Bullet>();
+						cannonBall.speed = 0.3f;
+
 						ninjaController.createMessage("Fire Room complete!", 5.0f);
 #if PLAY_TESTING
 						// Track the end fire time
