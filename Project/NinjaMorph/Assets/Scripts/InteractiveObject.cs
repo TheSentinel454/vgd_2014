@@ -77,6 +77,7 @@ public class InteractiveObject : MonoBehaviour
 	/// <param name="hit">Hit.</param>
 	public void PlayerCollision(InteractiveCollision collision)
 	{
+		print ("Player Collision: " + collision.GetCollider ().gameObject.name);
 		switch(collision.GetNinjaType())
 		{
 		case NinjaType.Air:
@@ -98,21 +99,35 @@ public class InteractiveObject : MonoBehaviour
 	/// <summary>
 	/// Handles the base ninja collision.
 	/// </summary>
-	void HandleBaseNinjaCollision()
+	protected virtual void HandleBaseNinjaCollision()
 	{
 	}
 
 	/// <summary>
 	/// Handles the air ninja collision.
 	/// </summary>
-	void HandleAirNinjaCollision()
+	protected virtual void HandleAirNinjaCollision()
 	{
+		switch(currentType)
+		{
+		case ObjectType.Fire:
+			// Set the current type to initial type
+			currentType = type;
+			// Destroy the fire prefab
+			Destroy(fire);
+			// Instantiate the smoke prefab
+			smoke = (GameObject)Instantiate(smokeGameObject, transform.position, transform.rotation);
+			smoke.transform.parent = transform;
+			DestroyByTime dbtScript = smoke.AddComponent<DestroyByTime>();
+			dbtScript.lifetime = 4.0f;
+			break;
+		}
 	}
 
 	/// <summary>
 	/// Handles the fire ninja collision.
 	/// </summary>
-	void HandleFireNinjaCollision()
+	protected virtual void HandleFireNinjaCollision()
 	{
 		switch(currentType)
 		{
@@ -129,8 +144,9 @@ public class InteractiveObject : MonoBehaviour
 	/// <summary>
 	/// Handles the water ninja collision.
 	/// </summary>
-	void HandleWaterNinjaCollision()
+	protected virtual void HandleWaterNinjaCollision()
 	{
+		print ("HandleWaterNinjaCollision!");
 		switch(currentType)
 		{
 		case ObjectType.Fire:

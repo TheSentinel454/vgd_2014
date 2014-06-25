@@ -13,6 +13,8 @@ public class GameController : MonoBehaviour
 	private GUIText fireEnergyText;
 	private GUIText waterEnergyText;
 
+	private GameObject[] puzzles;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -30,21 +32,48 @@ public class GameController : MonoBehaviour
 		}
 		// Get the Ninja Controller
 		ninjaController = player.GetComponent<NinjaController> ();
+		// Get the Puzzles
+		puzzles = GameObject.FindGameObjectsWithTag("Puzzle");
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
+		// Update the GUI
+		UpdateGUI ();
+
+		// Check for Game Over
+		CheckGameOver ();
+	}
+
+	/// <summary>
+	/// Updates the GUI.
+	/// </summary>
+	void UpdateGUI()
+	{
+		// Update energy levels
 		zenText.text = "Zen: " + (int)ninjaController.getZen () + "%";
 		airEnergyText.text = "Air: " + (int)ninjaController.getAirEnergy () + "%";
 		fireEnergyText.text = "Fire: " + (int)ninjaController.getFireEnergy () + "%";
 		waterEnergyText.text = "Water: " + (int)ninjaController.getWaterEnergy () + "%";
+	}
 
+	/// <summary>
+	/// Checks for the game over.
+	/// </summary>
+	void CheckGameOver()
+	{
 		// Check for ninja zen being less than 0
 		if (ninjaController.getZen() < 0.0f)
 		{
 			// Reset the scene
 			Application.LoadLevel(0);
+		}
+		// Still alive
+		else
+		{
+			// Check for level completion
+
 		}
 	}
 }
