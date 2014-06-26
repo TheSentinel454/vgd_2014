@@ -811,7 +811,7 @@ Transform:
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 1074912833}
-  m_RootOrder: 3
+  m_RootOrder: 1
 --- !u!54 &44612475
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -958,7 +958,7 @@ Transform:
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 1998732323}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!1 &48780735
 GameObject:
   m_ObjectHideFlags: 0
@@ -1077,7 +1077,7 @@ Transform:
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 1625750701}
-  m_RootOrder: 7
+  m_RootOrder: 5
 --- !u!54 &53548020
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1166,7 +1166,7 @@ Transform:
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 1552236000}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!54 &53805249
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1635,7 +1635,7 @@ Transform:
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 1998732323}
-  m_RootOrder: 17
+  m_RootOrder: 16
 --- !u!1 &73467435
 GameObject:
   m_ObjectHideFlags: 0
@@ -1784,7 +1784,7 @@ Transform:
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 1998732323}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!54 &75274066
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2109,7 +2109,7 @@ Transform:
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 1998732323}
-  m_RootOrder: 0
+  m_RootOrder: 20
 --- !u!1 &97689622
 GameObject:
   m_ObjectHideFlags: 0
@@ -2340,7 +2340,7 @@ Transform:
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 1998732323}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!1001 &112962279
 Prefab:
   m_ObjectHideFlags: 0
@@ -2507,7 +2507,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 1332761155}
-  m_RootOrder: 2
+  m_RootOrder: 0
 --- !u!136 &126444698
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2742,7 +2742,7 @@ Transform:
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 1625750701}
-  m_RootOrder: 0
+  m_RootOrder: 12
 --- !u!1001 &137545633
 Prefab:
   m_ObjectHideFlags: 0
@@ -2891,7 +2891,7 @@ Transform:
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 1625750701}
-  m_RootOrder: 8
+  m_RootOrder: 6
 --- !u!54 &152505314
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3124,7 +3124,7 @@ Transform:
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 1998732323}
-  m_RootOrder: 18
+  m_RootOrder: 17
 --- !u!1 &154223922
 GameObject:
   m_ObjectHideFlags: 0
@@ -3752,7 +3752,7 @@ Transform:
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 1074912833}
-  m_RootOrder: 4
+  m_RootOrder: 2
 --- !u!54 &195633525
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4078,9 +4078,9 @@ MonoBehaviour:
       type="RAIN.Core.AI" refcount="1" id="0"><field value="True" type="System.Boolean"
       id="_isActive" /><field type="UnityEngine.GameObject" id="_body" gameobject="0"
       /><field type="RAIN.Memory.BasicMemory" reference="1" id="_workingMemory" childrenvisible="False"
-      /><field type="RAIN.Minds.BasicMind" reference="2" id="_mind" childrenvisible="False"
+      /><field type="RAIN.Minds.BasicMind" reference="2" id="_mind" childrenvisible="True"
       /><field type="RAIN.Motion.BasicMotor" reference="3" id="_motor" childrenvisible="False"
-      /><field type="RAIN.Animation.BasicAnimator" reference="6" id="_animator" childrenvisible="True"
+      /><field type="RAIN.Animation.BasicAnimator" reference="6" id="_animator" childrenvisible="False"
       /><field type="RAIN.Navigation.BasicNavigator" reference="7" id="_navigator"
       childrenvisible="False" /><field type="RAIN.Perception.BasicSenses" reference="8"
       id="_senses" childrenvisible="False" /><field type="System.Collections.Generic.List"
@@ -4271,7 +4271,7 @@ MonoBehaviour:
     - {fileID: 7400030, guid: ab78697ff2c410d44b6317913e52e07c, type: 3}
     - {fileID: 7400024, guid: ab78697ff2c410d44b6317913e52e07c, type: 3}
     - {fileID: 7400026, guid: ab78697ff2c410d44b6317913e52e07c, type: 3}
-    - {fileID: 11400000, guid: dd45f7355630249c4a37aaeca2eefc55, type: 2}
+    - {fileID: 11400000, guid: 437c268aec5ea4da38d0d73655145878, type: 2}
     - {fileID: 1664778504}
     - {fileID: 1664778504}
     - {fileID: 1664778504}
@@ -4634,7 +4634,7 @@ Transform:
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 1998732323}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!54 &249440950
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4979,7 +4979,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 1332761155}
-  m_RootOrder: 0
+  m_RootOrder: 2
 --- !u!136 &261360230
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5216,7 +5216,7 @@ Transform:
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 1625750701}
-  m_RootOrder: 9
+  m_RootOrder: 7
 --- !u!54 &280882958
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5305,7 +5305,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 1332761155}
-  m_RootOrder: 1
+  m_RootOrder: 3
 --- !u!136 &285592570
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5776,7 +5776,7 @@ Transform:
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 1998732323}
-  m_RootOrder: 12
+  m_RootOrder: 11
 --- !u!54 &303379658
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6342,7 +6342,7 @@ Transform:
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 1625750701}
-  m_RootOrder: 12
+  m_RootOrder: 10
 --- !u!54 &325254662
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6653,7 +6653,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!1 &341004369
 GameObject:
   m_ObjectHideFlags: 0
@@ -7815,7 +7815,7 @@ Transform:
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 1998732323}
-  m_RootOrder: 19
+  m_RootOrder: 18
 --- !u!1001 &419878697
 Prefab:
   m_ObjectHideFlags: 0
@@ -8669,7 +8669,7 @@ Transform:
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 1998732323}
-  m_RootOrder: 20
+  m_RootOrder: 19
 --- !u!1001 &473759240
 Prefab:
   m_ObjectHideFlags: 0
@@ -10675,7 +10675,7 @@ Transform:
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 1625750701}
-  m_RootOrder: 3
+  m_RootOrder: 1
 --- !u!54 &579269432
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11669,7 +11669,7 @@ Transform:
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 1625750701}
-  m_RootOrder: 10
+  m_RootOrder: 8
 --- !u!54 &627057764
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11856,7 +11856,7 @@ Transform:
   - {fileID: 816301751}
   - {fileID: 964388034}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 7
 --- !u!1 &631578843
 GameObject:
   m_ObjectHideFlags: 0
@@ -12054,7 +12054,7 @@ Transform:
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 1998732323}
-  m_RootOrder: 10
+  m_RootOrder: 9
 --- !u!54 &642767080
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -12540,7 +12540,7 @@ Transform:
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 1552236000}
-  m_RootOrder: 0
+  m_RootOrder: 3
 --- !u!54 &673894066
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -15262,7 +15262,7 @@ Transform:
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 1998732323}
-  m_RootOrder: 6
+  m_RootOrder: 5
 --- !u!54 &844535419
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -15458,7 +15458,7 @@ Transform:
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 1998732323}
-  m_RootOrder: 8
+  m_RootOrder: 7
 --- !u!54 &849333632
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -17036,7 +17036,7 @@ Transform:
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 1998732323}
-  m_RootOrder: 7
+  m_RootOrder: 6
 --- !u!1001 &929570849
 Prefab:
   m_ObjectHideFlags: 0
@@ -17535,7 +17535,7 @@ Transform:
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 1625750701}
-  m_RootOrder: 4
+  m_RootOrder: 2
 --- !u!54 &955705548
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -18504,7 +18504,7 @@ Transform:
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 1625750701}
-  m_RootOrder: 13
+  m_RootOrder: 11
 --- !u!54 &1003512794
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -18689,7 +18689,7 @@ Transform:
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 1074912833}
-  m_RootOrder: 0
+  m_RootOrder: 3
 --- !u!54 &1016907793
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -18836,7 +18836,7 @@ Transform:
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 1998732323}
-  m_RootOrder: 16
+  m_RootOrder: 15
 --- !u!1001 &1022782556
 Prefab:
   m_ObjectHideFlags: 0
@@ -19147,7 +19147,7 @@ Transform:
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 1998732323}
-  m_RootOrder: 9
+  m_RootOrder: 8
 --- !u!54 &1038256186
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -19672,11 +19672,11 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1016907792}
-  - {fileID: 1586548870}
   - {fileID: 2023570101}
   - {fileID: 44612474}
   - {fileID: 195633524}
+  - {fileID: 1016907792}
+  - {fileID: 1586548870}
   m_Father: {fileID: 1239711960}
   m_RootOrder: 1
 --- !u!1001 &1079671567
@@ -19789,6 +19789,204 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: .707106709
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 0d4b050b0af054c5bbba8ed9453c021c, type: 2}
+      propertyPath: _dataSerializer._serializedData
+      value: <component version="1.0" type="RAIN.Core.AIRig"><fields><field value="True"
+        type="System.Boolean" id="_showVisual" /><field value="True" type="System.Boolean"
+        id="_useUnityMessages" /><field value="False" type="System.Boolean" id="_useFixedUpdate"
+        /><field type="RAIN.Core.AI" reference="0" id="_ai" /></fields><references><reference
+        type="RAIN.Core.AI" refcount="1" id="0"><field value="True" type="System.Boolean"
+        id="_isActive" /><field type="UnityEngine.GameObject" id="_body" gameobject="0"
+        /><field type="RAIN.Memory.BasicMemory" reference="1" id="_workingMemory"
+        childrenvisible="False" /><field type="RAIN.Minds.BasicMind" reference="2"
+        id="_mind" childrenvisible="True" /><field type="RAIN.Motion.BasicMotor" reference="3"
+        id="_motor" childrenvisible="False" /><field type="RAIN.Animation.BasicAnimator"
+        reference="6" id="_animator" childrenvisible="False" /><field type="RAIN.Navigation.BasicNavigator"
+        reference="7" id="_navigator" childrenvisible="False" /><field type="RAIN.Perception.BasicSenses"
+        reference="8" id="_senses" childrenvisible="False" /><field type="System.Collections.Generic.List"
+        id="_customElements" elementtype="RAIN.Core.CustomAIElement" childrenvisible="False"
+        /></reference><reference type="RAIN.Memory.BasicMemory" refcount="1" id="1"><field
+        type="System.Collections.Generic.List" id="_memoryItems" elementtype="System.String"
+        /><field type="System.Collections.Generic.List" id="_memoryValues" elementtype="RAIN.Memory.MemoryObject"
+        /></reference><reference type="RAIN.Minds.BasicMind" refcount="1" id="2"><field
+        type="RAIN.BehaviorTrees.BTAsset" id="behaviorTreeAsset" gameobject="10" /><field
+        type="System.Collections.Generic.List" id="behaviorTreeBindings" elementtype="RAIN.BehaviorTrees.BTAssetBinding"
+        /></reference><reference type="RAIN.Motion.BasicMotor" refcount="1" id="3"><field
+        type="RAIN.Motion.MoveLookTarget" reference="4" id="moveTarget" /><field type="RAIN.Motion.MoveLookTarget"
+        reference="5" id="faceTarget" /><field value="1" type="System.Single" id="defaultSpeed"
+        /><field value="180" type="System.Single" id="defaultRotationSpeed" /><field
+        value="0.1" type="System.Single" id="defaultCloseEnoughDistance" /><field
+        value="0.001" type="System.Single" id="defaultCloseEnoughAngle" /><field value="90"
+        type="System.Single" id="defaultFaceBeforeMoveAngle" /><field value="0.5"
+        type="System.Single" id="defaultStepUpHeight" /><field value="False" type="System.Boolean"
+        id="allow3DMovement" /><field value="False" type="System.Boolean" id="allow3DRotation"
+        /><field value="True" type="System.Boolean" id="validPathRequired" /></reference><reference
+        type="RAIN.Motion.MoveLookTarget" refcount="1" id="4"><field value="0" type="System.Single"
+        id="closeEnoughDistance" /><field value="None" type="RAIN.Motion.MoveLookTarget+MoveLookTargetType"
+        id="_targetType" /><field type="UnityEngine.Transform" id="_transformTarget"
+        gameobject="-1" /><field type="RAIN.Core.Kinematic" reference="-1" id="_kinematicTarget"
+        /><field value="0,0,0" type="UnityEngine.Vector3" id="_vectorTarget" /><field
+        type="RAIN.Navigation.Targets.NavigationTarget" reference="-1" id="_navigationTarget"
+        /><field type="RAIN.Entities.Aspects.RAINAspect" reference="-1" id="_aspectTarget"
+        /><field value="" type="System.String" id="_variableTarget" /></reference><reference
+        type="RAIN.Motion.MoveLookTarget" refcount="1" id="5"><field value="0" type="System.Single"
+        id="closeEnoughDistance" /><field value="None" type="RAIN.Motion.MoveLookTarget+MoveLookTargetType"
+        id="_targetType" /><field type="UnityEngine.Transform" id="_transformTarget"
+        gameobject="-1" /><field type="RAIN.Core.Kinematic" reference="-1" id="_kinematicTarget"
+        /><field value="0,0,0" type="UnityEngine.Vector3" id="_vectorTarget" /><field
+        type="RAIN.Navigation.Targets.NavigationTarget" reference="-1" id="_navigationTarget"
+        /><field type="RAIN.Entities.Aspects.RAINAspect" reference="-1" id="_aspectTarget"
+        /><field value="" type="System.String" id="_variableTarget" /></reference><reference
+        type="RAIN.Animation.BasicAnimator" refcount="1" id="6"><field type="System.Collections.Generic.List"
+        id="animationStates" elementtype="RAIN.Animation.BasicAnimator+BasicAnimatorState"
+        childrenvisible="True"><field type="RAIN.Animation.BasicAnimator+BasicAnimatorState"
+        reference="9" id="element0" childrenvisible="False" /><field type="RAIN.Animation.BasicAnimator+BasicAnimatorState"
+        reference="10" id="element1" childrenvisible="False" /><field type="RAIN.Animation.BasicAnimator+BasicAnimatorState"
+        reference="11" id="element2" childrenvisible="False" /><field type="RAIN.Animation.BasicAnimator+BasicAnimatorState"
+        reference="12" id="element3" childrenvisible="False" /><field type="RAIN.Animation.BasicAnimator+BasicAnimatorState"
+        reference="13" id="element4" childrenvisible="False" /><field type="RAIN.Animation.BasicAnimator+BasicAnimatorState"
+        reference="14" id="element5" childrenvisible="True" /><field type="RAIN.Animation.BasicAnimator+BasicAnimatorState"
+        reference="15" id="element6" childrenvisible="False" /><field type="RAIN.Animation.BasicAnimator+BasicAnimatorState"
+        reference="16" id="element7" childrenvisible="False" /><field type="RAIN.Animation.BasicAnimator+BasicAnimatorState"
+        reference="17" id="element8" childrenvisible="False" /></field></reference><reference
+        type="RAIN.Navigation.BasicNavigator" refcount="1" id="7"><field type="System.Collections.Generic.List"
+        id="graphTags" elementtype="System.String" childrenvisible="False" /><field
+        value="100" type="System.Int32" id="maxPathfindingStepsPerFrame" /><field
+        value="False" type="System.Boolean" id="drawPaths" /></reference><reference
+        type="RAIN.Perception.BasicSenses" refcount="1" id="8"><field type="System.Collections.Generic.List"
+        id="sensors" elementtype="RAIN.Perception.Sensors.RAINSensor"><field type="RAIN.Perception.Sensors.VisualSensor"
+        reference="18" id="element0" /><field type="RAIN.Perception.Sensors.VisualSensor"
+        reference="19" id="element1" /><field type="RAIN.Perception.Sensors.VisualSensor"
+        reference="20" id="element2" /></field></reference><reference type="RAIN.Animation.BasicAnimator+BasicAnimatorState"
+        refcount="1" id="9"><field value="troop_idle" type="System.String" id="stateName"
+        /><field type="UnityEngine.AnimationClip" id="animationClip" gameobject="1"
+        /><field value="" type="System.String" id="runtimeAnimationName" /><field
+        value="0" type="System.Int32" id="layer" /><field value="1" type="System.Single"
+        id="weight" /><field value="1" type="System.Single" id="speed" /><field value="0"
+        type="System.Single" id="fadeInTime" /><field value="0" type="System.Single"
+        id="fadeOutTime" /><field value="Loop" type="UnityEngine.WrapMode" id="wrapMode"
+        /><field type="System.Collections.Generic.List" id="mixingTransforms" elementtype="RAIN.Animation.BasicAnimator+BasicAnimatorState+MixingTransform"
+        /></reference><reference type="RAIN.Animation.BasicAnimator+BasicAnimatorState"
+        refcount="1" id="10"><field value="Walk" type="System.String" id="stateName"
+        /><field type="UnityEngine.AnimationClip" id="animationClip" gameobject="2"
+        /><field value="" type="System.String" id="runtimeAnimationName" /><field
+        value="0" type="System.Int32" id="layer" /><field value="1" type="System.Single"
+        id="weight" /><field value="1" type="System.Single" id="speed" /><field value="0"
+        type="System.Single" id="fadeInTime" /><field value="0" type="System.Single"
+        id="fadeOutTime" /><field value="Loop" type="UnityEngine.WrapMode" id="wrapMode"
+        /><field type="System.Collections.Generic.List" id="mixingTransforms" elementtype="RAIN.Animation.BasicAnimator+BasicAnimatorState+MixingTransform"
+        /></reference><reference type="RAIN.Animation.BasicAnimator+BasicAnimatorState"
+        refcount="1" id="11"><field value="troop_damage" type="System.String" id="stateName"
+        /><field type="UnityEngine.AnimationClip" id="animationClip" gameobject="3"
+        /><field value="" type="System.String" id="runtimeAnimationName" /><field
+        value="0" type="System.Int32" id="layer" /><field value="1" type="System.Single"
+        id="weight" /><field value="1" type="System.Single" id="speed" /><field value="0"
+        type="System.Single" id="fadeInTime" /><field value="0" type="System.Single"
+        id="fadeOutTime" /><field value="Once" type="UnityEngine.WrapMode" id="wrapMode"
+        /><field type="System.Collections.Generic.List" id="mixingTransforms" elementtype="RAIN.Animation.BasicAnimator+BasicAnimatorState+MixingTransform"
+        /></reference><reference type="RAIN.Animation.BasicAnimator+BasicAnimatorState"
+        refcount="1" id="12"><field value="troop_death" type="System.String" id="stateName"
+        /><field type="UnityEngine.AnimationClip" id="animationClip" gameobject="4"
+        /><field value="" type="System.String" id="runtimeAnimationName" /><field
+        value="0" type="System.Int32" id="layer" /><field value="1" type="System.Single"
+        id="weight" /><field value="1" type="System.Single" id="speed" /><field value="0"
+        type="System.Single" id="fadeInTime" /><field value="0" type="System.Single"
+        id="fadeOutTime" /><field value="Once" type="UnityEngine.WrapMode" id="wrapMode"
+        /><field type="System.Collections.Generic.List" id="mixingTransforms" elementtype="RAIN.Animation.BasicAnimator+BasicAnimatorState+MixingTransform"
+        /></reference><reference type="RAIN.Animation.BasicAnimator+BasicAnimatorState"
+        refcount="1" id="13"><field value="troop_roll" type="System.String" id="stateName"
+        /><field type="UnityEngine.AnimationClip" id="animationClip" gameobject="5"
+        /><field value="" type="System.String" id="runtimeAnimationName" /><field
+        value="0" type="System.Int32" id="layer" /><field value="1" type="System.Single"
+        id="weight" /><field value="1" type="System.Single" id="speed" /><field value="0"
+        type="System.Single" id="fadeInTime" /><field value="0" type="System.Single"
+        id="fadeOutTime" /><field value="Once" type="UnityEngine.WrapMode" id="wrapMode"
+        /><field type="System.Collections.Generic.List" id="mixingTransforms" elementtype="RAIN.Animation.BasicAnimator+BasicAnimatorState+MixingTransform"
+        /></reference><reference type="RAIN.Animation.BasicAnimator+BasicAnimatorState"
+        refcount="1" id="14"><field value="Attack" type="System.String" id="stateName"
+        /><field type="UnityEngine.AnimationClip" id="animationClip" gameobject="6"
+        /><field value="" type="System.String" id="runtimeAnimationName" /><field
+        value="0" type="System.Int32" id="layer" /><field value="1" type="System.Single"
+        id="weight" /><field value="1" type="System.Single" id="speed" /><field value="0"
+        type="System.Single" id="fadeInTime" /><field value="0" type="System.Single"
+        id="fadeOutTime" /><field value="Loop" type="UnityEngine.WrapMode" id="wrapMode"
+        /><field type="System.Collections.Generic.List" id="mixingTransforms" elementtype="RAIN.Animation.BasicAnimator+BasicAnimatorState+MixingTransform"
+        childrenvisible="False" /></reference><reference type="RAIN.Animation.BasicAnimator+BasicAnimatorState"
+        refcount="1" id="15"><field value="troop_standRapidFire" type="System.String"
+        id="stateName" /><field type="UnityEngine.AnimationClip" id="animationClip"
+        gameobject="7" /><field value="" type="System.String" id="runtimeAnimationName"
+        /><field value="0" type="System.Int32" id="layer" /><field value="1" type="System.Single"
+        id="weight" /><field value="1" type="System.Single" id="speed" /><field value="0"
+        type="System.Single" id="fadeInTime" /><field value="0" type="System.Single"
+        id="fadeOutTime" /><field value="Loop" type="UnityEngine.WrapMode" id="wrapMode"
+        /><field type="System.Collections.Generic.List" id="mixingTransforms" elementtype="RAIN.Animation.BasicAnimator+BasicAnimatorState+MixingTransform"
+        /></reference><reference type="RAIN.Animation.BasicAnimator+BasicAnimatorState"
+        refcount="1" id="16"><field value="MovingAttack" type="System.String" id="stateName"
+        /><field type="UnityEngine.AnimationClip" id="animationClip" gameobject="8"
+        /><field value="" type="System.String" id="runtimeAnimationName" /><field
+        value="0" type="System.Int32" id="layer" /><field value="1" type="System.Single"
+        id="weight" /><field value="1" type="System.Single" id="speed" /><field value="0"
+        type="System.Single" id="fadeInTime" /><field value="0" type="System.Single"
+        id="fadeOutTime" /><field value="Loop" type="UnityEngine.WrapMode" id="wrapMode"
+        /><field type="System.Collections.Generic.List" id="mixingTransforms" elementtype="RAIN.Animation.BasicAnimator+BasicAnimatorState+MixingTransform"
+        /></reference><reference type="RAIN.Animation.BasicAnimator+BasicAnimatorState"
+        refcount="1" id="17"><field value="troop_runRapidFire" type="System.String"
+        id="stateName" /><field type="UnityEngine.AnimationClip" id="animationClip"
+        gameobject="9" /><field value="" type="System.String" id="runtimeAnimationName"
+        /><field value="0" type="System.Int32" id="layer" /><field value="1" type="System.Single"
+        id="weight" /><field value="1" type="System.Single" id="speed" /><field value="0"
+        type="System.Single" id="fadeInTime" /><field value="0" type="System.Single"
+        id="fadeOutTime" /><field value="Loop" type="UnityEngine.WrapMode" id="wrapMode"
+        /><field type="System.Collections.Generic.List" id="mixingTransforms" elementtype="RAIN.Animation.BasicAnimator+BasicAnimatorState+MixingTransform"
+        /></reference><reference type="RAIN.Perception.Sensors.VisualSensor" refcount="1"
+        id="18"><field value="True" type="System.Boolean" id="_showVisual" /><field
+        value="0.6,0,0,1" type="UnityEngine.Color" id="_sensorColor" /><field value="True"
+        type="System.Boolean" id="_isActive" /><field value="Eyes" type="System.String"
+        id="_sensorName" /><field type="UnityEngine.Transform" id="_mountPoint" gameobject="11"
+        /><field value="0,1,0" type="UnityEngine.Vector3" id="_positionOffset" /><field
+        value="0,0,0" type="UnityEngine.Vector3" id="_angleOffset" /><field value="False"
+        type="System.Boolean" id="_canDetectSelf" /><field type="System.Collections.Generic.List"
+        id="_filters" elementtype="RAIN.Perception.Sensors.Filters.RAINSensorFilter"
+        /><field value="115" type="System.Single" id="_horizontalAngle" /><field value="40"
+        type="System.Single" id="_verticalAngle" /><field value="13" type="System.Single"
+        id="_range" /><field value="True" type="System.Boolean" id="_requireLineOfSight"
+        /><field value="-5" type="UnityEngine.LayerMask" id="_lineOfSightMask" /><field
+        value="True" type="System.Boolean" id="_lineOfSightIgnoresSelf" /></reference><reference
+        type="RAIN.Perception.Sensors.VisualSensor" refcount="1" id="19"><field value="True"
+        type="System.Boolean" id="_showVisual" /><field value="0.3451557,0.6176471,0.3451557,1"
+        type="UnityEngine.Color" id="_sensorColor" /><field value="True" type="System.Boolean"
+        id="_isActive" /><field value="Weapon Range" type="System.String" id="_sensorName"
+        /><field type="UnityEngine.Transform" id="_mountPoint" gameobject="12" /><field
+        value="0,0,0" type="UnityEngine.Vector3" id="_positionOffset" /><field value="0,0,0"
+        type="UnityEngine.Vector3" id="_angleOffset" /><field value="False" type="System.Boolean"
+        id="_canDetectSelf" /><field type="System.Collections.Generic.List" id="_filters"
+        elementtype="RAIN.Perception.Sensors.Filters.RAINSensorFilter" /><field value="360"
+        type="System.Single" id="_horizontalAngle" /><field value="360" type="System.Single"
+        id="_verticalAngle" /><field value="10" type="System.Single" id="_range" /><field
+        value="False" type="System.Boolean" id="_requireLineOfSight" /><field value="-5"
+        type="UnityEngine.LayerMask" id="_lineOfSightMask" /><field value="True" type="System.Boolean"
+        id="_lineOfSightIgnoresSelf" /></reference><reference type="RAIN.Perception.Sensors.VisualSensor"
+        refcount="1" id="20"><field value="True" type="System.Boolean" id="_showVisual"
+        /><field value="0,0.6,0,1" type="UnityEngine.Color" id="_sensorColor" /><field
+        value="True" type="System.Boolean" id="_isActive" /><field value="Cautionary
+        Range" type="System.String" id="_sensorName" /><field type="UnityEngine.Transform"
+        id="_mountPoint" gameobject="13" /><field value="0,0,0" type="UnityEngine.Vector3"
+        id="_positionOffset" /><field value="0,0,0" type="UnityEngine.Vector3" id="_angleOffset"
+        /><field value="False" type="System.Boolean" id="_canDetectSelf" /><field
+        type="System.Collections.Generic.List" id="_filters" elementtype="RAIN.Perception.Sensors.Filters.RAINSensorFilter"
+        /><field value="360" type="System.Single" id="_horizontalAngle" /><field value="360"
+        type="System.Single" id="_verticalAngle" /><field value="4" type="System.Single"
+        id="_range" /><field value="False" type="System.Boolean" id="_requireLineOfSight"
+        /><field value="-5" type="UnityEngine.LayerMask" id="_lineOfSightMask" /><field
+        value="True" type="System.Boolean" id="_lineOfSightIgnoresSelf" /></reference><reference
+        type="RAIN.Animation.BasicAnimator+BasicAnimatorState+MixingTransform" refcount="0"
+        id="21" /></references></component>
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: 0d4b050b0af054c5bbba8ed9453c021c, type: 2}
+      propertyPath: _dataSerializer._serializedGameObjects.Array.data[10]
+      value: 
+      objectReference: {fileID: 11400000, guid: 437c268aec5ea4da38d0d73655145878,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0d4b050b0af054c5bbba8ed9453c021c, type: 2}
   m_RootGameObject: {fileID: 1664778503}
@@ -22493,7 +22691,7 @@ Transform:
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 1998732323}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!1 &1239711959
 GameObject:
   m_ObjectHideFlags: 0
@@ -22609,7 +22807,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 1332761155}
-  m_RootOrder: 3
+  m_RootOrder: 1
 --- !u!136 &1245728300
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -23432,7 +23630,7 @@ Transform:
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 1998732323}
-  m_RootOrder: 15
+  m_RootOrder: 14
 --- !u!1 &1304220668
 GameObject:
   m_ObjectHideFlags: 0
@@ -23639,7 +23837,7 @@ Transform:
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 1552236000}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!54 &1323764403
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -23886,10 +24084,10 @@ Transform:
   m_LocalPosition: {x: -57.6122704, y: 14.1345215, z: -35.0886726}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 261360229}
-  - {fileID: 285592569}
   - {fileID: 126444697}
   - {fileID: 1245728299}
+  - {fileID: 261360229}
+  - {fileID: 285592569}
   m_Father: {fileID: 2105954683}
   m_RootOrder: 1
 --- !u!1 &1333912432
@@ -24635,7 +24833,7 @@ Transform:
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 1552236000}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!54 &1358856297
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -25558,7 +25756,7 @@ Transform:
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 1998732323}
-  m_RootOrder: 14
+  m_RootOrder: 13
 --- !u!1 &1417155096
 GameObject:
   m_ObjectHideFlags: 0
@@ -26938,7 +27136,7 @@ Transform:
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 1625750701}
-  m_RootOrder: 2
+  m_RootOrder: 0
 --- !u!54 &1515878991
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -27381,10 +27579,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 673894065}
   - {fileID: 1323764402}
   - {fileID: 1358856296}
   - {fileID: 53805248}
+  - {fileID: 673894065}
   m_Father: {fileID: 1239711960}
   m_RootOrder: 0
 --- !u!1 &1558962048
@@ -28406,7 +28604,7 @@ Transform:
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 1074912833}
-  m_RootOrder: 1
+  m_RootOrder: 4
 --- !u!54 &1586548871
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -29060,8 +29258,6 @@ Transform:
   m_LocalPosition: {x: -54.0154495, y: 3.43788528, z: -49.9950867}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 130525802}
-  - {fileID: 1706225547}
   - {fileID: 1515878990}
   - {fileID: 579269431}
   - {fileID: 955705547}
@@ -29074,6 +29270,8 @@ Transform:
   - {fileID: 1727941536}
   - {fileID: 325254661}
   - {fileID: 1003512793}
+  - {fileID: 130525802}
+  - {fileID: 1706225547}
   m_Father: {fileID: 1239711960}
   m_RootOrder: 2
 --- !u!1 &1633451646
@@ -29743,7 +29941,7 @@ Transform:
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 1625750701}
-  m_RootOrder: 6
+  m_RootOrder: 4
 --- !u!54 &1691424867
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -29962,7 +30160,7 @@ Transform:
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 1998732323}
-  m_RootOrder: 11
+  m_RootOrder: 10
 --- !u!54 &1701381438
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -30121,7 +30319,7 @@ Transform:
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 1625750701}
-  m_RootOrder: 1
+  m_RootOrder: 13
 --- !u!54 &1706225548
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -30456,7 +30654,7 @@ Transform:
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 1625750701}
-  m_RootOrder: 11
+  m_RootOrder: 9
 --- !u!54 &1727941537
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -31876,7 +32074,7 @@ Transform:
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 1998732323}
-  m_RootOrder: 13
+  m_RootOrder: 12
 --- !u!54 &1836872605
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -32769,7 +32967,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!1 &1903514860
 GameObject:
   m_ObjectHideFlags: 0
@@ -33519,7 +33717,7 @@ Transform:
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 1625750701}
-  m_RootOrder: 5
+  m_RootOrder: 3
 --- !u!54 &1957742982
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -34619,7 +34817,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 82999783}
   - {fileID: 103992883}
   - {fileID: 1231821765}
   - {fileID: 46768227}
@@ -34640,6 +34837,7 @@ Transform:
   - {fileID: 152773721}
   - {fileID: 419527010}
   - {fileID: 472525461}
+  - {fileID: 82999783}
   m_Father: {fileID: 1239711960}
   m_RootOrder: 3
 --- !u!1 &1998855161
@@ -35566,7 +35764,7 @@ Transform:
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 1074912833}
-  m_RootOrder: 2
+  m_RootOrder: 0
 --- !u!54 &2023570102
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -36561,7 +36759,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
 --- !u!1 &2091737529
 GameObject:
   m_ObjectHideFlags: 0
