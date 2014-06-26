@@ -33,6 +33,8 @@ public class PlayTestInfo
 	public int numberTroopsKilled = 0;		// Done
 	public float averageHealth = 100.0f;	// Done
 
+	public bool success = false;
+
 	/// <summary>
 	/// Gets the data.
 	/// </summary>
@@ -45,7 +47,7 @@ public class PlayTestInfo
 		        totalAirTime + "," + totalWaterTime + "," + totalFireTime + "," +
 		        totalAirCharging + "," + totalWaterCharging + "," + totalFireCharging + "," +
 		        failedFirePuzzles + "," + failedWaterPuzzles + "," +
-		        numberAttacks + "," + numberTroopsKilled + "," + averageHealth +
+		        numberAttacks + "," + numberTroopsKilled + "," + averageHealth + "," + success + 
 		        "\n");
 	}
 }
@@ -74,7 +76,7 @@ public class PlayTesting
 			                   			 "Air Time,Water Time,Fire Time," +
 			                   			 "Air Charge Time,Water Charge Time,Fire Charge Time," +
 			                   			 "Failed Fire,Failed Water," +
-			                   			 "Number of Attacks,Troops Killed,Average Health\n");
+			                   			 "Number of Attacks,Troops Killed,Average Health,Success\n");
 		}
 		Debug.Log("Play Test Data saved: " + filePath);
 		// Write all the data out

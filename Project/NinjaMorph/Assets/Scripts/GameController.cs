@@ -103,6 +103,22 @@ public class GameController : MonoBehaviour
 		if (ninjaController.getZen() <= 0.0f)
 		{
 			gameActive = false;
+#if PLAY_TESTING
+			// Set the test data
+			testInfo.endTime = Time.time;
+			testInfo.numberAttacks = ninjaController.numAttacks;
+			testInfo.averageHealth = ninjaController.avgHealth();
+			testInfo.totalAirTime = ninjaController.totalAirTime;
+			testInfo.totalFireTime = ninjaController.totalFireTime;
+			testInfo.totalWaterTime = ninjaController.totalWaterTime;
+			testInfo.totalAirCharging = ninjaController.totalAirCharging;
+			testInfo.totalFireCharging = ninjaController.totalFireCharging;
+			testInfo.totalWaterCharging = ninjaController.totalWaterCharging;
+			testInfo.numberTroopsKilled = ninjaController.numKills;
+			testInfo.success = false;
+			// Save the play test data
+			playTest.Save(testInfo);
+#endif
 			StartCoroutine(GameOver());
 		}
 		// Still alive
@@ -239,6 +255,7 @@ public class GameController : MonoBehaviour
 				testInfo.totalFireCharging = ninjaController.totalFireCharging;
 				testInfo.totalWaterCharging = ninjaController.totalWaterCharging;
 				testInfo.numberTroopsKilled = ninjaController.numKills;
+				testInfo.success = true;
 				// Save the play test data
 				playTest.Save(testInfo);
 #endif
