@@ -1075,9 +1075,9 @@ MonoBehaviour:
       type="RAIN.Core.AI" refcount="1" id="0"><field value="True" type="System.Boolean"
       id="_isActive" /><field type="UnityEngine.GameObject" id="_body" gameobject="0"
       /><field type="RAIN.Memory.BasicMemory" reference="1" id="_workingMemory" childrenvisible="False"
-      /><field type="RAIN.Minds.BasicMind" reference="2" id="_mind" childrenvisible="False"
+      /><field type="RAIN.Minds.BasicMind" reference="2" id="_mind" childrenvisible="True"
       /><field type="RAIN.Motion.BasicMotor" reference="3" id="_motor" childrenvisible="False"
-      /><field type="RAIN.Animation.BasicAnimator" reference="6" id="_animator" childrenvisible="True"
+      /><field type="RAIN.Animation.BasicAnimator" reference="6" id="_animator" childrenvisible="False"
       /><field type="RAIN.Navigation.BasicNavigator" reference="7" id="_navigator"
       childrenvisible="False" /><field type="RAIN.Perception.BasicSenses" reference="8"
       id="_senses" childrenvisible="False" /><field type="System.Collections.Generic.List"
@@ -1268,7 +1268,7 @@ MonoBehaviour:
     - {fileID: 7400030, guid: ab78697ff2c410d44b6317913e52e07c, type: 3}
     - {fileID: 7400024, guid: ab78697ff2c410d44b6317913e52e07c, type: 3}
     - {fileID: 7400026, guid: ab78697ff2c410d44b6317913e52e07c, type: 3}
-    - {fileID: 11400000, guid: dd45f7355630249c4a37aaeca2eefc55, type: 2}
+    - {fileID: 11400000, guid: 437c268aec5ea4da38d0d73655145878, type: 2}
     - {fileID: 400010}
     - {fileID: 400010}
     - {fileID: 400010}
