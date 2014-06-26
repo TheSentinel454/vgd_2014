@@ -198,7 +198,7 @@ public class GameController : MonoBehaviour
 
 				print ("Timer: " + wptimer.getTimer());
 
-				if (wptimer.getTimer() > 20.0f) {
+				if (wptimer.getTimer() > 30.0f) {
 					//clear the buckets
 					foreach(FillableObject fo in triggers) {
 						fo.clearBucket();
