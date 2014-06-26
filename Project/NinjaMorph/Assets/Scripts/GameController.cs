@@ -16,7 +16,7 @@ public class GameController : MonoBehaviour
 	private bool airLevelComplete = true;	// Temporarily set to true
 	private GameObject airPuzzle;
 
-	private bool fireLevelComplete = false;
+	private bool fireLevelComplete = true; // Temporarily set to true
 	private GameObject firePuzzle;
 	private ArrayList torchOrder = new ArrayList(4);
 
@@ -141,6 +141,43 @@ public class GameController : MonoBehaviour
 			}
 			else if (!waterLevelComplete)
 			{
+
+				int numberFilled = 0;
+				ArrayList bucketWaters = new ArrayList(4);
+				ArrayList triggers = new ArrayList(4);
+
+				WaterPuzzleTimer wptimer = waterPuzzle.GetComponent<WaterPuzzleTimer>();
+
+				//fill up arrays with waters and fill triggers, and keep track of which buckets are filled
+				for(int i = 0; i < bucketWaters.Capacity; i++) {
+					bucketWaters.Add(GameObject.Find("Fillable Bucket " + i).transform.FindChild("bucket_water").GetComponent<InteractiveObject>());
+					triggers.Add(((InteractiveObject)bucketWaters[i]).transform.parent.Find("bottom_trigger" + i).GetComponent<FillableObject>());
+					if (((FillableObject)triggers[i]).filled) {
+						numberFilled++;
+					}
+				}
+
+				print ("Timer: " + wptimer.getTimer());
+
+				if (wptimer.getTimer() > 20.0f) {
+					//clear the buckets
+					foreach(FillableObject fo in triggers) {
+						fo.clearBucket();
+						fo.filled = false;
+					}
+					//restart timer
+					wptimer.setTimer(0.0f);
+					wptimer.setStarted(false);
+					//tell user he/she ran out of time
+					ninjaController.createMessage("You ran out of time!", 3.0f);
+				}
+				else if (numberFilled == bucketWaters.Capacity)
+				{
+					//tell them they've completed the room
+					ninjaController.createMessage("Water Room complete!", 5.0f);
+					waterLevelComplete = true;
+				}
+
 			}
 			else
 			{

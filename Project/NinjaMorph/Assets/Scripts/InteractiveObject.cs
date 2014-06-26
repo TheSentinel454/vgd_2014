@@ -77,7 +77,7 @@ public class InteractiveObject : MonoBehaviour
 	/// <param name="hit">Hit.</param>
 	public void PlayerCollision(InteractiveCollision collision)
 	{
-		print ("Player Collision: " + collision.GetCollider ().gameObject.name);
+		//print ("Player Collision: " + collision.GetCollider ().gameObject.name);
 		switch(collision.GetNinjaType())
 		{
 		case NinjaType.Air:
