@@ -71,7 +71,7 @@ public class PlayTesting
 			File.AppendAllText(filePath, "Start Time,End Time,Total Time," +
 			                   			 "Fire Start Time,Fire End Time,Fire Total Time," +
 			                   			 "Water Start Time,Water End Time,Water Total Time," +
-			                   			 "Air Time,Water Time,Fire Time," + 
+			                   			 "Air Time,Water Time,Fire Time," +
 			                   			 "Air Charge Time,Water Charge Time,Fire Charge Time," +
 			                   			 "Failed Fire,Failed Water," +
 			                   			 "Number of Attacks,Troops Killed,Average Health\n");
