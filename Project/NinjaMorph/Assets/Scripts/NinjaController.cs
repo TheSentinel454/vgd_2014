@@ -414,9 +414,9 @@ public class NinjaController : MonoBehaviour
 		}
 		float length;
 		if (_characterState == CharacterState.Running || _characterState == CharacterState.Walking)
-			length = _animation[moveAttackAnimation.name].length / 2.0f;
+			length = _animation[moveAttackAnimation.name].length;
 		else
-			length = _animation[idleAttackAnimation.name].length / 2.0f;
+			length = _animation[idleAttackAnimation.name].length;
 		yield return new WaitForSeconds(length);
 		attacking = false;
 	}
@@ -527,7 +527,7 @@ public class NinjaController : MonoBehaviour
 					
 					if (attacking)
 					{
-						_animation[idleAttackAnimation.name].speed = 2.0f;
+						_animation[idleAttackAnimation.name].speed = 1.0f;
 						_animation[idleAttackAnimation.name].wrapMode = WrapMode.ClampForever;
 						_animation.CrossFade(idleAttackAnimation.name);
 					}
@@ -546,7 +546,7 @@ public class NinjaController : MonoBehaviour
 					}
 					if (attacking)
 					{
-						_animation[moveAttackAnimation.name].speed = 2.0f;
+						_animation[moveAttackAnimation.name].speed = 1.0f;
 						_animation[moveAttackAnimation.name].wrapMode = WrapMode.ClampForever;
 						_animation.CrossFade(moveAttackAnimation.name);
 					}
