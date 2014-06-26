@@ -24,11 +24,11 @@ public class GameController : MonoBehaviour
 	private bool airLevelComplete = true;	// Temporarily set to true
 	private GameObject airPuzzle;
 
-	private bool fireLevelComplete = true; // Temporarily set to true
+	private bool fireLevelComplete = false;
 	private GameObject firePuzzle;
 	private ArrayList torchOrder = new ArrayList(4);
 
-	private bool waterLevelComplete = true;
+	private bool waterLevelComplete = false;
 	private GameObject waterPuzzle;
 
 	private bool gameActive = true;
