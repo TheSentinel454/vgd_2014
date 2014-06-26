@@ -871,25 +871,25 @@ public class NinjaController : MonoBehaviour
 				{
 				case ObjectType.Air:
 #if PLAY_TESTING
-					totalAirCharging += 0.1f;
+					totalAirCharging += 0.2f;
 #endif
-					airEnergy += 0.1f;
+					airEnergy += 0.2f;
 					if (airEnergy > 100.0f)
 						airEnergy = 100.0f;
 					break;
 				case ObjectType.Fire:
 #if PLAY_TESTING
-					totalFireCharging += 0.1f;
+					totalFireCharging += 0.2f;
 #endif
-					fireEnergy += 0.1f;
+					fireEnergy += 0.2f;
 					if (fireEnergy > 100.0f)
 						fireEnergy = 100.0f;
 					break;
 				case ObjectType.Water:
 #if PLAY_TESTING
-					totalWaterCharging += 0.1f;
+					totalWaterCharging += 0.2f;
 #endif
-					waterEnergy += 0.1f;
+					waterEnergy += 0.2f;
 					if (waterEnergy > 100.0f)
 						waterEnergy = 100.0f;
 					break;
