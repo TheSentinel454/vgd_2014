@@ -17767,22 +17767,22 @@ MonoBehaviour:
       type="System.Single" id="_outlineColorOffset" /><field value="0.4" type="System.Single"
       id="_selectionColorOffset" /></reference><reference type="RAIN.Navigation.Waypoints.Waypoint"
       refcount="1" id="1"><field value="" type="System.String" id="waypointName" /><field
-      value="47.24833,59.74586,336.3459" type="UnityEngine.Vector3" id="position"
+      value="47.24833,59.74586,351.9926" type="UnityEngine.Vector3" id="position"
       /><field value="0.5" type="System.Single" id="range" /></reference><reference
       type="RAIN.Navigation.Waypoints.Waypoint" refcount="1" id="2"><field value=""
-      type="System.String" id="waypointName" /><field value="31.22509,59.74586,324.7166"
+      type="System.String" id="waypointName" /><field value="29.1944,59.74586,334.0885"
       type="UnityEngine.Vector3" id="position" /><field value="0.5" type="System.Single"
       id="range" /></reference><reference type="RAIN.Navigation.Waypoints.Waypoint"
       refcount="1" id="3"><field value="" type="System.String" id="waypointName" /><field
-      value="38.45288,59.74586,307.5741" type="UnityEngine.Vector3" id="position"
+      value="36.93455,59.74586,312.947" type="UnityEngine.Vector3" id="position" /><field
+      value="0.5" type="System.Single" id="range" /></reference><reference type="RAIN.Navigation.Waypoints.Waypoint"
+      refcount="1" id="4"><field value="" type="System.String" id="waypointName" /><field
+      value="61.94592,59.74586,315.4877" type="UnityEngine.Vector3" id="position"
       /><field value="0.5" type="System.Single" id="range" /></reference><reference
-      type="RAIN.Navigation.Waypoints.Waypoint" refcount="1" id="4"><field value=""
-      type="System.String" id="waypointName" /><field value="58.65206,59.74586,307.4999"
+      type="RAIN.Navigation.Waypoints.Waypoint" refcount="1" id="5"><field value=""
+      type="System.String" id="waypointName" /><field value="64.86324,59.74586,345.5463"
       type="UnityEngine.Vector3" id="position" /><field value="0.5" type="System.Single"
-      id="range" /></reference><reference type="RAIN.Navigation.Waypoints.Waypoint"
-      refcount="1" id="5"><field value="" type="System.String" id="waypointName" /><field
-      value="64.1966,59.74586,323.2768" type="UnityEngine.Vector3" id="position" /><field
-      value="0.5" type="System.Single" id="range" /></reference></references></component>
+      id="range" /></reference></references></component>
     _serializedGameObjects: []
     _serializedCustomData: []
 --- !u!1 &971316160
@@ -24243,6 +24243,46 @@ Prefab:
     - target: {fileID: 400012, guid: c1629d0c148dc1c44a69360ac88cabfc, type: 2}
       propertyPath: m_LocalPosition.z
       value: -.44130373
+      objectReference: {fileID: 0}
+    - target: {fileID: 400074, guid: c1629d0c148dc1c44a69360ac88cabfc, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400028, guid: c1629d0c148dc1c44a69360ac88cabfc, type: 2}
+      propertyPath: _dataSerializer._serializedData
+      value: <component version="1.0" type="RAIN.Navigation.Waypoints.WaypointRig"><fields><field
+        value="True" type="System.Boolean" id="_showVisual" /><field type="RAIN.Navigation.Waypoints.WaypointSet"
+        reference="0" id="_waypointSet" /></fields><references><reference type="RAIN.Navigation.Waypoints.WaypointSet"
+        refcount="1" id="0"><field type="System.Collections.Generic.List" id="_waypoints"
+        elementtype="RAIN.Navigation.Waypoints.Waypoint"><field type="RAIN.Navigation.Waypoints.Waypoint"
+        reference="1" id="element0" /><field type="RAIN.Navigation.Waypoints.Waypoint"
+        reference="2" id="element1" /><field type="RAIN.Navigation.Waypoints.Waypoint"
+        reference="3" id="element2" /><field type="RAIN.Navigation.Waypoints.Waypoint"
+        reference="4" id="element3" /><field type="RAIN.Navigation.Waypoints.Waypoint"
+        reference="5" id="element4" /></field><field type="System.Collections.Generic.List"
+        id="_connections" elementtype="RAIN.Navigation.Waypoints.WaypointSet+WaypointConnection"
+        /><field value="" type="System.String" id="_setName" /><field value="Route"
+        type="RAIN.Navigation.Waypoints.WaypointSet+WaypointSetType" id="_setType"
+        /><field value="0,0.6,0.6,1" type="UnityEngine.Color" id="_networkColor" /><field
+        value="-0.5" type="System.Single" id="_outlineColorOffset" /><field value="0.4"
+        type="System.Single" id="_selectionColorOffset" /></reference><reference type="RAIN.Navigation.Waypoints.Waypoint"
+        refcount="1" id="1"><field value="" type="System.String" id="waypointName"
+        /><field value="47.24833,59.74586,351.9926" type="UnityEngine.Vector3" id="position"
+        /><field value="0.5" type="System.Single" id="range" /></reference><reference
+        type="RAIN.Navigation.Waypoints.Waypoint" refcount="1" id="2"><field value=""
+        type="System.String" id="waypointName" /><field value="29.1944,59.74586,334.0885"
+        type="UnityEngine.Vector3" id="position" /><field value="0.5" type="System.Single"
+        id="range" /></reference><reference type="RAIN.Navigation.Waypoints.Waypoint"
+        refcount="1" id="3"><field value="" type="System.String" id="waypointName"
+        /><field value="36.93455,59.74586,312.947" type="UnityEngine.Vector3" id="position"
+        /><field value="0.5" type="System.Single" id="range" /></reference><reference
+        type="RAIN.Navigation.Waypoints.Waypoint" refcount="1" id="4"><field value=""
+        type="System.String" id="waypointName" /><field value="61.94592,59.74586,315.4877"
+        type="UnityEngine.Vector3" id="position" /><field value="0.5" type="System.Single"
+        id="range" /></reference><reference type="RAIN.Navigation.Waypoints.Waypoint"
+        refcount="1" id="5"><field value="" type="System.String" id="waypointName"
+        /><field value="64.86324,59.74586,345.5463" type="UnityEngine.Vector3" id="position"
+        /><field value="0.5" type="System.Single" id="range" /></reference></references></component>
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1629d0c148dc1c44a69360ac88cabfc, type: 2}
