@@ -1,0 +1,182 @@
+fileFormatVersion: 2
+guid: 928dbad57f4456247a0d4c6a96f4b7af
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: CYBORG_NINJA
+    100002: //RootNode
+    100004: CYBORG_NINJA_
+    100006: CYBORG_NINJA_ Head
+    100008: CYBORG_NINJA_ L Calf
+    100010: CYBORG_NINJA_ L Clavicle
+    100012: CYBORG_NINJA_ L Finger0
+    100014: CYBORG_NINJA_ L Finger01
+    100016: CYBORG_NINJA_ L Finger02
+    100018: CYBORG_NINJA_ L Finger1
+    100020: CYBORG_NINJA_ L Finger11
+    100022: CYBORG_NINJA_ L Finger12
+    100024: CYBORG_NINJA_ L Foot
+    100026: CYBORG_NINJA_ L Forearm
+    100028: CYBORG_NINJA_ L Hand
+    100030: CYBORG_NINJA_ L Thigh
+    100032: CYBORG_NINJA_ L Toe0
+    100034: CYBORG_NINJA_ L UpperArm
+    100036: CYBORG_NINJA_ Neck
+    100038: CYBORG_NINJA_ Pelvis
+    100040: CYBORG_NINJA_ R Calf
+    100042: CYBORG_NINJA_ R Clavicle
+    100044: CYBORG_NINJA_ R Finger0
+    100046: CYBORG_NINJA_ R Finger01
+    100048: CYBORG_NINJA_ R Finger02
+    100050: CYBORG_NINJA_ R Finger1
+    100052: CYBORG_NINJA_ R Finger11
+    100054: CYBORG_NINJA_ R Finger12
+    100056: CYBORG_NINJA_ R Foot
+    100058: CYBORG_NINJA_ R Forearm
+    100060: CYBORG_NINJA_ R Hand
+    100062: CYBORG_NINJA_ R Thigh
+    100064: CYBORG_NINJA_ R Toe0
+    100066: CYBORG_NINJA_ R UpperArm
+    100068: CYBORG_NINJA_ Spine
+    100070: CYBORG_NINJA_ Spine1
+    100072: HAND_GUN_002
+    100074: HAND_GUN_003
+    100076: KATANA
+    100078: KATANA001
+    400000: //RootNode
+    400002: CYBORG_NINJA
+    400004: CYBORG_NINJA_
+    400006: CYBORG_NINJA_ Head
+    400008: CYBORG_NINJA_ L Calf
+    400010: CYBORG_NINJA_ L Clavicle
+    400012: CYBORG_NINJA_ L Finger0
+    400014: CYBORG_NINJA_ L Finger01
+    400016: CYBORG_NINJA_ L Finger02
+    400018: CYBORG_NINJA_ L Finger1
+    400020: CYBORG_NINJA_ L Finger11
+    400022: CYBORG_NINJA_ L Finger12
+    400024: CYBORG_NINJA_ L Foot
+    400026: CYBORG_NINJA_ L Forearm
+    400028: CYBORG_NINJA_ L Hand
+    400030: CYBORG_NINJA_ L Thigh
+    400032: CYBORG_NINJA_ L Toe0
+    400034: CYBORG_NINJA_ L UpperArm
+    400036: CYBORG_NINJA_ Neck
+    400038: CYBORG_NINJA_ Pelvis
+    400040: CYBORG_NINJA_ R Calf
+    400042: CYBORG_NINJA_ R Clavicle
+    400044: CYBORG_NINJA_ R Finger0
+    400046: CYBORG_NINJA_ R Finger01
+    400048: CYBORG_NINJA_ R Finger02
+    400050: CYBORG_NINJA_ R Finger1
+    400052: CYBORG_NINJA_ R Finger11
+    400054: CYBORG_NINJA_ R Finger12
+    400056: CYBORG_NINJA_ R Foot
+    400058: CYBORG_NINJA_ R Forearm
+    400060: CYBORG_NINJA_ R Hand
+    400062: CYBORG_NINJA_ R Thigh
+    400064: CYBORG_NINJA_ R Toe0
+    400066: CYBORG_NINJA_ R UpperArm
+    400068: CYBORG_NINJA_ Spine
+    400070: CYBORG_NINJA_ Spine1
+    400072: HAND_GUN_002
+    400074: HAND_GUN_003
+    400076: KATANA
+    400078: KATANA001
+    2300000: HAND_GUN_002
+    2300002: HAND_GUN_003
+    2300004: KATANA
+    2300006: KATANA001
+    3300000: HAND_GUN_002
+    3300002: HAND_GUN_003
+    3300004: KATANA
+    3300006: KATANA001
+    4300000: CYBORG_NINJA
+    4300002: HAND_GUN_002
+    4300004: KATANA
+    4300006: KATANA001
+    4300008: HAND_GUN_003
+    7400000: Take 001
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: CYBORG_NINJA
+  materials:
+    importMaterials: 1
+    materialName: 1
+    materialSearch: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 0
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 2
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 335
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 1
+  userData: 

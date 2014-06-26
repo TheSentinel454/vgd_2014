@@ -1,0 +1,132 @@
+fileFormatVersion: 2
+guid: ddf5fddba67de344b88afb69e0437447
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: CYBORG_NINJA_
+    100004: CYBORG_NINJA_ Head
+    100006: CYBORG_NINJA_ L Calf
+    100008: CYBORG_NINJA_ L Clavicle
+    100010: CYBORG_NINJA_ L Finger0
+    100012: CYBORG_NINJA_ L Finger01
+    100014: CYBORG_NINJA_ L Finger02
+    100016: CYBORG_NINJA_ L Finger1
+    100018: CYBORG_NINJA_ L Finger11
+    100020: CYBORG_NINJA_ L Finger12
+    100022: CYBORG_NINJA_ L Foot
+    100024: CYBORG_NINJA_ L Forearm
+    100026: CYBORG_NINJA_ L Hand
+    100028: CYBORG_NINJA_ L Thigh
+    100030: CYBORG_NINJA_ L Toe0
+    100032: CYBORG_NINJA_ L UpperArm
+    100034: CYBORG_NINJA_ Neck
+    100036: CYBORG_NINJA_ Pelvis
+    100038: CYBORG_NINJA_ R Calf
+    100040: CYBORG_NINJA_ R Clavicle
+    100042: CYBORG_NINJA_ R Finger0
+    100044: CYBORG_NINJA_ R Finger01
+    100046: CYBORG_NINJA_ R Finger02
+    100048: CYBORG_NINJA_ R Finger1
+    100050: CYBORG_NINJA_ R Finger11
+    100052: CYBORG_NINJA_ R Finger12
+    100054: CYBORG_NINJA_ R Foot
+    100056: CYBORG_NINJA_ R Forearm
+    100058: CYBORG_NINJA_ R Hand
+    100060: CYBORG_NINJA_ R Thigh
+    100062: CYBORG_NINJA_ R Toe0
+    100064: CYBORG_NINJA_ R UpperArm
+    100066: CYBORG_NINJA_ Spine
+    100068: CYBORG_NINJA_ Spine1
+    400000: //RootNode
+    400002: CYBORG_NINJA_
+    400004: CYBORG_NINJA_ Head
+    400006: CYBORG_NINJA_ L Calf
+    400008: CYBORG_NINJA_ L Clavicle
+    400010: CYBORG_NINJA_ L Finger0
+    400012: CYBORG_NINJA_ L Finger01
+    400014: CYBORG_NINJA_ L Finger02
+    400016: CYBORG_NINJA_ L Finger1
+    400018: CYBORG_NINJA_ L Finger11
+    400020: CYBORG_NINJA_ L Finger12
+    400022: CYBORG_NINJA_ L Foot
+    400024: CYBORG_NINJA_ L Forearm
+    400026: CYBORG_NINJA_ L Hand
+    400028: CYBORG_NINJA_ L Thigh
+    400030: CYBORG_NINJA_ L Toe0
+    400032: CYBORG_NINJA_ L UpperArm
+    400034: CYBORG_NINJA_ Neck
+    400036: CYBORG_NINJA_ Pelvis
+    400038: CYBORG_NINJA_ R Calf
+    400040: CYBORG_NINJA_ R Clavicle
+    400042: CYBORG_NINJA_ R Finger0
+    400044: CYBORG_NINJA_ R Finger01
+    400046: CYBORG_NINJA_ R Finger02
+    400048: CYBORG_NINJA_ R Finger1
+    400050: CYBORG_NINJA_ R Finger11
+    400052: CYBORG_NINJA_ R Finger12
+    400054: CYBORG_NINJA_ R Foot
+    400056: CYBORG_NINJA_ R Forearm
+    400058: CYBORG_NINJA_ R Hand
+    400060: CYBORG_NINJA_ R Thigh
+    400062: CYBORG_NINJA_ R Toe0
+    400064: CYBORG_NINJA_ R UpperArm
+    400066: CYBORG_NINJA_ Spine
+    400068: CYBORG_NINJA_ Spine1
+    7400000: Take 001
+    9500000: //RootNode
+    11100000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 0
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 2
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 1
+  userData: 
