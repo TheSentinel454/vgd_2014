@@ -1142,6 +1142,8 @@ GameObject:
   - 4: {fileID: 400138}
   - 33: {fileID: 3300048}
   - 23: {fileID: 2300048}
+  - 54: {fileID: 5400000}
+  - 65: {fileID: 6500012}
   m_Layer: 0
   m_Name: Crate
   m_TagString: Untagged
@@ -1332,7 +1334,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100012}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -40.8867188, y: 24.4337578, z: -37.5675507}
+  m_LocalPosition: {x: -3.38913012, y: 17.6674767, z: -.44130373}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400074}
@@ -1354,7 +1356,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100016}
   m_LocalRotation: {x: 0, y: -.707106829, z: 0, w: .707106829}
-  m_LocalPosition: {x: -56.6712685, y: 4.01463699, z: -35.0575485}
+  m_LocalPosition: {x: -19.173708, y: -2.75164413, z: 2.06870055}
   m_LocalScale: {x: 5, y: 1, z: 4.69999981}
   m_Children: []
   m_Father: {fileID: 400074}
@@ -1379,7 +1381,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100020}
   m_LocalRotation: {x: 0, y: .710304022, z: 0, w: .703895092}
-  m_LocalPosition: {x: -76.0792313, y: 2.53787994, z: -36.0344315}
+  m_LocalPosition: {x: -38.5816689, y: -4.22840118, z: 1.09181523}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400094}
@@ -1436,7 +1438,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -79.6979218, y: 24.4337559, z: -13.4601688}
+  m_LocalPosition: {x: -42.2003555, y: 17.6674767, z: 23.6660843}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400074}
@@ -1482,7 +1484,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100036}
   m_LocalRotation: {x: .00193780463, y: .707104146, z: .00193780416, w: .707104146}
-  m_LocalPosition: {x: -82.9666595, y: 14.2849064, z: -35.3111992}
+  m_LocalPosition: {x: -45.4690895, y: 7.51862717, z: 1.81505072}
   m_LocalScale: {x: 50, y: 25, z: 1}
   m_Children: []
   m_Father: {fileID: 400074}
@@ -1538,7 +1540,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100046}
   m_LocalRotation: {x: 0, y: -.707106829, z: 0, w: .707106829}
-  m_LocalPosition: {x: -57.1536293, y: -16.9311562, z: -14.4159937}
+  m_LocalPosition: {x: -19.6560402, y: -23.6974373, z: 22.7102623}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400096}
@@ -1589,7 +1591,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100054}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -57.3513222, y: 14.2849083, z: -9.99866486}
+  m_LocalPosition: {x: -19.853735, y: 7.51862717, z: 27.1275921}
   m_LocalScale: {x: 50.0000153, y: 25, z: 1}
   m_Children: []
   m_Father: {fileID: 400074}
@@ -1600,7 +1602,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100056}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -57.3513184, y: 14.2849083, z: -60}
+  m_LocalPosition: {x: -19.8537598, y: 7.51862717, z: -22.8737564}
   m_LocalScale: {x: 50, y: 25, z: 1}
   m_Children: []
   m_Father: {fileID: 400074}
@@ -1622,7 +1624,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100060}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -79.697876, y: 24.4337578, z: -57.8700409}
+  m_LocalPosition: {x: -42.2003174, y: 17.6674767, z: -20.7438011}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400074}
@@ -1633,7 +1635,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100062}
   m_LocalRotation: {x: 0, y: -.707106829, z: 0, w: .707106829}
-  m_LocalPosition: {x: 270.911652, y: -57.2079811, z: -83.9999771}
+  m_LocalPosition: {x: 308.409302, y: -63.9742622, z: -46.8737335}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400074}
@@ -1656,7 +1658,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100066}
   m_LocalRotation: {x: .00193780463, y: .707104146, z: .00193780416, w: .707104146}
-  m_LocalPosition: {x: -32.1090927, y: 14.2618809, z: -31.3131294}
+  m_LocalPosition: {x: 5.38848877, y: 7.49560165, z: 5.81311893}
   m_LocalScale: {x: 42.0898094, y: 25, z: 1}
   m_Children: []
   m_Father: {fileID: 400074}
@@ -1703,7 +1705,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100074}
   m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106829}
-  m_LocalPosition: {x: 84, y: 57.2079811, z: 270.911621}
+  m_LocalPosition: {x: 44.8124084, y: 63.9742622, z: 312.173859}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400020}
@@ -1740,7 +1742,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100078}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: -58.0628357, y: 26.1286335, z: -35.1895714}
+  m_LocalPosition: {x: -20.5652485, y: 19.3623543, z: 1.93667758}
   m_LocalScale: {x: 51, y: 51, z: 1}
   m_Children: []
   m_Father: {fileID: 400074}
@@ -1936,7 +1938,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100112}
   m_LocalRotation: {x: .5, y: .5, z: -.5, w: .5}
-  m_LocalPosition: {x: -57.8472443, y: 2.03787994, z: -34.9877472}
+  m_LocalPosition: {x: -20.3496723, y: -4.72840118, z: 2.13850188}
   m_LocalScale: {x: 51, y: 51.0000153, z: 1}
   m_Children: []
   m_Father: {fileID: 400074}
@@ -2029,7 +2031,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100128}
   m_LocalRotation: {x: 0, y: -.707106829, z: 0, w: .707106829}
-  m_LocalPosition: {x: -60.0026283, y: 3.73009109, z: -34.5614357}
+  m_LocalPosition: {x: -22.5050678, y: -3.03619003, z: 2.56481314}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400138}
@@ -3033,6 +3035,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100150}
   m_Mesh: {fileID: 4300006, guid: ce8d79c79d11b8f9d00076e98d76c639, type: 3}
+--- !u!54 &5400000
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100138}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!64 &6400000
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -3274,6 +3291,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &6500012
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100138}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: .300000131, y: .300000161, z: .299999982}
+  m_Center: {x: 3.49155882e-09, y: -3.91168253e-09, z: .150000468}
 --- !u!95 &9500000
 Animator:
   serializedVersion: 2
@@ -3899,22 +3928,22 @@ MonoBehaviour:
       type="System.Single" id="_outlineColorOffset" /><field value="0.4" type="System.Single"
       id="_selectionColorOffset" /></reference><reference type="RAIN.Navigation.Waypoints.Waypoint"
       refcount="1" id="1"><field value="" type="System.String" id="waypointName" /><field
-      value="47.24833,59.74586,336.3459" type="UnityEngine.Vector3" id="position"
+      value="46.30669,59.74586,348.7437" type="UnityEngine.Vector3" id="position"
       /><field value="0.5" type="System.Single" id="range" /></reference><reference
       type="RAIN.Navigation.Waypoints.Waypoint" refcount="1" id="2"><field value=""
-      type="System.String" id="waypointName" /><field value="31.22509,59.74586,324.7166"
+      type="System.String" id="waypointName" /><field value="28.44035,59.74586,335.5583"
       type="UnityEngine.Vector3" id="position" /><field value="0.5" type="System.Single"
       id="range" /></reference><reference type="RAIN.Navigation.Waypoints.Waypoint"
       refcount="1" id="3"><field value="" type="System.String" id="waypointName" /><field
-      value="38.45288,59.74586,307.5741" type="UnityEngine.Vector3" id="position"
+      value="34.3194,59.74586,314.7616" type="UnityEngine.Vector3" id="position" /><field
+      value="0.5" type="System.Single" id="range" /></reference><reference type="RAIN.Navigation.Waypoints.Waypoint"
+      refcount="1" id="4"><field value="" type="System.String" id="waypointName" /><field
+      value="57.40944,59.74586,314.9006" type="UnityEngine.Vector3" id="position"
       /><field value="0.5" type="System.Single" id="range" /></reference><reference
-      type="RAIN.Navigation.Waypoints.Waypoint" refcount="1" id="4"><field value=""
-      type="System.String" id="waypointName" /><field value="58.65206,59.74586,307.4999"
+      type="RAIN.Navigation.Waypoints.Waypoint" refcount="1" id="5"><field value=""
+      type="System.String" id="waypointName" /><field value="63.82257,59.74586,334.7425"
       type="UnityEngine.Vector3" id="position" /><field value="0.5" type="System.Single"
-      id="range" /></reference><reference type="RAIN.Navigation.Waypoints.Waypoint"
-      refcount="1" id="5"><field value="" type="System.String" id="waypointName" /><field
-      value="64.1966,59.74586,323.2768" type="UnityEngine.Vector3" id="position" /><field
-      value="0.5" type="System.Single" id="range" /></reference></references></component>
+      id="range" /></reference></references></component>
     _serializedGameObjects: []
     _serializedCustomData: []
 --- !u!114 &11400030
