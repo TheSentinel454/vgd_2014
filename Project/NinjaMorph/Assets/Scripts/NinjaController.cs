@@ -700,10 +700,10 @@ public class NinjaController : MonoBehaviour
 		if (ninjaType == NinjaType.Air)
 		{
 #if PLAY_TESTING
-			totalAirTime += 0.1f;
+			totalAirTime += 0.05f;
 #endif
 			// Decrement the energy level
-			airEnergy -= 0.1f;
+			airEnergy -= 0.05f;
 			// Make sure we don't fall below zero
 			if (airEnergy < 0.0f)
 				airEnergy = 0.0f;
@@ -712,10 +712,10 @@ public class NinjaController : MonoBehaviour
 		else if (ninjaType == NinjaType.Fire)
 		{
 #if PLAY_TESTING
-			totalFireTime += 0.1f;
+			totalFireTime += 0.05f;
 #endif
 			// Decrement the energy level
-			fireEnergy -= 0.1f;
+			fireEnergy -= 0.05f;
 			// Make sure we don't fall below zero
 			if (fireEnergy < 0.0f)
 				fireEnergy = 0.0f;
@@ -724,10 +724,10 @@ public class NinjaController : MonoBehaviour
 		else if (ninjaType == NinjaType.Water)
 		{
 #if PLAY_TESTING
-			totalWaterTime += 0.1f;
+			totalWaterTime += 0.05f;
 #endif
 			// Decrement the energy level
-			waterEnergy -= 0.1f;
+			waterEnergy -= 0.05f;
 			// Make sure we don't fall below zero
 			if (waterEnergy < 0.0f)
 				waterEnergy = 0.0f;
@@ -865,7 +865,10 @@ public class NinjaController : MonoBehaviour
 		if (obj != null)
 		{
 			obj.PlayerCollisionStay(new InteractiveCollision(collider, ninjaType));
-			if (ninjaType == NinjaType.Base)
+			if (ninjaType == NinjaType.Base || 
+			    (ninjaType == NinjaType.Air && obj.getObjectType() == ObjectType.Air) ||
+			    (ninjaType == NinjaType.Fire && obj.getObjectType() == ObjectType.Fire) ||
+			    (ninjaType == NinjaType.Water && obj.getObjectType() == ObjectType.Water))
 			{
 				switch(obj.getObjectType())
 				{
@@ -875,7 +878,12 @@ public class NinjaController : MonoBehaviour
 #endif
 					airEnergy += 0.2f;
 					if (airEnergy > 100.0f)
+					{
+						zenEnergy += 0.1f;
+						if (zenEnergy > 100.0f)
+							zenEnergy = 100.0f;
 						airEnergy = 100.0f;
+					}
 					break;
 				case ObjectType.Fire:
 #if PLAY_TESTING
@@ -883,7 +891,12 @@ public class NinjaController : MonoBehaviour
 #endif
 					fireEnergy += 0.2f;
 					if (fireEnergy > 100.0f)
+					{
+						zenEnergy += 0.1f;
+						if (zenEnergy > 100.0f)
+							zenEnergy = 100.0f;
 						fireEnergy = 100.0f;
+					}
 					break;
 				case ObjectType.Water:
 #if PLAY_TESTING
@@ -891,7 +904,12 @@ public class NinjaController : MonoBehaviour
 #endif
 					waterEnergy += 0.2f;
 					if (waterEnergy > 100.0f)
+					{
+						zenEnergy += 0.1f;
+						if (zenEnergy > 100.0f)
+							zenEnergy = 100.0f;
 						waterEnergy = 100.0f;
+					}
 					break;
 				}
 			}
