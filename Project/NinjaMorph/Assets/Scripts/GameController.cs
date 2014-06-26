@@ -145,8 +145,6 @@ public class GameController : MonoBehaviour
 					}
 					if (fireLevelComplete)
 					{
-
-
 						// Find all of the crates and allow them to be moved.
 						Rigidbody[] crates = GameObject.FindGameObjectWithTag("Crates").GetComponentsInChildren<Rigidbody>();
 						foreach (Rigidbody crate in crates) {
@@ -222,6 +220,15 @@ public class GameController : MonoBehaviour
 #if PLAY_TESTING
 				// Set the test data
 				testInfo.endTime = Time.time;
+				testInfo.numberAttacks = ninjaController.numAttacks;
+				testInfo.averageHealth = ninjaController.avgHealth();
+				testInfo.totalAirTime = ninjaController.totalAirTime;
+				testInfo.totalFireTime = ninjaController.totalFireTime;
+				testInfo.totalWaterTime = ninjaController.totalWaterTime;
+				testInfo.totalAirCharging = ninjaController.totalAirCharging;
+				testInfo.totalFireCharging = ninjaController.totalFireCharging;
+				testInfo.totalWaterCharging = ninjaController.totalWaterCharging;
+				testInfo.numberTroopsKilled = ninjaController.numKills;
 				// Save the play test data
 				playTest.Save(testInfo);
 #endif

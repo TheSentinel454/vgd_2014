@@ -5,6 +5,7 @@
   Luke Tornquist
   Jonathan Yates
 */
+#define PLAY_TESTING
 
 using UnityEngine;
 using System.Collections;
@@ -159,6 +160,20 @@ public class NinjaController : MonoBehaviour
 	public float getFireEnergy(){return fireEnergy;}
 	private float waterEnergy = 100.0f;
 	public float getWaterEnergy(){return waterEnergy;}
+
+#if PLAY_TESTING
+	public int numAttacks = 0;
+	public int numKills = 0;
+	public float totalAirTime = 0.0f;
+	public float totalFireTime = 0.0f;
+	public float totalWaterTime = 0.0f;
+	public float totalAirCharging = 0.0f;
+	public float totalFireCharging = 0.0f;
+	public float totalWaterCharging = 0.0f;
+	private float sumHealth = 0.0f;
+	private float numHealthPoints = 0.0f;
+	public float avgHealth(){ return (sumHealth / numHealthPoints); }
+#endif
 
     private bool isControllable = true;
 
@@ -360,6 +375,9 @@ public class NinjaController : MonoBehaviour
 
 	public void DidAttack()
 	{
+#if PLAY_TESTING
+		numAttacks++;
+#endif
 		attacking = true;
 		StartCoroutine(Attack());
 	}
@@ -384,6 +402,13 @@ public class NinjaController : MonoBehaviour
 				{
 					// Deal damage to the object
 					obj.DealDamage(50.0f);
+#if PLAY_TESTING
+					// Check for death
+					if (!obj.alive)
+					{
+						numKills++;
+					}
+#endif
 				}
 			}
 		}
@@ -416,6 +441,10 @@ public class NinjaController : MonoBehaviour
 
     void Update()
 	{
+#if PLAY_TESTING
+		sumHealth += zenEnergy;
+		numHealthPoints += 1.0f;
+#endif
 		updateEnergyValues ();
 		handleNinjaChange ();
 
@@ -670,6 +699,9 @@ public class NinjaController : MonoBehaviour
 		// Check the air type
 		if (ninjaType == NinjaType.Air)
 		{
+#if PLAY_TESTING
+			totalAirTime += 0.1f;
+#endif
 			// Decrement the energy level
 			airEnergy -= 0.1f;
 			// Make sure we don't fall below zero
@@ -679,6 +711,9 @@ public class NinjaController : MonoBehaviour
 		// Check the fire type
 		else if (ninjaType == NinjaType.Fire)
 		{
+#if PLAY_TESTING
+			totalFireTime += 0.1f;
+#endif
 			// Decrement the energy level
 			fireEnergy -= 0.1f;
 			// Make sure we don't fall below zero
@@ -688,6 +723,9 @@ public class NinjaController : MonoBehaviour
 		// Check the water type
 		else if (ninjaType == NinjaType.Water)
 		{
+#if PLAY_TESTING
+			totalWaterTime += 0.1f;
+#endif
 			// Decrement the energy level
 			waterEnergy -= 0.1f;
 			// Make sure we don't fall below zero
@@ -832,19 +870,25 @@ public class NinjaController : MonoBehaviour
 				switch(obj.getObjectType())
 				{
 				case ObjectType.Air:
-					//print ("Air increase due to: " + collider.gameObject.name);
+#if PLAY_TESTING
+					totalAirCharging += 0.1f;
+#endif
 					airEnergy += 0.1f;
 					if (airEnergy > 100.0f)
 						airEnergy = 100.0f;
 					break;
 				case ObjectType.Fire:
-					//print ("Fire increase due to: " + collider.gameObject.name);
+#if PLAY_TESTING
+					totalFireCharging += 0.1f;
+#endif
 					fireEnergy += 0.1f;
 					if (fireEnergy > 100.0f)
 						fireEnergy = 100.0f;
 					break;
 				case ObjectType.Water:
-					//print ("Water increase due to: " + collider.gameObject.name);
+#if PLAY_TESTING
+					totalWaterCharging += 0.1f;
+#endif
 					waterEnergy += 0.1f;
 					if (waterEnergy > 100.0f)
 						waterEnergy = 100.0f;

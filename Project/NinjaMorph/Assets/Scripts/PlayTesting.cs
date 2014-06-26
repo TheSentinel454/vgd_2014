@@ -10,16 +10,28 @@ using System.IO;
 [System.Serializable]
 public class PlayTestInfo
 {
-	public float startTime = -1.0f;
-	public float endTime = -1.0f;
+	public float startTime = -1.0f;			// Done
+	public float endTime = -1.0f;			// Done
 
-	public float startFireTime = -1.0f;
-	public float endFireTime = -1.0f;
-	public int failedFirePuzzles = 0;
+	public float startFireTime = -1.0f;		// Done
+	public float endFireTime = -1.0f;		// Done
+	public int failedFirePuzzles = 0;		// Done
 
-	public float startWaterTime = -1.0f;
-	public float endWaterTime = -1.0f;
-	public int failedWaterPuzzles = 0;
+	public float startWaterTime = -1.0f;	// Done
+	public float endWaterTime = -1.0f;		// Done
+	public int failedWaterPuzzles = 0;		// Done
+	
+	public float totalAirTime = 0.0f;		// Done
+	public float totalWaterTime = 0.0f;		// Done
+	public float totalFireTime = 0.0f;		// Done
+	
+	public float totalAirCharging = 0.0f;	// Done
+	public float totalWaterCharging = 0.0f;	// Done
+	public float totalFireCharging = 0.0f;	// Done
+
+	public int numberAttacks = 0;			// Done
+	public int numberTroopsKilled = 0;		// Done
+	public float averageHealth = 100.0f;	// Done
 
 	/// <summary>
 	/// Gets the data.
@@ -29,8 +41,12 @@ public class PlayTestInfo
 	{
 		return (startTime + "," + endTime + "," + (endTime - startTime) + "," + 
 		        startFireTime + "," + endFireTime + "," + (endFireTime - startFireTime) + "," + 
-		        startWaterTime + "," + endWaterTime + "," + (endWaterTime - startWaterTime) + "\n"
-		        );
+		        startWaterTime + "," + endWaterTime + "," + (endWaterTime - startWaterTime) + "," +
+		        totalAirTime + "," + totalWaterTime + "," + totalFireTime + "," +
+		        totalAirCharging + "," + totalWaterCharging + "," + totalFireCharging + "," +
+		        failedFirePuzzles + "," + failedWaterPuzzles + "," +
+		        numberAttacks + "," + numberTroopsKilled + "," + averageHealth +
+		        "\n");
 	}
 }
 
@@ -55,7 +71,10 @@ public class PlayTesting
 			File.AppendAllText(filePath, "Start Time,End Time,Total Time," +
 			                   			 "Fire Start Time,Fire End Time,Fire Total Time," +
 			                   			 "Water Start Time,Water End Time,Water Total Time," +
-			                   			 "Failed Fire,Failed Water\n");
+			                   			 "Air Time,Water Time,Fire Time," + 
+			                   			 "Air Charge Time,Water Charge Time,Fire Charge Time," +
+			                   			 "Failed Fire,Failed Water," +
+			                   			 "Number of Attacks,Troops Killed,Average Health\n");
 		}
 		Debug.Log("Play Test Data saved: " + filePath);
 		// Write all the data out
