@@ -177,7 +177,10 @@ public class GameController : MonoBehaviour
 			}
 			else if (!waterLevelComplete)
 			{
-
+#if PLAY_TESTING
+				if (testInfo.startWaterTime < 0.0f)
+					testInfo.startWaterTime = Time.time;
+#endif
 				int numberFilled = 0;
 				ArrayList bucketWaters = new ArrayList(4);
 				ArrayList triggers = new ArrayList(4);
@@ -206,12 +209,19 @@ public class GameController : MonoBehaviour
 					wptimer.setStarted(false);
 					//tell user he/she ran out of time
 					ninjaController.createMessage("You ran out of time!", 3.0f);
+#if PLAY_TESTING
+					testInfo.failedWaterPuzzles++;
+#endif
 				}
 				else if (numberFilled == bucketWaters.Capacity)
 				{
 					//tell them they've completed the room
 					ninjaController.createMessage("Water Room complete!", 5.0f);
 					waterLevelComplete = true;
+#if PLAY_TESTING
+					// Track the end water time
+					testInfo.endWaterTime = Time.time;
+#endif
 				}
 
 			}
