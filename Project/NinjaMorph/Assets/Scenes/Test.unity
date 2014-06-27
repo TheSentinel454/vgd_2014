@@ -689,7 +689,7 @@ Transform:
   m_GameObject: {fileID: 865639580}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -705,7 +705,6 @@ GameObject:
   - 92: {fileID: 882552430}
   - 124: {fileID: 882552429}
   - 81: {fileID: 882552428}
-  - 114: {fileID: 882552433}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -778,17 +777,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &882552433
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 882552427}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9068d5c7fe0baba43b45cc7f4d12230a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &924003692
 GameObject:
   m_ObjectHideFlags: 0
@@ -1503,6 +1491,7 @@ GameObject:
   - 114: {fileID: 1967447936}
   - 114: {fileID: 1967447940}
   - 114: {fileID: 1967447941}
+  - 114: {fileID: 1967447942}
   m_Layer: 0
   m_Name: Cyborg Ninja
   m_TagString: Player
@@ -1728,6 +1717,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackKey: 47
   weaponDrawDelay: .150000006
+--- !u!114 &1967447942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1967447934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b167d00b3108411a8a963cba5ddde1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraTransform: {fileID: 882552432}
+  distance: 7
+  height: 3
+  angularSmoothLag: .300000012
+  angularMaxSpeed: 15
+  heightSmoothLag: .300000012
+  snapSmoothLag: .200000003
+  snapMaxSpeed: 720
+  clampHeadPositionScreenSpace: .75
+  lockCameraTimeout: .200000003
 --- !u!1 &1995672847
 GameObject:
   m_ObjectHideFlags: 0
