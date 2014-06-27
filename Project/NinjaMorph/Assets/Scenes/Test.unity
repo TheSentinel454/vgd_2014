@@ -1502,6 +1502,7 @@ GameObject:
   - 114: {fileID: 1967447937}
   - 114: {fileID: 1967447936}
   - 114: {fileID: 1967447940}
+  - 114: {fileID: 1967447941}
   m_Layer: 0
   m_Name: Cyborg Ninja
   m_TagString: Player
@@ -1714,6 +1715,19 @@ MonoBehaviour:
   grounded: 0
   weapon: 0
   dead: 0
+--- !u!114 &1967447941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1967447934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75143b83161114a28bc3f1f38740990d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackKey: 47
+  weaponDrawDelay: .150000006
 --- !u!1 &1995672847
 GameObject:
   m_ObjectHideFlags: 0

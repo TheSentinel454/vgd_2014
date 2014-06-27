@@ -6,7 +6,7 @@ public class CyborgNinjaController : MonoBehaviour {
 
 	// CONTROLS
 	public KeyCode attackKey;
-	public float attackKeyPressDelay = 0.15f;
+	public float weaponDrawDelay = 0.15f;
 
 	// CONTROL TIMERS
 	float attackKeyPressedTimer;
@@ -17,7 +17,7 @@ public class CyborgNinjaController : MonoBehaviour {
 	// Get the animation controller and initialize the attack key timer
 	void Start () {
 		animationController = GetComponent<CyborgNinjaAnimationController> ();
-		attackKeyPressedTimer = attackKeyPressDelay;
+		attackKeyPressedTimer = weaponDrawDelay;
 	}
 	
 	// Determine what the ninja should be doing.
@@ -34,11 +34,11 @@ public class CyborgNinjaController : MonoBehaviour {
 
 		// If he releases the attack key before the before the attack delay is completed, we are just
 		// going to toggle his sword
-		} else if (attackKeyPressedTimer < attackKeyPressDelay) {
+		} else if (attackKeyPressedTimer < weaponDrawDelay) {
 			if (attackKeyPressedTimer > 0) {
 				animationController.weapon = !animationController.weapon;
 			}
-			attackKeyPressedTimer = attackKeyPressDelay;
+			attackKeyPressedTimer = weaponDrawDelay;
 		}
 	}
 }
