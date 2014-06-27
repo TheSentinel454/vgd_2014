@@ -64,7 +64,7 @@ public class AnimationController : MonoBehaviour {
 		// putBackSword
 		// 3HitComboSword
 		if (grounded == true && landingJump == false && displacement.sqrMagnitude <= 0.0001f) {
-			animation.CrossFade(weaponOut ? "idleSword" : "idlestandbreathe", 1.0f);
+			animation.CrossFade(weaponOut ? "idleSword" : "idlestandbreathe");
 
 			if (weapon == true && weaponOut == false) {
 				animation.CrossFade("getSword");
