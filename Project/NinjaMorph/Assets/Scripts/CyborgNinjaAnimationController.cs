@@ -5,7 +5,7 @@ public class CyborgNinjaAnimationController : MonoBehaviour {
 
 	// STATE FLAGS
 	public bool attacking = false;
-	public bool grounded = false;
+	public bool grounded = true;
 	public bool weapon = false;
 	public bool dead = false;
 
@@ -70,17 +70,17 @@ public class CyborgNinjaAnimationController : MonoBehaviour {
 				animation.CrossFade("getSword");
 			}
 
-			if (weapon == false && weaponOut == true) {
+			if (attacking == false && weapon == false && weaponOut == true) {
 				animation.CrossFade("putBackSword");
+			}
+
+			if (attacking == true && weaponOut == false) {
+				animation.CrossFade("getSword");
 			}
 
 			if (attacking == true && weaponOut == true) {
 				animation["3HitComboSword"].wrapMode = WrapMode.Once;
 				animation.CrossFade("3HitComboSword");
-			}
-
-			if (attacking == true && weaponOut == false) {
-				animation.CrossFade("getSword");
 			}
 		}
 
