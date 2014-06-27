@@ -12,14 +12,14 @@ SceneSettings:
     backfaceThreshold: 100
 --- !u!104 &2
 RenderSettings:
-  m_Fog: 0
-  m_FogColor: {r: .5, g: .5, b: .5, a: 1}
+  m_Fog: 1
+  m_FogColor: {r: 0, g: 0, b: 0, a: 1}
   m_FogMode: 3
-  m_FogDensity: .00999999978
+  m_FogDensity: .0199999996
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientLight: {r: .200000003, g: .200000003, b: .200000003, a: 1}
-  m_SkyboxMaterial: {fileID: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 9ba05f538ee36044da5cd2a4f14a8b18, type: 2}
   m_HaloStrength: .5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -413,8 +413,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 3
   m_Type: 1
-  m_Color: {r: 1, g: .987626791, b: .551470578, a: 1}
-  m_Intensity: .400000006
+  m_Color: {r: 1, g: .888235271, b: .720588207, a: 1}
+  m_Intensity: .600000024
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -445,7 +445,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 569373177}
-  m_LocalRotation: {x: .330366135, y: -.243210375, z: .0885213464, w: .907673359}
+  m_LocalRotation: {x: .21130915, y: .21130915, z: -.0468461141, w: .953153908}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -653,7 +653,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a8b04144f147be6489581d4fc35eedca, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -965,6 +965,10 @@ Prefab:
     - target: {fileID: 11400000, guid: d0cfe9de5f3e74c2f8313809afe6ff2d, type: 2}
       propertyPath: attacking
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: d0cfe9de5f3e74c2f8313809afe6ff2d, type: 2}
+      propertyPath: grounded
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d0cfe9de5f3e74c2f8313809afe6ff2d, type: 2}
@@ -1701,7 +1705,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attacking: 0
-  grounded: 0
+  grounded: 1
   weapon: 0
   dead: 0
 --- !u!114 &1967447941
