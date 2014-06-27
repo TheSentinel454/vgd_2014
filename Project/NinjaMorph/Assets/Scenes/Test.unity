@@ -1732,12 +1732,12 @@ MonoBehaviour:
   distance: 7
   height: 3
   angularSmoothLag: .300000012
-  angularMaxSpeed: 15
+  angularMaxSpeed: 720
   heightSmoothLag: .300000012
   snapSmoothLag: .200000003
   snapMaxSpeed: 720
   clampHeadPositionScreenSpace: .75
-  lockCameraTimeout: .200000003
+  lockCameraTimeout: 0
 --- !u!1 &1995672847
 GameObject:
   m_ObjectHideFlags: 0
