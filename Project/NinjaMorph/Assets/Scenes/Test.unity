@@ -789,20 +789,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9068d5c7fe0baba43b45cc7f4d12230a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1967447935}
-  minDistance: 3
-  maxDistance: 15
-  zoomSpeed: 5
-  distance: 10
-  xSpeed: 250
-  ySpeed: 120
-  yMinLimit: -20
-  yMaxLimit: 80
-  x: 0
-  y: 0
-  height: 3
-  heightDamping: 2
-  rotationDamping: 3
 --- !u!1 &924003692
 GameObject:
   m_ObjectHideFlags: 0
@@ -983,6 +969,14 @@ Prefab:
     - target: {fileID: 400000, guid: d0cfe9de5f3e74c2f8313809afe6ff2d, type: 2}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11100000, guid: d0cfe9de5f3e74c2f8313809afe6ff2d, type: 2}
+      propertyPath: m_Animations.Array.data[5]
+      value: 
+      objectReference: {fileID: 7400000, guid: c65f012c6ca604beda51a9e4f94e469c, type: 2}
+    - target: {fileID: 11400000, guid: d0cfe9de5f3e74c2f8313809afe6ff2d, type: 2}
+      propertyPath: attacking
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d0cfe9de5f3e74c2f8313809afe6ff2d, type: 2}
@@ -1647,7 +1641,7 @@ Animation:
   - {fileID: 7400000, guid: dd85470852574ec45b3ede786537ebd6, type: 3}
   - {fileID: 7400000, guid: 4ec5c5c6b2126d540b61ecbc915513a5, type: 3}
   - {fileID: 7400000, guid: 026f6812ebff17d45ac9710dd5c9d3f3, type: 3}
-  - {fileID: 7400000, guid: cdba9448b3a7258439470fd202ecb8dd, type: 3}
+  - {fileID: 7400000, guid: c65f012c6ca604beda51a9e4f94e469c, type: 2}
   - {fileID: 7400000, guid: 24c0f65175fa3e44da6c31050396f440, type: 3}
   - {fileID: 7400000, guid: a4f2d81e288c8fd47b176a3034047d51, type: 3}
   - {fileID: 7400000, guid: ca2bc948237d0bd4f83b4db0ab604a0b, type: 3}

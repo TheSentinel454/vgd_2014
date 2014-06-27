@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AnimationController : MonoBehaviour {
+public class CyborgNinjaAnimationController : MonoBehaviour {
 
 	// STATE FLAGS
 	public bool attacking = false;
@@ -75,7 +75,7 @@ public class AnimationController : MonoBehaviour {
 			}
 
 			if (attacking == true && weaponOut == true) {
-				animation["3HitComboSword"].wrapMode = WrapMode.Loop;
+				animation["3HitComboSword"].wrapMode = WrapMode.Once;
 				animation.CrossFade("3HitComboSword");
 			}
 
@@ -117,6 +117,11 @@ public class AnimationController : MonoBehaviour {
 		if (grounded == true && previouslyGrounded == false) {
 			animation.CrossFade("jumpNoWeapon_fall");
 		}
+	}
+
+	// Callback for when the user has completed an attack animation.
+	void OnAttackComplete () {
+		attacking = false;
 	}
 
 	// Sets the cyborg ninja's katana visibility
