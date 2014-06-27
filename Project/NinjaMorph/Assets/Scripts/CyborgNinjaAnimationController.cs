@@ -89,6 +89,7 @@ public class CyborgNinjaAnimationController : MonoBehaviour {
 		// walkNormal
 		if (grounded == true && 0.0001f < displacement.sqrMagnitude && velocity.sqrMagnitude <= 23) {
 			animation.CrossFade("walkNormal");
+			OnAttackComplete();
 			SetLandingJump(0);
 		}
 
@@ -98,6 +99,7 @@ public class CyborgNinjaAnimationController : MonoBehaviour {
 		// runSword
 		if (grounded == true && 23 < velocity.sqrMagnitude) {
 			animation.CrossFade(weaponOut ? "runSword" : "runNoWeapon");
+			OnAttackComplete();
 			SetLandingJump(0);
 		}
 
@@ -108,6 +110,7 @@ public class CyborgNinjaAnimationController : MonoBehaviour {
 		// jumpNoWeapon_fall
 		if (grounded == false && velocity.y > 0) {
 			animation.CrossFade("jumpNoWeapon_up");
+			OnAttackComplete();
 		}
 
 		if (grounded == false && velocity.y < 0) {

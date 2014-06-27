@@ -5,7 +5,7 @@ using System.Collections;
 public class CyborgNinjaController : MonoBehaviour {
 
 	// CONTROLS
-	public KeyCode attackKey;
+	public KeyCode attackKey = KeyCode.Slash;
 	public float weaponDrawDelay = 0.15f;
 
 	// CONTROL TIMERS
