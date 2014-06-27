@@ -1737,7 +1737,7 @@ MonoBehaviour:
   snapSmoothLag: .200000003
   snapMaxSpeed: 720
   clampHeadPositionScreenSpace: .75
-  lockCameraTimeout: 0
+  lockCameraTimeout: .100000001
 --- !u!1 &1995672847
 GameObject:
   m_ObjectHideFlags: 0
