@@ -7,7 +7,7 @@ using RAIN.Action;
 [RAINAction]
 public class ShootBullets : RAINAction
 {
-	private GameObject backOfGun_;
+	private GameObject player_;
 	private GameObject bulletModel_;
 	private GameObject bullet_;
 	private float timeOfLastShot = 0.0f;
@@ -18,8 +18,8 @@ public class ShootBullets : RAINAction
 
 	// Start the AI and find the back of the gun and the bullet model
     public override void Start(AI ai) {
-		backOfGun_ = GameObject.Find("Back Of Gun");
-		bulletModel_ = GameObject.Find("Bullet");
+		player_ = ai.WorkingMemory.GetItem<GameObject>("ninja").transform.Find("Entity").gameObject;
+		bulletModel_ = ai.Body.GetComponentInChildren<Bullet>().gameObject;
         base.Start(ai);
     }
 
@@ -35,11 +35,11 @@ public class ShootBullets : RAINAction
 			bullet_.renderer.enabled = true;
 
 			// Position the bullet within the barrel
-			bullet_.transform.up = (bulletModel_.transform.position - backOfGun_.transform.position).normalized;
+			bullet_.transform.up = (player_.transform.position - bulletModel_.transform.position).normalized;
 			bullet_.transform.position = bulletModel_.transform.position;
 
 			// FIRE!
-			bullet_.GetComponent<Bullet>().direction = (bulletModel_.transform.position - backOfGun_.transform.position).normalized;
+			bullet_.GetComponent<Bullet>().direction = (player_.transform.position - bulletModel_.transform.position).normalized;
 
 			// Update our time of last shot
 			timeOfLastShot = Time.time;

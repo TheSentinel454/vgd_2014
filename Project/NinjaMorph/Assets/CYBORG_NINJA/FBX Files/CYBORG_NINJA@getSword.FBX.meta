@@ -73,7 +73,8 @@ ModelImporter:
     400064: CYBORG_NINJA_ R UpperArm
     400066: CYBORG_NINJA_ Spine
     400068: CYBORG_NINJA_ Spine1
-    7400000: Take 001
+    7400000: getSword
+    7400002: getSword
     9500000: //RootNode
     11100000: //RootNode
   materials:
@@ -91,7 +92,154 @@ ModelImporter:
     animationScaleError: .5
     animationWrapMode: 1
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: getSword
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 25
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: CYBORG_NINJA_
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          L Thigh
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          L Thigh/CYBORG_NINJA_ L Calf
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          L Thigh/CYBORG_NINJA_ L Calf/CYBORG_NINJA_ L Foot
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          L Thigh/CYBORG_NINJA_ L Calf/CYBORG_NINJA_ L Foot/CYBORG_NINJA_ L Toe0
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          R Thigh
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          R Thigh/CYBORG_NINJA_ R Calf
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          R Thigh/CYBORG_NINJA_ R Calf/CYBORG_NINJA_ R Foot
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          R Thigh/CYBORG_NINJA_ R Calf/CYBORG_NINJA_ R Foot/CYBORG_NINJA_ R Toe0
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          Spine1
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          Spine1/CYBORG_NINJA_ Neck
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          Spine1/CYBORG_NINJA_ Neck/CYBORG_NINJA_ Head
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          Spine1/CYBORG_NINJA_ Neck/CYBORG_NINJA_ L Clavicle
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          Spine1/CYBORG_NINJA_ Neck/CYBORG_NINJA_ L Clavicle/CYBORG_NINJA_ L UpperArm
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          Spine1/CYBORG_NINJA_ Neck/CYBORG_NINJA_ L Clavicle/CYBORG_NINJA_ L UpperArm/CYBORG_NINJA_
+          L Forearm
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          Spine1/CYBORG_NINJA_ Neck/CYBORG_NINJA_ L Clavicle/CYBORG_NINJA_ L UpperArm/CYBORG_NINJA_
+          L Forearm/CYBORG_NINJA_ L Hand
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          Spine1/CYBORG_NINJA_ Neck/CYBORG_NINJA_ L Clavicle/CYBORG_NINJA_ L UpperArm/CYBORG_NINJA_
+          L Forearm/CYBORG_NINJA_ L Hand/CYBORG_NINJA_ L Finger0
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          Spine1/CYBORG_NINJA_ Neck/CYBORG_NINJA_ L Clavicle/CYBORG_NINJA_ L UpperArm/CYBORG_NINJA_
+          L Forearm/CYBORG_NINJA_ L Hand/CYBORG_NINJA_ L Finger0/CYBORG_NINJA_ L Finger01
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          Spine1/CYBORG_NINJA_ Neck/CYBORG_NINJA_ L Clavicle/CYBORG_NINJA_ L UpperArm/CYBORG_NINJA_
+          L Forearm/CYBORG_NINJA_ L Hand/CYBORG_NINJA_ L Finger0/CYBORG_NINJA_ L Finger01/CYBORG_NINJA_
+          L Finger02
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          Spine1/CYBORG_NINJA_ Neck/CYBORG_NINJA_ L Clavicle/CYBORG_NINJA_ L UpperArm/CYBORG_NINJA_
+          L Forearm/CYBORG_NINJA_ L Hand/CYBORG_NINJA_ L Finger1
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          Spine1/CYBORG_NINJA_ Neck/CYBORG_NINJA_ L Clavicle/CYBORG_NINJA_ L UpperArm/CYBORG_NINJA_
+          L Forearm/CYBORG_NINJA_ L Hand/CYBORG_NINJA_ L Finger1/CYBORG_NINJA_ L Finger11
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          Spine1/CYBORG_NINJA_ Neck/CYBORG_NINJA_ L Clavicle/CYBORG_NINJA_ L UpperArm/CYBORG_NINJA_
+          L Forearm/CYBORG_NINJA_ L Hand/CYBORG_NINJA_ L Finger1/CYBORG_NINJA_ L Finger11/CYBORG_NINJA_
+          L Finger12
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          Spine1/CYBORG_NINJA_ Neck/CYBORG_NINJA_ R Clavicle
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          Spine1/CYBORG_NINJA_ Neck/CYBORG_NINJA_ R Clavicle/CYBORG_NINJA_ R UpperArm
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          Spine1/CYBORG_NINJA_ Neck/CYBORG_NINJA_ R Clavicle/CYBORG_NINJA_ R UpperArm/CYBORG_NINJA_
+          R Forearm
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          Spine1/CYBORG_NINJA_ Neck/CYBORG_NINJA_ R Clavicle/CYBORG_NINJA_ R UpperArm/CYBORG_NINJA_
+          R Forearm/CYBORG_NINJA_ R Hand
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          Spine1/CYBORG_NINJA_ Neck/CYBORG_NINJA_ R Clavicle/CYBORG_NINJA_ R UpperArm/CYBORG_NINJA_
+          R Forearm/CYBORG_NINJA_ R Hand/CYBORG_NINJA_ R Finger0
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          Spine1/CYBORG_NINJA_ Neck/CYBORG_NINJA_ R Clavicle/CYBORG_NINJA_ R UpperArm/CYBORG_NINJA_
+          R Forearm/CYBORG_NINJA_ R Hand/CYBORG_NINJA_ R Finger0/CYBORG_NINJA_ R Finger01
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          Spine1/CYBORG_NINJA_ Neck/CYBORG_NINJA_ R Clavicle/CYBORG_NINJA_ R UpperArm/CYBORG_NINJA_
+          R Forearm/CYBORG_NINJA_ R Hand/CYBORG_NINJA_ R Finger0/CYBORG_NINJA_ R Finger01/CYBORG_NINJA_
+          R Finger02
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          Spine1/CYBORG_NINJA_ Neck/CYBORG_NINJA_ R Clavicle/CYBORG_NINJA_ R UpperArm/CYBORG_NINJA_
+          R Forearm/CYBORG_NINJA_ R Hand/CYBORG_NINJA_ R Finger1
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          Spine1/CYBORG_NINJA_ Neck/CYBORG_NINJA_ R Clavicle/CYBORG_NINJA_ R UpperArm/CYBORG_NINJA_
+          R Forearm/CYBORG_NINJA_ R Hand/CYBORG_NINJA_ R Finger1/CYBORG_NINJA_ R Finger11
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          Spine1/CYBORG_NINJA_ Neck/CYBORG_NINJA_ R Clavicle/CYBORG_NINJA_ R UpperArm/CYBORG_NINJA_
+          R Forearm/CYBORG_NINJA_ R Hand/CYBORG_NINJA_ R Finger1/CYBORG_NINJA_ R Finger11/CYBORG_NINJA_
+          R Finger12
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
     isReadable: 1
   meshes:
     lODScreenPercentages: []

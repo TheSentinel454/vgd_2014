@@ -4,81 +4,139 @@ using System.Collections;
 public class AnimationController : MonoBehaviour {
 
 	// STATE FLAGS
-	public bool idle = true;
-	public bool moving = false;
-	public bool rolling = false;
 	public bool attacking = false;
+	public bool grounded = false;
+	public bool weapon = false;
 	public bool dead = false;
 
-	// ANIMATIONS
-	private Animation animation_;
-	public AnimationClip idleAnimation;
-	public AnimationClip standingAttackAnimation;
-	public AnimationClip rapidStandingAttackAnimation;
-	public AnimationClip moveAnimation;
-	public AnimationClip movingAttackAnimation;
-	public AnimationClip rapidMovingAttackAnimation;
-	public AnimationClip rollAnimation;
-	public AnimationClip damageAnimation;
-	public AnimationClip deathAnimation;
+	// ANIMATION FLAGS
+	bool weaponOut = false;
+	bool landingJump = false;
+	bool previouslyGrounded = false;
 
-	// ANIMATION SPEEDS
-	private float movementAnimationSpeed_ = 1.0f;
+	// ANIMATIONS
+	Animation animation;
 
 	// POSITIONS
-	private Vector3 previousPosition_;
-	private Vector3 displacement_;
-	private Vector3 velocity_;
+	Vector3 previousPosition = Vector3.zero;
+	Vector3 displacement = Vector3.zero;
+	Vector3 direction = Vector3.zero;
+	Vector3 velocity = Vector3.zero;
 
-	// Initialize Animations
+	// DISTANCES
+	float distanceToGround = 0;
+
+	// Initialize Animations and Positions
 	void Start () {
-		animation_ = gameObject.GetComponent<Animation>();
-		previousPosition_ = gameObject.transform.position;
+		animation = GetComponent<Animation>();
+		previousPosition = transform.position;
+		distanceToGround = (collider.bounds.extents.y - collider.bounds.center.y) + 0.01f;
 	}
 
 	// Updating Animation States
-	void Update () {
-		// Calculate the object's displacement.
-		displacement_ = gameObject.transform.position - previousPosition_;
-		previousPosition_ = gameObject.transform.position;
+	void FixedUpdate () {
+		// Determine if we are currently grounded.
+		previouslyGrounded = grounded;
+		grounded = Physics.Raycast (new Ray (transform.position, Vector3.down), distanceToGround);
 
-		// Determine the character movement speed
-		velocity_ = displacement_ / Time.deltaTime;
-		movementAnimationSpeed_ = velocity_.magnitude / 3.0f;
+		// Update position information
+		displacement = transform.position - previousPosition;
+		direction = displacement.normalized;
+		velocity = displacement / Time.deltaTime;
+		previousPosition = transform.position;
 
-		// Determine if the character is moving.
-		moving = displacement_ != Vector3.zero;
-		idle = moving == false;
 
-		// DEAD
-		if (dead) {
-			animation_[deathAnimation.name].wrapMode = WrapMode.ClampForever;
-			animation_.CrossFade(deathAnimation.name);
+		// DEATH ANIMATIONS
+		// ----------------
+		// deathBackwards
+		// deathBackwardsSwordDrawn
+		if (dead == true) {
+			animation[weaponOut ? "deathBackwardsSwordDrawn" : "deathBackwards"].wrapMode = WrapMode.ClampForever;
+			animation.CrossFade(weaponOut ? "deathBackwardsSwordDrawn" : "deathBackwards");
+			return;
+		}
 
-		// IDLE
-		} else if (idle) { 
-			animation_[idleAnimation.name].wrapMode = WrapMode.ClampForever;
-			animation_.CrossFade(idleAnimation.name);
+		// IDLE ANIMATIONS
+		// ---------------
+		// idlestandbreathe
+		// idleSword
+		// getSword
+		// putBackSword
+		// 3HitComboSword
+		if (grounded == true && landingJump == false && displacement.sqrMagnitude <= 0.0001f) {
+			animation.CrossFade(weaponOut ? "idleSword" : "idlestandbreathe", 1.0f);
 
-			// STANDING ATTACKING
-			if (attacking) {
-				animation_[standingAttackAnimation.name].speed = 1.0f;
-				animation_[standingAttackAnimation.name].wrapMode = WrapMode.Loop;
-				animation_.CrossFade(standingAttackAnimation.name);
+			if (weapon == true && weaponOut == false) {
+				animation.CrossFade("getSword");
 			}
 
-		// MOVING
-		} else if (moving) {
-			animation_[moveAnimation.name].speed = movementAnimationSpeed_;
-			animation_[moveAnimation.name].wrapMode = WrapMode.Loop;
-			animation_.CrossFade(moveAnimation.name);
+			if (weapon == false && weaponOut == true) {
+				animation.CrossFade("putBackSword");
+			}
 
-			// MOVE ATTACKING
-			if (attacking) {
-				animation_[movingAttackAnimation.name].speed = movementAnimationSpeed_;
-				animation_[movingAttackAnimation.name].wrapMode = WrapMode.Loop;
-				animation_.CrossFade(movingAttackAnimation.name);
+			if (attacking == true && weaponOut == true) {
+				animation["3HitComboSword"].wrapMode = WrapMode.Loop;
+				animation.CrossFade("3HitComboSword");
+			}
+
+			if (attacking == true && weaponOut == false) {
+				animation.CrossFade("getSword");
 			}
 		}
+
+		// WALKING ANIMATIONS
+		// ------------------
+		// walkNormal
+		if (grounded == true && 0.0001f < displacement.sqrMagnitude && velocity.sqrMagnitude <= 23) {
+			animation.CrossFade("walkNormal");
+			SetLandingJump(0);
+		}
+
+		// RUNNING ANIMATIONS
+		// ------------------
+		// runNoWeapon
+		// runSword
+		if (grounded == true && 23 < velocity.sqrMagnitude) {
+			animation.CrossFade(weaponOut ? "runSword" : "runNoWeapon");
+			SetLandingJump(0);
+		}
+
+		// JUMPING ANIMATIONS
+		// ------------------
+		// jumpNoWeapon_up
+		// jumpNoWeapon_down
+		// jumpNoWeapon_fall
+		if (grounded == false && velocity.y > 0) {
+			animation.CrossFade("jumpNoWeapon_up");
+		}
+
+		if (grounded == false && velocity.y < 0) {
+			animation.CrossFade("jumpNoWeapon_down");
+		}
+
+		if (grounded == true && previouslyGrounded == false) {
+			animation.CrossFade("jumpNoWeapon_fall");
+		}
+	}
+
+	// Sets the cyborg ninja's katana visibility
+	void SetSwordVisibility (int visible) {
+		Transform katana = transform.Find ("CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_ Spine1/CYBORG_NINJA_ Neck/CYBORG_NINJA_ R Clavicle/CYBORG_NINJA_ R UpperArm/CYBORG_NINJA_ R Forearm/CYBORG_NINJA_ R Hand/KATANA");
+		Transform katanaSheathed = transform.Find ("CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_ Spine1/KATANA001");
+
+		if (visible == 0) {
+			katana.renderer.enabled = false;
+			katanaSheathed.renderer.enabled = true;
+			weaponOut = false;
+		} else {
+			katana.renderer.enabled = true;
+			katanaSheathed.renderer.enabled = false;
+			weaponOut = true;
+		}
+	}
+
+	// Sets the landing jump flag
+	void SetLandingJump (int landing) {
+		landingJump = landing != 0;
 	}
 }
