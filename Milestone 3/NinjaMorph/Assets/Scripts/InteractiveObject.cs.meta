@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: b229d0ebabad4894186db1cbd7d40052
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - fireGameObject: {fileID: 100006, guid: ba1890e53e92f40dab7c64be4d2667ff, type: 2}
+  - smokeGameObject: {fileID: 100000, guid: 9b74bcaf943b34eca836142b61fca2ea, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
