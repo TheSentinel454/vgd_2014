@@ -7,6 +7,7 @@
 */
 using UnityEngine;
 using System.Collections;
+using InControl;
 
 public class ComboCamera : MonoBehaviour
 {
@@ -36,12 +37,19 @@ public class ComboCamera : MonoBehaviour
 	public float rotationDamping = 3.0f;
 	/** END **/
 
+	void Start()
+	{
+		//InputManager.Setup ();
+	}
+
 	void LateUpdate ()
 	{
 		// Make sure we have a target
 		if (!target)
 			return;
 		
+		var inputDevice = InputManager.ActiveDevice;
+		/*
 		// Check for mouse scroll
 		float scroll = Input.GetAxis("Mouse ScrollWheel");
 		// Alter the distance if there was any scrolling
@@ -49,7 +57,7 @@ public class ComboCamera : MonoBehaviour
 		
 		// Mouse Orbit
 		if (Input.GetMouseButton(1))
-		{
+		{*/
 			// Make the rigid body does not change rotation
 			if (rigidbody && !rigidbody.freezeRotation)
 				rigidbody.freezeRotation = true;
@@ -61,8 +69,8 @@ public class ComboCamera : MonoBehaviour
 			}
 			if (target)
 			{
-				x += Input.GetAxis("Mouse X") * xSpeed * 0.02f;
-				y -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
+				x += inputDevice.RightStickX /*Input.GetAxis("mouse x")*/ * xSpeed * 0.02f;
+				y -= inputDevice.RightStickY /*Input.GetAxis("mouse y")*/ * ySpeed * 0.02f;
 				
 				y = ClampAngle(y, yMinLimit, yMaxLimit);
 				
@@ -72,6 +80,7 @@ public class ComboCamera : MonoBehaviour
 				transform.rotation = rotation;
 				transform.position = position;
 			}
+		/*
 		}
 		// Smooth Follow
 		else
@@ -108,6 +117,7 @@ public class ComboCamera : MonoBehaviour
 			// Always look at the target
 			transform.LookAt (target);
 		}
+		*/
 	}
 	
 	float ClampAngle (float angle, float min, float max)

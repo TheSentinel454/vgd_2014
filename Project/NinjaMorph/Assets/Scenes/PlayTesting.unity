@@ -285,6 +285,10 @@ Prefab:
       propertyPath: HUD
       value: 
       objectReference: {fileID: 39133996}
+    - target: {fileID: 100000, guid: 67e5911bd236b4716a449a535747b63b, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 67e5911bd236b4716a449a535747b63b, type: 2}
   m_RootGameObject: {fileID: 984875538}
@@ -5464,7 +5468,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &984875539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5712,6 +5716,10 @@ Prefab:
       propertyPath: warningMsg
       value: 
       objectReference: {fileID: 100000, guid: 1f3ba0b501b8e4cd3a5e6fb842f52093, type: 2}
+    - target: {fileID: 11400002, guid: e23ecaece3f69924aa80f9f4e3f3a2b4, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e23ecaece3f69924aa80f9f4e3f3a2b4, type: 2}
   m_RootGameObject: {fileID: 1984935033}
@@ -6706,6 +6714,7 @@ GameObject:
   - 20: {fileID: 1693129841}
   - 92: {fileID: 1693129840}
   - 124: {fileID: 1693129839}
+  - 114: {fileID: 1693129838}
   - 114: {fileID: 1693129843}
   m_Layer: 0
   m_Name: Main Camera
@@ -6714,6 +6723,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1693129838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400002, guid: aabda61ff22184ed3919ee8bb7d80314,
+    type: 2}
+  m_PrefabInternal: {fileID: 1850625414}
+  m_GameObject: {fileID: 1693129837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f6014ef81c9e47ce8d34cbfd64c8759, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!124 &1693129839
 Behaviour:
   m_ObjectHideFlags: 0
@@ -6780,7 +6801,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1693129837}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9068d5c7fe0baba43b45cc7f4d12230a, type: 3}
+  m_Script: {fileID: 11500000, guid: 3fb1f61f9f726442c895696a9f7674bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1984935034}
@@ -7039,6 +7060,14 @@ Prefab:
       propertyPath: target
       value: 
       objectReference: {fileID: 1984935034}
+    - target: {fileID: 11400000, guid: aabda61ff22184ed3919ee8bb7d80314, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: aabda61ff22184ed3919ee8bb7d80314, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aabda61ff22184ed3919ee8bb7d80314, type: 2}
   m_RootGameObject: {fileID: 1693129837}
@@ -7118,7 +7147,7 @@ GameObject:
   - 82: {fileID: 1984935039}
   - 81: {fileID: 1984935038}
   - 136: {fileID: 1984935042}
-  - 65: {fileID: 1984935043}
+  - 114: {fileID: 1984935043}
   m_Layer: 0
   m_Name: Ninja
   m_TagString: Player
@@ -7143,6 +7172,7 @@ Transform:
   - {fileID: 602062215}
   - {fileID: 426742292}
   - {fileID: 347198013}
+  - {fileID: 2017018978}
   m_Father: {fileID: 0}
 --- !u!114 &1984935035
 MonoBehaviour:
@@ -7202,7 +7232,7 @@ MonoBehaviour:
     texture: {fileID: 2800000, guid: 9f8be0f6d426d4cc5a4e36f4833e5917, type: 3}
     walkSpeed: 4
     runSpeed: 12
-    jumpHeight: .5
+    jumpHeight: 2
     walkMaxAnimationSpeed: .800000012
     runMaxAnimationSpeed: 1.60000002
     jumpAnimationSpeed: 1.14999998
@@ -7238,6 +7268,14 @@ MonoBehaviour:
   woodWalkingAudio: {fileID: 1984935039}
   waterWalkingAudio: {fileID: 1984935040}
   grassWalkingAudio: {fileID: 1984935041}
+  numAttacks: 0
+  numKills: 0
+  totalAirTime: 0
+  totalFireTime: 0
+  totalWaterTime: 0
+  totalAirCharging: 0
+  totalFireCharging: 0
+  totalWaterCharging: 0
 --- !u!143 &1984935036
 CharacterController:
   m_ObjectHideFlags: 0
@@ -7476,19 +7514,17 @@ CapsuleCollider:
   m_Height: 1.38
   m_Direction: 1
   m_Center: {x: 0, y: .699999988, z: 0}
---- !u!65 &1984935043
-BoxCollider:
+--- !u!114 &1984935043
+MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6500000, guid: e23ecaece3f69924aa80f9f4e3f3a2b4,
-    type: 2}
-  m_PrefabInternal: {fileID: 1072455887}
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1984935033}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 1.20000005, y: 1.39999998, z: 1.39999998}
-  m_Center: {x: 0, y: .699999988, z: .699999988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ded6578543d634a73af69502ee294507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1992962799
 GameObject:
   m_ObjectHideFlags: 0
@@ -7540,6 +7576,69 @@ GUIText:
     rgba: 4278253823
   m_PixelCorrect: 1
   m_RichText: 1
+--- !u!1 &2017018977
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100072, guid: e23ecaece3f69924aa80f9f4e3f3a2b4, type: 2}
+  m_PrefabInternal: {fileID: 1072455887}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2017018978}
+  - 114: {fileID: 2017018979}
+  m_Layer: 0
+  m_Name: Entity
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2017018978
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400072, guid: e23ecaece3f69924aa80f9f4e3f3a2b4, type: 2}
+  m_PrefabInternal: {fileID: 1072455887}
+  m_GameObject: {fileID: 2017018977}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1984935034}
+--- !u!114 &2017018979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400000, guid: e23ecaece3f69924aa80f9f4e3f3a2b4,
+    type: 2}
+  m_PrefabInternal: {fileID: 1072455887}
+  m_GameObject: {fileID: 2017018977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 220721487, guid: 9fa2ecd1ff2ad394281dd3bf72c5b76e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dataSerializer:
+    _serializedData: <component version="1.0" type="RAIN.Entities.EntityRig"><fields><field
+      value="True" type="System.Boolean" id="_showVisual" /><field value="True" type="System.Boolean"
+      id="_useUnityMessages" /><field type="RAIN.Entities.Entity" reference="0" id="_entity"
+      /></fields><references><reference type="RAIN.Entities.Entity" refcount="1" id="0"><field
+      value="True" type="System.Boolean" id="_isActive" /><field value="Ninja" type="System.String"
+      id="entityName" /><field value="Ninja" type="System.String" id="entityMarker"
+      /><field type="UnityEngine.GameObject" id="form" gameobject="0" /><field type="System.Collections.Generic.List"
+      id="_aspects" elementtype="RAIN.Entities.Aspects.RAINAspect"><field type="RAIN.Entities.Aspects.VisualAspect"
+      reference="1" id="element0" /></field><field type="System.Collections.Generic.List"
+      id="_customElements" elementtype="RAIN.Entities.Elements.CustomEntityElement"
+      childrenvisible="False" /><field value="0.6,0.6,0.6,1" type="UnityEngine.Color"
+      id="_aspectColor" /><field value="-0.5" type="System.Single" id="_outlineColorOffset"
+      /><field value="0.4" type="System.Single" id="_selectionColorOffset" /></reference><reference
+      type="RAIN.Entities.Aspects.VisualAspect" refcount="1" id="1"><field value="True"
+      type="System.Boolean" id="_isActive" /><field value="Ninja" type="System.String"
+      id="_aspectName" /><field type="UnityEngine.Transform" id="_mountPoint" gameobject="1"
+      /><field value="0.1" type="System.Single" id="_size" /><field value="-0.3049617,0.7609615,0.068573"
+      type="UnityEngine.Vector3" id="_positionOffset" /><field value="0,0,0" type="UnityEngine.Vector3"
+      id="_angleOffset" /></reference></references></component>
+    _serializedGameObjects:
+    - {fileID: 1984935033}
+    - {fileID: 1984935034}
+    _serializedCustomData: []
 --- !u!1001 &2022119992
 Prefab:
   m_ObjectHideFlags: 0
