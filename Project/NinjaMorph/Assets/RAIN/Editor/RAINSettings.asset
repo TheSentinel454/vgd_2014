@@ -23,6 +23,6 @@ MonoBehaviour:
   _skin: {fileID: 11400000, guid: 1cc6173ca6a844f129775a650e9f7f66, type: 2}
   _showAdvanced: 1
   _allowAutoUpdateCheck: 1
-  _lastUpdateCheck: 06/26/2014 14:35:14
+  _lastUpdateCheck: 06/28/2014 23:25:31
   _updateFrequencyHours: 24
   _updateMetaformRequired: 0

@@ -183,7 +183,7 @@ public class NinjaController : MonoBehaviour
     void Awake()
     {
 		// Setup the input manager
-		//InputManager.Setup ();
+		InputManager.Setup ();
 		// Get the ninja renderer
 		ninjaRenderer = GetComponentInChildren<Renderer> ();
 		// Search for the Effects holder
@@ -444,12 +444,12 @@ public class NinjaController : MonoBehaviour
 	{
 	}
 
-    void Update()
+    void FixedUpdate()
 	{
 		InputManager.Update();
 		// Use last device which provided input.
 		inputDevice = InputManager.ActiveDevice;
-		print ("Device: " + inputDevice.Name);
+		//print ("Device: " + inputDevice.Name);
 #if PLAY_TESTING
 		sumHealth += zenEnergy;
 		numHealthPoints += 1.0f;
