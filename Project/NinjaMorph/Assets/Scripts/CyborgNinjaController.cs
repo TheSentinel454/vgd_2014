@@ -22,7 +22,6 @@ public class CyborgNinjaController : MonoBehaviour {
 	
 	// Determine what the ninja should be doing.
 	void FixedUpdate () {
-
 		// When the user has pressed the attack key, determine if he is quickly pressing the button
 		// to draw his sword or actually attempting to attack an enemy.
 		if (Input.GetKey (attackKey)) {
