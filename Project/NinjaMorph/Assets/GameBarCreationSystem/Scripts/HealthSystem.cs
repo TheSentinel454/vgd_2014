@@ -14,7 +14,7 @@ class HealthSystem : ScrollBarEssentials
 
     public void Initialize()
     {
-        max_value = DetermineMaxVal(200);
+        max_value = DetermineMaxVal(100);
     }
 
     public void Update()

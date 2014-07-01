@@ -2,65 +2,60 @@
 
 class GUIController : MonoBehaviour
 {
-    private ExperienceSystem exp_bar;
-    private int last_level = 1;
+    private HealthSystem zenBar;
+	private ManaSystem airBar;
+	private ManaSystem fireBar;
+	private ManaSystem waterBar;
 
-    private HealthSystem health_bar;
-    private ManaSystem mana_bar;
-
-    public Rect HealthBarDimens;
-    public bool VerticleHealthBar;
-    public Texture HealthBubbleTexture;
-    public Texture HealthTexture;
-    public float HealthBubbleTextureRotation;
-
-    public Rect ExpBarDimens;
-    public bool VerticleExpBar;    
-    public Texture ExpBubbleTexture;
-    public Texture ExperienceTexture;
-    public float ExpTextureRotation;
+    public Rect ZenDimensions;
+	public Vector2 size;
+	public Vector2 position;
+    public Texture ZenBackgroundTexture;
+    public Texture ZenTexture;
 
     public Rect ManaBarDimens;
     public Rect ManaBarScrollerDimens;
-    public bool VerticleManaBar;
     public Texture ManaBubbleTexture;
     public Texture ManaTexture;
     public float ManaBubbleTextureRotation;
 
     public void Start()
     {
-        health_bar = new HealthSystem(HealthBarDimens, VerticleHealthBar, HealthBubbleTexture, HealthTexture, HealthBubbleTextureRotation);
-        exp_bar = new ExperienceSystem(ExpBarDimens, VerticleExpBar, ExpBubbleTexture, ExperienceTexture, ExpTextureRotation);
-        mana_bar = new ManaSystem(ManaBarDimens, ManaBarScrollerDimens, VerticleManaBar, ManaBubbleTexture, ManaTexture, ManaBubbleTextureRotation);
+		// Instantiate the Zen Bar
+		Rect t = new Rect ();
+		t.x = (position.x * Screen.currentResolution.width);
+		t.y = (position.y * Screen.currentResolution.height);
+		t.width = size.x;
+		t.height = size.y;
+		zenBar = new HealthSystem(t, false, ZenBackgroundTexture, ZenTexture, 0.0f);
+		airBar = new ManaSystem(ManaBarDimens, ManaBarScrollerDimens, false, ManaBubbleTexture, ManaTexture, 0.0f);
+		fireBar = new ManaSystem(ManaBarDimens, ManaBarScrollerDimens, false, ManaBubbleTexture, ManaTexture, 0.0f);
+		waterBar = new ManaSystem(ManaBarDimens, ManaBarScrollerDimens, false, ManaBubbleTexture, ManaTexture, 0.0f);
 
-        exp_bar.Initialize();
-        health_bar.Initialize();
-        mana_bar.Initialize();
+		// Initialize the bars
+        zenBar.Initialize();
+		airBar.Initialize();
+		fireBar.Initialize();
+		waterBar.Initialize();
     }
 
     public void OnGUI()
     {
-        health_bar.DrawBar();
-
-        exp_bar.DrawBar();
-
-        mana_bar.DrawBar();
+		// Draw the Zen Bar
+        zenBar.DrawBar();
+		// Draw the energy bars
+		airBar.DrawBar();
+		fireBar.DrawBar();
+		waterBar.DrawBar();
     }
 
     public void Update()
     {
-        exp_bar.Update();
-
-        if (exp_bar.getLevel() - last_level >= 1)
-        {
-            // level changed: change stuff here
-            //Debug.Log("DING! You Are Now Level " + exp_bar.getLevel());
-
-            last_level = exp_bar.getLevel();
-        }
-
-        health_bar.Update();
-
-        mana_bar.Update();
+		// Update the Zen Bar
+        zenBar.Update();
+		// Update the energy bars
+		airBar.Update();
+		fireBar.Update();
+		waterBar.Update();
     }
 }
