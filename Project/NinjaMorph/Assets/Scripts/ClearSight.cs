@@ -6,6 +6,7 @@ using System.Collections;
 
 public class ClearSight : MonoBehaviour
 {
+	public LayerMask mask = -1;
 	private ComboCamera comboCamera;
 
 	void Awake()
@@ -16,9 +17,8 @@ public class ClearSight : MonoBehaviour
 	void Update()
 	{
 		RaycastHit[] hits;
-		// you can also use CapsuleCastAll()
-		// TODO: setup your layermask it improve performance and filter your hits.
-		hits = Physics.RaycastAll(transform.position, transform.forward, comboCamera.getDistanceToPlayer());
+		// Raycast, but filter the layers based on the mask
+		hits = Physics.RaycastAll(transform.position, transform.forward, comboCamera.getDistanceToPlayer(), mask);
 		foreach(RaycastHit hit in hits)
 		{
 			Renderer R = hit.collider.renderer;
