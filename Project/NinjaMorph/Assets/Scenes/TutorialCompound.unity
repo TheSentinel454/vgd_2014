@@ -8682,6 +8682,10 @@ Prefab:
         type="UnityEngine.Vector3" id="_positionOffset" /><field value="0,0,0" type="UnityEngine.Vector3"
         id="_angleOffset" /></reference></references></component>
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: e23ecaece3f69924aa80f9f4e3f3a2b4, type: 2}
+      propertyPath: msgManager
+      value: 
+      objectReference: {fileID: 984875541}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e23ecaece3f69924aa80f9f4e3f3a2b4, type: 2}
   m_RootGameObject: {fileID: 1984935033}
@@ -17729,6 +17733,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 984875540}
   - 114: {fileID: 984875539}
+  - 114: {fileID: 984875541}
   m_Layer: 0
   m_Name: Game Controller
   m_TagString: Untagged
@@ -17761,6 +17766,18 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!114 &984875541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 984875538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57ea7d71a206845b28ededa9d7b2c95f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messageObject: {fileID: 13200000, guid: 1f3ba0b501b8e4cd3a5e6fb842f52093, type: 2}
 --- !u!1 &987266438
 GameObject:
   m_ObjectHideFlags: 0
@@ -33274,7 +33291,6 @@ MonoBehaviour:
   moveAttackAnimation: {fileID: 7400010, guid: af2f673d12c724b4bbad8f33c16a54f5, type: 3}
   idleAttackAnimation: {fileID: 7400014, guid: af2f673d12c724b4bbad8f33c16a54f5, type: 3}
   attackDistance: 2.5
-  warningMsg: {fileID: 100000, guid: 1f3ba0b501b8e4cd3a5e6fb842f52093, type: 2}
   baseSettings:
     texture: {fileID: 2800000, guid: dd924b1904e29ae4680aaf675a5a1f17, type: 3}
     walkSpeed: 2
@@ -33349,6 +33365,7 @@ MonoBehaviour:
   woodWalkingAudio: {fileID: 1984935039}
   waterWalkingAudio: {fileID: 1984935040}
   grassWalkingAudio: {fileID: 1984935041}
+  msgManager: {fileID: 984875541}
   numAttacks: 0
   numKills: 0
   totalAirTime: 0

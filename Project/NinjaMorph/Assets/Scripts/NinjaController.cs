@@ -60,8 +60,6 @@ public class NinjaController : MonoBehaviour
 
 	public float attackDistance = 2.5f;
 
-	public GameObject warningMsg;
-
 	public NinjaSettings baseSettings;
 	public NinjaSettings airSettings;
 	public NinjaSettings fireSettings;
@@ -71,6 +69,8 @@ public class NinjaController : MonoBehaviour
 	public AudioSource woodWalkingAudio;
 	public AudioSource waterWalkingAudio;
 	public AudioSource grassWalkingAudio;
+
+	public MessageManager msgManager;
 
 	private AudioSource walkingAudio;
 	private NinjaType ninjaType;
@@ -618,7 +618,7 @@ public class NinjaController : MonoBehaviour
 				else
 				{
 					// Create a message
-					createMessage("Cannot use Air Ninja. Not enough energy!", 5.0f);
+					createMessage("Cannot use Air Ninja. Not enough energy!");
 				}
 			}
 		}
@@ -644,7 +644,7 @@ public class NinjaController : MonoBehaviour
 				else
 				{
 					// Create a message
-					createMessage("Cannot use Fire Ninja. Not enough energy!", 5.0f);
+					createMessage("Cannot use Fire Ninja. Not enough energy!");
 				}
 			}
 		}
@@ -670,7 +670,7 @@ public class NinjaController : MonoBehaviour
 				else
 				{
 					// Create a message
-					createMessage("Cannot use Water Ninja. Not enough energy!", 5.0f);
+					createMessage("Cannot use Water Ninja. Not enough energy!");
 				}
 			}
 		}
@@ -680,7 +680,7 @@ public class NinjaController : MonoBehaviour
 		    (fireEnergy <= 0.0f && ninjaType == NinjaType.Fire))
 		{
 			// Create a message
-			createMessage("Ran out of energy!", 5.0f);
+			createMessage("Ran out of energy!");
 			// Go back to the base ninja
 			setBaseNinja();
 		}
@@ -691,12 +691,10 @@ public class NinjaController : MonoBehaviour
 	/// </summary>
 	/// <param name="msg">Message.</param>
 	/// <param name="lifetime">Lifetime.</param>
-	public void createMessage(string msg, float lifetime)
+	public void createMessage(string msg)
 	{
-		GameObject obj = (GameObject)Instantiate(warningMsg);
-		DestroyGuiTextByTime dest = (DestroyGuiTextByTime)obj.GetComponent<DestroyGuiTextByTime>();
-		dest.lifetime = lifetime;
-		dest.message = msg;
+		// Queue the message
+		msgManager.queueMessage (msg);
 	}
 
 	/// <summary>

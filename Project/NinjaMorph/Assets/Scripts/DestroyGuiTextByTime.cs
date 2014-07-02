@@ -4,11 +4,7 @@ using System.Collections;
 public class DestroyGuiTextByTime : MonoBehaviour
 {
 	public float lifetime;
-	public string message;
-	
 	private GUIText text;
-	//private float startTime;
-	//private float endTime;
 	
 	void Start()
 	{
@@ -16,12 +12,8 @@ public class DestroyGuiTextByTime : MonoBehaviour
 		text = (GUIText)GetComponent<GUIText> ();
 		if (text != null)
 		{
-			// Set the message
-			text.text = message;
+			// Set the message color
 			text.color = new Color(text.color.r, text.color.g, text.color.b, 1.0f);
-			// Set the times
-			//startTime = Time.time;
-			//endTime = startTime + lifetime;
 		}
 		else
 		{
