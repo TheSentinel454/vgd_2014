@@ -198,7 +198,7 @@ GameObject:
   - 114: {fileID: 11400002}
   - 64: {fileID: 6400000}
   - 114: {fileID: 11400000}
-  m_Layer: 4
+  m_Layer: 2
   m_Name: Pond
   m_TagString: Untagged
   m_Icon: {fileID: 0}

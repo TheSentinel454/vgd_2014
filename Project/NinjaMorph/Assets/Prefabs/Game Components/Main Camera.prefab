@@ -84,11 +84,8 @@ MonoBehaviour:
   zoomSpeed: 5
   xSpeed: 250
   ySpeed: 120
-  yMinLimit: -20
+  yMinLimit: 0
   yMaxLimit: 80
-  height: 5
-  heightDamping: 2
-  rotationDamping: 3
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -100,6 +97,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f6014ef81c9e47ce8d34cbfd64c8759, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mask:
+    serializedVersion: 2
+    m_Bits: 4294967291
 --- !u!124 &12400000
 Behaviour:
   m_ObjectHideFlags: 1

@@ -40,7 +40,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 5
-  message: <Message>
 --- !u!132 &13200000
 GUIText:
   m_ObjectHideFlags: 1

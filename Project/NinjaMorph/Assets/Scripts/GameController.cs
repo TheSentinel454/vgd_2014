@@ -33,6 +33,8 @@ public class GameController : MonoBehaviour
 
 	private bool gameActive = true;
 
+	//private MessageManager msgManager;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -41,6 +43,8 @@ public class GameController : MonoBehaviour
 		testInfo = new PlayTestInfo ();
 		testInfo.startTime = Time.time;
 #endif
+		// Find the Message Manager
+		//msgManager = GetComponentInChildren<MessageManager> ();
 		// Find the GUI Text
 		foreach(GUIText gt in HUD.GetComponentsInChildren<GUIText>())
 		{
@@ -68,15 +72,17 @@ public class GameController : MonoBehaviour
 				waterPuzzle = go;
 		}
 	}
-	
-	// Update is called once per frame
+
+	/// <summary>
+	/// Update this instance.
+	/// </summary>
 	void Update ()
 	{
 		// Only update if active
 		if (!gameActive)
 			return;
 		// Update the GUI
-		UpdateGUI ();
+		//UpdateGUI ();
 
 		// Check for Game Over
 		CheckGameOver ();
@@ -154,7 +160,7 @@ public class GameController : MonoBehaviour
 						string name = (string)torchOrder[i];
 						if (!name.Contains(i.ToString()))
 						{
-							ninjaController.createMessage("Incorrect order!", 3.0f);
+							ninjaController.createMessage("Incorrect order!");
 							fireLevelComplete = false;
 							break;
 						}
@@ -171,7 +177,7 @@ public class GameController : MonoBehaviour
 						Bullet cannonBall = GameObject.FindGameObjectWithTag("Cannon Ball").GetComponent<Bullet>();
 						cannonBall.speed = 0.3f;
 
-						ninjaController.createMessage("Fire Room complete!", 5.0f);
+						ninjaController.createMessage("Fire Room complete!");
 #if PLAY_TESTING
 						// Track the end fire time
 						testInfo.endFireTime = Time.time;
@@ -224,7 +230,7 @@ public class GameController : MonoBehaviour
 					wptimer.setTimer(0.0f);
 					wptimer.setStarted(false);
 					//tell user he/she ran out of time
-					ninjaController.createMessage("You ran out of time!", 3.0f);
+					ninjaController.createMessage("You ran out of time!");
 #if PLAY_TESTING
 					testInfo.failedWaterPuzzles++;
 #endif
@@ -232,7 +238,7 @@ public class GameController : MonoBehaviour
 				else if (numberFilled == bucketWaters.Capacity)
 				{
 					//tell them they've completed the room
-					ninjaController.createMessage("Water Room complete!", 5.0f);
+					ninjaController.createMessage("Water Room complete!");
 					waterLevelComplete = true;
 #if PLAY_TESTING
 					// Track the end water time
@@ -260,7 +266,7 @@ public class GameController : MonoBehaviour
 				playTest.Save(testInfo);
 #endif
 				// Create a message
-				ninjaController.createMessage("Level Complete!", 60.0f);
+				ninjaController.createMessage("Level Complete!");
 				gameActive = false;
 			}
 		}
@@ -273,7 +279,7 @@ public class GameController : MonoBehaviour
 	IEnumerator GameOver()
 	{
 		// Create a message
-		ninjaController.createMessage("Game Over!", 10.0f);
+		ninjaController.createMessage("Game Over!");
 		// Hold out for 30 seconds
 		yield return new WaitForSeconds(10.0f);
 		// Reset the scene

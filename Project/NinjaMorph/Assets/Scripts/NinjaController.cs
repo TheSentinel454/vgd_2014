@@ -9,6 +9,7 @@
 
 using UnityEngine;
 using System.Collections;
+using InControl;
 
 // Require a character controller to be attached to the same game object
 [RequireComponent (typeof (CharacterController))]
@@ -59,8 +60,6 @@ public class NinjaController : MonoBehaviour
 
 	public float attackDistance = 2.5f;
 
-	public GameObject warningMsg;
-
 	public NinjaSettings baseSettings;
 	public NinjaSettings airSettings;
 	public NinjaSettings fireSettings;
@@ -70,6 +69,8 @@ public class NinjaController : MonoBehaviour
 	public AudioSource woodWalkingAudio;
 	public AudioSource waterWalkingAudio;
 	public AudioSource grassWalkingAudio;
+
+	public MessageManager msgManager;
 
 	private AudioSource walkingAudio;
 	private NinjaType ninjaType;
@@ -151,6 +152,8 @@ public class NinjaController : MonoBehaviour
 
     private float lastGroundedTime = 0.0f;
 
+	private InputDevice inputDevice;
+
 	// Energy levels
 	private float zenEnergy = 100.0f;
 	public float getZen(){return zenEnergy;}
@@ -179,6 +182,8 @@ public class NinjaController : MonoBehaviour
 
     void Awake()
     {
+		// Setup the input manager
+		InputManager.Setup ();
 		// Get the ninja renderer
 		ninjaRenderer = GetComponentInChildren<Renderer> ();
 		// Search for the Effects holder
@@ -250,8 +255,8 @@ public class NinjaController : MonoBehaviour
         // Always orthogonal to the forward vector
         Vector3 right = new Vector3(forward.z, 0, -forward.x);
 
-        float v = Input.GetAxisRaw("Vertical");
-        float h = Input.GetAxisRaw("Horizontal");
+		float v = inputDevice.LeftStickY.Value;//Input.GetAxisRaw("Vertical");
+		float h = inputDevice.LeftStickX.Value;//Input.GetAxisRaw("Horizontal");
 
         // Are we moving backwards or looking backwards
         if (v < -0.2f)
@@ -292,7 +297,7 @@ public class NinjaController : MonoBehaviour
             _characterState = CharacterState.Idle;
 
             // Pick speed modifier
-            if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+			if (inputDevice.LeftTrigger.IsPressed)//Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
             {
                 targetSpeed *= runSpeed;
                 _characterState = CharacterState.Running;
@@ -323,7 +328,7 @@ public class NinjaController : MonoBehaviour
 		if (attacking)
 			return;
 		
-		if (!IsAttacking() && Input.GetButtonDown("Fire1"))
+		if (!IsAttacking() && inputDevice.RightTrigger.WasPressed)//Input.GetButtonDown("Fire1"))
 		{
 			DidAttack();
 		}
@@ -439,8 +444,12 @@ public class NinjaController : MonoBehaviour
 	{
 	}
 
-    void Update()
+    void FixedUpdate()
 	{
+		InputManager.Update();
+		// Use last device which provided input.
+		inputDevice = InputManager.ActiveDevice;
+		//print ("Device: " + inputDevice.Name);
 #if PLAY_TESTING
 		sumHealth += zenEnergy;
 		numHealthPoints += 1.0f;
@@ -453,8 +462,7 @@ public class NinjaController : MonoBehaviour
             // kill all inputs if not controllable.
             Input.ResetInputAxes();
         }
-
-        if (Input.GetButtonDown("Jump"))
+		if (inputDevice.Action1.IsPressed)//Input.GetButtonDown("Jump"))
         {
             lastJumpButtonTime = Time.time;
         }
@@ -589,7 +597,7 @@ public class NinjaController : MonoBehaviour
 	void handleNinjaChange()
 	{
 		// Air Ninja
-		if (Input.GetKeyDown ("1"))
+		if (InputManager.ActiveDevice.Action4.WasPressed)// Input.GetKeyDown ("1"))
 		{
 			// See if we are currently the air ninja
 			if (ninjaType == NinjaType.Air)
@@ -610,12 +618,12 @@ public class NinjaController : MonoBehaviour
 				else
 				{
 					// Create a message
-					createMessage("Cannot use Air Ninja. Not enough energy!", 5.0f);
+					createMessage("Cannot use Air Ninja. Not enough energy!");
 				}
 			}
 		}
 		// Fire Ninja
-		else if (Input.GetKeyDown ("2"))
+		else if (inputDevice.Action2.WasPressed)//Input.GetKeyDown ("2"))
 		{
 			// See if we are currently the fire ninja
 			if (ninjaType == NinjaType.Fire)
@@ -636,12 +644,12 @@ public class NinjaController : MonoBehaviour
 				else
 				{
 					// Create a message
-					createMessage("Cannot use Fire Ninja. Not enough energy!", 5.0f);
+					createMessage("Cannot use Fire Ninja. Not enough energy!");
 				}
 			}
 		}
 		// Water Ninja
-		else if (Input.GetKeyDown ("3"))
+		else if (inputDevice.Action3.WasPressed)//Input.GetKeyDown ("3"))
 		{
 			// See if we are currently the water ninja
 			if (ninjaType == NinjaType.Water)
@@ -662,7 +670,7 @@ public class NinjaController : MonoBehaviour
 				else
 				{
 					// Create a message
-					createMessage("Cannot use Water Ninja. Not enough energy!", 5.0f);
+					createMessage("Cannot use Water Ninja. Not enough energy!");
 				}
 			}
 		}
@@ -672,7 +680,7 @@ public class NinjaController : MonoBehaviour
 		    (fireEnergy <= 0.0f && ninjaType == NinjaType.Fire))
 		{
 			// Create a message
-			createMessage("Ran out of energy!", 5.0f);
+			createMessage("Ran out of energy!");
 			// Go back to the base ninja
 			setBaseNinja();
 		}
@@ -683,12 +691,10 @@ public class NinjaController : MonoBehaviour
 	/// </summary>
 	/// <param name="msg">Message.</param>
 	/// <param name="lifetime">Lifetime.</param>
-	public void createMessage(string msg, float lifetime)
+	public void createMessage(string msg)
 	{
-		GameObject obj = (GameObject)Instantiate(warningMsg);
-		DestroyGuiTextByTime dest = (DestroyGuiTextByTime)obj.GetComponent<DestroyGuiTextByTime>();
-		dest.lifetime = lifetime;
-		dest.message = msg;
+		// Queue the message
+		msgManager.queueMessage (msg);
 	}
 
 	/// <summary>
@@ -959,12 +965,11 @@ public class NinjaController : MonoBehaviour
 		// Calculate push direction from move direction, 
 		// we only push objects to the sides never up and down
 		Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
-		//var pushDir : Vector3 = Vector3 (hit.moveDirection.x, 0, hit.moveDirection.z);
 		// If you know how fast your character is trying to move,
 		// then you can also multiply the push velocity by that.
 
 		// open the door faster if they're running
-		if (Input.GetKey (KeyCode.LeftShift) || Input.GetKey (KeyCode.RightShift)) {
+		if (inputDevice.LeftTrigger.IsPressed) {//Input.GetKey (KeyCode.LeftShift) || Input.GetKey (KeyCode.RightShift)) {
 			pushPower = 4.0f;
 		} else {
 			pushPower = 2.0f;
