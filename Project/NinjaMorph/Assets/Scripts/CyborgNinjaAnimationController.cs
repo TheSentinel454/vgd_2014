@@ -30,13 +30,14 @@ public class CyborgNinjaAnimationController : MonoBehaviour {
 	void Start () {
 		animation = GetComponent<Animation>();
 		previousPosition = transform.position;
-		distanceToGround = (collider.bounds.extents.y - collider.bounds.center.y) + 0.01f;
+		distanceToGround = collider.bounds.extents.y;
 	}
 
 	// Updating Animation States
 	void FixedUpdate () {
 		// Determine if we are currently grounded.
 		previouslyGrounded = grounded;
+		Debug.Log (distanceToGround);
 		grounded = Physics.Raycast (new Ray (transform.position, Vector3.down), distanceToGround);
 
 		// Update position information
