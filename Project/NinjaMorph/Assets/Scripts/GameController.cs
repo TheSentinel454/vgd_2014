@@ -78,7 +78,7 @@ public class GameController : MonoBehaviour
 		if (!gameActive)
 			return;
 		// Update the GUI
-		//UpdateGUI ();
+		UpdateGUI ();
 
 		// Check for Game Over
 		CheckGameOver ();
