@@ -4,10 +4,11 @@ using System.Collections;
 public class FillableObject : InteractiveObject
 {
 	public bool filled = false;
+	private Vector3 originalPosition = new Vector3(0,0,0);
 	private float fillAmount = 0.0f;
 
 	void Start() {
-	
+		originalPosition = transform.parent.FindChild("bucket_water").transform.position;
 	}
 
 	public override void PlayerCollisionStay(InteractiveCollision col) {
@@ -22,6 +23,7 @@ public class FillableObject : InteractiveObject
 	}
 
 	public void clearBucket() {
+		transform.parent.FindChild("bucket_water").transform.position = originalPosition;
 		fillAmount = 0.0f;
 	}
 }
