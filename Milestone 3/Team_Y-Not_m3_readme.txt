@@ -62,7 +62,6 @@ Milestone 3
 - Move with WASD keys
 - Hold SHIFT while moving to run
 - Press SPACE to jump
-- Scroll to zoom in and out of the character
 
 
 
