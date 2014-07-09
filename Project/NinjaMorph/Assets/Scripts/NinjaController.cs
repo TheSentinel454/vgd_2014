@@ -982,6 +982,10 @@ public class NinjaController : MonoBehaviour
 		zenEnergy -= amount;
 	}
 
+	public Vector3 velocity {
+		get { return moveSpeed * moveDirection; }
+	}
+
     public float GetSpeed()
     {
         return moveSpeed;
