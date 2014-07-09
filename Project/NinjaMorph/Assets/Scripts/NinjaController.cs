@@ -5,7 +5,7 @@
   Luke Tornquist
   Jonathan Yates
 */
-#define PLAY_TESTING
+//#define PLAY_TESTING
 
 using UnityEngine;
 using System.Collections;

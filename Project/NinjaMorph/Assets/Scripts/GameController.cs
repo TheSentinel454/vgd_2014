@@ -1,5 +1,5 @@
 ﻿// Comment the line below if not play testing
-#define PLAY_TESTING
+//#define PLAY_TESTING
 
 using UnityEngine;
 using System.Collections;
