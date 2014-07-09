@@ -406,7 +406,7 @@ public class NinjaController : MonoBehaviour
 				if (direction > 0.65f)
 				{
 					// Deal damage to the object
-					obj.DealDamage(50.0f);
+					obj.DealDamage(25.0f);
 #if PLAY_TESTING
 					// Check for death
 					if (!obj.alive)
