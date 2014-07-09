@@ -46,4 +46,8 @@ public class WaterPuzzleTimer : MonoBehaviour {
 	public void setStarted(bool started) {
 		this.started = started;
 	}
+
+	public bool getStarted() {
+		return started;
+	}
 }

@@ -30,6 +30,8 @@ public class GameController : MonoBehaviour
 
 	private bool waterLevelComplete = false;
 	private GameObject waterPuzzle;
+	private bool firstWaterMessage = false;
+	private int timerThreshhold = 5;
 
 	private bool gameActive = true;
 
@@ -214,9 +216,12 @@ public class GameController : MonoBehaviour
 					}
 				}
 
-				print ("Timer: " + wptimer.getTimer());
+				if(!firstWaterMessage && wptimer.getStarted()) {
+					ninjaController.createMessage("Fill the buckets before time runs out! You have 30 seconds left!");
+					firstWaterMessage = true;
+				}
 
-				if (wptimer.getTimer() > 30.0f) {
+				if (wptimer.getTimer() >= 30.0f) {
 					//clear the buckets
 					foreach(FillableObject fo in triggers) {
 						fo.clearBucket();
@@ -225,14 +230,17 @@ public class GameController : MonoBehaviour
 					//restart timer
 					wptimer.setTimer(0.0f);
 					wptimer.setStarted(false);
+					firstWaterMessage = false;
+					timerThreshhold = 5;
 					//tell user he/she ran out of time
 					ninjaController.createMessage("You ran out of time!");
 #if PLAY_TESTING
 					testInfo.failedWaterPuzzles++;
 #endif
-				}
-				else if (numberFilled == bucketWaters.Capacity)
-				{
+				} else if(wptimer.getStarted() && wptimer.getTimer() > timerThreshhold) {
+					ninjaController.createMessage("You have " + (30 - timerThreshhold) + " seconds left!");
+					timerThreshhold += 5;
+				} else if (numberFilled == bucketWaters.Capacity) {
 					//tell them they've completed the room
 					ninjaController.createMessage("Water Room complete!");
 					waterLevelComplete = true;
@@ -240,7 +248,7 @@ public class GameController : MonoBehaviour
 					// Track the end water time
 					testInfo.endWaterTime = Time.time;
 #endif
-				}
+				} 
 
 			}
 			else
