@@ -15,9 +15,12 @@ MonoBehaviour:
     _serializedData: <scriptableobject version="1.0" type="RAIN.BehaviorTrees.BTAsset"><fields><field
       value="&lt;behaviortree version=&quot;1.1&quot; repeatuntil=&quot;&quot; name=&quot;AssaultTroop&quot;&gt;&lt;parallel
       tiebreaker=&quot;fail&quot; succeed=&quot;all&quot; repeatuntil=&quot;&quot;
-      name=&quot;root&quot; fail=&quot;any&quot;&gt;&lt;detect sensor=&quot;&amp;quot;Eyes&amp;quot;&quot;
-      repeatuntil=&quot;running&quot; name=&quot;Line of Sight&quot; entityobjectvariable=&quot;ninja&quot;
-      aspectvariable=&quot;&quot; aspectobjectvariable=&quot;&quot; aspect=&quot;&amp;quot;Ninja&amp;quot;&quot;
+      name=&quot;root&quot; fail=&quot;any&quot;&gt;&lt;action repeatuntil=&quot;running&quot;
+      parametervalues=&quot;&quot; parameters=&quot;&quot; namespace=&quot;(global)&quot;
+      name=&quot;Set Health&quot; classname=&quot;SetHealth&quot; /&gt;&lt;detect
+      sensor=&quot;&amp;quot;Eyes&amp;quot;&quot; repeatuntil=&quot;running&quot;
+      name=&quot;Line of Sight&quot; entityobjectvariable=&quot;ninja&quot; aspectvariable=&quot;&quot;
+      aspectobjectvariable=&quot;&quot; aspect=&quot;&amp;quot;Ninja&amp;quot;&quot;
       /&gt;&lt;detect sensor=&quot;&amp;quot;Weapon Range&amp;quot;&quot; repeatuntil=&quot;running&quot;
       name=&quot;Weapon Range&quot; entityobjectvariable=&quot;ninjaWithinAttackRange&quot;
       aspectvariable=&quot;&quot; aspectobjectvariable=&quot;&quot; aspect=&quot;&amp;quot;Ninja&amp;quot;&quot;
@@ -37,6 +40,16 @@ MonoBehaviour:
       name=&quot;Walk Animation&quot; animationstate=&quot;Walk&quot; /&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;constraint
       repeatuntil=&quot;&quot; priority=&quot;&quot; name=&quot;Ninja Visible&quot;
       constraint=&quot;ninja != null&quot;&gt;&lt;selector usepriorities=&quot;False&quot;
+      repeatuntil=&quot;&quot; name=&quot;selector&quot;&gt;&lt;constraint repeatuntil=&quot;&quot;
+      priority=&quot;&quot; name=&quot;Below Flee Threshold&quot; constraint=&quot;health
+      &amp;lt; 50&quot;&gt;&lt;parallel tiebreaker=&quot;fail&quot; succeed=&quot;all&quot;
+      repeatuntil=&quot;&quot; name=&quot;parallel&quot; fail=&quot;any&quot;&gt;&lt;move
+      turnspeed=&quot;&quot; repeatuntil=&quot;&quot; name=&quot;move&quot; movetarget=&quot;ninja&quot;
+      movespeed=&quot;-2&quot; facetarget=&quot;&quot; closeenoughdistance=&quot;&quot;
+      closeenoughangle=&quot;&quot; /&gt;&lt;animate repeatuntil=&quot;&quot; name=&quot;Walk
+      Animation&quot; animationstate=&quot;Walk&quot; /&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;constraint
+      repeatuntil=&quot;&quot; priority=&quot;&quot; name=&quot;Above Flee Threshold&quot;
+      constraint=&quot;health &amp;gt;= 50&quot;&gt;&lt;selector usepriorities=&quot;False&quot;
       repeatuntil=&quot;&quot; name=&quot;selector&quot;&gt;&lt;constraint repeatuntil=&quot;&quot;
       priority=&quot;&quot; name=&quot;Ninja Outside Of Attack Range &quot; constraint=&quot;ninjaWithinAttackRange
       == null&quot;&gt;&lt;parallel tiebreaker=&quot;fail&quot; succeed=&quot;all&quot;
@@ -68,7 +81,7 @@ MonoBehaviour:
       parametervalues=&quot;&quot; parameters=&quot;&quot; namespace=&quot;(global)&quot;
       name=&quot;Shoot Bullets&quot; classname=&quot;ShootBullets&quot; /&gt;&lt;animate
       repeatuntil=&quot;&quot; name=&quot;Attack Animation&quot; animationstate=&quot;Attack&quot;
-      /&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/parallel&gt;&lt;/behaviortree&gt;"
+      /&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/parallel&gt;&lt;/behaviortree&gt;"
       type="System.String" id="treeData" /><field type="System.Array" id="treeBindings"
       elementtype="System.String" /></fields><references /></scriptableobject>
     _serializedGameObjects: []
