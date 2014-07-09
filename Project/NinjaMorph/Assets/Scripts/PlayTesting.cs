@@ -1,4 +1,13 @@
-﻿using UnityEngine;
+﻿/*
+  Team Y-Not
+  
+  Evan LaHurd
+  Luke Tornquist
+  Jonathan Yates
+*/
+//#define PLAY_TESTING
+
+using UnityEngine;
 using System.Collections;
 using System;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -63,6 +72,7 @@ public class PlayTesting
 	/// <param name="info">Info.</param>
 	public void Save(PlayTestInfo info)
 	{
+#ifdef PLAY_TESTING
 		// Set the file path
 		string filePath = Application.persistentDataPath + "/playTest.csv";
 
@@ -81,5 +91,6 @@ public class PlayTesting
 		Debug.Log("Play Test Data saved: " + filePath);
 		// Write all the data out
 		File.AppendAllText(filePath, info.getData());
+#endif
 	}
 }
