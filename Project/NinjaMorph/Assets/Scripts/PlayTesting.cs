@@ -72,7 +72,7 @@ public class PlayTesting
 	/// <param name="info">Info.</param>
 	public void Save(PlayTestInfo info)
 	{
-#ifdef PLAY_TESTING
+#if PLAY_TESTING
 		// Set the file path
 		string filePath = Application.persistentDataPath + "/playTest.csv";
 
