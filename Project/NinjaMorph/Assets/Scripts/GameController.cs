@@ -285,7 +285,7 @@ public class GameController : MonoBehaviour
 		// Create a message
 		ninjaController.createMessage("Game Over!");
 		// Hold out for 30 seconds
-		yield return new WaitForSeconds(10.0f);
+		yield return new WaitForSeconds(5.0f);
 		// Reset the scene
 		Application.LoadLevel("TutorialCompound");
 	}
