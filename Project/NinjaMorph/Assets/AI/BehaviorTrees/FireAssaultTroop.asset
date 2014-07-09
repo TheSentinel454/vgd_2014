@@ -65,8 +65,8 @@ MonoBehaviour:
       Distance&quot; constraint=&quot;ninjaWithinCautionaryDistance == null&quot;&gt;&lt;parallel
       tiebreaker=&quot;fail&quot; succeed=&quot;all&quot; repeatuntil=&quot;&quot;
       name=&quot;parallel&quot; fail=&quot;any&quot;&gt;&lt;move turnspeed=&quot;&quot;
-      repeatuntil=&quot;running&quot; name=&quot;move&quot; movetarget=&quot;ninjaFuture&quot;
-      movespeed=&quot;2&quot; facetarget=&quot;ninjaFuture&quot; closeenoughdistance=&quot;&quot;
+      repeatuntil=&quot;running&quot; name=&quot;move&quot; movetarget=&quot;ninja&quot;
+      movespeed=&quot;2&quot; facetarget=&quot;ninja&quot; closeenoughdistance=&quot;&quot;
       closeenoughangle=&quot;&quot; /&gt;&lt;action repeatuntil=&quot;running&quot;
       parametervalues=&quot;&quot; parameters=&quot;&quot; namespace=&quot;(global)&quot;
       name=&quot;Shoot Bullets&quot; classname=&quot;ShootBullets&quot; /&gt;&lt;animate
