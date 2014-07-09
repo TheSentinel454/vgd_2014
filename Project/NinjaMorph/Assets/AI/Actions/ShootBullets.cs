@@ -36,9 +36,15 @@ public class ShootBullets : RAINAction {
 		// Determine where we are aiming
 		playerVelocity = ai.WorkingMemory.GetItem<GameObject> ("ninja").GetComponent<NinjaController>().velocity;
 
+		// Determine the location to aim
 		float distance = Vector3.Distance(bulletModel.transform.position, player.transform.position); //distance in between in meters
 		float travelTime = distance / (bulletModel.GetComponent<Bullet> ().speed / Time.deltaTime); //time in seconds the shot would need to arrive at the target
 		Vector3 aimPoint = player.transform.position + playerVelocity * travelTime;
+
+		// Second pass to try to make it more accurate
+		float distance2 = Vector3.Distance(bulletModel.transform.position, player.transform.position+((player.transform.position-aimPoint)/2F));//using point between aimpoint and target
+	    float travelTime2 = distance2 / (bulletModel.GetComponent<Bullet> ().speed / Time.deltaTime);
+	    aimPoint = player.transform.position + playerVelocity * travelTime2;
 
 		// Aim at the player
 		aimingAt = aimPoint - bulletModel.transform.position;
