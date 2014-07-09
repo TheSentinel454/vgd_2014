@@ -47,7 +47,7 @@ Milestone 3
 
 ### Fulfilled Requirements
 
-- AI State Machine implemented
+- AI State Machine implemented 
   - Soldier can be in one of 3 states
   - Patrol state is when there is no player in Line of Sight, and follows a set path of waypoints
   - Attack state is when there is a player in Line of Sight, and the soldier will pursue the player and attack when within attack range
