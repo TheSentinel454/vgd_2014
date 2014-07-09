@@ -579,8 +579,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -41.5867004, y: 2.5, z: -18}
+  m_LocalRotation: {x: 0, y: .0563190989, z: 0, w: .998412907}
+  m_LocalPosition: {x: 3.16849446, y: 29.977375, z: 142.616806}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400002}
@@ -1012,7 +1012,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100072}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: .5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400000}
@@ -1360,7 +1360,7 @@ MonoBehaviour:
       type="RAIN.Entities.Aspects.VisualAspect" refcount="1" id="1"><field value="True"
       type="System.Boolean" id="_isActive" /><field value="Ninja" type="System.String"
       id="_aspectName" /><field type="UnityEngine.Transform" id="_mountPoint" gameobject="1"
-      /><field value="0.1" type="System.Single" id="_size" /><field value="-0.3049617,0.7609615,0.068573"
+      /><field value="0.1" type="System.Single" id="_size" /><field value="-0.01369568,0.6177387,0.0685674"
       type="UnityEngine.Vector3" id="_positionOffset" /><field value="0,0,0" type="UnityEngine.Vector3"
       id="_angleOffset" /></reference></references></component>
     _serializedGameObjects:
@@ -1385,7 +1385,6 @@ MonoBehaviour:
   moveAttackAnimation: {fileID: 7400010, guid: af2f673d12c724b4bbad8f33c16a54f5, type: 3}
   idleAttackAnimation: {fileID: 7400014, guid: af2f673d12c724b4bbad8f33c16a54f5, type: 3}
   attackDistance: 2.5
-  warningMsg: {fileID: 100000, guid: 1f3ba0b501b8e4cd3a5e6fb842f52093, type: 2}
   baseSettings:
     texture: {fileID: 2800000, guid: dd924b1904e29ae4680aaf675a5a1f17, type: 3}
     walkSpeed: 2
@@ -1460,6 +1459,15 @@ MonoBehaviour:
   woodWalkingAudio: {fileID: 8200000}
   waterWalkingAudio: {fileID: 8200002}
   grassWalkingAudio: {fileID: 8200004}
+  msgManager: {fileID: 0}
+  numAttacks: 0
+  numKills: 0
+  totalAirTime: 0
+  totalFireTime: 0
+  totalWaterTime: 0
+  totalAirCharging: 0
+  totalFireCharging: 0
+  totalWaterCharging: 0
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1

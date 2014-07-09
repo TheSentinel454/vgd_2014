@@ -33,8 +33,6 @@ public class GameController : MonoBehaviour
 
 	private bool gameActive = true;
 
-	//private MessageManager msgManager;
-
 	// Use this for initialization
 	void Start ()
 	{
@@ -43,8 +41,6 @@ public class GameController : MonoBehaviour
 		testInfo = new PlayTestInfo ();
 		testInfo.startTime = Time.time;
 #endif
-		// Find the Message Manager
-		//msgManager = GetComponentInChildren<MessageManager> ();
 		// Find the GUI Text
 		foreach(GUIText gt in HUD.GetComponentsInChildren<GUIText>())
 		{
@@ -82,7 +78,7 @@ public class GameController : MonoBehaviour
 		if (!gameActive)
 			return;
 		// Update the GUI
-		//UpdateGUI ();
+		UpdateGUI ();
 
 		// Check for Game Over
 		CheckGameOver ();
