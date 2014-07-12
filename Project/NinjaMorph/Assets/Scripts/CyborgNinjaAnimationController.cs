@@ -37,7 +37,7 @@ public class CyborgNinjaAnimationController : MonoBehaviour {
 	void FixedUpdate () {
 		// Determine if we are currently grounded.
 		previouslyGrounded = grounded;
-		Debug.Log (distanceToGround);
+		//Debug.Log (distanceToGround);
 		grounded = Physics.Raycast (new Ray (transform.position, Vector3.down), distanceToGround);
 
 		// Update position information

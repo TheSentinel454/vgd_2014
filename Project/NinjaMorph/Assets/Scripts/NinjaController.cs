@@ -50,6 +50,7 @@ public enum NinjaType
 
 public class NinjaController : MonoBehaviour
 {
+	/*
 	private Animation _animation;
     public AnimationClip idleAnimation;
     public AnimationClip walkAnimation;
@@ -57,6 +58,7 @@ public class NinjaController : MonoBehaviour
     public AnimationClip jumpPoseAnimation;
 	public AnimationClip moveAttackAnimation;
 	public AnimationClip idleAttackAnimation;
+	*/
 
 	public float attackDistance = 2.5f;
 
@@ -93,12 +95,13 @@ public class NinjaController : MonoBehaviour
     }
 
 	private CharacterState _characterState;
-
+	/*
 	// Animation speeds
 	private float walkMaxAnimationSpeed;
 	private float runMaxAnimationSpeed;
 	private float jumpAnimationSpeed;
 	private float landAnimationSpeed;
+	*/
 	
 	// The speed when walking
 	private float walkSpeed;
@@ -205,6 +208,7 @@ public class NinjaController : MonoBehaviour
 		// Initialize the move direction
         moveDirection = transform.TransformDirection(Vector3.forward);
 
+		/*
         _animation = GetComponent<Animation>();
         if (!_animation)
             Debug.Log("The character you would like to control doesn't have animations. Moving her might look weird.");
@@ -239,6 +243,7 @@ public class NinjaController : MonoBehaviour
 			_animation = null;
 			Debug.Log("No idle attack animation found. Turning off animations.");
 		}
+		*/
     }
 
     void UpdateSmoothedMovementDirection()
@@ -417,12 +422,14 @@ public class NinjaController : MonoBehaviour
 				}
 			}
 		}
+		/*
 		float length;
 		if (_characterState == CharacterState.Running || _characterState == CharacterState.Walking)
 			length = _animation[moveAttackAnimation.name].length;
 		else
 			length = _animation[idleAttackAnimation.name].length;
-		yield return new WaitForSeconds(length);
+		*/
+		yield return new WaitForSeconds(5.0f);
 		attacking = false;
 	}
 	
@@ -449,7 +456,6 @@ public class NinjaController : MonoBehaviour
 		InputManager.Update();
 		// Use last device which provided input.
 		inputDevice = InputManager.ActiveDevice;
-		//print ("Device: " + inputDevice.Name);
 #if PLAY_TESTING
 		sumHealth += zenEnergy;
 		numHealthPoints += 1.0f;
@@ -508,7 +514,7 @@ public class NinjaController : MonoBehaviour
         // Move the controller
         CharacterController controller = GetComponent<CharacterController>();
         collisionFlags = controller.Move(movement);
-
+		/*
         // ANIMATION sector
         if (_animation)
         {
@@ -562,6 +568,7 @@ public class NinjaController : MonoBehaviour
             }
         }
         // ANIMATION sector
+        */
 
         // Set rotation to the move direction
         if (IsGrounded())
@@ -810,11 +817,13 @@ public class NinjaController : MonoBehaviour
 		} 
 		// Set the texture
 		ninjaRenderer.material.mainTexture = settings.texture;
+		/*
 		// Set the animation speeds
 		walkMaxAnimationSpeed = settings.walkMaxAnimationSpeed;
 		runMaxAnimationSpeed = settings.runMaxAnimationSpeed;
 		jumpAnimationSpeed = settings.jumpAnimationSpeed;
 		landAnimationSpeed = settings.landAnimationSpeed;
+		*/
 		// Set the walk/run/jump values
 		walkSpeed = settings.walkSpeed;
 		runSpeed = settings.runSpeed;
