@@ -16,12 +16,11 @@ public class CyborgNinjaAnimationController : MonoBehaviour {
 	bool previouslyGrounded = false;
 
 	// ANIMATIONS
-	Animation animation;
+	Animation cyborgAnimation;
 
 	// POSITIONS
 	Vector3 previousPosition = Vector3.zero;
 	Vector3 displacement = Vector3.zero;
-	Vector3 direction = Vector3.zero;
 	Vector3 velocity = Vector3.zero;
 
 	// DISTANCES
@@ -33,7 +32,7 @@ public class CyborgNinjaAnimationController : MonoBehaviour {
 
 	// Initialize Animations and Positions
 	void Start () {
-		animation = GetComponent<Animation>();
+		cyborgAnimation = GetComponent<Animation>();
 		previousPosition = transform.position;
 		distanceToGround = collider.bounds.center.y - collider.bounds.min.y;
 		colliderRadius = GetComponent<CharacterController> ().radius;
@@ -47,7 +46,6 @@ public class CyborgNinjaAnimationController : MonoBehaviour {
 
 		// Update position information
 		displacement = transform.position - previousPosition;
-		direction = displacement.normalized;
 		velocity = displacement / Time.deltaTime;
 		previousPosition = transform.position;
 
@@ -57,8 +55,8 @@ public class CyborgNinjaAnimationController : MonoBehaviour {
 		// deathBackwards
 		// deathBackwardsSwordDrawn
 		if (dead == true) {
-			animation[weaponOut ? "deathBackwardsSwordDrawn" : "deathBackwards"].wrapMode = WrapMode.ClampForever;
-			animation.CrossFade(weaponOut ? "deathBackwardsSwordDrawn" : "deathBackwards");
+			cyborgAnimation[weaponOut ? "deathBackwardsSwordDrawn" : "deathBackwards"].wrapMode = WrapMode.ClampForever;
+			cyborgAnimation.CrossFade(weaponOut ? "deathBackwardsSwordDrawn" : "deathBackwards");
 			return;
 		}
 
@@ -70,23 +68,23 @@ public class CyborgNinjaAnimationController : MonoBehaviour {
 		// putBackSword
 		// 3HitComboSword
 		if (grounded == true && landingJump == false && displacement.sqrMagnitude <= 0.0001f) {
-			animation.CrossFade(weaponOut ? "idleSword" : "idlestandbreathe");
+			cyborgAnimation.CrossFade(weaponOut ? "idleSword" : "idlestandbreathe");
 
 			if (weapon == true && weaponOut == false) {
-				animation.CrossFade("getSword");
+				cyborgAnimation.CrossFade("getSword");
 			}
 
 			if (attacking == false && weapon == false && weaponOut == true) {
-				animation.CrossFade("putBackSword");
+				cyborgAnimation.CrossFade("putBackSword");
 			}
 
 			if (attacking == true && weaponOut == false) {
-				animation.CrossFade("getSword");
+				cyborgAnimation.CrossFade("getSword");
 			}
 
 			if (attacking == true && weaponOut == true) {
-				animation["3HitComboSword"].wrapMode = WrapMode.Once;
-				animation.CrossFade("3HitComboSword");
+				cyborgAnimation["3HitComboSword"].wrapMode = WrapMode.Once;
+				cyborgAnimation.CrossFade("3HitComboSword");
 			}
 		}
 
@@ -94,7 +92,7 @@ public class CyborgNinjaAnimationController : MonoBehaviour {
 		// ------------------
 		// walkNormal
 		if (grounded == true && 0.0001f < displacement.sqrMagnitude && velocity.sqrMagnitude <= 23) {
-			animation.CrossFade("walkNormal");
+			cyborgAnimation.CrossFade("walkNormal");
 			OnAttackComplete();
 			SetLandingJump(0);
 		}
@@ -104,7 +102,7 @@ public class CyborgNinjaAnimationController : MonoBehaviour {
 		// runNoWeapon
 		// runSword
 		if (grounded == true && 23 < velocity.sqrMagnitude) {
-			animation.CrossFade(weaponOut ? "runSword" : "runNoWeapon");
+			cyborgAnimation.CrossFade(weaponOut ? "runSword" : "runNoWeapon");
 			OnAttackComplete();
 			SetLandingJump(0);
 		}
@@ -115,16 +113,16 @@ public class CyborgNinjaAnimationController : MonoBehaviour {
 		// jumpNoWeapon_down
 		// jumpNoWeapon_fall
 		if (grounded == false && velocity.y > 0) {
-			animation.CrossFade("jumpNoWeapon_up");
+			cyborgAnimation.CrossFade("jumpNoWeapon_up");
 			OnAttackComplete();
 		}
 
 		if (grounded == false && velocity.y < 0) {
-			animation.CrossFade("jumpNoWeapon_down");
+			cyborgAnimation.CrossFade("jumpNoWeapon_down");
 		}
 
 		if (grounded == true && previouslyGrounded == false) {
-			animation.CrossFade("jumpNoWeapon_fall");
+			cyborgAnimation.CrossFade("jumpNoWeapon_fall");
 		}
 	}
 

@@ -22,7 +22,7 @@ public class GameController : MonoBehaviour
 	private GUIText waterEnergyText;
 
 	private bool airLevelComplete = true;	// Temporarily set to true
-	private GameObject airPuzzle;
+	//private GameObject airPuzzle;
 
 	private bool fireLevelComplete = false;
 	private GameObject firePuzzle;
@@ -62,9 +62,9 @@ public class GameController : MonoBehaviour
 		// Find the puzzles
 		foreach(GameObject go in puzzles)
 		{
-			if (go.name.Equals("Air Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
+			/*if (go.name.Equals("Air Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
 				airPuzzle = go;
-			else if (go.name.Equals("Fire Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
+			else */if (go.name.Equals("Fire Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
 				firePuzzle = go;
 			else if (go.name.Equals("Water Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
 				waterPuzzle = go;
