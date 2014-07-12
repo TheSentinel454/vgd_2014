@@ -50,16 +50,6 @@ public enum NinjaType
 
 public class NinjaController : MonoBehaviour
 {
-	/*
-	private Animation _animation;
-    public AnimationClip idleAnimation;
-    public AnimationClip walkAnimation;
-    public AnimationClip runAnimation;
-    public AnimationClip jumpPoseAnimation;
-	public AnimationClip moveAttackAnimation;
-	public AnimationClip idleAttackAnimation;
-	*/
-
 	public float attackDistance = 2.5f;
 
 	public NinjaSettings baseSettings;
@@ -85,23 +75,6 @@ public class NinjaController : MonoBehaviour
 		Wood,
 		Water
 	}
-
-    enum CharacterState
-    {
-        Idle = 0,
-        Walking = 1,
-        Running = 2,
-        Jumping = 3,
-    }
-
-	private CharacterState _characterState;
-	/*
-	// Animation speeds
-	private float walkMaxAnimationSpeed;
-	private float runMaxAnimationSpeed;
-	private float jumpAnimationSpeed;
-	private float landAnimationSpeed;
-	*/
 	
 	// The speed when walking
 	private float walkSpeed;
@@ -207,43 +180,6 @@ public class NinjaController : MonoBehaviour
 		walkingAudio = baseWalkingAudio;
 		// Initialize the move direction
         moveDirection = transform.TransformDirection(Vector3.forward);
-
-		/*
-        _animation = GetComponent<Animation>();
-        if (!_animation)
-            Debug.Log("The character you would like to control doesn't have animations. Moving her might look weird.");
-
-        if (!idleAnimation)
-        {
-            _animation = null;
-            Debug.Log("No idle animation found. Turning off animations.");
-        }
-        if (!walkAnimation)
-        {
-            _animation = null;
-            Debug.Log("No walk animation found. Turning off animations.");
-        }
-        if (!runAnimation)
-        {
-            _animation = null;
-            Debug.Log("No run animation found. Turning off animations.");
-        }
-        if (!jumpPoseAnimation)
-        {
-            _animation = null;
-            Debug.Log("No jump animation found. Turning off animations.");
-        }
-		if (!moveAttackAnimation)
-		{
-			_animation = null;
-			Debug.Log("No move attack animation found. Turning off animations.");
-		}
-		if (!idleAttackAnimation)
-		{
-			_animation = null;
-			Debug.Log("No idle attack animation found. Turning off animations.");
-		}
-		*/
     }
 
     void UpdateSmoothedMovementDirection()
@@ -299,18 +235,14 @@ public class NinjaController : MonoBehaviour
             //* We want to support analog input but make sure you cant walk faster diagonally than just forward or sideways
             float targetSpeed = Mathf.Min(targetDirection.magnitude, 1.0f);
 
-            _characterState = CharacterState.Idle;
-
             // Pick speed modifier
 			if (inputDevice.LeftTrigger.IsPressed)//Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
             {
                 targetSpeed *= runSpeed;
-                _characterState = CharacterState.Running;
             }
             else
             {
                 targetSpeed *= walkSpeed;
-                _characterState = CharacterState.Walking;
             }
 
             moveSpeed = Mathf.Lerp(moveSpeed, targetSpeed, curSmooth);
@@ -439,8 +371,6 @@ public class NinjaController : MonoBehaviour
 		jumpingReachedApex = false;
 		lastJumpTime = Time.time;
 		lastJumpButtonTime = -10;
-		
-		_characterState = CharacterState.Jumping;
 	}
 
 	public void DidJumpReachApex()
@@ -514,61 +444,6 @@ public class NinjaController : MonoBehaviour
         // Move the controller
         CharacterController controller = GetComponent<CharacterController>();
         collisionFlags = controller.Move(movement);
-		/*
-        // ANIMATION sector
-        if (_animation)
-        {
-            if (_characterState == CharacterState.Jumping)
-            {
-                if (!jumpingReachedApex)
-                {
-                    _animation[jumpPoseAnimation.name].speed = jumpAnimationSpeed;
-                    _animation[jumpPoseAnimation.name].wrapMode = WrapMode.ClampForever;
-                    _animation.CrossFade(jumpPoseAnimation.name);
-                }
-                else
-                {
-                    _animation[jumpPoseAnimation.name].speed = -landAnimationSpeed;
-                    _animation[jumpPoseAnimation.name].wrapMode = WrapMode.ClampForever;
-                    _animation.CrossFade(jumpPoseAnimation.name);
-                }
-            }
-            else
-            {
-                if (controller.velocity.sqrMagnitude < 0.1f)
-                {
-					_animation.CrossFade(idleAnimation.name);
-					
-					if (attacking)
-					{
-						_animation[idleAttackAnimation.name].speed = 1.0f;
-						_animation[idleAttackAnimation.name].wrapMode = WrapMode.ClampForever;
-						_animation.CrossFade(idleAttackAnimation.name);
-					}
-                }
-                else
-                {
-                    if (_characterState == CharacterState.Running)
-                    {
-                        _animation[runAnimation.name].speed = Mathf.Clamp(controller.velocity.magnitude, 0.0f, runMaxAnimationSpeed);
-                        _animation.CrossFade(runAnimation.name);
-                    }
-                    else if (_characterState == CharacterState.Walking)
-                    {
-                        _animation[walkAnimation.name].speed = Mathf.Clamp(controller.velocity.magnitude, 0.0f, walkMaxAnimationSpeed);
-                        _animation.CrossFade(walkAnimation.name);
-					}
-					if (attacking)
-					{
-						_animation[moveAttackAnimation.name].speed = 1.0f;
-						_animation[moveAttackAnimation.name].wrapMode = WrapMode.ClampForever;
-						_animation.CrossFade(moveAttackAnimation.name);
-					}
-                }
-            }
-        }
-        // ANIMATION sector
-        */
 
         // Set rotation to the move direction
         if (IsGrounded())
