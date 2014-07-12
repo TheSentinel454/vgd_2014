@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEditor;
 using System.Collections;
 
 public class CyborgNinjaAnimationController : MonoBehaviour {
@@ -25,20 +26,24 @@ public class CyborgNinjaAnimationController : MonoBehaviour {
 
 	// DISTANCES
 	float distanceToGround = 0;
+	float colliderRadius = 0.5f;
+
+	// Hit
+	RaycastHit hit;
 
 	// Initialize Animations and Positions
 	void Start () {
 		animation = GetComponent<Animation>();
 		previousPosition = transform.position;
-		distanceToGround = collider.bounds.extents.y;
+		distanceToGround = collider.bounds.center.y - collider.bounds.min.y;
+		colliderRadius = GetComponent<CharacterController> ().radius;
 	}
 
 	// Updating Animation States
 	void FixedUpdate () {
 		// Determine if we are currently grounded.
 		previouslyGrounded = grounded;
-		//Debug.Log (distanceToGround);
-		grounded = Physics.Raycast (new Ray (transform.position, Vector3.down), distanceToGround);
+		grounded = Physics.CapsuleCast (collider.bounds.center, collider.bounds.center, colliderRadius, Vector3.down, out hit, distanceToGround + 0.1f);
 
 		// Update position information
 		displacement = transform.position - previousPosition;
