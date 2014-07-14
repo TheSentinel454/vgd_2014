@@ -24,7 +24,6 @@ public class ClearSight : MonoBehaviour
 			Renderer R = hit.collider.renderer;
 			if (R == null)
 				continue; // no renderer attached? go to next hit
-			// TODO: maybe implement here a check for GOs that should not be affected like the player
 			
 			AutoTransparent AT = R.GetComponent<AutoTransparent>();
 			if (AT == null) // if no script is attached, attach one
