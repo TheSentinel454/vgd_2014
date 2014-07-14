@@ -66,7 +66,7 @@ public class NinjaController : MonoBehaviour
 
 	private AudioSource walkingAudio;
 	private NinjaType ninjaType;
-	private Renderer ninjaRenderer;
+	private Renderer[] ninjaRenderers;
 	private GameObject ninjaEffects;
 
 	enum CharacterGround
@@ -162,7 +162,7 @@ public class NinjaController : MonoBehaviour
 		// Setup the input manager
 		InputManager.Setup ();
 		// Get the ninja renderer
-		ninjaRenderer = GetComponentInChildren<Renderer> ();
+		ninjaRenderers = GetComponentsInChildren<Renderer> ();
 		// Search for the Effects holder
 		foreach(Transform tf in GetComponentsInChildren<Transform> ())
 		{
@@ -199,8 +199,8 @@ public class NinjaController : MonoBehaviour
         // Always orthogonal to the forward vector
         Vector3 right = new Vector3(forward.z, 0, -forward.x);
 
-		float v = inputDevice.LeftStickY.Value;//Input.GetAxisRaw("Vertical");
-		float h = inputDevice.LeftStickX.Value;//Input.GetAxisRaw("Horizontal");
+		float v = inputDevice.LeftStickY.Value;
+		float h = inputDevice.LeftStickX.Value;
 
         // Are we moving backwards or looking backwards
         if (v < -0.2f)
@@ -634,9 +634,15 @@ public class NinjaController : MonoBehaviour
 		ninjaType = NinjaType.Base;
 		// Set Ninja Settings
 		setNinjaSettings (baseSettings);
-		// Set the texture alpha
-		ninjaRenderer.material.color = new Color (1.0f, 1.0f, 1.0f, 1.0f);
-		ninjaRenderer.material.shader = Shader.Find ("Diffuse");
+
+		// Iterate through each of the renderers
+		foreach(Renderer ninjaRenderer in ninjaRenderers)
+		{
+			// Set the texture alpha
+			ninjaRenderer.material.color = new Color (1.0f, 1.0f, 1.0f, 1.0f);
+			ninjaRenderer.material.shader = Shader.Find ("Reflective/Bumped Specular");
+			ninjaRenderer.material.SetColor ("_ReflectColor", new Color(0.0f, 0.0f, 0.0f, 0.5f));
+		}
 	}
 	/// <summary>
 	/// Sets the air ninja.
@@ -647,9 +653,15 @@ public class NinjaController : MonoBehaviour
 		ninjaType = NinjaType.Air;
 		// Set Ninja Settings
 		setNinjaSettings (airSettings);
-		// Set the texture alpha
-		ninjaRenderer.material.color = new Color (1.0f, 1.0f, 1.0f, 0.5f);
-		ninjaRenderer.material.shader = Shader.Find ("Transparent/Diffuse");
+		
+		// Iterate through each of the renderers
+		foreach(Renderer ninjaRenderer in ninjaRenderers)
+		{
+			// Set the texture alpha
+			ninjaRenderer.material.color = new Color (1.0f, 1.0f, 1.0f, 0.5f);
+			ninjaRenderer.material.shader = Shader.Find ("Transparent/Bumped Specular");
+			ninjaRenderer.material.SetColor ("_ReflectColor", new Color(1.0f, 1.0f, 1.0f, 0.5f));
+		}
 	}
 	/// <summary>
 	/// Sets the fire ninja.
@@ -660,9 +672,15 @@ public class NinjaController : MonoBehaviour
 		ninjaType = NinjaType.Fire;
 		// Set Ninja Settings
 		setNinjaSettings (fireSettings);
-		// Set the texture alpha
-		ninjaRenderer.material.color = new Color (1.0f, 1.0f, 1.0f, 1.0f);
-		ninjaRenderer.material.shader = Shader.Find ("Diffuse");
+		
+		// Iterate through each of the renderers
+		foreach(Renderer ninjaRenderer in ninjaRenderers)
+		{
+			// Set the texture alpha
+			ninjaRenderer.material.color = new Color (1.0f, 1.0f, 1.0f, 1.0f);
+			ninjaRenderer.material.shader = Shader.Find ("Reflective/Bumped Specular");
+			ninjaRenderer.material.SetColor ("_ReflectColor", new Color(1.0f, 0.0f, 0.0f, 0.5f));
+		}
 	}
 	/// <summary>
 	/// Sets the water ninja.
@@ -673,9 +691,15 @@ public class NinjaController : MonoBehaviour
 		ninjaType = NinjaType.Water;
 		// Set Ninja Settings
 		setNinjaSettings (waterSettings);
-		// Set the texture alpha
-		ninjaRenderer.material.color = new Color (1.0f, 1.0f, 1.0f, 1.0f);
-		ninjaRenderer.material.shader = Shader.Find ("Diffuse");
+		
+		// Iterate through each of the renderers
+		foreach(Renderer ninjaRenderer in ninjaRenderers)
+		{
+			// Set the texture alpha
+			ninjaRenderer.material.color = new Color (1.0f, 1.0f, 1.0f, 1.0f);
+			ninjaRenderer.material.shader = Shader.Find ("Reflective/Bumped Specular");
+			ninjaRenderer.material.SetColor ("_ReflectColor", new Color(0.0f, 0.0f, 1.0f, 0.5f));
+		}
 	}
 	/// <summary>
 	/// Sets the ninja settings.
@@ -694,14 +718,7 @@ public class NinjaController : MonoBehaviour
 			Destroy(effect.gameObject);
 		} 
 		// Set the texture
-		ninjaRenderer.material.mainTexture = settings.texture;
-		/*
-		// Set the animation speeds
-		walkMaxAnimationSpeed = settings.walkMaxAnimationSpeed;
-		runMaxAnimationSpeed = settings.runMaxAnimationSpeed;
-		jumpAnimationSpeed = settings.jumpAnimationSpeed;
-		landAnimationSpeed = settings.landAnimationSpeed;
-		*/
+		//ninjaRenderer.material.mainTexture = settings.texture;
 		// Set the walk/run/jump values
 		walkSpeed = settings.walkSpeed;
 		runSpeed = settings.runSpeed;
