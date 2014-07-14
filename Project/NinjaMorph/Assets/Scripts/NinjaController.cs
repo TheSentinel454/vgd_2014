@@ -139,6 +139,7 @@ public class NinjaController : MonoBehaviour
 	public float getFireEnergy(){return fireEnergy;}
 	private float waterEnergy = 100.0f;
 	public float getWaterEnergy(){return waterEnergy;}
+	private float MAX_BAR_VALUE = 100.0f;
 
 #if PLAY_TESTING
 	public int numAttacks = 0;
@@ -174,6 +175,8 @@ public class NinjaController : MonoBehaviour
 				break;
 			}
 		}
+		// Initialize GUI
+		initializeGUI ();
 		// Set the base ninja
 		setBaseNinja ();
 		// Set the base walking audio
@@ -861,6 +864,123 @@ public class NinjaController : MonoBehaviour
 		// Apply the push
 		body.velocity = pushDir * pushPower;
     }
+
+	// STYLES
+	GUIStyle zenStyle = new GUIStyle ();
+	GUIStyle airStyle = new GUIStyle ();
+	GUIStyle fireStyle = new GUIStyle ();
+	GUIStyle waterStyle = new GUIStyle ();
+	
+	// TEXTURES
+	Texture2D zenTexture;
+	Texture2D airTexture;
+	Texture2D fireTexture;
+	Texture2D waterTexture;
+
+	void initializeGUI()
+	{
+		// Zen bar
+		zenTexture = new Texture2D(1, 1);
+		zenTexture.SetPixel (0, 0, new Color(1.0f, 0.92f, 0.016f, 0.2f));
+		zenTexture.Apply ();
+		zenStyle.normal.background = zenTexture;
+		// Air bar
+		airTexture = new Texture2D(1, 1);
+		airTexture.SetPixel (0, 0, new Color(1.0f, 1.0f, 1.0f, 0.2f));
+		airTexture.Apply ();
+		airStyle.normal.background = airTexture;
+		// Fire bar
+		fireTexture = new Texture2D(1, 1);
+		fireTexture.SetPixel (0, 0, new Color(1.0f, 0.0f, 0.0f, 0.2f));
+		fireTexture.Apply ();
+		fireStyle.normal.background = fireTexture;
+		// Water bar
+		waterTexture = new Texture2D(1, 1);
+		waterTexture.SetPixel (0, 0, new Color(0.0f, 0.0f, 1.0f, 0.2f));
+		waterTexture.Apply ();
+		waterStyle.normal.background = waterTexture;
+	}
+
+	/// <summary>
+	/// Raises the GUI event.
+	/// </summary>
+	void OnGUI()
+	{
+		// Zen Bar Container
+		float zenContainerWidth = 250.0f;
+		float zenContainerHeight = 30.0f;
+		float zenContainerTop = GUI.skin.window.padding.top;
+		float zenContainerLeft = Screen.width - zenContainerWidth - GUI.skin.window.padding.right;
+		
+		// Zen Bar 
+		float zenWidth = (zenEnergy / MAX_BAR_VALUE) * (zenContainerWidth - GUI.skin.box.padding.horizontal);
+		float zenHeight = zenContainerHeight - GUI.skin.box.padding.vertical;
+		float zenTop = GUI.skin.box.padding.top;
+		float zenLeft = GUI.skin.box.padding.left;
+		
+		// Zen GUI
+		GUI.BeginGroup (new Rect (zenContainerLeft, zenContainerTop, zenContainerWidth, zenContainerHeight));
+		GUI.Box(new Rect(0, 0, zenContainerWidth, zenContainerHeight), "");
+		GUI.Box(new Rect(zenLeft, zenTop, zenWidth, zenHeight), "", zenStyle);
+		GUI.EndGroup ();
+
+		// Water Bar Container
+		float waterContainerWidth = 80.0f;
+		float waterContainerHeight = 30.0f;
+		float waterContainerTop = GUI.skin.window.padding.top + zenHeight + GUI.skin.window.padding.bottom;
+		float waterContainerLeft = Screen.width - waterContainerWidth - GUI.skin.window.padding.right;
+		
+		// Water Bar 
+		float waterWidth = waterContainerWidth - GUI.skin.box.padding.horizontal;
+		float waterHeight = (waterEnergy / MAX_BAR_VALUE) * (waterContainerHeight - GUI.skin.box.padding.vertical);
+		float maxwaterHeight = (waterContainerHeight - GUI.skin.box.padding.vertical);
+		float waterTop = GUI.skin.box.padding.top;
+		float waterLeft = GUI.skin.box.padding.left;
+		
+		// Water GUI
+		GUI.BeginGroup (new Rect (waterContainerLeft, waterContainerTop, waterContainerWidth, waterContainerHeight));
+		GUI.Box(new Rect(0, 0, waterContainerWidth, waterContainerHeight), "");
+		GUI.Box(new Rect(waterLeft, waterTop + (maxwaterHeight - waterHeight), waterWidth, waterHeight), "", waterStyle);
+		GUI.EndGroup ();
+
+		// Fire Bar Container
+		float fireContainerWidth = 80.0f;
+		float fireContainerHeight = 30.0f;
+		float fireContainerTop = GUI.skin.window.padding.top + zenHeight + GUI.skin.window.padding.bottom;
+		float fireContainerLeft = waterContainerLeft - fireContainerWidth - 5.0f;
+		
+		// Fire Bar 
+		float fireWidth = fireContainerWidth - GUI.skin.box.padding.horizontal;
+		float fireHeight = (fireEnergy / MAX_BAR_VALUE) * (fireContainerHeight - GUI.skin.box.padding.vertical);
+		float maxfireHeight = (fireContainerHeight - GUI.skin.box.padding.vertical);
+		float fireTop = GUI.skin.box.padding.top;
+		float fireLeft = GUI.skin.box.padding.left;
+		
+		// Fire GUI
+		GUI.BeginGroup (new Rect (fireContainerLeft, fireContainerTop, fireContainerWidth, fireContainerHeight));
+		GUI.Box(new Rect(0, 0, fireContainerWidth, fireContainerHeight), "");
+		GUI.Box(new Rect(fireLeft, fireTop + (maxfireHeight - fireHeight), fireWidth, fireHeight), "", fireStyle);
+		GUI.EndGroup ();
+
+		// Air Bar Container
+		float airContainerWidth = 80.0f;
+		float airContainerHeight = 30.0f;
+		float airContainerTop = GUI.skin.window.padding.top + zenHeight + GUI.skin.window.padding.bottom;
+		float airContainerLeft = fireContainerLeft - airContainerWidth - 5.0f;
+		
+		// Air Bar 
+		float airWidth = airContainerWidth - GUI.skin.box.padding.horizontal;
+		float airHeight = (airEnergy / MAX_BAR_VALUE) * (airContainerHeight - GUI.skin.box.padding.vertical);
+		float maxAirHeight = (airContainerHeight - GUI.skin.box.padding.vertical);
+		float airTop = GUI.skin.box.padding.top;
+		float airLeft = GUI.skin.box.padding.left;
+		
+		// Air GUI
+		GUI.BeginGroup (new Rect (airContainerLeft, airContainerTop, airContainerWidth, airContainerHeight));
+		GUI.Box(new Rect(0, 0, airContainerWidth, airContainerHeight), "");
+		GUI.Box(new Rect(airLeft, airTop + (maxAirHeight - airHeight), airWidth, airHeight), "", airStyle);
+		GUI.EndGroup ();
+	}
 
 	public void Damage (float amount) {
 		zenEnergy -= amount;
