@@ -3,6 +3,9 @@ using System.Collections;
 
 public class MenuMouseHandler : MonoBehaviour
 {
+	public float colorTransitionSpeed = 0.15f;
+	public float rotateTransitionSpeed = 1.0f;
+	
 	/// <summary>
 	/// Raises the mouse down event.
 	/// </summary>
@@ -16,11 +19,24 @@ public class MenuMouseHandler : MonoBehaviour
 		}
 		else if (this.name == "HelpButton")
 		{
-			iTween.RotateTo(Camera.main.gameObject, new Vector3(0, 90, 0), 1.0f);
+			iTween.RotateTo(Camera.main.gameObject, new Vector3(0, 90, 0), rotateTransitionSpeed);
 		}
 		else if (this.name == "BackButton")
 		{
-			iTween.RotateTo(Camera.main.gameObject, new Vector3(0, 0, 0), 1.0f);
+			iTween.RotateTo(Camera.main.gameObject, new Vector3(0, 0, 0), rotateTransitionSpeed);
 		}
+	}
+	
+	/// <summary>
+	/// Raises the mouse over event.
+	/// </summary>
+	void OnMouseEnter()
+	{
+		iTween.ColorTo (gameObject, Color.gray, colorTransitionSpeed);
+	}
+	
+	void OnMouseExit()
+	{
+		iTween.ColorTo (gameObject, Color.white, colorTransitionSpeed);
 	}
 }
