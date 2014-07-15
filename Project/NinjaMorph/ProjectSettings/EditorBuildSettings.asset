@@ -9,3 +9,5 @@ EditorBuildSettings:
     path: Assets/Scenes/NinjaMorph.unity
   - enabled: 1
     path: Assets/Scenes/AirRoom.unity
+  - enabled: 1
+    path: Assets/Scenes/WaterRoom.unity

@@ -7,8 +7,7 @@ using System.Collections;
 
 public class GameController : MonoBehaviour
 {
-	public GameObject player;
-	public GameObject HUD;
+	private GameObject player;
 
 	private NinjaController ninjaController;
 #if PLAY_TESTING
@@ -16,8 +15,8 @@ public class GameController : MonoBehaviour
 	private PlayTesting playTest;
 #endif
 
-	private bool airLevelComplete = true;	// Temporarily set to true
-	//private GameObject airPuzzle;
+	private bool airLevelComplete = false;
+	private GameObject airPuzzle;
 
 	private bool fireLevelComplete = false;
 	private GameObject firePuzzle;
@@ -33,11 +32,14 @@ public class GameController : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
+		DontDestroyOnLoad(gameObject);
 #if PLAY_TESTING
 		playTest = new PlayTesting ();
 		testInfo = new PlayTestInfo ();
 		testInfo.startTime = Time.time;
 #endif
+		// Get the Player
+		player = GameObject.FindGameObjectWithTag("Player");
 		// Get the Ninja Controller
 		ninjaController = player.GetComponent<NinjaController> ();
 		// Get the Puzzles
@@ -45,9 +47,9 @@ public class GameController : MonoBehaviour
 		// Find the puzzles
 		foreach(GameObject go in puzzles)
 		{
-			/*if (go.name.Equals("Air Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
+			if (go.name.Equals("Air Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
 				airPuzzle = go;
-			else */if (go.name.Equals("Fire Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
+			else if (go.name.Equals("Fire Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
 				firePuzzle = go;
 			else if (go.name.Equals("Water Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
 				waterPuzzle = go;
@@ -62,6 +64,31 @@ public class GameController : MonoBehaviour
 		// Only update if active
 		if (!gameActive)
 			return;
+		
+		// See if we need to find the ninja controller again
+		if (player == null)
+		{
+			// Get the Player
+			player = GameObject.FindGameObjectWithTag("Player");
+		}
+		// See if we need to find the ninja controller again
+		if (ninjaController == null)
+		{
+			// Get the Ninja Controller
+			ninjaController = player.GetComponent<NinjaController> ();
+		}
+		// Get the Puzzles
+		GameObject[] puzzles = GameObject.FindGameObjectsWithTag("Puzzle");
+		// Find the puzzles
+		foreach(GameObject go in puzzles)
+		{
+			if (go.name.Equals("Air Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
+				airPuzzle = go;
+			else if (go.name.Equals("Fire Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
+				firePuzzle = go;
+			else if (go.name.Equals("Water Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
+				waterPuzzle = go;
+		}
 
 		// Check for Game Over
 		CheckGameOver ();
@@ -243,6 +270,33 @@ public class GameController : MonoBehaviour
 				gameActive = false;
 			}
 		}
+	}
+
+	/// <summary>
+	/// Triggers the end level.
+	/// </summary>
+	/// <param name="triggerName">Trigger name.</param>
+	public void triggerEndLevel(string triggerName)
+	{
+		print ("Trigger End Level: " + triggerName);
+		string nextLevel = "";
+		if (triggerName.Contains("Air"))
+		{
+			airLevelComplete = true;
+			nextLevel = "WaterRoom";
+		}
+		else if (triggerName.Contains("Fire"))
+		{
+			fireLevelComplete = true;
+			nextLevel = "WaterRoom";
+		}
+		else if (triggerName.Contains("Water"))
+		{
+			waterLevelComplete = true;
+			nextLevel = "GameOver";
+		}
+		// Load the next level
+		CameraFade.StartAlphaFade( Color.black, false, 2.5f, 0.0f, () => { Application.LoadLevel(nextLevel); } );
 	}
 
 	/// <summary>
