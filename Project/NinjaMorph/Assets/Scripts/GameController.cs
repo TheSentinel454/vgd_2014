@@ -29,6 +29,8 @@ public class GameController : MonoBehaviour
 
 	private bool gameActive = true;
 
+	private string currentLevel = "";
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -127,7 +129,18 @@ public class GameController : MonoBehaviour
 			// Check for level completion
 			if (!airLevelComplete)
 			{
-
+#if PLAY_TESTING
+				if (testInfo.startAirTime < 0.0f)
+					testInfo.startAirTime = Time.time;
+#endif
+				if (airLevelComplete)
+				{
+					ninjaController.createMessage("Air Room complete!");
+#if PLAY_TESTING
+					// Track the end air time
+					testInfo.endAirTime = Time.time;
+#endif
+				}
 			}
 			else if (!fireLevelComplete)
 			{
@@ -283,18 +296,18 @@ public class GameController : MonoBehaviour
 		if (triggerName.Contains("Air"))
 		{
 			airLevelComplete = true;
-			nextLevel = "WaterRoom";
+			nextLevel = "FireRoom";
 		}
 		else if (triggerName.Contains("Fire"))
 		{
 			fireLevelComplete = true;
 			nextLevel = "WaterRoom";
 		}
-		else if (triggerName.Contains("Water"))
+		else if (triggerName.Contains("Water") && waterLevelComplete)
 		{
-			waterLevelComplete = true;
-			nextLevel = "GameOver";
+			nextLevel = "GameComplete";
 		}
+		currentLevel = nextLevel;
 		// Load the next level
 		CameraFade.StartAlphaFade( Color.black, false, 2.5f, 0.0f, () => { Application.LoadLevel(nextLevel); } );
 	}
@@ -307,9 +320,9 @@ public class GameController : MonoBehaviour
 	{
 		// Create a message
 		ninjaController.createMessage("Game Over!");
-		// Hold out for 30 seconds
+		// Hold out for 5 seconds
 		yield return new WaitForSeconds(5.0f);
 		// Reset the scene
-		Application.LoadLevel("TutorialCompound");
+		Application.LoadLevel(currentLevel);
 	}
 }
