@@ -2713,6 +2713,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18809aee40702c948949f9cfa69ceb90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colorTransitionSpeed: .150000006
+  rotateTransitionSpeed: 1
 --- !u!65 &1116922768
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3793,6 +3795,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18809aee40702c948949f9cfa69ceb90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colorTransitionSpeed: .150000006
+  rotateTransitionSpeed: 1
 --- !u!102 &1616502256
 TextMesh:
   serializedVersion: 3
@@ -3960,6 +3964,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18809aee40702c948949f9cfa69ceb90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colorTransitionSpeed: .150000006
+  rotateTransitionSpeed: 1
 --- !u!102 &1689510784
 TextMesh:
   serializedVersion: 3
