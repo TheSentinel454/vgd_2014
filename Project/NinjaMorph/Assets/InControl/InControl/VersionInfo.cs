@@ -29,7 +29,7 @@ namespace InControl
 				Minor = 1,
 				Patch = 7,
 
-				Build = 2686
+				Build = 2678
 
 			};
 		}
