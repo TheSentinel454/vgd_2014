@@ -12,5 +12,10 @@ public class Projectile : MonoBehaviour {
 		    destroyOnImpactAgainst.Contains (collision.gameObject.tag)) {
 			Destroy (gameObject);
 		}
+
+		// Damage player
+		if (collision.gameObject.tag == "Player") {
+			collision.gameObject.GetComponent<NinjaController>().Damage(damage);
+		}
 	}
 }
