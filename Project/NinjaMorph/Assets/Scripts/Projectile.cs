@@ -1,11 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Linq;
 
 public class Projectile : MonoBehaviour {
 
 	public float damage = 5.0f;
+	public string[] destroyOnImpactAgainst;
 
 	void OnCollisionEnter (Collision collision) {
-//		Destroy (gameObject);
+		if (destroyOnImpactAgainst.Contains (collision.gameObject.tag)) {
+			Destroy (gameObject);
+		}
 	}
 }
