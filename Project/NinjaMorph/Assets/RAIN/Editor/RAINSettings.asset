@@ -15,7 +15,7 @@ MonoBehaviour:
   _cacheDirectory: Assets/AI/Cache/
   _btSaveDirectory: Assets/AI/BehaviorTrees/
   _btEditorSearchDirectory: Assets/AI/BehaviorTrees/
-  _lastLoadSaveDirectory: 
+  _lastLoadSaveDirectory: /Users/Jonathan/Desktop
   _btInspectorPaneWidth: 300
   _btInspectorFieldWidth: 120
   _navMeshGenerationThreads: 4
