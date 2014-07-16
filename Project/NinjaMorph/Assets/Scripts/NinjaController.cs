@@ -57,10 +57,11 @@ public class NinjaController : MonoBehaviour
 	public NinjaSettings fireSettings;
 	public NinjaSettings waterSettings;
 
-	public AudioSource baseWalkingAudio;
+	/*public AudioSource baseWalkingAudio;
 	public AudioSource woodWalkingAudio;
 	public AudioSource waterWalkingAudio;
-	public AudioSource grassWalkingAudio;
+	public AudioSource grassWalkingAudio;*/
+	public AudioSource metalWalkingAudio;
 
 	public MessageManager msgManager;
 
@@ -180,7 +181,7 @@ public class NinjaController : MonoBehaviour
 		// Set the base ninja
 		setBaseNinja ();
 		// Set the base walking audio
-		walkingAudio = baseWalkingAudio;
+		walkingAudio = metalWalkingAudio;
 		// Initialize the move direction
         moveDirection = transform.TransformDirection(Vector3.forward);
     }
@@ -318,6 +319,13 @@ public class NinjaController : MonoBehaviour
 		return Mathf.Sqrt (2 * targetJumpHeight * gravity);
     }
 
+	public void playFootstep() {
+		walkingAudio = metalWalkingAudio;
+		walkingAudio.Stop ();
+		walkingAudio.Play();
+		Debug.Log ("footstep");
+	}
+
 	public void DidAttack()
 	{
 #if PLAY_TESTING
@@ -425,7 +433,7 @@ public class NinjaController : MonoBehaviour
 
 		if (movement != Vector3.zero && !IsJumping())// && IsGrounded())
 		{
-			if (walkingAudio != null)
+			/*(if (walkingAudio != null)
 			{
 				if (!walkingAudio.isPlaying)
 					walkingAudio.Play();
@@ -434,7 +442,7 @@ public class NinjaController : MonoBehaviour
 					walkingAudio.volume = moveSpeed / runSpeed;
 					walkingAudio.pitch = 1.5f + (2.0f * (moveSpeed / runSpeed));
 				}
-			}
+			}*/
 		}
 		else
 		{
@@ -747,14 +755,14 @@ public class NinjaController : MonoBehaviour
 	/// <param name="collider">Collider.</param>
 	void OnTriggerEnter(Collider collider)
 	{
-		if (collider.gameObject.tag == "Water")
+		/*if (collider.gameObject.tag == "Water")
 		{
 			if (walkingAudio != waterWalkingAudio)
 			{
 				walkingAudio.Stop ();
 			}
 			walkingAudio = waterWalkingAudio;
-		}
+		}*/
 		// Check to see if the collided game object has an InteractiveObject
 		InteractiveObject interactive = collider.gameObject.GetComponent<InteractiveObject>();
 		if (interactive != null)
@@ -832,18 +840,18 @@ public class NinjaController : MonoBehaviour
 	/// <param name="collider">Collider.</param>
 	void OnTriggerExit(Collider collider)
 	{
-		if (walkingAudio != grassWalkingAudio)
+		/*if (walkingAudio != grassWalkingAudio)
 		{
 			walkingAudio.Stop ();
 		}
-		walkingAudio = baseWalkingAudio;
+		walkingAudio = baseWalkingAudio;*/
 	}
 
     void OnControllerColliderHit(ControllerColliderHit hit)
 	{
 		Rigidbody body = hit.collider.attachedRigidbody;
 
-		if (walkingAudio != waterWalkingAudio)
+		/*if (walkingAudio != waterWalkingAudio)
 		{
 			if (hit.gameObject.tag == "Wood" && walkingAudio != woodWalkingAudio)
 			{
@@ -860,7 +868,7 @@ public class NinjaController : MonoBehaviour
 				walkingAudio.Stop();
 				walkingAudio = baseWalkingAudio;
 			}
-		}
+		}*/
 
 		// We dont want to push objects below us
 		if (hit.moveDirection.y < -0.3 || !body || body.isKinematic) 
