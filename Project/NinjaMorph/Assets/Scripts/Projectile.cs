@@ -10,7 +10,7 @@ public class Projectile : MonoBehaviour {
 	void OnCollisionEnter (Collision collision) {
 		if (destroyOnImpactAgainst.Contains (collision.transform.root.gameObject.tag) || 
 		    destroyOnImpactAgainst.Contains (collision.gameObject.tag)) {
-			Destroy (gameObject);
+			DestroyObject(gameObject);
 		}
 
 		// Damage player

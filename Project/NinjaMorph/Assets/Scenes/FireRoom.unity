@@ -2196,7 +2196,7 @@ Transform:
   - {fileID: 1988405576}
   - {fileID: 864482289}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!1 &108941456
 GameObject:
   m_ObjectHideFlags: 0
@@ -6936,6 +6936,10 @@ Prefab:
       propertyPath: target
       value: 
       objectReference: {fileID: 1519303929}
+    - target: {fileID: 400000, guid: aabda61ff22184ed3919ee8bb7d80314, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aabda61ff22184ed3919ee8bb7d80314, type: 2}
   m_RootGameObject: {fileID: 986473514}
@@ -8273,7 +8277,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &620231588
 Transform:
   m_ObjectHideFlags: 0
@@ -13140,7 +13144,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!1001 &990193528
 Prefab:
   m_ObjectHideFlags: 0
@@ -13303,7 +13307,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400088, guid: f6a8d5f07d8951145b6c13ff1104cb69, type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1020975088}
-  m_LocalRotation: {x: -.353553414, y: -.612372458, z: -.612372577, w: .353553355}
+  m_LocalRotation: {x: -.353553385, y: -.612372398, z: -.612372518, w: .353553325}
   m_LocalPosition: {x: -5.00650024, y: -.900005341, z: .963485718}
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
@@ -14106,7 +14110,7 @@ Transform:
   - {fileID: 1553100715}
   - {fileID: 1870061151}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!114 &1161281749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14193,7 +14197,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 3
   m_Type: 1
-  m_Color: {r: 1, g: .894523323, b: .617647052, a: 1}
+  m_Color: {r: .87843138, g: .552941203, b: .294117659, a: 1}
   m_Intensity: .5
   m_Range: 10
   m_SpotAngle: 30
@@ -18001,7 +18005,7 @@ Transform:
   - {fileID: 339697790}
   - {fileID: 514167456}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!82 &1519303930
 AudioSource:
   m_ObjectHideFlags: 0
