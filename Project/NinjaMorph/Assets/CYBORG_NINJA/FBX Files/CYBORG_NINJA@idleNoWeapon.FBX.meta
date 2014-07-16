@@ -73,7 +73,7 @@ ModelImporter:
     400064: CYBORG_NINJA_ R UpperArm
     400066: CYBORG_NINJA_ Spine
     400068: CYBORG_NINJA_ Spine1
-    7400000: Take 001
+    7400000: idleNoWeapon
     9500000: //RootNode
     11100000: //RootNode
   materials:
@@ -91,7 +91,154 @@ ModelImporter:
     animationScaleError: .5
     animationWrapMode: 2
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: idleNoWeapon
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: CYBORG_NINJA_
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          L Thigh
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          L Thigh/CYBORG_NINJA_ L Calf
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          L Thigh/CYBORG_NINJA_ L Calf/CYBORG_NINJA_ L Foot
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          L Thigh/CYBORG_NINJA_ L Calf/CYBORG_NINJA_ L Foot/CYBORG_NINJA_ L Toe0
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          R Thigh
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          R Thigh/CYBORG_NINJA_ R Calf
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          R Thigh/CYBORG_NINJA_ R Calf/CYBORG_NINJA_ R Foot
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          R Thigh/CYBORG_NINJA_ R Calf/CYBORG_NINJA_ R Foot/CYBORG_NINJA_ R Toe0
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          Spine1
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          Spine1/CYBORG_NINJA_ Neck
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          Spine1/CYBORG_NINJA_ Neck/CYBORG_NINJA_ Head
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          Spine1/CYBORG_NINJA_ Neck/CYBORG_NINJA_ L Clavicle
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          Spine1/CYBORG_NINJA_ Neck/CYBORG_NINJA_ L Clavicle/CYBORG_NINJA_ L UpperArm
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          Spine1/CYBORG_NINJA_ Neck/CYBORG_NINJA_ L Clavicle/CYBORG_NINJA_ L UpperArm/CYBORG_NINJA_
+          L Forearm
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          Spine1/CYBORG_NINJA_ Neck/CYBORG_NINJA_ L Clavicle/CYBORG_NINJA_ L UpperArm/CYBORG_NINJA_
+          L Forearm/CYBORG_NINJA_ L Hand
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          Spine1/CYBORG_NINJA_ Neck/CYBORG_NINJA_ L Clavicle/CYBORG_NINJA_ L UpperArm/CYBORG_NINJA_
+          L Forearm/CYBORG_NINJA_ L Hand/CYBORG_NINJA_ L Finger0
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          Spine1/CYBORG_NINJA_ Neck/CYBORG_NINJA_ L Clavicle/CYBORG_NINJA_ L UpperArm/CYBORG_NINJA_
+          L Forearm/CYBORG_NINJA_ L Hand/CYBORG_NINJA_ L Finger0/CYBORG_NINJA_ L Finger01
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          Spine1/CYBORG_NINJA_ Neck/CYBORG_NINJA_ L Clavicle/CYBORG_NINJA_ L UpperArm/CYBORG_NINJA_
+          L Forearm/CYBORG_NINJA_ L Hand/CYBORG_NINJA_ L Finger0/CYBORG_NINJA_ L Finger01/CYBORG_NINJA_
+          L Finger02
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          Spine1/CYBORG_NINJA_ Neck/CYBORG_NINJA_ L Clavicle/CYBORG_NINJA_ L UpperArm/CYBORG_NINJA_
+          L Forearm/CYBORG_NINJA_ L Hand/CYBORG_NINJA_ L Finger1
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          Spine1/CYBORG_NINJA_ Neck/CYBORG_NINJA_ L Clavicle/CYBORG_NINJA_ L UpperArm/CYBORG_NINJA_
+          L Forearm/CYBORG_NINJA_ L Hand/CYBORG_NINJA_ L Finger1/CYBORG_NINJA_ L Finger11
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          Spine1/CYBORG_NINJA_ Neck/CYBORG_NINJA_ L Clavicle/CYBORG_NINJA_ L UpperArm/CYBORG_NINJA_
+          L Forearm/CYBORG_NINJA_ L Hand/CYBORG_NINJA_ L Finger1/CYBORG_NINJA_ L Finger11/CYBORG_NINJA_
+          L Finger12
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          Spine1/CYBORG_NINJA_ Neck/CYBORG_NINJA_ R Clavicle
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          Spine1/CYBORG_NINJA_ Neck/CYBORG_NINJA_ R Clavicle/CYBORG_NINJA_ R UpperArm
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          Spine1/CYBORG_NINJA_ Neck/CYBORG_NINJA_ R Clavicle/CYBORG_NINJA_ R UpperArm/CYBORG_NINJA_
+          R Forearm
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          Spine1/CYBORG_NINJA_ Neck/CYBORG_NINJA_ R Clavicle/CYBORG_NINJA_ R UpperArm/CYBORG_NINJA_
+          R Forearm/CYBORG_NINJA_ R Hand
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          Spine1/CYBORG_NINJA_ Neck/CYBORG_NINJA_ R Clavicle/CYBORG_NINJA_ R UpperArm/CYBORG_NINJA_
+          R Forearm/CYBORG_NINJA_ R Hand/CYBORG_NINJA_ R Finger0
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          Spine1/CYBORG_NINJA_ Neck/CYBORG_NINJA_ R Clavicle/CYBORG_NINJA_ R UpperArm/CYBORG_NINJA_
+          R Forearm/CYBORG_NINJA_ R Hand/CYBORG_NINJA_ R Finger0/CYBORG_NINJA_ R Finger01
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          Spine1/CYBORG_NINJA_ Neck/CYBORG_NINJA_ R Clavicle/CYBORG_NINJA_ R UpperArm/CYBORG_NINJA_
+          R Forearm/CYBORG_NINJA_ R Hand/CYBORG_NINJA_ R Finger0/CYBORG_NINJA_ R Finger01/CYBORG_NINJA_
+          R Finger02
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          Spine1/CYBORG_NINJA_ Neck/CYBORG_NINJA_ R Clavicle/CYBORG_NINJA_ R UpperArm/CYBORG_NINJA_
+          R Forearm/CYBORG_NINJA_ R Hand/CYBORG_NINJA_ R Finger1
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          Spine1/CYBORG_NINJA_ Neck/CYBORG_NINJA_ R Clavicle/CYBORG_NINJA_ R UpperArm/CYBORG_NINJA_
+          R Forearm/CYBORG_NINJA_ R Hand/CYBORG_NINJA_ R Finger1/CYBORG_NINJA_ R Finger11
+        weight: 1
+      - path: CYBORG_NINJA_/CYBORG_NINJA_ Pelvis/CYBORG_NINJA_ Spine/CYBORG_NINJA_
+          Spine1/CYBORG_NINJA_ Neck/CYBORG_NINJA_ R Clavicle/CYBORG_NINJA_ R UpperArm/CYBORG_NINJA_
+          R Forearm/CYBORG_NINJA_ R Hand/CYBORG_NINJA_ R Finger1/CYBORG_NINJA_ R Finger11/CYBORG_NINJA_
+          R Finger12
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -114,10 +261,466 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 1
   importAnimation: 1
-  copyAvatar: 0
+  copyAvatar: 1
   humanDescription:
-    human: []
-    skeleton: []
+    human:
+    - boneName: CYBORG_NINJA_ Pelvis
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CYBORG_NINJA_ L Thigh
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CYBORG_NINJA_ R Thigh
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CYBORG_NINJA_ L Calf
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CYBORG_NINJA_ R Calf
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CYBORG_NINJA_ L Foot
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CYBORG_NINJA_ R Foot
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CYBORG_NINJA_ Spine1
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CYBORG_NINJA_ Neck
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CYBORG_NINJA_ Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CYBORG_NINJA_ L Clavicle
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CYBORG_NINJA_ R Clavicle
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CYBORG_NINJA_ L UpperArm
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CYBORG_NINJA_ R UpperArm
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CYBORG_NINJA_ L Forearm
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CYBORG_NINJA_ R Forearm
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CYBORG_NINJA_ L Hand
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CYBORG_NINJA_ R Hand
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CYBORG_NINJA_ L Toe0
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CYBORG_NINJA_ R Toe0
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CYBORG_NINJA_ L Finger0
+      humanName: Left Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CYBORG_NINJA_ L Finger01
+      humanName: Left Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CYBORG_NINJA_ L Finger02
+      humanName: Left Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CYBORG_NINJA_ L Finger1
+      humanName: Left Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CYBORG_NINJA_ L Finger11
+      humanName: Left Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CYBORG_NINJA_ L Finger12
+      humanName: Left Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CYBORG_NINJA_ R Finger0
+      humanName: Right Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CYBORG_NINJA_ R Finger01
+      humanName: Right Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CYBORG_NINJA_ R Finger02
+      humanName: Right Index Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CYBORG_NINJA_ R Finger1
+      humanName: Right Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CYBORG_NINJA_ R Finger11
+      humanName: Right Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: CYBORG_NINJA_ R Finger12
+      humanName: Right Little Distal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: CYBORG_NINJA(Clone)
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: CYBORG_NINJA
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: -.707106829, y: -1.06770159e-07, z: -1.06770159e-07, w: .707106829}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: CYBORG_NINJA_
+      position: {x: 0, y: 1.0929898, z: 0}
+      rotation: {x: -.5, y: .5, z: .5, w: .5}
+      scale: {x: .99999994, y: .99999994, z: 1}
+      transformModified: 1
+    - name: CYBORG_NINJA_ Pelvis
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -.499999315, y: .500000775, z: .499999344, w: .500000715}
+      scale: {x: .999999881, y: .999999881, z: .999999881}
+      transformModified: 1
+    - name: CYBORG_NINJA_ Spine
+      position: {x: -.113237381, y: -.000203805146, z: 1.57320173e-07}
+      rotation: {x: 2.05636024e-06, y: 2.98023224e-08, z: 2.98023224e-08, w: -1}
+      scale: {x: 1, y: .99999994, z: .99999994}
+      transformModified: 1
+    - name: CYBORG_NINJA_ Spine1
+      position: {x: -.256014705, y: -.000203857941, z: -5.65420599e-10}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: KATANA001
+      position: {x: -.321532428, y: -.132098138, z: -.14464967}
+      rotation: {x: -.56115675, y: .430235445, z: .326755553, w: .627081633}
+      scale: {x: .805234015, y: .805234373, z: .805234432}
+      transformModified: 1
+    - name: CYBORG_NINJA_ Neck
+      position: {x: -.256014556, y: -.0185265578, z: -2.25062413e-10}
+      rotation: {x: 2.98023224e-08, y: -2.98023224e-08, z: 2.98023224e-08, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: CYBORG_NINJA_ R Clavicle
+      position: {x: .0453083776, y: .0185627509, z: -.0419101603}
+      rotation: {x: .675269485, y: .0227158368, z: .73692733, w: .0208152235}
+      scale: {x: 1.00000012, y: .999999881, z: .99999994}
+      transformModified: 1
+    - name: CYBORG_NINJA_ R UpperArm
+      position: {x: -.178871721, y: -8.94069652e-10, z: 0}
+      rotation: {x: .0102547677, y: .00971985981, z: -.0272678938, w: -.999528289}
+      scale: {x: 1.00000012, y: 1.00000036, z: 1}
+      transformModified: 1
+    - name: CYBORG_NINJA_ R Forearm
+      position: {x: -.315729707, y: 0, z: 0}
+      rotation: {x: 5.82635403e-05, y: -.00191593263, z: .0288570207, w: .999581754}
+      scale: {x: .99999994, y: .999999821, z: .999999881}
+      transformModified: 1
+    - name: CYBORG_NINJA_ R Hand
+      position: {x: -.295401603, y: -2.38418574e-09, z: 0}
+      rotation: {x: -.706672311, y: .0147026163, z: .0147142671, w: -.707235157}
+      scale: {x: .999999762, y: .999999881, z: 1.00000012}
+      transformModified: 1
+    - name: HAND_GUN_002
+      position: {x: -.105671614, y: .0157186892, z: .00804534927}
+      rotation: {x: -.00460541202, y: .0876144245, z: -.679840207, w: .728093266}
+      scale: {x: 1.0987792, y: 1.09877944, z: 1.09877968}
+      transformModified: 1
+    - name: KATANA
+      position: {x: -.101550668, y: .00290817255, z: .0149126379}
+      rotation: {x: .0495378971, y: .70908308, z: -.700623393, w: .0622423477}
+      scale: {x: .805234075, y: .805234253, z: .805234253}
+      transformModified: 1
+    - name: CYBORG_NINJA_ R Finger0
+      position: {x: -.0561961345, y: -.0106436154, z: .0406059362}
+      rotation: {x: .664671004, y: -.0286765583, z: -.0338492803, w: -.745817959}
+      scale: {x: .999999762, y: 1.00000024, z: .99999994}
+      transformModified: 1
+    - name: CYBORG_NINJA_ R Finger01
+      position: {x: -.0307710264, y: -7.62939436e-08, z: -1.52587887e-07}
+      rotation: {x: 1.19209261e-07, y: -2.98023153e-08, z: -.00486424472, w: .999988198}
+      scale: {x: 1.00000036, y: .999999881, z: 1}
+      transformModified: 1
+    - name: CYBORG_NINJA_ R Finger02
+      position: {x: -.0337063596, y: -3.81469718e-08, z: 0}
+      rotation: {x: 2.98023224e-08, y: -5.96046448e-08, z: -.0388632417, w: .999244571}
+      scale: {x: .999999702, y: .999999762, z: .999999881}
+      transformModified: 1
+    - name: CYBORG_NINJA_ R Finger1
+      position: {x: -.125628695, y: -.00689895637, z: -.0034719205}
+      rotation: {x: .0187590495, y: -.000800424255, z: -.0445074961, w: .998832583}
+      scale: {x: 1.00000024, y: 1.00000012, z: .999999762}
+      transformModified: 1
+    - name: CYBORG_NINJA_ R Finger11
+      position: {x: -.0398386009, y: 0, z: -7.15255721e-09}
+      rotation: {x: 1.62050114e-07, y: -1.67638046e-08, z: -.00478235492, w: .999988616}
+      scale: {x: 1.00000012, y: .999999881, z: 1}
+      transformModified: 1
+    - name: CYBORG_NINJA_ R Finger12
+      position: {x: -.0364369974, y: -1.52587887e-07, z: 7.15255721e-09}
+      rotation: {x: -1.86264493e-09, y: 1.86264493e-09, z: -.0047823987, w: .999988556}
+      scale: {x: .99999994, y: 1, z: 1}
+      transformModified: 1
+    - name: CYBORG_NINJA_ L Clavicle
+      position: {x: .0453083776, y: .0185625199, z: .0419101603}
+      rotation: {x: -.675269425, y: -.0227178764, z: .73692733, w: .020816965}
+      scale: {x: 1, y: .999999881, z: 1}
+      transformModified: 1
+    - name: CYBORG_NINJA_ L UpperArm
+      position: {x: -.178871691, y: 0, z: 0}
+      rotation: {x: .0102548031, y: .0097205285, z: .0272678826, w: .999528348}
+      scale: {x: .99999994, y: 1.00000012, z: 1}
+      transformModified: 1
+    - name: CYBORG_NINJA_ L Forearm
+      position: {x: -.315729707, y: 4.76837148e-09, z: -1.52587887e-07}
+      rotation: {x: -5.82032808e-05, y: .00191548164, z: .028857315, w: .999581695}
+      scale: {x: .999999821, y: .999999881, z: 1.00000012}
+      transformModified: 1
+    - name: CYBORG_NINJA_ L Hand
+      position: {x: -.295401573, y: -2.38418574e-09, z: 0}
+      rotation: {x: .706672311, y: -.0147026964, z: .0147141181, w: -.707235217}
+      scale: {x: 1, y: .999999821, z: 1}
+      transformModified: 1
+    - name: CYBORG_NINJA_ L Finger1
+      position: {x: -.12562862, y: -.00689910864, z: .0034719205}
+      rotation: {x: -.0187592302, y: .00080044847, z: -.044507429, w: .998832643}
+      scale: {x: 1.00000012, y: 1.00000036, z: 1.00000024}
+      transformModified: 1
+    - name: CYBORG_NINJA_ L Finger11
+      position: {x: -.0398385227, y: 1.52587887e-07, z: 2.38418574e-09}
+      rotation: {x: -1.39698375e-09, y: 9.31322464e-10, z: -.00478246761, w: .999988616}
+      scale: {x: 1.00000024, y: 1.00000048, z: 1.00000024}
+      transformModified: 1
+    - name: CYBORG_NINJA_ L Finger12
+      position: {x: -.0364369191, y: 0, z: -4.76837148e-09}
+      rotation: {x: -2.56113708e-09, y: 3.7252903e-09, z: -.00478239357, w: .999988616}
+      scale: {x: .999999821, y: .999999881, z: .999999762}
+      transformModified: 1
+    - name: CYBORG_NINJA_ L Finger0
+      position: {x: -.05619606, y: -.0106436154, z: -.0406059362}
+      rotation: {x: -.66467315, y: .0286742654, z: -.0338521004, w: -.745816052}
+      scale: {x: 1.00000036, y: .999999881, z: .99999994}
+      transformModified: 1
+    - name: CYBORG_NINJA_ L Finger01
+      position: {x: -.0307709873, y: -7.62939436e-08, z: 0}
+      rotation: {x: 2.42143869e-08, y: -2.98023224e-08, z: -.00486415625, w: .999988258}
+      scale: {x: 1, y: 1.00000024, z: 1}
+      transformModified: 1
+    - name: CYBORG_NINJA_ L Finger02
+      position: {x: -.0337063596, y: -3.81469718e-08, z: 0}
+      rotation: {x: 2.79396737e-08, y: 1.19209275e-07, z: -.0388634093, w: .999244511}
+      scale: {x: .999999881, y: .999999642, z: .999999642}
+      transformModified: 1
+    - name: CYBORG_NINJA_ Head
+      position: {x: -.102036439, y: -.00189031952, z: 1.25552901e-11}
+      rotation: {x: 2.98023188e-08, y: -8.94069601e-08, z: .0349618159, w: -.999388635}
+      scale: {x: 1.00000012, y: 1, z: 1}
+      transformModified: 1
+    - name: CYBORG_NINJA_ R Thigh
+      position: {x: .11323715, y: .00029435812, z: -.119807415}
+      rotation: {x: -.0278805345, y: .999611259, z: 1.37090683e-06, w: -1.49011612e-08}
+      scale: {x: 1, y: 1.00000036, z: 1.00000024}
+      transformModified: 1
+    - name: HAND_GUN_003
+      position: {x: -.0646932945, y: -.044654496, z: .11803823}
+      rotation: {x: -.485865474, y: -.513745785, z: -.485865474, w: .513745785}
+      scale: {x: 1.0987798, y: 1.09877968, z: 1.09878004}
+      transformModified: 1
+    - name: CYBORG_NINJA_ R Calf
+      position: {x: -.492335916, y: -4.76837148e-09, z: 9.53674295e-09}
+      rotation: {x: 2.98023224e-08, y: 0, z: .0927460641, w: .995689869}
+      scale: {x: .999999821, y: .999999642, z: .999999881}
+      transformModified: 1
+    - name: CYBORG_NINJA_ R Foot
+      position: {x: -.492335886, y: -4.76837148e-09, z: -9.53674295e-09}
+      rotation: {x: 5.96046306e-08, y: 0, z: -.0649496615, w: .997888565}
+      scale: {x: 1.00000048, y: 1.00000024, z: 1.00000024}
+      transformModified: 1
+    - name: CYBORG_NINJA_ R Toe0
+      position: {x: -.113237284, y: .145731434, z: 0}
+      rotation: {x: 5.06639481e-07, y: 4.31580531e-07, z: -.707106829, w: .707106829}
+      scale: {x: .999999881, y: 1, z: .999999881}
+      transformModified: 1
+    - name: CYBORG_NINJA_ L Thigh
+      position: {x: .11323715, y: .000293693534, z: .119807415}
+      rotation: {x: -.0278805196, y: .999611259, z: 1.35600567e-06, w: 1.49011612e-08}
+      scale: {x: 1.00000024, y: 1.00000048, z: 1.00000048}
+      transformModified: 1
+    - name: CYBORG_NINJA_ L Calf
+      position: {x: -.492335916, y: -4.76837148e-09, z: 0}
+      rotation: {x: 5.96046448e-08, y: 5.96046448e-08, z: .0927460343, w: .995689869}
+      scale: {x: .999999464, y: .999999464, z: .999999762}
+      transformModified: 1
+    - name: CYBORG_NINJA_ L Foot
+      position: {x: -.492335916, y: 0, z: 0}
+      rotation: {x: 0, y: -5.96046306e-08, z: -.0649496615, w: .997888565}
+      scale: {x: 1.00000024, y: 1, z: 1}
+      transformModified: 1
+    - name: CYBORG_NINJA_ L Toe0
+      position: {x: -.113237284, y: .145731434, z: 0}
+      rotation: {x: 4.76837045e-07, y: 4.62489055e-07, z: -.707106769, w: .707106829}
+      scale: {x: 1.00000012, y: 1.00000012, z: .99999994}
+      transformModified: 1
     armTwist: .5
     foreArmTwist: .5
     upperLegTwist: .5
@@ -126,7 +729,8 @@ ModelImporter:
     legStretch: .0500000007
     feetSpacing: 0
     rootMotionBoneName: 
-  lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 1
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 928dbad57f4456247a0d4c6a96f4b7af,
+    type: 3}
+  animationType: 3
   additionalBone: 1
   userData: 

@@ -7,8 +7,7 @@ using System.Collections;
 
 public class GameController : MonoBehaviour
 {
-	public GameObject player;
-	public GameObject HUD;
+	private GameObject player;
 
 	private NinjaController ninjaController;
 #if PLAY_TESTING
@@ -16,8 +15,8 @@ public class GameController : MonoBehaviour
 	private PlayTesting playTest;
 #endif
 
-	private bool airLevelComplete = true;	// Temporarily set to true
-	//private GameObject airPuzzle;
+	private bool airLevelComplete = false;
+	private GameObject airPuzzle;
 
 	private bool fireLevelComplete = false;
 	private GameObject firePuzzle;
@@ -30,14 +29,19 @@ public class GameController : MonoBehaviour
 
 	private bool gameActive = true;
 
+	private string currentLevel = "";
+
 	// Use this for initialization
 	void Start ()
 	{
+		DontDestroyOnLoad(gameObject);
 #if PLAY_TESTING
 		playTest = new PlayTesting ();
 		testInfo = new PlayTestInfo ();
 		testInfo.startTime = Time.time;
 #endif
+		// Get the Player
+		player = GameObject.FindGameObjectWithTag("Player");
 		// Get the Ninja Controller
 		ninjaController = player.GetComponent<NinjaController> ();
 		// Get the Puzzles
@@ -45,9 +49,9 @@ public class GameController : MonoBehaviour
 		// Find the puzzles
 		foreach(GameObject go in puzzles)
 		{
-			/*if (go.name.Equals("Air Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
+			if (go.name.Equals("Air Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
 				airPuzzle = go;
-			else */if (go.name.Equals("Fire Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
+			else if (go.name.Equals("Fire Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
 				firePuzzle = go;
 			else if (go.name.Equals("Water Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
 				waterPuzzle = go;
@@ -62,6 +66,31 @@ public class GameController : MonoBehaviour
 		// Only update if active
 		if (!gameActive)
 			return;
+		
+		// See if we need to find the ninja controller again
+		if (player == null)
+		{
+			// Get the Player
+			player = GameObject.FindGameObjectWithTag("Player");
+		}
+		// See if we need to find the ninja controller again
+		if (ninjaController == null)
+		{
+			// Get the Ninja Controller
+			ninjaController = player.GetComponent<NinjaController> ();
+		}
+		// Get the Puzzles
+		GameObject[] puzzles = GameObject.FindGameObjectsWithTag("Puzzle");
+		// Find the puzzles
+		foreach(GameObject go in puzzles)
+		{
+			if (go.name.Equals("Air Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
+				airPuzzle = go;
+			else if (go.name.Equals("Fire Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
+				firePuzzle = go;
+			else if (go.name.Equals("Water Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
+				waterPuzzle = go;
+		}
 
 		// Check for Game Over
 		CheckGameOver ();
@@ -100,7 +129,18 @@ public class GameController : MonoBehaviour
 			// Check for level completion
 			if (!airLevelComplete)
 			{
-
+#if PLAY_TESTING
+				if (testInfo.startAirTime < 0.0f)
+					testInfo.startAirTime = Time.time;
+#endif
+				if (airLevelComplete)
+				{
+					ninjaController.createMessage("Air Room complete!");
+#if PLAY_TESTING
+					// Track the end air time
+					testInfo.endAirTime = Time.time;
+#endif
+				}
 			}
 			else if (!fireLevelComplete)
 			{
@@ -246,6 +286,33 @@ public class GameController : MonoBehaviour
 	}
 
 	/// <summary>
+	/// Triggers the end level.
+	/// </summary>
+	/// <param name="triggerName">Trigger name.</param>
+	public void triggerEndLevel(string triggerName)
+	{
+		print ("Trigger End Level: " + triggerName);
+		string nextLevel = "";
+		if (triggerName.Contains("Air"))
+		{
+			airLevelComplete = true;
+			nextLevel = "FireRoom";
+		}
+		else if (triggerName.Contains("Fire"))
+		{
+			fireLevelComplete = true;
+			nextLevel = "WaterRoom";
+		}
+		else if (triggerName.Contains("Water") && waterLevelComplete)
+		{
+			nextLevel = "GameComplete";
+		}
+		currentLevel = nextLevel;
+		// Load the next level
+		CameraFade.StartAlphaFade( Color.black, false, 2.5f, 0.0f, () => { Application.LoadLevel(nextLevel); } );
+	}
+
+	/// <summary>
 	/// Games the over.
 	/// </summary>
 	/// <returns>The over.</returns>
@@ -253,9 +320,9 @@ public class GameController : MonoBehaviour
 	{
 		// Create a message
 		ninjaController.createMessage("Game Over!");
-		// Hold out for 30 seconds
+		// Hold out for 5 seconds
 		yield return new WaitForSeconds(5.0f);
 		// Reset the scene
-		Application.LoadLevel("TutorialCompound");
+		Application.LoadLevel(currentLevel);
 	}
 }

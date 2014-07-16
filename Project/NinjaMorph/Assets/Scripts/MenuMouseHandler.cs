@@ -15,7 +15,7 @@ public class MenuMouseHandler : MonoBehaviour
 		if (this.name == "PlayButton")
 		{
 			// Load the air level
-			Application.LoadLevel("AirRoom");
+			CameraFade.StartAlphaFade( Color.black, false, 1.5f, 0.0f, () => { Application.LoadLevel("AirRoom"); } );
 		}
 		else if (this.name == "HelpButton")
 		{
