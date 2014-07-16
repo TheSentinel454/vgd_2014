@@ -291,7 +291,6 @@ public class GameController : MonoBehaviour
 	/// <param name="triggerName">Trigger name.</param>
 	public void triggerEndLevel(string triggerName)
 	{
-		print ("Trigger End Level: " + triggerName);
 		string nextLevel = "";
 		if (triggerName.Contains("Air"))
 		{
