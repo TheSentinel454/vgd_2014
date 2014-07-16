@@ -38,8 +38,8 @@ MonoBehaviour:
       parametertype=&quot;boolean&quot; parametername=&quot;attacking&quot; name=&quot;Stop
       Attacking&quot; damptime=&quot;0&quot; /&gt;&lt;mecparam valueexpression=&quot;0.5&quot;
       repeatuntil=&quot;running&quot; parametertype=&quot;float&quot; parametername=&quot;speed&quot;
-      name=&quot;Speed&quot; damptime=&quot;1&quot; /&gt;&lt;waypointpatrol waypointsetvariable=&quot;&amp;quot;Patrol
-      Route&amp;quot;&quot; waypointactiontype=&quot;patrol&quot; traversetype=&quot;loop&quot;
+      name=&quot;Speed&quot; damptime=&quot;1&quot; /&gt;&lt;waypointpatrol waypointsetvariable=&quot;&amp;quot;Fire
+      Patrol Route&amp;quot;&quot; waypointactiontype=&quot;patrol&quot; traversetype=&quot;loop&quot;
       traverseorder=&quot;forward&quot; repeatuntil=&quot;&quot; pathtargetvariable=&quot;&quot;
       name=&quot;waypointpatrol&quot; movetargetvariable=&quot;WayPoint&quot;&gt;&lt;move
       turnspeed=&quot;&quot; repeatuntil=&quot;&quot; name=&quot;move&quot; movetarget=&quot;WayPoint&quot;
