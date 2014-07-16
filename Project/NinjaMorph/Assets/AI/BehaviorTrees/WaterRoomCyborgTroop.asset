@@ -1,0 +1,94 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1227330239, guid: 9fa2ecd1ff2ad394281dd3bf72c5b76e, type: 3}
+  m_Name: WaterRoomCyborgTroop
+  m_EditorClassIdentifier: 
+  _dataSerializer:
+    _serializedData: <scriptableobject version="1.0" type="RAIN.BehaviorTrees.BTAsset"><fields><field
+      value="&lt;behaviortree version=&quot;1.1&quot; repeatuntil=&quot;&quot; name=&quot;WaterRoomCyborgTroop&quot;&gt;&lt;parallel
+      tiebreaker=&quot;fail&quot; succeed=&quot;all&quot; repeatuntil=&quot;&quot;
+      name=&quot;root&quot; fail=&quot;any&quot;&gt;&lt;detect sensor=&quot;&amp;quot;VisualSensor&amp;quot;&quot;
+      repeatuntil=&quot;running&quot; name=&quot;Ninja Detector&quot; entityobjectvariable=&quot;CyborgNinja&quot;
+      aspectvariable=&quot;&quot; aspectobjectvariable=&quot;&quot; aspect=&quot;&amp;quot;CyborgNinja&amp;quot;&quot;
+      /&gt;&lt;detect sensor=&quot;&amp;quot;NearSensor&amp;quot;&quot; repeatuntil=&quot;running&quot;
+      name=&quot;Ninja Near Detector&quot; entityobjectvariable=&quot;CyborgNinjaNear&quot;
+      aspectvariable=&quot;&quot; aspectobjectvariable=&quot;&quot; aspect=&quot;&amp;quot;CyborgNinja&amp;quot;&quot;
+      /&gt;&lt;detect sensor=&quot;&amp;quot;AttackRange&amp;quot;&quot; repeatuntil=&quot;running&quot;
+      name=&quot;Ninja Attack Range Detector&quot; entityobjectvariable=&quot;CyborgNinjaAttackRange&quot;
+      aspectvariable=&quot;&quot; aspectobjectvariable=&quot;&quot; aspect=&quot;&amp;quot;CyborgNinja&amp;quot;&quot;
+      /&gt;&lt;detect sensor=&quot;&amp;quot;TooCloseSensor&amp;quot;&quot; repeatuntil=&quot;running&quot;
+      name=&quot;Cyborg Ninja Too Close&quot; entityobjectvariable=&quot;CyborgNinjaTooClose&quot;
+      aspectvariable=&quot;&quot; aspectobjectvariable=&quot;&quot; aspect=&quot;&amp;quot;CyborgNinja&amp;quot;&quot;
+      /&gt;&lt;selector usepriorities=&quot;False&quot; repeatuntil=&quot;&quot; name=&quot;Cyborg
+      Ninja&quot;&gt;&lt;constraint repeatuntil=&quot;&quot; priority=&quot;&quot;
+      name=&quot;Cyborg Ninja Unknown&quot; constraint=&quot;CyborgNinja == null &amp;amp;&amp;amp;
+      CyborgNinjaNear == null&quot;&gt;&lt;parallel tiebreaker=&quot;fail&quot; succeed=&quot;all&quot;
+      repeatuntil=&quot;&quot; name=&quot;parallel&quot; fail=&quot;any&quot;&gt;&lt;action
+      repeatuntil=&quot;running&quot; parametervalues=&quot;&quot; parameters=&quot;&quot;
+      namespace=&quot;(global)&quot; name=&quot;Lower Weapon&quot; classname=&quot;LowerWeapon&quot;
+      /&gt;&lt;mecparam valueexpression=&quot;false&quot; repeatuntil=&quot;&quot;
+      parametertype=&quot;boolean&quot; parametername=&quot;attacking&quot; name=&quot;Stop
+      Attacking&quot; damptime=&quot;0&quot; /&gt;&lt;mecparam valueexpression=&quot;0.5&quot;
+      repeatuntil=&quot;running&quot; parametertype=&quot;float&quot; parametername=&quot;speed&quot;
+      name=&quot;Speed&quot; damptime=&quot;1&quot; /&gt;&lt;waypointpatrol waypointsetvariable=&quot;&amp;quot;Water
+      Patrol Route&amp;quot;&quot; waypointactiontype=&quot;patrol&quot; traversetype=&quot;loop&quot;
+      traverseorder=&quot;forward&quot; repeatuntil=&quot;&quot; pathtargetvariable=&quot;&quot;
+      name=&quot;waypointpatrol&quot; movetargetvariable=&quot;WayPoint&quot;&gt;&lt;move
+      turnspeed=&quot;&quot; repeatuntil=&quot;&quot; name=&quot;move&quot; movetarget=&quot;WayPoint&quot;
+      movespeed=&quot;&quot; facetarget=&quot;&quot; closeenoughdistance=&quot;&quot;
+      closeenoughangle=&quot;&quot; /&gt;&lt;/waypointpatrol&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;constraint
+      repeatuntil=&quot;&quot; priority=&quot;&quot; name=&quot;Cyborg Ninja Visible&quot;
+      constraint=&quot;CyborgNinja != null &amp;amp;&amp;amp; CyborgNinjaNear == null&quot;&gt;&lt;parallel
+      tiebreaker=&quot;fail&quot; succeed=&quot;all&quot; repeatuntil=&quot;&quot;
+      name=&quot;parallel&quot; fail=&quot;any&quot;&gt;&lt;action repeatuntil=&quot;running&quot;
+      parametervalues=&quot;&quot; parameters=&quot;&quot; namespace=&quot;(global)&quot;
+      name=&quot;Predictive Aim&quot; classname=&quot;PredictiveAim&quot; /&gt;&lt;move
+      turnspeed=&quot;&quot; repeatuntil=&quot;running&quot; name=&quot;move&quot;
+      movetarget=&quot;CyborgNinja&quot; movespeed=&quot;&quot; facetarget=&quot;&quot;
+      closeenoughdistance=&quot;&quot; closeenoughangle=&quot;&quot; /&gt;&lt;mecparam
+      valueexpression=&quot;1&quot; repeatuntil=&quot;running&quot; parametertype=&quot;float&quot;
+      parametername=&quot;speed&quot; name=&quot;Speed&quot; damptime=&quot;1&quot;
+      /&gt;&lt;selector usepriorities=&quot;False&quot; repeatuntil=&quot;&quot; name=&quot;Attack
+      Range&quot;&gt;&lt;constraint repeatuntil=&quot;&quot; priority=&quot;&quot;
+      name=&quot;WIthin Attack Range&quot; constraint=&quot;CyborgNinjaAttackRange
+      != null&quot;&gt;&lt;parallel tiebreaker=&quot;fail&quot; succeed=&quot;all&quot;
+      repeatuntil=&quot;&quot; name=&quot;parallel&quot; fail=&quot;any&quot;&gt;&lt;action
+      repeatuntil=&quot;running&quot; parametervalues=&quot;&quot; parameters=&quot;&quot;
+      namespace=&quot;(global)&quot; name=&quot;Raise Weapon&quot; classname=&quot;RaiseWeapon&quot;
+      /&gt;&lt;mecparam valueexpression=&quot;true&quot; repeatuntil=&quot;&quot;
+      parametertype=&quot;boolean&quot; parametername=&quot;attacking&quot; name=&quot;Start
+      Attacking&quot; damptime=&quot;0&quot; /&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;constraint
+      repeatuntil=&quot;&quot; priority=&quot;&quot; name=&quot;Cyborg Ninja Near&quot;
+      constraint=&quot;CyborgNinjaNear != null&quot;&gt;&lt;parallel tiebreaker=&quot;fail&quot;
+      succeed=&quot;all&quot; repeatuntil=&quot;&quot; name=&quot;parallel&quot; fail=&quot;any&quot;&gt;&lt;action
+      repeatuntil=&quot;running&quot; parametervalues=&quot;&quot; parameters=&quot;&quot;
+      namespace=&quot;(global)&quot; name=&quot;Predictive Aim&quot; classname=&quot;PredictiveAim&quot;
+      /&gt;&lt;move turnspeed=&quot;&quot; repeatuntil=&quot;running&quot; name=&quot;move&quot;
+      movetarget=&quot;&quot; movespeed=&quot;&quot; facetarget=&quot;CyborgNinjaFuture&quot;
+      closeenoughdistance=&quot;&quot; closeenoughangle=&quot;&quot; /&gt;&lt;action
+      repeatuntil=&quot;running&quot; parametervalues=&quot;&quot; parameters=&quot;&quot;
+      namespace=&quot;(global)&quot; name=&quot;Raise Weapon&quot; classname=&quot;RaiseWeapon&quot;
+      /&gt;&lt;mecparam valueexpression=&quot;true&quot; repeatuntil=&quot;&quot;
+      parametertype=&quot;boolean&quot; parametername=&quot;attacking&quot; name=&quot;Start
+      Attacking&quot; damptime=&quot;0&quot; /&gt;&lt;selector usepriorities=&quot;False&quot;
+      repeatuntil=&quot;&quot; name=&quot;Retreat&quot;&gt;&lt;constraint repeatuntil=&quot;&quot;
+      priority=&quot;&quot; name=&quot;Is Not Too Close&quot; constraint=&quot;CyborgNinjaTooClose
+      == null&quot;&gt;&lt;mecparam valueexpression=&quot;0&quot; repeatuntil=&quot;running&quot;
+      parametertype=&quot;float&quot; parametername=&quot;speed&quot; name=&quot;Speed&quot;
+      damptime=&quot;1&quot; /&gt;&lt;/constraint&gt;&lt;constraint repeatuntil=&quot;&quot;
+      priority=&quot;&quot; name=&quot;Is Too Close&quot; constraint=&quot;CyborgNinjaTooClose
+      != null&quot;&gt;&lt;mecparam valueexpression=&quot;-0.5&quot; repeatuntil=&quot;running&quot;
+      parametertype=&quot;float&quot; parametername=&quot;speed&quot; name=&quot;Speed&quot;
+      damptime=&quot;0.5&quot; /&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;/selector&gt;&lt;/parallel&gt;&lt;/behaviortree&gt;"
+      type="System.String" id="treeData" /><field type="System.Array" id="treeBindings"
+      elementtype="System.String" /></fields><references /></scriptableobject>
+    _serializedGameObjects: []
+    _serializedCustomData: []
