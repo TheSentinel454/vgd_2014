@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b1a5e04ae51004842aba06704a6c2903
+guid: 6da89662649b53c49b06616f51157b48
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
@@ -473,7 +473,8 @@ ModelImporter:
     4300110: l_ankleProxy_geo
     4300112: l_kneeProxy_geo
     4300114: l_hipProxy_geo
-    7400000: Walk
+    7400000: WalkRightMedium
+    7400002: WalkLeftMedium
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -492,14 +493,14 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: Walk
-      takeName: _1_a_U1_M_P_WalkForward_NtrlFaceFwd__Fb_p0_No_0_PJ_3
-      firstFrame: 215.199997
-      lastFrame: 244.899994
+      name: WalkRightMedium
+      takeName: _7_a_U1_M_P_WalkForwardTurnRight_NtrlMedium__Fb_Dia2m_No_0_PJ_1
+      firstFrame: 90.5999985
+      lastFrame: 122.100006
       wrapMode: 0
-      orientationOffsetY: 3.29999995
+      orientationOffsetY: 0
       level: 0
-      cycleOffset: -0
+      cycleOffset: 0
       loop: 0
       loopTime: 1
       loopBlend: 1
@@ -511,6 +512,32 @@ ModelImporter:
       keepOriginalPositionXZ: 0
       heightFromFeet: 1
       mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: WalkLeftMedium
+      takeName: _7_a_U1_M_P_WalkForwardTurnRight_NtrlMedium__Fb_Dia2m_No_0_PJ_1
+      firstFrame: 90.5999985
+      lastFrame: 122.100006
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: .5
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 0
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 1
+      mirror: 1
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events: []

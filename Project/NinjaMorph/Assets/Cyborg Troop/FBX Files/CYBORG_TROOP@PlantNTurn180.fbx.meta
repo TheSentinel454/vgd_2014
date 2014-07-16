@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: b1a5e04ae51004842aba06704a6c2903
+guid: 70c1090edfd793444a0533e45c74dfad
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
-    100000: Chest
-    100002: chestProxy_geo
-    100004: //RootNode
+    100000: //RootNode
+    100002: Chest
+    100004: chestProxy_geo
     100006: Head
     100008: headProxy_geo
     100010: HeadTop_End
@@ -151,9 +151,9 @@ ModelImporter:
     100290: UNI_01_TongueBaseProxy
     100292: UNI_01_TongueTipProxy
     100294: UNI_01_Upper_teethProxy
-    400000: Chest
-    400002: chestProxy_geo
-    400004: //RootNode
+    400000: //RootNode
+    400002: Chest
+    400004: chestProxy_geo
     400006: Head
     400008: headProxy_geo
     400010: HeadTop_End
@@ -473,7 +473,8 @@ ModelImporter:
     4300110: l_ankleProxy_geo
     4300112: l_kneeProxy_geo
     4300114: l_hipProxy_geo
-    7400000: Walk
+    7400000: PlantNTurnLeft180
+    7400002: PlantNTurnRight180
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -492,14 +493,14 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: Walk
-      takeName: _1_a_U1_M_P_WalkForward_NtrlFaceFwd__Fb_p0_No_0_PJ_3
-      firstFrame: 215.199997
-      lastFrame: 244.899994
+      name: PlantNTurnLeft180
+      takeName: _74_a_U1_M_P_PlantNTurn180_Run_R_Fb_p180_No_0_PJ_4
+      firstFrame: 151
+      lastFrame: 194.699997
       wrapMode: 0
-      orientationOffsetY: 3.29999995
+      orientationOffsetY: 0
       level: 0
-      cycleOffset: -0
+      cycleOffset: 0
       loop: 0
       loopTime: 1
       loopBlend: 1
@@ -511,6 +512,32 @@ ModelImporter:
       keepOriginalPositionXZ: 0
       heightFromFeet: 1
       mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: PlantNTurnRight180
+      takeName: _74_a_U1_M_P_PlantNTurn180_Run_R_Fb_p180_No_0_PJ_4
+      firstFrame: 151
+      lastFrame: 194.699997
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 0
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 1
+      mirror: 1
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events: []
