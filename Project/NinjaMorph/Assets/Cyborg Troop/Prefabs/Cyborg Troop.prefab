@@ -967,7 +967,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100048}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.9266472, y: -2.29159718e-18, z: .103204362}
+  m_LocalPosition: {x: -6.00106907, y: -2.29159718e-18, z: .103204362}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 400006}
@@ -1449,11 +1449,11 @@ MonoBehaviour:
       id="_isActive" /><field type="UnityEngine.GameObject" id="_body" gameobject="0"
       /><field type="RAIN.Memory.BasicMemory" reference="1" id="_workingMemory" childrenvisible="False"
       /><field type="RAIN.Minds.BasicMind" reference="2" id="_mind" childrenvisible="False"
-      /><field type="RAIN.Motion.MecanimMotor" reference="3" id="_motor" childrenvisible="False"
+      /><field type="RAIN.Motion.MecanimMotor" reference="3" id="_motor" childrenvisible="True"
       /><field type="RAIN.Animation.BasicAnimator" reference="6" id="_animator" childrenvisible="False"
       /><field type="RAIN.Navigation.BasicNavigator" reference="7" id="_navigator"
       childrenvisible="False" /><field type="RAIN.Perception.BasicSenses" reference="8"
-      id="_senses" childrenvisible="True" /><field type="System.Collections.Generic.List"
+      id="_senses" childrenvisible="False" /><field type="System.Collections.Generic.List"
       id="_customElements" elementtype="RAIN.Core.CustomAIElement" childrenvisible="False"
       /></reference><reference type="RAIN.Memory.BasicMemory" refcount="1" id="1"><field
       type="System.Collections.Generic.List" id="_memoryItems" elementtype="System.String"><field
@@ -1472,7 +1472,7 @@ MonoBehaviour:
       type="System.Single" id="defaultStepUpHeight" /><field value="False" type="System.Boolean"
       id="allow3DMovement" /><field value="False" type="System.Boolean" id="allow3DRotation"
       /><field value="True" type="System.Boolean" id="validPathRequired" /><field
-      value="True" type="System.Boolean" id="useRootMotion" /><field value="False"
+      value="True" type="System.Boolean" id="useRootMotion" /><field value="True"
       type="System.Boolean" id="overrideRootMotionRotation" /><field value="False"
       type="System.Boolean" id="enforceVelocityLimits" /><field value="0,0,0" type="UnityEngine.Vector3"
       id="maximumVelocity" /><field value="False" type="System.Boolean" id="enforceRotationLimits"
@@ -1508,8 +1508,8 @@ MonoBehaviour:
       type="System.Collections.Generic.List" id="animationStates" elementtype="RAIN.Animation.BasicAnimator+BasicAnimatorState"
       /></reference><reference type="RAIN.Navigation.BasicNavigator" refcount="1"
       id="7"><field type="System.Collections.Generic.List" id="graphTags" elementtype="System.String"
-      /><field value="100" type="System.Int32" id="maxPathfindingStepsPerFrame" /><field
-      value="False" type="System.Boolean" id="drawPaths" /></reference><reference
+      childrenvisible="False" /><field value="100" type="System.Int32" id="maxPathfindingStepsPerFrame"
+      /><field value="False" type="System.Boolean" id="drawPaths" /></reference><reference
       type="RAIN.Perception.BasicSenses" refcount="1" id="8"><field type="System.Collections.Generic.List"
       id="sensors" elementtype="RAIN.Perception.Sensors.RAINSensor"><field type="RAIN.Perception.Sensors.VisualSensor"
       reference="19" id="element0" /><field type="RAIN.Perception.Sensors.VisualSensor"
@@ -1520,7 +1520,7 @@ MonoBehaviour:
       id="_serializedType" /><field value="" type="System.String" id="_serializedValue"
       /><field type="UnityEngine.GameObject" id="_serializedGameObject" gameobject="3"
       /></reference><reference type="RAIN.Perception.Sensors.VisualSensor" refcount="1"
-      id="10"><field value="True" type="System.Boolean" id="_showVisual" /><field
+      id="10"><field value="False" type="System.Boolean" id="_showVisual" /><field
       value="0,0.6,0,1" type="UnityEngine.Color" id="_sensorColor" /><field value="True"
       type="System.Boolean" id="_isActive" /><field value="AttackRange" type="System.String"
       id="_sensorName" /><field type="UnityEngine.Transform" id="_mountPoint" gameobject="4"
@@ -1533,7 +1533,7 @@ MonoBehaviour:
       id="_range" /><field value="True" type="System.Boolean" id="_requireLineOfSight"
       /><field value="-5" type="UnityEngine.LayerMask" id="_lineOfSightMask" /><field
       value="True" type="System.Boolean" id="_lineOfSightIgnoresSelf" /></reference><reference
-      type="RAIN.Perception.Sensors.VisualSensor" refcount="1" id="11"><field value="True"
+      type="RAIN.Perception.Sensors.VisualSensor" refcount="1" id="11"><field value="False"
       type="System.Boolean" id="_showVisual" /><field value="0,0,0.6,1" type="UnityEngine.Color"
       id="_sensorColor" /><field value="True" type="System.Boolean" id="_isActive"
       /><field value="TooCloseSensor" type="System.String" id="_sensorName" /><field
@@ -1550,7 +1550,7 @@ MonoBehaviour:
       type="RAIN.Animation.MecanimAnimator+IKTarget" refcount="0" id="13" /><reference
       type="RAIN.Animation.MecanimAnimator+IKTarget" refcount="0" id="14" /><reference
       type="RAIN.Animation.MecanimAnimator+IKLookAt" refcount="0" id="15" /><reference
-      type="RAIN.Perception.Sensors.VisualSensor" refcount="1" id="16"><field value="True"
+      type="RAIN.Perception.Sensors.VisualSensor" refcount="1" id="16"><field value="False"
       type="System.Boolean" id="_showVisual" /><field value="0.6,0,0,1" type="UnityEngine.Color"
       id="_sensorColor" /><field value="True" type="System.Boolean" id="_isActive"
       /><field value="NearSensor" type="System.String" id="_sensorName" /><field type="UnityEngine.Transform"
@@ -1569,7 +1569,7 @@ MonoBehaviour:
       /><field value="Float" type="RAIN.Animation.MecanimParameterValue+SupportedMecanimType"
       id="parameterType" /></reference><reference type="RAIN.Representation.Expression"
       refcount="1" id="18" customdata="1" /><reference type="RAIN.Perception.Sensors.VisualSensor"
-      refcount="1" id="19"><field value="True" type="System.Boolean" id="_showVisual"
+      refcount="1" id="19"><field value="False" type="System.Boolean" id="_showVisual"
       /><field value="0.1647059,0.8697227,0.9333333,1" type="UnityEngine.Color" id="_sensorColor"
       /><field value="True" type="System.Boolean" id="_isActive" /><field value="VisualSensor"
       type="System.String" id="_sensorName" /><field type="UnityEngine.Transform"

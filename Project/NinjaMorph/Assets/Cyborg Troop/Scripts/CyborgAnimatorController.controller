@@ -176,22 +176,22 @@ BlendTree:
   m_PrefabInternal: {fileID: 0}
   m_Name: Walk
   m_Childs:
-  - m_Motion: {fileID: 7400002, guid: 6da89662649b53c49b06616f51157b48, type: 3}
-    m_Threshold: -135
+  - m_Motion: {fileID: 7400000, guid: bb141fc9a700c9c4ca7e6dadb8acf24b, type: 3}
+    m_Threshold: -101.300003
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_IsAnim: 1
     m_Mirror: 0
-  - m_Motion: {fileID: 7400000, guid: bb141fc9a700c9c4ca7e6dadb8acf24b, type: 3}
-    m_Threshold: -90
+  - m_Motion: {fileID: 7400002, guid: 6da89662649b53c49b06616f51157b48, type: 3}
+    m_Threshold: -62.4000015
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_IsAnim: 1
     m_Mirror: 0
   - m_Motion: {fileID: 7400002, guid: 6bb9737c88e5309458a1e0e764137dfd, type: 3}
-    m_Threshold: -35
+    m_Threshold: -28.2000008
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
@@ -212,14 +212,14 @@ BlendTree:
     m_IsAnim: 1
     m_Mirror: 0
   - m_Motion: {fileID: 7400000, guid: 6da89662649b53c49b06616f51157b48, type: 3}
-    m_Threshold: 90
+    m_Threshold: 62.4000015
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_IsAnim: 1
     m_Mirror: 0
   - m_Motion: {fileID: 7400002, guid: bb141fc9a700c9c4ca7e6dadb8acf24b, type: 3}
-    m_Threshold: 135
+    m_Threshold: 101.300003
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
@@ -227,8 +227,8 @@ BlendTree:
     m_Mirror: 0
   m_BlendParameter: direction
   m_BlendParameterY: Blend
-  m_MinThreshold: -135
-  m_MaxThreshold: 135
+  m_MinThreshold: -101.300003
+  m_MaxThreshold: 101.300003
   m_UseAutomaticThresholds: 0
   m_BlendType: 0
 --- !u!206 &20623290
