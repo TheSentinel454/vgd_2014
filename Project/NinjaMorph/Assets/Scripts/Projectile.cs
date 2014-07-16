@@ -8,7 +8,8 @@ public class Projectile : MonoBehaviour {
 	public string[] destroyOnImpactAgainst;
 
 	void OnCollisionEnter (Collision collision) {
-		if (destroyOnImpactAgainst.Contains (collision.gameObject.tag)) {
+		if (destroyOnImpactAgainst.Contains (collision.transform.root.gameObject.tag) || 
+		    destroyOnImpactAgainst.Contains (collision.gameObject.tag)) {
 			Destroy (gameObject);
 		}
 	}
