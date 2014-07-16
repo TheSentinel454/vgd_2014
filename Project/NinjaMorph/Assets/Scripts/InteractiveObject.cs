@@ -137,7 +137,7 @@ public class InteractiveObject : MonoBehaviour
 			// Set the current type to fire
 			currentType = ObjectType.Fire;
 			// Instantiate the fire prefab
-			fire = (GameObject)Instantiate(fireGameObject, transform.position, transform.rotation);
+			fire = (GameObject)Instantiate(fireGameObject, transform.position + new Vector3(0.0f, 1.2f, 0.0f), transform.rotation);
 			fire.transform.parent = transform;
 			break;
 		}
