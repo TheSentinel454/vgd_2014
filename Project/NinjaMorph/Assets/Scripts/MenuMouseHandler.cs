@@ -11,7 +11,7 @@ public class MenuMouseHandler : MonoBehaviour
 	/// </summary>
 	void OnMouseDown()
 	{
-		print ("MouseTrigger: " + this.name);
+		//print ("MouseTrigger: " + this.name);
 		if (this.name == "PlayButton")
 		{
 			// Load the air level
