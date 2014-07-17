@@ -563,8 +563,7 @@ GameObject:
   - 114: {fileID: 11400000}
   - 81: {fileID: 8100000}
   - 82: {fileID: 8200004}
-  - 82: {fileID: 8200002}
-  - 82: {fileID: 8200000}
+  - 82: {fileID: 8200006}
   m_Layer: 0
   m_Name: Cyborg Ninja
   m_TagString: Player
@@ -860,7 +859,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100032}
-  m_LocalRotation: {x: .628667653, y: -.543137014, z: -.0229188818, w: .556105971}
+  m_LocalRotation: {x: .628667712, y: -.543137074, z: -.0229188837, w: .556106031}
   m_LocalPosition: {x: -.0561961345, y: -.0106436154, z: -.0406058878}
   m_LocalScale: {x: 1.00000024, y: 1, z: 1}
   m_Children:
@@ -1121,9 +1120,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100072}
-  m_LocalRotation: {x: 0, y: .0469079018, z: 0, w: .998899221}
-  m_LocalPosition: {x: -20.4813118, y: 0, z: -22.290823}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalRotation: {x: 0, y: .470796466, z: 0, w: -.882241905}
+  m_LocalPosition: {x: 3.7545805, y: -3.99966431, z: -19.3709164}
+  m_LocalScale: {x: 1.49999964, y: 1.5, z: 1.49999964}
   m_Children:
   - {fileID: 400078}
   - {fileID: 400064}
@@ -1433,11 +1432,69 @@ AudioSource:
   m_GameObject: {fileID: 100072}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: d8d684a5f682f8b4297ff7bffc033ddf, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 57f5fa4c775554e4eb3189d95653d0c2, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: .300000012
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+--- !u!82 &8200006
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100072}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: b9e568723af1d0340b3d34e6328e9c58, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: .300000012
+  m_Pitch: 1
+  Loop: 0
   Mute: 0
   Priority: 128
   DopplerLevel: 1
@@ -1535,8 +1592,8 @@ Animation:
   - {fileID: 7400000, guid: 0059922bdac7e4fe493a7d98bfc81c1f, type: 2}
   - {fileID: 7400000, guid: c43531741c569c946a52c0883b407448, type: 3}
   - {fileID: 7400000, guid: d8d0ad089e40c644daa4a6e2bd99e487, type: 3}
-  - {fileID: 7400000, guid: f316b0a3b00fb2a4d96d5dfb961208ff, type: 3}
-  - {fileID: 7400000, guid: 6545fbf7d42dc894b9b51e5cd0956b7a, type: 3}
+  - {fileID: 7400000, guid: 75e6257b59ef2dc4b9afdd83d1a1d88e, type: 2}
+  - {fileID: 7400000, guid: ba36d80c327d0064cb68a542a403121a, type: 2}
   - {fileID: 7400000, guid: 00a0f64f96db0644f94e44a478114080, type: 3}
   - {fileID: 7400000, guid: eed9a05339369c24897ca53362eb39c2, type: 3}
   - {fileID: 7400000, guid: c45dd7baf7e1f9f40aaf8deee9692923, type: 3}
@@ -1550,7 +1607,7 @@ Animation:
   - {fileID: 7400000, guid: 45ab8170f43f0374b8b5e01d3dc92404, type: 3}
   - {fileID: 7400000, guid: 80d6e79f5694b0742a6a3d43dbedfaee, type: 3}
   - {fileID: 7400000, guid: 575bef7200f5571428f1e076a242e3f9, type: 3}
-  - {fileID: 7400000, guid: af835c47f2ecd4548a9b0a1db62d37e6, type: 3}
+  - {fileID: 7400000, guid: c1085591d54f03447acb02b299d00822, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -1637,7 +1694,8 @@ MonoBehaviour:
     - {fileID: 100000, guid: 2e3bcfa2e39e002409c99b94a7bb4c35, type: 2}
     effectLocations:
     - {x: -1, y: 4, z: 0}
-  metalWalkingAudio: {fileID: 0}
+  waterWalkingAudio: {fileID: 8200006}
+  metalWalkingAudio: {fileID: 8200004}
   msgManager: {fileID: 0}
 --- !u!114 &11400002
 MonoBehaviour:
@@ -1779,7 +1837,7 @@ CharacterController:
   m_StepOffset: 0
   m_SkinWidth: .00999999978
   m_MinMoveDistance: 0
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: .800000012, z: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -57,15 +57,12 @@ public class NinjaController : MonoBehaviour
 	public NinjaSettings fireSettings;
 	public NinjaSettings waterSettings;
 
-	/*public AudioSource baseWalkingAudio;
-	public AudioSource woodWalkingAudio;
 	public AudioSource waterWalkingAudio;
-	public AudioSource grassWalkingAudio;*/
 	public AudioSource metalWalkingAudio;
+	private AudioSource walkingAudio;
 
 	public MessageManager msgManager;
 
-	private AudioSource walkingAudio;
 	private NinjaType ninjaType;
 	private Renderer[] ninjaRenderers;
 	private GameObject ninjaEffects;
@@ -320,8 +317,6 @@ public class NinjaController : MonoBehaviour
     }
 
 	public void playFootstepSound(string data) {
-
-		walkingAudio = metalWalkingAudio;
 	
 		if(string.Equals(data[0], 'r')) {
 			walkingAudio.volume = 0.2f;
@@ -330,9 +325,9 @@ public class NinjaController : MonoBehaviour
 		}
 
 		if(string.Equals(data[1], 'l')){
-			walkingAudio.pitch = 1.0f;
+			walkingAudio.pitch = Random.Range(1.0f, 1.25f);
 		} else if (string.Equals(data[1], 'r')) {
-			walkingAudio.pitch = 1.2f;
+			walkingAudio.pitch = Random.Range(1.0f, 1.25f);
 		}
 
 		walkingAudio.Play();
@@ -443,27 +438,6 @@ public class NinjaController : MonoBehaviour
         // Calculate actual motion
         Vector3 movement = moveDirection * moveSpeed + new Vector3(0, verticalSpeed, 0) + inAirVelocity;
         movement *= Time.deltaTime;
-
-		if (movement != Vector3.zero && !IsJumping())// && IsGrounded())
-		{
-			/*(if (walkingAudio != null)
-			{
-				if (!walkingAudio.isPlaying)
-					walkingAudio.Play();
-				else
-				{
-					walkingAudio.volume = moveSpeed / runSpeed;
-					walkingAudio.pitch = 1.5f + (2.0f * (moveSpeed / runSpeed));
-				}
-			}*/
-		}
-		else
-		{
-			if (walkingAudio != null && walkingAudio.isPlaying)
-			{
-				walkingAudio.Stop();
-			}
-		}
 
         // Move the controller
         CharacterController controller = GetComponent<CharacterController>();
@@ -768,14 +742,15 @@ public class NinjaController : MonoBehaviour
 	/// <param name="collider">Collider.</param>
 	void OnTriggerEnter(Collider collider)
 	{
-		/*if (collider.gameObject.tag == "Water")
+		if (collider.gameObject.GetComponent<InteractiveObject>().getObjectType() == ObjectType.Water)
 		{
 			if (walkingAudio != waterWalkingAudio)
 			{
 				walkingAudio.Stop ();
 			}
+
 			walkingAudio = waterWalkingAudio;
-		}*/
+		}
 		// Check to see if the collided game object has an InteractiveObject
 		InteractiveObject interactive = collider.gameObject.GetComponent<InteractiveObject>();
 		if (interactive != null)
@@ -853,35 +828,13 @@ public class NinjaController : MonoBehaviour
 	/// <param name="collider">Collider.</param>
 	void OnTriggerExit(Collider collider)
 	{
-		/*if (walkingAudio != grassWalkingAudio)
-		{
-			walkingAudio.Stop ();
-		}
-		walkingAudio = baseWalkingAudio;*/
+		walkingAudio.Stop ();
+		walkingAudio = metalWalkingAudio;
 	}
 
     void OnControllerColliderHit(ControllerColliderHit hit)
 	{
 		Rigidbody body = hit.collider.attachedRigidbody;
-
-		/*if (walkingAudio != waterWalkingAudio)
-		{
-			if (hit.gameObject.tag == "Wood" && walkingAudio != woodWalkingAudio)
-			{
-				walkingAudio.Stop ();
-				walkingAudio = woodWalkingAudio;
-			}
-			else if (hit.gameObject.tag == "Ground" && walkingAudio != grassWalkingAudio)
-			{
-				walkingAudio.Stop ();
-				walkingAudio = grassWalkingAudio;
-			}
-			else if (walkingAudio != baseWalkingAudio)
-			{
-				walkingAudio.Stop();
-				walkingAudio = baseWalkingAudio;
-			}
-		}*/
 
 		// We dont want to push objects below us
 		if (hit.moveDirection.y < -0.3 || !body || body.isKinematic) 
