@@ -22,7 +22,10 @@ public class CyborgNinjaController : MonoBehaviour {
 	void FixedUpdate ()
 	{
 		// ANIMATION TOGGLES
-		animationController.attacking = animationController.attacking || InputManager.ActiveDevice.RightTrigger.WasPressed;
+		animationController.attacking = animationController.attacking || 
+			InputManager.ActiveDevice.RightTrigger.WasPressed || 
+			InputManager.ActiveDevice.RightTrigger.IsPressed ||
+			InputManager.ActiveDevice.RightTrigger.WasReleased;
 		animationController.weapon ^= InputManager.ActiveDevice.RightBumper.WasPressed;
 		animationController.dead = ninjaController.getZen() <= 0;
 	}
