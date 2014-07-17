@@ -152,6 +152,8 @@ public class GameController : MonoBehaviour
 				if (testInfo.startFireTime < 0.0f)
 					testInfo.startFireTime = Time.time;
 #endif
+				if (firePuzzle == null)
+					return;
 				InteractiveObject[] objects = firePuzzle.GetComponentsInChildren<InteractiveObject>();
 				int numberLit = 0;
 				foreach(InteractiveObject io in objects)
@@ -217,7 +219,9 @@ public class GameController : MonoBehaviour
 				int numberFilled = 0;
 				ArrayList bucketWaters = new ArrayList(4);
 				ArrayList triggers = new ArrayList(4);
-
+				
+				if (waterPuzzle == null)
+					return;
 				WaterPuzzleTimer wptimer = waterPuzzle.GetComponent<WaterPuzzleTimer>();
 
 				//fill up arrays with waters and fill triggers, and keep track of which buckets are filled
