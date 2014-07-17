@@ -375,6 +375,7 @@ GameObject:
   - 114: {fileID: 11400002}
   - 114: {fileID: 11400000}
   - 114: {fileID: 11400004}
+  - 114: {fileID: 11400010}
   m_Layer: 0
   m_Name: Cyborg Troop
   m_TagString: Enemy
@@ -983,7 +984,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100048}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 54.5690575, y: 59.7458611, z: 350.34552}
+  m_LocalPosition: {x: -6.67741108, y: .284877807, z: 16.2529678}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 400006}
@@ -1490,7 +1491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1dbae8b4b510472aa2fa76ac542784d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 10
   destroyOnImpactAgainst:
   - Player
 --- !u!114 &11400008
@@ -1665,7 +1666,7 @@ MonoBehaviour:
       id="24" customdata="6" /></references></component>
     _serializedGameObjects:
     - {fileID: 100048}
-    - {fileID: 11400000, guid: 7e4db4dedba584b31a1e0b65fdbfc496, type: 2}
+    - {fileID: 11400000, guid: c29471a6e05404a9583f7bc1ddcfd2ff, type: 2}
     - {fileID: 400048}
     - {fileID: 100060}
     - {fileID: 400048}
@@ -1680,6 +1681,21 @@ MonoBehaviour:
     - _data: 0a
     - _data: 0a
     - _data: 310a
+--- !u!114 &11400010
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27bcc240ccad93749884947d293d3738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rayMask:
+    serializedVersion: 2
+    m_Bits: 0
+  adjustment: 4
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1
