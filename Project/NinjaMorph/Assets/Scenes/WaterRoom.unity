@@ -314,10 +314,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 73609914}
   - 95: {fileID: 73609918}
-  - 114: {fileID: 73609917}
   - 114: {fileID: 73609916}
   - 114: {fileID: 73609915}
   - 114: {fileID: 73609919}
+  - 82: {fileID: 73609917}
   m_Layer: 0
   m_Name: Cyborg Troop
   m_TagString: Enemy
@@ -371,21 +371,68 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gun: {fileID: 73609913}
   bullet: {fileID: 916437656}
+  gunshotSound: {fileID: 73609917}
   muzzleVelocity: 30
   destroyAfter: 5
---- !u!114 &73609917
-MonoBehaviour:
+--- !u!82 &73609917
+AudioSource:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400002, guid: 9025f0c3257bc49e895ee498b04ad5cd,
+  m_PrefabParentObject: {fileID: 8200000, guid: 9025f0c3257bc49e895ee498b04ad5cd,
     type: 2}
   m_PrefabInternal: {fileID: 1611386339}
   m_GameObject: {fileID: 73609913}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66f132f043573440daf6aee7f4cb560c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 73609918}
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: 2005d4fef5051934da40e5af940bb2bb, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!95 &73609918
 Animator:
   serializedVersion: 3
@@ -1513,7 +1560,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400032, guid: d0cfe9de5f3e74c2f8313809afe6ff2d, type: 2}
   m_PrefabInternal: {fileID: 158895660}
   m_GameObject: {fileID: 297718330}
-  m_LocalRotation: {x: .628667712, y: -.543137074, z: -.0229188837, w: .556106031}
+  m_LocalRotation: {x: .628667653, y: -.543137014, z: -.0229188818, w: .556105971}
   m_LocalPosition: {x: -.0561961345, y: -.0106436154, z: -.0406058878}
   m_LocalScale: {x: 1.00000024, y: 1, z: 1}
   m_Children:

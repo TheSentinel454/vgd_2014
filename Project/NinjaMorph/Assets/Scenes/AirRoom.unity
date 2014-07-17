@@ -2353,7 +2353,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400032, guid: d0cfe9de5f3e74c2f8313809afe6ff2d, type: 2}
   m_PrefabInternal: {fileID: 927277890}
   m_GameObject: {fileID: 297718330}
-  m_LocalRotation: {x: .628667712, y: -.543137074, z: -.0229188837, w: .556106031}
+  m_LocalRotation: {x: .628667653, y: -.543137014, z: -.0229188818, w: .556105971}
   m_LocalPosition: {x: -.0561961345, y: -.0106436154, z: -.0406058878}
   m_LocalScale: {x: 1.00000024, y: 1, z: 1}
   m_Children:
@@ -5315,7 +5315,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 780900595}
   - 95: {fileID: 780900599}
-  - 114: {fileID: 780900598}
   - 114: {fileID: 780900597}
   - 114: {fileID: 780900596}
   - 114: {fileID: 780900600}
@@ -5376,19 +5375,6 @@ MonoBehaviour:
   gunshotSound: {fileID: 780900601}
   muzzleVelocity: 30
   destroyAfter: 5
---- !u!114 &780900598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400002, guid: 9025f0c3257bc49e895ee498b04ad5cd,
-    type: 2}
-  m_PrefabInternal: {fileID: 802590752}
-  m_GameObject: {fileID: 780900594}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66f132f043573440daf6aee7f4cb560c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 780900599}
 --- !u!95 &780900599
 Animator:
   serializedVersion: 3
@@ -14710,7 +14696,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 0ad01a88035adb34a897e495f48679f9, type: 2}
   m_PrefabInternal: {fileID: 929570849}
   m_GameObject: {fileID: 1998855161}
-  m_LocalRotation: {x: 0, y: 0, z: .216440007, w: .976296008}
+  m_LocalRotation: {x: 0, y: 0, z: .216439977, w: .976295888}
   m_LocalPosition: {x: 9.42526245, y: -5.71868896, z: -12.3364105}
   m_LocalScale: {x: 3.5, y: 3, z: 1}
   m_Children: []
