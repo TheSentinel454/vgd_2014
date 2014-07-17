@@ -30,8 +30,6 @@ public class GameController : MonoBehaviour
 
 	private bool gameActive = true;
 
-	private string currentLevel = "";
-
 	// Use this for initialization
 	void Start ()
 	{
@@ -65,7 +63,7 @@ public class GameController : MonoBehaviour
 	/// <summary>
 	/// Update this instance.
 	/// </summary>
-	void Update ()
+	void FixedUpdate ()
 	{
 		// Only update if active
 		if (!gameActive)
@@ -319,7 +317,6 @@ public class GameController : MonoBehaviour
 			nextLevel = "NinjaMorph";
 			timeDelay = 5.0f;
 		}
-		currentLevel = nextLevel;
 		// Load the next level
 		CameraFade.StartAlphaFade( Color.black, false, timeDelay, 0.0f, () => { Application.LoadLevel(nextLevel); } );
 	}
@@ -332,9 +329,11 @@ public class GameController : MonoBehaviour
 	{
 		// Create a message
 		ninjaController.createMessage("Game Over!");
+		// Reset the scene
+		CameraFade.StartAlphaFade( Color.black, false, 5.0f, 0.0f, () => { Application.LoadLevel(Application.loadedLevelName); } );
 		// Hold out for 5 seconds
 		yield return new WaitForSeconds(5.0f);
-		// Reset the scene
-		Application.LoadLevel(currentLevel);
+		// Set the game back to active
+		gameActive = true;
 	}
 }
