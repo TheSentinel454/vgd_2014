@@ -6,7 +6,7 @@ public class HoverHealth : MonoBehaviour
 {
 	public LayerMask rayMask;
 	DamageObject dmgObject;
-	float adjustment = 2.0f;
+	float adjustment = 3.5f;
 
 	private Vector3 worldPosition = new Vector3();
 	private Vector3 screenPosition = new Vector3();
@@ -36,12 +36,12 @@ public class HoverHealth : MonoBehaviour
 		{
 			GUI.color = Color.red;
 			// Displays a healthbar
-			GUI.HorizontalScrollbar(new Rect (screenPosition.x - healthBarLeft / 2, Screen.height - screenPosition.y - barTop - 35, 100, 0), 0, dmgObject.health, 0, dmgObject.maxHealth);
+			GUI.HorizontalScrollbar(new Rect (screenPosition.x - healthBarLeft / 2, Screen.height - screenPosition.y - barTop, 100, 0), 0, dmgObject.health, 0, dmgObject.maxHealth);
 			
 			GUI.color = Color.white;
 			GUI.contentColor = Color.white;
 			// Displays health in text format
-			GUI.Label(new Rect(screenPosition.x - healthBarLeft / 2, Screen.height - screenPosition.y - barTop - 30, 100, 100), "" + dmgObject.health + "/" + dmgObject.maxHealth);
+			GUI.Label(new Rect(screenPosition.x - healthBarLeft / 2, Screen.height - screenPosition.y - barTop + 5, 100, 100), "" + dmgObject.health + "/" + dmgObject.maxHealth);
 		}
 	}
 }
