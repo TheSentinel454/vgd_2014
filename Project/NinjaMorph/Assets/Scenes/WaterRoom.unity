@@ -318,6 +318,7 @@ GameObject:
   - 114: {fileID: 73609915}
   - 114: {fileID: 73609919}
   - 82: {fileID: 73609917}
+  - 114: {fileID: 73609920}
   m_Layer: 0
   m_Name: Cyborg Troop
   m_TagString: Enemy
@@ -463,6 +464,18 @@ MonoBehaviour:
   rayMask:
     serializedVersion: 2
     m_Bits: 0
+--- !u!114 &73609920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400002, guid: 9025f0c3257bc49e895ee498b04ad5cd,
+    type: 2}
+  m_PrefabInternal: {fileID: 1611386339}
+  m_GameObject: {fileID: 73609913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0269c59a83aec4053a78acf6aa4a995b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &85228443
 GameObject:
   m_ObjectHideFlags: 0

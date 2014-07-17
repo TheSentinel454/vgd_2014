@@ -13298,7 +13298,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400088, guid: f6a8d5f07d8951145b6c13ff1104cb69, type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1020975088}
-  m_LocalRotation: {x: -.353553414, y: -.612372458, z: -.612372577, w: .353553355}
+  m_LocalRotation: {x: -.353553385, y: -.612372398, z: -.612372518, w: .353553325}
   m_LocalPosition: {x: -5.00650024, y: -.900005341, z: .963485718}
   m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
@@ -14081,6 +14081,7 @@ GameObject:
   - 114: {fileID: 1161281749}
   - 114: {fileID: 1161281753}
   - 82: {fileID: 1161281751}
+  - 114: {fileID: 1161281754}
   m_Layer: 0
   m_Name: Cyborg Troop
   m_TagString: Enemy
@@ -14226,6 +14227,18 @@ MonoBehaviour:
   rayMask:
     serializedVersion: 2
     m_Bits: 0
+--- !u!114 &1161281754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400002, guid: 9025f0c3257bc49e895ee498b04ad5cd,
+    type: 2}
+  m_PrefabInternal: {fileID: 335798816}
+  m_GameObject: {fileID: 1161281747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0269c59a83aec4053a78acf6aa4a995b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1198788867
 GameObject:
   m_ObjectHideFlags: 0
