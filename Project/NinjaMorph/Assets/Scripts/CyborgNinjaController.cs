@@ -10,10 +10,6 @@ public class CyborgNinjaController : MonoBehaviour {
 	CyborgNinjaAnimationController animationController;
 	NinjaController ninjaController;
 
-	// CONTROLS
-	public KeyCode attackKeyCode = KeyCode.Slash;
-	public KeyCode toggleWeaponKeyCode = KeyCode.Period;
-
 	// Get the animation controller
 	void Start ()
 	{
@@ -28,7 +24,7 @@ public class CyborgNinjaController : MonoBehaviour {
 		//InputManager.Update ();
 		// ANIMATION TOGGLES
 		animationController.attacking = animationController.attacking || InputManager.ActiveDevice.RightTrigger.WasPressed;//Input.GetKey (attackKeyCode);
-		animationController.weapon ^= Input.GetKeyDown (toggleWeaponKeyCode);
+		animationController.weapon ^= InputManager.ActiveDevice.RightBumper.WasPressed;//Input.GetKeyDown (toggleWeaponKeyCode);
 		animationController.dead = ninjaController.getZen() <= 0;
 	}
 }
