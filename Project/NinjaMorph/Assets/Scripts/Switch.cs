@@ -22,7 +22,6 @@ public class Switch : MonoBehaviour {
 				transform.Translate(new Vector3(0,-0.005f,0));
 				GameObject.Find ("Platform 5").transform.Translate(new Vector3(0.188f,0,0));
 			} else {
-				timerStarted = false;
 				disabled = true;
 			}
 		}
@@ -31,6 +30,8 @@ public class Switch : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 		if (other.tag == "Player") {
+			if(!timerStarted)
+				audio.Play ();
 			timerStarted = true;
 		}
 	}

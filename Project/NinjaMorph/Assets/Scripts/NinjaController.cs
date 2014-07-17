@@ -325,9 +325,9 @@ public class NinjaController : MonoBehaviour
 		}
 
 		if(string.Equals(data[1], 'l')){
-			walkingAudio.pitch = Random.Range(1.0f, 1.25f);
+			walkingAudio.pitch = Random.Range(1.0f, 1.1f);
 		} else if (string.Equals(data[1], 'r')) {
-			walkingAudio.pitch = Random.Range(1.0f, 1.25f);
+			walkingAudio.pitch = Random.Range(1.2f, 1.3f);
 		}
 
 		walkingAudio.Play();
@@ -750,19 +750,19 @@ public class NinjaController : MonoBehaviour
 	/// <param name="collider">Collider.</param>
 	void OnTriggerEnter(Collider collider)
 	{
-		if (collider.gameObject.GetComponent<InteractiveObject>().getObjectType() == ObjectType.Water)
-		{
-			if (walkingAudio != waterWalkingAudio)
-			{
-				walkingAudio.Stop ();
-			}
-
-			walkingAudio = waterWalkingAudio;
-		}
 		// Check to see if the collided game object has an InteractiveObject
-		InteractiveObject interactive = collider.gameObject.GetComponent<InteractiveObject>();
+		InteractiveObject interactive = collider.gameObject.GetComponent<InteractiveObject> ();
 		if (interactive != null)
 		{
+			// See if the object type was of water
+			if (interactive.getObjectType() == ObjectType.Water)
+			{
+				if (walkingAudio != waterWalkingAudio)
+				{
+					walkingAudio.Stop ();
+				}
+				walkingAudio = waterWalkingAudio;
+			}
 			// Broadcast to the game object that there was a player collision
 			interactive.PlayerCollision(new InteractiveCollision(collider, ninjaType));
 		}
