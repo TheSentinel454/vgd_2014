@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using InControl;
 
 [RequireComponent (typeof(CyborgNinjaAnimationController))]
 [RequireComponent (typeof(NinjaController))]
@@ -9,13 +10,10 @@ public class CyborgNinjaController : MonoBehaviour {
 	CyborgNinjaAnimationController animationController;
 	NinjaController ninjaController;
 
-	// CONTROLS
-	public KeyCode attackKeyCode = KeyCode.Slash;
-	public KeyCode toggleWeaponKeyCode = KeyCode.Period;
-
 	// Get the animation controller
 	void Start ()
 	{
+		InputManager.Setup ();
 		animationController = GetComponent<CyborgNinjaAnimationController> ();
 		ninjaController = GetComponent<NinjaController> ();
 	}
@@ -24,8 +22,8 @@ public class CyborgNinjaController : MonoBehaviour {
 	void FixedUpdate ()
 	{
 		// ANIMATION TOGGLES
-		animationController.attacking = animationController.attacking || Input.GetKey (attackKeyCode);
-		animationController.weapon ^= Input.GetKeyDown (toggleWeaponKeyCode);
+		animationController.attacking = animationController.attacking || InputManager.ActiveDevice.RightTrigger.WasPressed;
+		animationController.weapon ^= InputManager.ActiveDevice.RightBumper.WasPressed;
 		animationController.dead = ninjaController.getZen() <= 0;
 	}
 }
