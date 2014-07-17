@@ -361,7 +361,7 @@ public class NinjaController : MonoBehaviour
 				if (direction > 0.65f)
 				{
 					// Deal damage to the object
-					obj.DealDamage(25.0f);
+					obj.DealDamage(15.0f);
 #if PLAY_TESTING
 					// Check for death
 					if (!obj.alive)
@@ -372,13 +372,6 @@ public class NinjaController : MonoBehaviour
 				}
 			}
 		}
-		/*
-		float length;
-		if (_characterState == CharacterState.Running || _characterState == CharacterState.Walking)
-			length = _animation[moveAttackAnimation.name].length;
-		else
-			length = _animation[idleAttackAnimation.name].length;
-		*/
 		yield return true;
 		attacking = false;
 	}

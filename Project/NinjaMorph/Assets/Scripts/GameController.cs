@@ -22,13 +22,11 @@ public class GameController : MonoBehaviour
 	private bool fireLevelComplete = false;
 	private GameObject firePuzzle;
 	private ArrayList torchOrder = new ArrayList(4);
-	private InteractiveObject[] firePuzzleObjects;
 
 	private bool waterLevelComplete = false;
 	private GameObject waterPuzzle;
 	private bool firstWaterMessage = false;
 	private int timerThreshhold = 5;
-	private WaterPuzzleTimer wptimer;
 
 	private bool gameActive = true;
 
@@ -48,18 +46,17 @@ public class GameController : MonoBehaviour
 		// Get the Ninja Controller
 		ninjaController = player.GetComponent<NinjaController> ();
 		ninjaController.setMessageManager (msgManager);
-
-		/// Get the Puzzles
-		GameObject puzzle = (GameObject)GameObject.FindGameObjectWithTag("Puzzle");
-
-		if(puzzle!=null) {
-			// Find the puzzles
-			if (puzzle.name.Equals("Air Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
-				airPuzzle = puzzle;
-			else if (puzzle.name.Equals("Fire Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
-				firePuzzle = puzzle;
-			else if (puzzle.name.Equals("Water Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
-				waterPuzzle = puzzle;
+		// Get the Puzzles
+		GameObject[] puzzles = GameObject.FindGameObjectsWithTag("Puzzle");
+		// Find the puzzles
+		foreach(GameObject go in puzzles)
+		{
+			if (go.name.Equals("Air Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
+				airPuzzle = go;
+			else if (go.name.Equals("Fire Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
+				firePuzzle = go;
+			else if (go.name.Equals("Water Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
+				waterPuzzle = go;
 		}
 	}
 
@@ -86,19 +83,17 @@ public class GameController : MonoBehaviour
 			// Set the message manager
 			ninjaController.setMessageManager(msgManager);
 		}
-
 		// Get the Puzzles
-	
-		GameObject puzzle = GameObject.FindGameObjectWithTag("Puzzle");
-
-		if(puzzle!=null){
-			// Find the puzzles
-			if (puzzle.name.Equals("Air Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
-				airPuzzle = puzzle;
-			else if (puzzle.name.Equals("Fire Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
-				firePuzzle = puzzle;
-			else if (puzzle.name.Equals("Water Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
-				waterPuzzle = puzzle;
+		GameObject[] puzzles = GameObject.FindGameObjectsWithTag("Puzzle");
+		// Find the puzzles
+		foreach(GameObject go in puzzles)
+		{
+			if (go.name.Equals("Air Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
+				airPuzzle = go;
+			else if (go.name.Equals("Fire Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
+				firePuzzle = go;
+			else if (go.name.Equals("Water Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
+				waterPuzzle = go;
 		}
 
 		// Check for Game Over
@@ -151,67 +146,67 @@ public class GameController : MonoBehaviour
 #endif
 				}
 			}
-			else if (!fireLevelComplete) 
+			else if (!fireLevelComplete)
 			{
 #if PLAY_TESTING
 				if (testInfo.startFireTime < 0.0f)
 					testInfo.startFireTime = Time.time;
 #endif
-				if (Application.loadedLevelName == "FireRoom") {
-					firePuzzleObjects = firePuzzle.GetComponentsInChildren<InteractiveObject>();
-					int numberLit = 0;
-					foreach(InteractiveObject io in firePuzzleObjects)
+				if (firePuzzle == null)
+					return;
+				InteractiveObject[] objects = firePuzzle.GetComponentsInChildren<InteractiveObject>();
+				int numberLit = 0;
+				foreach(InteractiveObject io in objects)
+				{
+					if (io.getObjectType() == ObjectType.Fire)
 					{
-						if (io.getObjectType() == ObjectType.Fire)
+						numberLit++;
+						if (!torchOrder.Contains(io.gameObject.name))
+							torchOrder.Add(io.gameObject.name);
+					}
+				}
+				if (numberLit == objects.Length)
+				{
+					fireLevelComplete = true;
+					for(int i = 0; i < torchOrder.Count; i++)
+					{
+						string name = (string)torchOrder[i];
+						if (!name.Contains(i.ToString()))
 						{
-							numberLit++;
-							if (!torchOrder.Contains(io.gameObject.name))
-								torchOrder.Add(io.gameObject.name);
+							ninjaController.createMessage("Incorrect order!");
+							fireLevelComplete = false;
+							break;
 						}
 					}
-					if (numberLit == firePuzzleObjects.Length)
+					if (fireLevelComplete)
 					{
-						fireLevelComplete = true;
-						for(int i = 0; i < torchOrder.Count; i++)
-						{
-							string name = (string)torchOrder[i];
-							if (!name.Contains(i.ToString()))
-							{
-								ninjaController.createMessage("Incorrect order!");
-								fireLevelComplete = false;
-								break;
-							}
+						// Find all of the crates and allow them to be moved.
+						Rigidbody[] crates = GameObject.FindGameObjectWithTag("Crates").GetComponentsInChildren<Rigidbody>();
+						foreach (Rigidbody crate in crates) {
+							crate.isKinematic = false;
 						}
-						if (fireLevelComplete)
-						{
-							// Find all of the crates and allow them to be moved.
-							Rigidbody[] crates = GameObject.FindGameObjectWithTag("Crates").GetComponentsInChildren<Rigidbody>();
-							foreach (Rigidbody crate in crates) {
-								crate.isKinematic = false;
-							}
 
-							// Make the cannon ball fire
-							Bullet cannonBall = GameObject.FindGameObjectWithTag("Cannon Ball").GetComponent<Bullet>();
-							cannonBall.speed = 0.3f;
+						// Make the cannon ball fire
+						Bullet cannonBall = GameObject.FindGameObjectWithTag("Cannon Ball").GetComponent<Bullet>();
+						cannonBall.speed = 0.3f;
 
-							ninjaController.createMessage("Fire Room complete!");
-	#if PLAY_TESTING
-							// Track the end fire time
-							testInfo.endFireTime = Time.time;
-	#endif
-						}
-						else
-						{
-							// Clear fire from torches
-							foreach(InteractiveObject io in firePuzzleObjects)
-								io.removeFire();
-							// Clear the order
-							torchOrder.Clear();
-	#if PLAY_TESTING
-							// Increment the failure count
-							testInfo.failedFirePuzzles++;
-	#endif
-						}
+						ninjaController.createMessage("Fire Room complete!");
+#if PLAY_TESTING
+						// Track the end fire time
+						testInfo.endFireTime = Time.time;
+#endif
+					}
+					else
+					{
+						// Clear fire from torches
+						foreach(InteractiveObject io in objects)
+							io.removeFire();
+						// Clear the order
+						torchOrder.Clear();
+#if PLAY_TESTING
+						// Increment the failure count
+						testInfo.failedFirePuzzles++;
+#endif
 					}
 				}
 			}
@@ -220,57 +215,57 @@ public class GameController : MonoBehaviour
 #if PLAY_TESTING
 				if (testInfo.startWaterTime < 0.0f)
 					testInfo.startWaterTime = Time.time;
-#endif			
-				if(Application.loadedLevelName == "WaterRoom") {
-					int numberFilled = 0;
-					ArrayList bucketWaters = new ArrayList(4);
-					ArrayList triggers = new ArrayList(4);
+#endif
+				int numberFilled = 0;
+				ArrayList bucketWaters = new ArrayList(4);
+				ArrayList triggers = new ArrayList(4);
+				
+				if (waterPuzzle == null)
+					return;
+				WaterPuzzleTimer wptimer = waterPuzzle.GetComponent<WaterPuzzleTimer>();
 
-					wptimer = waterPuzzle.GetComponent<WaterPuzzleTimer>();
-
-					//fill up arrays with waters and fill triggers, and keep track of which buckets are filled
-					for(int i = 0; i < bucketWaters.Capacity; i++) {
-						bucketWaters.Add(GameObject.Find("Fillable Bucket " + i).transform.FindChild("bucket_water").GetComponent<InteractiveObject>());
-						triggers.Add(((InteractiveObject)bucketWaters[i]).transform.parent.Find("bottom_trigger" + i).GetComponent<FillableObject>());
-						if (((FillableObject)triggers[i]).filled) {
-							numberFilled++;
-						}
+				//fill up arrays with waters and fill triggers, and keep track of which buckets are filled
+				for(int i = 0; i < bucketWaters.Capacity; i++) {
+					bucketWaters.Add(GameObject.Find("Fillable Bucket " + i).transform.FindChild("bucket_water").GetComponent<InteractiveObject>());
+					triggers.Add(((InteractiveObject)bucketWaters[i]).transform.parent.Find("bottom_trigger" + i).GetComponent<FillableObject>());
+					if (((FillableObject)triggers[i]).filled) {
+						numberFilled++;
 					}
-
-					if(!firstWaterMessage && wptimer.getStarted()) {
-						ninjaController.createMessage("Fill the buckets before time runs out! You have 30 seconds left!");
-						firstWaterMessage = true;
-					}
-
-					if (wptimer.getTimer() >= 30.0f) {
-						//clear the buckets
-						foreach(FillableObject fo in triggers) {
-							fo.clearBucket();
-							fo.filled = false;
-						}
-						//restart timer
-						wptimer.setTimer(0.0f);
-						wptimer.setStarted(false);
-						firstWaterMessage = false;
-						timerThreshhold = 5;
-						//tell user he/she ran out of time
-						ninjaController.createMessage("You ran out of time!");
-	#if PLAY_TESTING
-						testInfo.failedWaterPuzzles++;
-	#endif
-					} else if(wptimer.getStarted() && wptimer.getTimer() > timerThreshhold) {
-						ninjaController.createMessage("You have " + (30 - timerThreshhold) + " seconds left!");
-						timerThreshhold += 5;
-					} else if (numberFilled == bucketWaters.Capacity) {
-						//tell them they've completed the room
-						ninjaController.createMessage("Water Room complete!");
-						waterLevelComplete = true;
-	#if PLAY_TESTING
-						// Track the end water time
-						testInfo.endWaterTime = Time.time;
-	#endif
-					} 
 				}
+
+				if(!firstWaterMessage && wptimer.getStarted()) {
+					ninjaController.createMessage("Fill the buckets before time runs out! You have 30 seconds left!");
+					firstWaterMessage = true;
+				}
+
+				if (wptimer.getTimer() >= 30.0f) {
+					//clear the buckets
+					foreach(FillableObject fo in triggers) {
+						fo.clearBucket();
+						fo.filled = false;
+					}
+					//restart timer
+					wptimer.setTimer(0.0f);
+					wptimer.setStarted(false);
+					firstWaterMessage = false;
+					timerThreshhold = 5;
+					//tell user he/she ran out of time
+					ninjaController.createMessage("You ran out of time!");
+#if PLAY_TESTING
+					testInfo.failedWaterPuzzles++;
+#endif
+				} else if(wptimer.getStarted() && wptimer.getTimer() > timerThreshhold) {
+					ninjaController.createMessage("You have " + (30 - timerThreshhold) + " seconds left!");
+					timerThreshhold += 5;
+				} else if (numberFilled == bucketWaters.Capacity) {
+					//tell them they've completed the room
+					ninjaController.createMessage("Water Room complete!");
+					waterLevelComplete = true;
+#if PLAY_TESTING
+					// Track the end water time
+					testInfo.endWaterTime = Time.time;
+#endif
+				} 
 
 			}
 			else
