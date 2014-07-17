@@ -3117,8 +3117,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75143b83161114a28bc3f1f38740990d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackKeyCode: 47
-  toggleWeaponKeyCode: 46
 --- !u!143 &179045111
 CharacterController:
   m_ObjectHideFlags: 0
