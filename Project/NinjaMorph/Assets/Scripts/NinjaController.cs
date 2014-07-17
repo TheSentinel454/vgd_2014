@@ -604,6 +604,15 @@ public class NinjaController : MonoBehaviour
 	}
 
 	/// <summary>
+	/// Sets the message manager.
+	/// </summary>
+	/// <param name="manager">Manager.</param>
+	public void setMessageManager(MessageManager manager)
+	{
+		msgManager = manager;
+	}
+
+	/// <summary>
 	/// Updates the energy values.
 	/// </summary>
 	void updateEnergyValues()

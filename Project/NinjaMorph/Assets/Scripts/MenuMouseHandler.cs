@@ -8,6 +8,7 @@ public class MenuMouseHandler : MonoBehaviour
 	public float rotateTransitionSpeed = 1.0f;
 	private InputDevice inputDevice;
 	public static State state;
+	public static Selected selected;
 
 	public enum State
 	{
@@ -15,8 +16,16 @@ public class MenuMouseHandler : MonoBehaviour
 		Help
 	}
 
+	public enum Selected
+	{
+		Play,
+		Help,
+		Back
+	}
+
 	void Awake()
 	{
+		selected = Selected.Play;
 		state = State.Main;
 		// Setup the input manager
 		InputManager.Setup ();

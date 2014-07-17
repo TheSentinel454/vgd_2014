@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour
 	private GameObject player;
 
 	private NinjaController ninjaController;
+	private MessageManager msgManager;
 #if PLAY_TESTING
 	private PlayTestInfo testInfo;
 	private PlayTesting playTest;
@@ -40,10 +41,13 @@ public class GameController : MonoBehaviour
 		testInfo = new PlayTestInfo ();
 		testInfo.startTime = Time.time;
 #endif
+		// Get the Message Manager
+		msgManager = GetComponent<MessageManager> ();
 		// Get the Player
 		player = GameObject.FindGameObjectWithTag("Player");
 		// Get the Ninja Controller
 		ninjaController = player.GetComponent<NinjaController> ();
+		ninjaController.setMessageManager (msgManager);
 		// Get the Puzzles
 		GameObject[] puzzles = GameObject.FindGameObjectsWithTag("Puzzle");
 		// Find the puzzles
@@ -78,6 +82,8 @@ public class GameController : MonoBehaviour
 		{
 			// Get the Ninja Controller
 			ninjaController = player.GetComponent<NinjaController> ();
+			// Set the message manager
+			ninjaController.setMessageManager(msgManager);
 		}
 		// Get the Puzzles
 		GameObject[] puzzles = GameObject.FindGameObjectsWithTag("Puzzle");
@@ -280,7 +286,12 @@ public class GameController : MonoBehaviour
 #endif
 				// Create a message
 				ninjaController.createMessage("Level Complete!");
-				gameActive = false;
+				//gameActive = false;
+				triggerEndLevel("Water");
+				// Reset the puzzles
+				waterLevelComplete = false;
+				airLevelComplete = false;
+				fireLevelComplete = false;
 			}
 		}
 	}
@@ -292,6 +303,7 @@ public class GameController : MonoBehaviour
 	public void triggerEndLevel(string triggerName)
 	{
 		string nextLevel = "";
+		float timeDelay = 2.5f;
 		if (triggerName.Contains("Air"))
 		{
 			airLevelComplete = true;
@@ -304,11 +316,12 @@ public class GameController : MonoBehaviour
 		}
 		else if (triggerName.Contains("Water") && waterLevelComplete)
 		{
-			nextLevel = "GameComplete";
+			nextLevel = "NinjaMorph";
+			timeDelay = 5.0f;
 		}
 		currentLevel = nextLevel;
 		// Load the next level
-		CameraFade.StartAlphaFade( Color.black, false, 2.5f, 0.0f, () => { Application.LoadLevel(nextLevel); } );
+		CameraFade.StartAlphaFade( Color.black, false, timeDelay, 0.0f, () => { Application.LoadLevel(nextLevel); } );
 	}
 
 	/// <summary>
