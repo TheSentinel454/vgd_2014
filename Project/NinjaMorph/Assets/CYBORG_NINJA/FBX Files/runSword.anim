@@ -73307,15 +73307,15 @@ AnimationClip:
     script: {fileID: 0}
   m_Events:
   - time: .266666681
-    functionName: playFootstep
-    data: 
+    functionName: playFootstepSound
+    data: rl
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: .666666687
-    functionName: playFootstep
-    data: 
+    functionName: playFootstepSound
+    data: rr
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0

@@ -108172,15 +108172,15 @@ AnimationClip:
     script: {fileID: 0}
   m_Events:
   - time: .300000012
-    functionName: playFootstep
-    data: 
+    functionName: playFootstepSound
+    data: nl
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: .833333313
-    functionName: playFootstep
-    data: 
+    functionName: playFootstepSound
+    data: nr
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0

@@ -319,11 +319,24 @@ public class NinjaController : MonoBehaviour
 		return Mathf.Sqrt (2 * targetJumpHeight * gravity);
     }
 
-	public void playFootstep() {
+	public void playFootstepSound(string data) {
+
 		walkingAudio = metalWalkingAudio;
-		walkingAudio.Stop ();
+	
+		if(string.Equals(data[0], 'r')) {
+			walkingAudio.volume = 0.2f;
+		} else if (string.Equals(data[0], 'n')) {
+			walkingAudio.volume = 0.1f;
+		}
+
+		if(string.Equals(data[1], 'l')){
+			walkingAudio.pitch = 1.0f;
+		} else if (string.Equals(data[1], 'r')) {
+			walkingAudio.pitch = 1.2f;
+		}
+
 		walkingAudio.Play();
-		Debug.Log ("footstep");
+
 	}
 
 	public void DidAttack()

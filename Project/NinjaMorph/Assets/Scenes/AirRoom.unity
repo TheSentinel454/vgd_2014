@@ -3632,8 +3632,8 @@ GameObject:
   - 143: {fileID: 579353859}
   - 114: {fileID: 579353856}
   - 114: {fileID: 579353855}
-  - 81: {fileID: 579353857}
   - 114: {fileID: 579353858}
+  - 81: {fileID: 579353857}
   - 82: {fileID: 579353863}
   m_Layer: 0
   m_Name: Cyborg Ninja
@@ -3655,6 +3655,7 @@ Transform:
   - {fileID: 810789157}
   - {fileID: 1794009972}
   - {fileID: 1590226647}
+  - {fileID: 1463084759}
   m_Father: {fileID: 1215875430}
   m_RootOrder: 13
 --- !u!114 &579353855
@@ -3877,10 +3878,10 @@ AudioSource:
   m_GameObject: {fileID: 579353853}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 1540aa07f5b583f4bb80c5b4956977a2, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 57f5fa4c775554e4eb3189d95653d0c2, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: .100000001
-  m_Pitch: 3
+  m_Volume: .300000012
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Priority: 128
@@ -6656,7 +6657,7 @@ Prefab:
     - target: {fileID: 8200004, guid: d0cfe9de5f3e74c2f8313809afe6ff2d, type: 2}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 1540aa07f5b583f4bb80c5b4956977a2, type: 3}
+      objectReference: {fileID: 8300000, guid: 57f5fa4c775554e4eb3189d95653d0c2, type: 3}
     - target: {fileID: 11400000, guid: d0cfe9de5f3e74c2f8313809afe6ff2d, type: 2}
       propertyPath: metalWalkingAudio
       value: 
@@ -6667,11 +6668,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 8200004, guid: d0cfe9de5f3e74c2f8313809afe6ff2d, type: 2}
       propertyPath: m_Volume
-      value: .100000001
+      value: .300000012
       objectReference: {fileID: 0}
     - target: {fileID: 8200004, guid: d0cfe9de5f3e74c2f8313809afe6ff2d, type: 2}
       propertyPath: m_Pitch
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11100000, guid: d0cfe9de5f3e74c2f8313809afe6ff2d, type: 2}
       propertyPath: m_Animations.Array.data[42]
@@ -6681,6 +6682,10 @@ Prefab:
       propertyPath: m_Animations.Array.data[43]
       value: 
       objectReference: {fileID: 7400000, guid: ba36d80c327d0064cb68a542a403121a, type: 2}
+    - target: {fileID: 11400000, guid: d0cfe9de5f3e74c2f8313809afe6ff2d, type: 2}
+      propertyPath: metalWalkingAudio2
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8200002, guid: d0cfe9de5f3e74c2f8313809afe6ff2d, type: 2}
     - {fileID: 8200000, guid: d0cfe9de5f3e74c2f8313809afe6ff2d, type: 2}
@@ -9508,6 +9513,70 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2020156351}
   m_RootOrder: 0
+--- !u!1 &1463084758
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100082, guid: d0cfe9de5f3e74c2f8313809afe6ff2d, type: 2}
+  m_PrefabInternal: {fileID: 927277890}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1463084759}
+  - 114: {fileID: 1463084760}
+  m_Layer: 0
+  m_Name: Entity
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1463084759
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400082, guid: d0cfe9de5f3e74c2f8313809afe6ff2d, type: 2}
+  m_PrefabInternal: {fileID: 927277890}
+  m_GameObject: {fileID: 1463084758}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: .666666627, y: .666666687, z: .666666627}
+  m_Children: []
+  m_Father: {fileID: 579353854}
+  m_RootOrder: 3
+--- !u!114 &1463084760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400006, guid: d0cfe9de5f3e74c2f8313809afe6ff2d,
+    type: 2}
+  m_PrefabInternal: {fileID: 927277890}
+  m_GameObject: {fileID: 1463084758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 220721487, guid: 9fa2ecd1ff2ad394281dd3bf72c5b76e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dataSerializer:
+    _serializedData: <component version="1.0" type="RAIN.Entities.EntityRig"><fields><field
+      value="True" type="System.Boolean" id="_showVisual" /><field value="True" type="System.Boolean"
+      id="_useUnityMessages" /><field type="RAIN.Entities.Entity" reference="0" id="_entity"
+      /></fields><references><reference type="RAIN.Entities.Entity" refcount="1" id="0"><field
+      value="True" type="System.Boolean" id="_isActive" /><field value="Cyborg Ninja"
+      type="System.String" id="entityName" /><field value="" type="System.String"
+      id="entityMarker" /><field type="UnityEngine.GameObject" id="form" gameobject="0"
+      /><field type="System.Collections.Generic.List" id="_aspects" elementtype="RAIN.Entities.Aspects.RAINAspect"><field
+      type="RAIN.Entities.Aspects.VisualAspect" reference="1" id="element0" /></field><field
+      type="System.Collections.Generic.List" id="_customElements" elementtype="RAIN.Entities.Elements.CustomEntityElement"
+      /><field value="0.6,0.5529412,0.009411765,1" type="UnityEngine.Color" id="_aspectColor"
+      /><field value="-0.5" type="System.Single" id="_outlineColorOffset" /><field
+      value="0.4" type="System.Single" id="_selectionColorOffset" /></reference><reference
+      type="RAIN.Entities.Aspects.VisualAspect" refcount="1" id="1"><field value="True"
+      type="System.Boolean" id="_isActive" /><field value="CyborgNinja" type="System.String"
+      id="_aspectName" /><field type="UnityEngine.Transform" id="_mountPoint" gameobject="1"
+      /><field value="0.1" type="System.Single" id="_size" /><field value="0,0,0"
+      type="UnityEngine.Vector3" id="_positionOffset" /><field value="0,0,0" type="UnityEngine.Vector3"
+      id="_angleOffset" /></reference></references></component>
+    _serializedGameObjects:
+    - {fileID: 579353853}
+    - {fileID: 579353854}
+    _serializedCustomData: []
 --- !u!1 &1469833853
 GameObject:
   m_ObjectHideFlags: 0
