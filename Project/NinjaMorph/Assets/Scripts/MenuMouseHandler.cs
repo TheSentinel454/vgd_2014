@@ -1,10 +1,65 @@
 ﻿using UnityEngine;
 using System.Collections;
+using InControl;
 
 public class MenuMouseHandler : MonoBehaviour
 {
 	public float colorTransitionSpeed = 0.15f;
 	public float rotateTransitionSpeed = 1.0f;
+	private InputDevice inputDevice;
+	public static State state;
+	public static Selected selected;
+
+	public enum State
+	{
+		Main,
+		Help
+	}
+
+	public enum Selected
+	{
+		Play,
+		Help,
+		Back
+	}
+
+	void Awake()
+	{
+		selected = Selected.Play;
+		state = State.Main;
+		// Setup the input manager
+		InputManager.Setup ();
+	}
+	void FixedUpdate()
+	{
+		InputManager.Update();
+		// Use last device which provided input.
+		inputDevice = InputManager.ActiveDevice;
+		switch(state)
+		{
+			case State.Help:
+				if (inputDevice.DPadLeft.WasPressed ||
+			    	inputDevice.LeftTrigger.WasPressed ||
+			    	inputDevice.LeftBumper.WasPressed)
+				{
+					state = State.Main;
+					// Rotate back towards the main menu
+					iTween.RotateTo(Camera.main.gameObject, new Vector3(0, 0, 0), rotateTransitionSpeed);
+				}
+				break;
+			case State.Main:
+			default:
+				if (inputDevice.DPadRight.WasPressed ||
+			    	inputDevice.RightTrigger.WasPressed ||
+			    	inputDevice.RightBumper.WasPressed)
+				{
+					state = State.Help;
+					// Rotate towards the help page
+					iTween.RotateTo(Camera.main.gameObject, new Vector3(0, 90, 0), rotateTransitionSpeed);
+				}
+				break;
+		}
+	}
 	
 	/// <summary>
 	/// Raises the mouse down event.
@@ -19,11 +74,13 @@ public class MenuMouseHandler : MonoBehaviour
 		}
 		else if (this.name == "HelpButton")
 		{
+			state = State.Help;
 			// Rotate towards the help page
 			iTween.RotateTo(Camera.main.gameObject, new Vector3(0, 90, 0), rotateTransitionSpeed);
 		}
 		else if (this.name == "BackButton")
 		{
+			state = State.Main;
 			// Rotate back towards the main menu
 			iTween.RotateTo(Camera.main.gameObject, new Vector3(0, 0, 0), rotateTransitionSpeed);
 		}
