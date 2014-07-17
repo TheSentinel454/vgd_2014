@@ -5319,6 +5319,7 @@ GameObject:
   - 114: {fileID: 780900597}
   - 114: {fileID: 780900596}
   - 114: {fileID: 780900600}
+  - 82: {fileID: 780900601}
   m_Layer: 0
   m_Name: Cyborg Troop
   m_TagString: Enemy
@@ -5372,6 +5373,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gun: {fileID: 780900594}
   bullet: {fileID: 34611534}
+  gunshotSound: {fileID: 780900601}
   muzzleVelocity: 30
   destroyAfter: 5
 --- !u!114 &780900598
@@ -5417,6 +5419,65 @@ MonoBehaviour:
   rayMask:
     serializedVersion: 2
     m_Bits: 0
+--- !u!82 &780900601
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 8200000, guid: 9025f0c3257bc49e895ee498b04ad5cd,
+    type: 2}
+  m_PrefabInternal: {fileID: 802590752}
+  m_GameObject: {fileID: 780900594}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: 2005d4fef5051934da40e5af940bb2bb, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1001 &789355044
 Prefab:
   m_ObjectHideFlags: 0
@@ -5594,7 +5655,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400048, guid: 9025f0c3257bc49e895ee498b04ad5cd, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 11400008, guid: 9025f0c3257bc49e895ee498b04ad5cd, type: 2}
       propertyPath: _dataSerializer._serializedData

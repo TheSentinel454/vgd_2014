@@ -5,6 +5,7 @@ public class CyborgTroopAttackController : MonoBehaviour {
 	
 	public GameObject gun;
 	public GameObject bullet;
+	public AudioSource gunshotSound;
 	public float muzzleVelocity = 0.002f;
 	public float destroyAfter = 4.0f;
 	private float lastFiredTime = 0.0f;
@@ -21,5 +22,6 @@ public class CyborgTroopAttackController : MonoBehaviour {
 		loadedBullet.rigidbody.AddRelativeForce (new Vector3 (0, muzzleVelocity, 0), ForceMode.Impulse);
 		lastFiredTime = Time.time;
 		Destroy (loadedBullet, destroyAfter);
+		gunshotSound.Play ();
 	}
 }
