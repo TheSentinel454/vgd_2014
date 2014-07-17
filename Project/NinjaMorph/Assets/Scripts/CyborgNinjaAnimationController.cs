@@ -77,15 +77,21 @@ public class CyborgNinjaAnimationController : MonoBehaviour {
 			if (attacking == false && weapon == false && weaponOut == true) {
 				cyborgAnimation.CrossFade("putBackSword");
 			}
+		}
 
-			if (attacking == true && weaponOut == false) {
-				cyborgAnimation.CrossFade("getSword");
-			}
+		// ATTACK ANIMATIONS
+		// -----------------
+		if (attacking == true && weaponOut == false) {
+			cyborgAnimation["getSword"].layer = 1;
+			cyborgAnimation["getSword"].weight = 1;
+			cyborgAnimation.CrossFade("getSword");
+		}
 
-			if (attacking == true && weaponOut == true) {
-				cyborgAnimation["3HitComboSword"].wrapMode = WrapMode.Once;
-				cyborgAnimation.CrossFade("3HitComboSword");
-			}
+		if (attacking == true && weaponOut == true) {
+			cyborgAnimation["3HitComboSword"].layer = 1;
+			cyborgAnimation["3HitComboSword"].weight = 1;
+			cyborgAnimation["3HitComboSword"].wrapMode = WrapMode.Once;
+			cyborgAnimation.CrossFade("3HitComboSword");
 		}
 
 		// WALKING ANIMATIONS
