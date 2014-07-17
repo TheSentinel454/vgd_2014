@@ -750,19 +750,19 @@ public class NinjaController : MonoBehaviour
 	/// <param name="collider">Collider.</param>
 	void OnTriggerEnter(Collider collider)
 	{
-		if (collider.gameObject.GetComponent<InteractiveObject>().getObjectType() == ObjectType.Water)
-		{
-			if (walkingAudio != waterWalkingAudio)
-			{
-				walkingAudio.Stop ();
-			}
-
-			walkingAudio = waterWalkingAudio;
-		}
 		// Check to see if the collided game object has an InteractiveObject
-		InteractiveObject interactive = collider.gameObject.GetComponent<InteractiveObject>();
+		InteractiveObject interactive = collider.gameObject.GetComponent<InteractiveObject> ();
 		if (interactive != null)
 		{
+			// See if the object type was of water
+			if (interactive.getObjectType() == ObjectType.Water)
+			{
+				if (walkingAudio != waterWalkingAudio)
+				{
+					walkingAudio.Stop ();
+				}
+				walkingAudio = waterWalkingAudio;
+			}
 			// Broadcast to the game object that there was a player collision
 			interactive.PlayerCollision(new InteractiveCollision(collider, ninjaType));
 		}
