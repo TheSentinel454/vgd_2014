@@ -325,9 +325,9 @@ public class NinjaController : MonoBehaviour
 		}
 
 		if(string.Equals(data[1], 'l')){
-			walkingAudio.pitch = Random.Range(1.0f, 1.25f);
+			walkingAudio.pitch = Random.Range(1.0f, 1.1f);
 		} else if (string.Equals(data[1], 'r')) {
-			walkingAudio.pitch = Random.Range(1.0f, 1.25f);
+			walkingAudio.pitch = Random.Range(1.2f, 1.3f);
 		}
 
 		walkingAudio.Play();
