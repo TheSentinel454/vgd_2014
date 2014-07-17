@@ -33,31 +33,83 @@ public class MenuMouseHandler : MonoBehaviour
 	void FixedUpdate()
 	{
 		InputManager.Update();
+
 		// Use last device which provided input.
 		inputDevice = InputManager.ActiveDevice;
-		switch(state)
+
+		switch(selected)
 		{
-			case State.Help:
-				if (inputDevice.DPadLeft.WasPressed ||
-			    	inputDevice.LeftTrigger.WasPressed ||
-			    	inputDevice.LeftBumper.WasPressed)
-				{
-					state = State.Main;
-					// Rotate back towards the main menu
-					iTween.RotateTo(Camera.main.gameObject, new Vector3(0, 0, 0), rotateTransitionSpeed);
-				}
+		case Selected.Back:
+			if (this.name == "BackButton")
+			{
+				// Transition to gray
+				iTween.ColorTo (gameObject, Color.gray, colorTransitionSpeed);
+			}
+			else
+			{
+				// Transition to white
+				iTween.ColorTo (gameObject, Color.white, colorTransitionSpeed);
+			}
+			break;
+		case Selected.Help:
+			if (this.name == "HelpButton")
+			{
+				// Transition to gray
+				iTween.ColorTo (gameObject, Color.gray, colorTransitionSpeed);
+			}
+			else
+			{
+				// Transition to white
+				iTween.ColorTo (gameObject, Color.white, colorTransitionSpeed);
+			}
+			break;
+		case Selected.Play:
+		default:
+			if (this.name == "PlayButton")
+			{
+				// Transition to gray
+				iTween.ColorTo (gameObject, Color.gray, colorTransitionSpeed);
+			}
+			else
+			{
+				// Transition to white
+				iTween.ColorTo (gameObject, Color.white, colorTransitionSpeed);
+			}
+			break;
+		}
+		if (inputDevice.Action1.WasPressed)
+		{
+			switch(selected)
+			{
+			case Selected.Back:
+				selected = Selected.Help;
+				state = State.Main;
+				// Rotate back towards the main menu
+				iTween.RotateTo(Camera.main.gameObject, new Vector3(0, 0, 0), rotateTransitionSpeed);
 				break;
-			case State.Main:
+			case Selected.Help:
+				selected = Selected.Back;
+				state = State.Help;
+				// Rotate towards the help page
+				iTween.RotateTo(Camera.main.gameObject, new Vector3(0, 90, 0), rotateTransitionSpeed);
+				break;
+			case Selected.Play:
 			default:
-				if (inputDevice.DPadRight.WasPressed ||
-			    	inputDevice.RightTrigger.WasPressed ||
-			    	inputDevice.RightBumper.WasPressed)
-				{
-					state = State.Help;
-					// Rotate towards the help page
-					iTween.RotateTo(Camera.main.gameObject, new Vector3(0, 90, 0), rotateTransitionSpeed);
-				}
+				// Load the air level
+				CameraFade.StartAlphaFade( Color.black, false, 1.5f, 0.0f, () => { Application.LoadLevel("AirRoom"); } );
 				break;
+			}
+		}
+		if (state == State.Main)
+		{
+			if (inputDevice.DPadDown.WasReleased ||
+			    inputDevice.DPadUp.WasReleased)
+			{
+				if (selected == Selected.Play)
+					selected = Selected.Help;
+				else
+					selected = Selected.Play;
+			}
 		}
 	}
 	

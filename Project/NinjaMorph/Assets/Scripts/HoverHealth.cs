@@ -6,7 +6,7 @@ public class HoverHealth : MonoBehaviour
 {
 	public LayerMask rayMask;
 	DamageObject dmgObject;
-	float adjustment = 2.0f;
+	float adjustment = 3.5f;
 
 	private Vector3 worldPosition = new Vector3();
 	private Vector3 screenPosition = new Vector3();
