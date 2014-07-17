@@ -25,11 +25,17 @@ MonoBehaviour:
     LastUpdate: 0
     LastModified: 0
     Errored: 0
+  - AssetPath: Assets/AI/BehaviorTrees/AirRoomCyborgTroop.asset
+    BehaviorTreeName: AirRoomCyborgTroop
+    BehaviorTreeID: 35
+    LastUpdate: 635411416393863920
+    LastModified: 635411416190000000
+    Errored: 0
   - AssetPath: Assets/AI/BehaviorTrees/WaterRoomCyborgTroop.asset
     BehaviorTreeName: WaterRoomCyborgTroop
-    BehaviorTreeID: 35
-    LastUpdate: 635411344528991370
-    LastModified: 635411344260000000
+    BehaviorTreeID: 71
+    LastUpdate: 635411416087515610
+    LastModified: 635411344680000000
     Errored: 0
   - AssetPath: Assets/AI/BehaviorTrees/AssaultTroop.asset
     BehaviorTreeName: AssaultTroop
@@ -1753,15 +1759,11 @@ MonoBehaviour:
       _focused: 0
     - _fields:
       - _field: name
-        _currentValue: root
+        _currentValue: Speed
         _recordChange: 1
         _changed: 0
-      - _field: open
-        _currentValue: True
-        _recordChange: 0
-        _changed: 0
       - _field: repeatuntil
-        _currentValue: 
+        _currentValue: running
         _recordChange: 1
         _changed: 0
       - _field: pausewhenhit
@@ -1784,20 +1786,32 @@ MonoBehaviour:
         _currentValue: 
         _recordChange: 1
         _changed: 0
-      - _field: usepriorities
-        _currentValue: False
+      - _field: parametername
+        _currentValue: speed
         _recordChange: 1
         _changed: 0
-      _type: 18
+      - _field: valueexpression
+        _currentValue: -0.5
+        _recordChange: 1
+        _changed: 0
+      - _field: damptime
+        _currentValue: 0.5
+        _recordChange: 1
+        _changed: 0
+      - _field: parametertype
+        _currentValue: float
+        _recordChange: 1
+        _changed: 0
+      _type: 12
       _stateIndex: 34
-      _parent: 0
-      _lastUpdate: 635411344418485520
+      _parent: 38
+      _lastUpdate: 0
       _children: 
       _variables: 
-      _focused: 1
+      _focused: 0
     - _fields:
       - _field: name
-        _currentValue: WaterRoomCyborgTroop
+        _currentValue: AirRoomCyborgTroop
         _recordChange: 1
         _changed: 0
       - _field: open
@@ -1831,8 +1845,8 @@ MonoBehaviour:
       _type: 4
       _stateIndex: 35
       _parent: 0
-      _lastUpdate: 635411344518757420
-      _children: 48000000
+      _lastUpdate: 635411416383846020
+      _children: 6b000000
       _variables: 
       _focused: 0
     - _fields:
@@ -1933,327 +1947,7 @@ MonoBehaviour:
       _focused: 0
     - _fields:
       - _field: name
-        _currentValue: root
-        _recordChange: 1
-        _changed: 0
-      - _field: open
-        _currentValue: True
-        _recordChange: 0
-        _changed: 0
-      - _field: repeatuntil
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: pausewhenhit
-        _currentValue: False
-        _recordChange: 0
-        _changed: 0
-      - _field: startingpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: runningpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: priority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: weight
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: fail
-        _currentValue: any
-        _recordChange: 1
-        _changed: 0
-      - _field: succeed
-        _currentValue: all
-        _recordChange: 1
-        _changed: 0
-      - _field: tiebreaker
-        _currentValue: fail
-        _recordChange: 1
-        _changed: 0
-      _type: 14
-      _stateIndex: 38
-      _parent: 0
-      _lastUpdate: 635411344341116330
-      _children: 2700000028000000290000002a0000002b000000
-      _variables: 
-      _focused: 0
-    - _fields:
-      - _field: name
-        _currentValue: Ninja Detector
-        _recordChange: 1
-        _changed: 0
-      - _field: repeatuntil
-        _currentValue: running
-        _recordChange: 1
-        _changed: 0
-      - _field: pausewhenhit
-        _currentValue: False
-        _recordChange: 0
-        _changed: 0
-      - _field: startingpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: runningpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: priority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: weight
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: sensor
-        _currentValue: '"VisualSensor"'
-        _recordChange: 1
-        _changed: 0
-      - _field: aspect
-        _currentValue: '"CyborgNinja"'
-        _recordChange: 1
-        _changed: 0
-      - _field: entityobjectvariable
-        _currentValue: CyborgNinja
-        _recordChange: 1
-        _changed: 0
-      - _field: aspectvariable
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: aspectobjectvariable
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      _type: 6
-      _stateIndex: 39
-      _parent: 38
-      _lastUpdate: 0
-      _children: 
-      _variables: 
-      _focused: 0
-    - _fields:
-      - _field: name
-        _currentValue: Ninja Near Detector
-        _recordChange: 1
-        _changed: 0
-      - _field: repeatuntil
-        _currentValue: running
-        _recordChange: 1
-        _changed: 0
-      - _field: pausewhenhit
-        _currentValue: False
-        _recordChange: 0
-        _changed: 0
-      - _field: startingpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: runningpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: priority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: weight
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: sensor
-        _currentValue: '"NearSensor"'
-        _recordChange: 1
-        _changed: 0
-      - _field: aspect
-        _currentValue: '"CyborgNinja"'
-        _recordChange: 1
-        _changed: 0
-      - _field: entityobjectvariable
-        _currentValue: CyborgNinjaNear
-        _recordChange: 1
-        _changed: 0
-      - _field: aspectvariable
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: aspectobjectvariable
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      _type: 6
-      _stateIndex: 40
-      _parent: 38
-      _lastUpdate: 0
-      _children: 
-      _variables: 
-      _focused: 0
-    - _fields:
-      - _field: name
-        _currentValue: Ninja Attack Range Detector
-        _recordChange: 1
-        _changed: 0
-      - _field: repeatuntil
-        _currentValue: running
-        _recordChange: 1
-        _changed: 0
-      - _field: pausewhenhit
-        _currentValue: False
-        _recordChange: 0
-        _changed: 0
-      - _field: startingpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: runningpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: priority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: weight
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: sensor
-        _currentValue: '"AttackRange"'
-        _recordChange: 1
-        _changed: 0
-      - _field: aspect
-        _currentValue: '"CyborgNinja"'
-        _recordChange: 1
-        _changed: 0
-      - _field: entityobjectvariable
-        _currentValue: CyborgNinjaAttackRange
-        _recordChange: 1
-        _changed: 0
-      - _field: aspectvariable
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: aspectobjectvariable
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      _type: 6
-      _stateIndex: 41
-      _parent: 38
-      _lastUpdate: 0
-      _children: 
-      _variables: 
-      _focused: 0
-    - _fields:
-      - _field: name
-        _currentValue: Cyborg Ninja Too Close
-        _recordChange: 1
-        _changed: 0
-      - _field: repeatuntil
-        _currentValue: running
-        _recordChange: 1
-        _changed: 0
-      - _field: pausewhenhit
-        _currentValue: False
-        _recordChange: 0
-        _changed: 0
-      - _field: startingpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: runningpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: priority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: weight
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: sensor
-        _currentValue: '"TooCloseSensor"'
-        _recordChange: 1
-        _changed: 0
-      - _field: aspect
-        _currentValue: '"CyborgNinja"'
-        _recordChange: 1
-        _changed: 0
-      - _field: entityobjectvariable
-        _currentValue: CyborgNinjaTooClose
-        _recordChange: 1
-        _changed: 0
-      - _field: aspectvariable
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: aspectobjectvariable
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      _type: 6
-      _stateIndex: 42
-      _parent: 38
-      _lastUpdate: 0
-      _children: 
-      _variables: 
-      _focused: 0
-    - _fields:
-      - _field: name
-        _currentValue: Cyborg Ninja
-        _recordChange: 1
-        _changed: 0
-      - _field: open
-        _currentValue: True
-        _recordChange: 0
-        _changed: 0
-      - _field: repeatuntil
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: pausewhenhit
-        _currentValue: False
-        _recordChange: 0
-        _changed: 0
-      - _field: startingpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: runningpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: priority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: weight
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: usepriorities
-        _currentValue: False
-        _recordChange: 1
-        _changed: 0
-      _type: 17
-      _stateIndex: 43
-      _parent: 38
-      _lastUpdate: 635411344341116300
-      _children: 2c000000330000003d000000
-      _variables: 
-      _focused: 0
-    - _fields:
-      - _field: name
-        _currentValue: Cyborg Ninja Unknown
+        _currentValue: Is Too Close
         _recordChange: 1
         _changed: 0
       - _field: open
@@ -2285,170 +1979,14 @@ MonoBehaviour:
         _recordChange: 1
         _changed: 0
       - _field: constraint
-        _currentValue: CyborgNinja == null && CyborgNinjaNear == null
+        _currentValue: CyborgNinjaTooClose != null
         _recordChange: 1
         _changed: 0
       _type: 5
-      _stateIndex: 44
-      _parent: 43
-      _lastUpdate: 635411344341113350
-      _children: 2d000000
-      _variables: 
-      _focused: 0
-    - _fields:
-      - _field: name
-        _currentValue: parallel
-        _recordChange: 1
-        _changed: 0
-      - _field: open
-        _currentValue: True
-        _recordChange: 0
-        _changed: 0
-      - _field: repeatuntil
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: pausewhenhit
-        _currentValue: False
-        _recordChange: 0
-        _changed: 0
-      - _field: startingpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: runningpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: priority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: weight
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: fail
-        _currentValue: any
-        _recordChange: 1
-        _changed: 0
-      - _field: succeed
-        _currentValue: all
-        _recordChange: 1
-        _changed: 0
-      - _field: tiebreaker
-        _currentValue: fail
-        _recordChange: 1
-        _changed: 0
-      _type: 14
-      _stateIndex: 45
-      _parent: 44
-      _lastUpdate: 635411344341113320
-      _children: 2e0000002f0000003000000031000000
-      _variables: 
-      _focused: 0
-    - _fields:
-      - _field: name
-        _currentValue: Lower Weapon
-        _recordChange: 1
-        _changed: 0
-      - _field: repeatuntil
-        _currentValue: running
-        _recordChange: 1
-        _changed: 0
-      - _field: pausewhenhit
-        _currentValue: False
-        _recordChange: 0
-        _changed: 0
-      - _field: startingpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: runningpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: priority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: weight
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: namespace
-        _currentValue: (global)
-        _recordChange: 1
-        _changed: 0
-      - _field: classname
-        _currentValue: LowerWeapon
-        _recordChange: 1
-        _changed: 0
-      - _field: parameters
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: parametervalues
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      _type: 1
-      _stateIndex: 46
-      _parent: 45
-      _lastUpdate: 0
-      _children: 
-      _variables: 
-      _focused: 0
-    - _fields:
-      - _field: name
-        _currentValue: Stop Attacking
-        _recordChange: 1
-        _changed: 0
-      - _field: repeatuntil
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: pausewhenhit
-        _currentValue: False
-        _recordChange: 0
-        _changed: 0
-      - _field: startingpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: runningpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: priority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: weight
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: parametername
-        _currentValue: attacking
-        _recordChange: 1
-        _changed: 0
-      - _field: valueexpression
-        _currentValue: false
-        _recordChange: 1
-        _changed: 0
-      - _field: damptime
-        _currentValue: 0
-        _recordChange: 1
-        _changed: 0
-      - _field: parametertype
-        _currentValue: boolean
-        _recordChange: 1
-        _changed: 0
-      _type: 12
-      _stateIndex: 47
-      _parent: 45
-      _lastUpdate: 0
-      _children: 
+      _stateIndex: 38
+      _parent: 41
+      _lastUpdate: 635411416087514520
+      _children: 22000000
       _variables: 
       _focused: 0
     - _fields:
@@ -2485,7 +2023,7 @@ MonoBehaviour:
         _recordChange: 1
         _changed: 0
       - _field: valueexpression
-        _currentValue: 0.5
+        _currentValue: 0
         _recordChange: 1
         _changed: 0
       - _field: damptime
@@ -2497,139 +2035,15 @@ MonoBehaviour:
         _recordChange: 1
         _changed: 0
       _type: 12
-      _stateIndex: 48
-      _parent: 45
+      _stateIndex: 39
+      _parent: 40
       _lastUpdate: 0
       _children: 
       _variables: 
       _focused: 0
     - _fields:
       - _field: name
-        _currentValue: waypointpatrol
-        _recordChange: 1
-        _changed: 0
-      - _field: open
-        _currentValue: True
-        _recordChange: 0
-        _changed: 0
-      - _field: repeatuntil
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: pausewhenhit
-        _currentValue: False
-        _recordChange: 0
-        _changed: 0
-      - _field: startingpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: runningpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: priority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: weight
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: waypointactiontype
-        _currentValue: patrol
-        _recordChange: 1
-        _changed: 0
-      - _field: traversetype
-        _currentValue: loop
-        _recordChange: 1
-        _changed: 0
-      - _field: traverseorder
-        _currentValue: forward
-        _recordChange: 1
-        _changed: 0
-      - _field: waypointsetvariable
-        _currentValue: '"Fire Patrol Route"'
-        _recordChange: 1
-        _changed: 0
-      - _field: pathtargetvariable
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: movetargetvariable
-        _currentValue: WayPoint
-        _recordChange: 1
-        _changed: 0
-      _type: 21
-      _stateIndex: 49
-      _parent: 45
-      _lastUpdate: 635411344341113290
-      _children: 32000000
-      _variables: 
-      _focused: 0
-    - _fields:
-      - _field: name
-        _currentValue: move
-        _recordChange: 1
-        _changed: 0
-      - _field: repeatuntil
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: pausewhenhit
-        _currentValue: False
-        _recordChange: 0
-        _changed: 0
-      - _field: startingpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: runningpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: priority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: weight
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: movetarget
-        _currentValue: WayPoint
-        _recordChange: 1
-        _changed: 0
-      - _field: movespeed
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: facetarget
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: turnspeed
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: closeenoughdistance
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: closeenoughangle
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      _type: 13
-      _stateIndex: 50
-      _parent: 49
-      _lastUpdate: 0
-      _children: 
-      _variables: 
-      _focused: 0
-    - _fields:
-      - _field: name
-        _currentValue: Cyborg Ninja Visible
+        _currentValue: Is Not Too Close
         _recordChange: 1
         _changed: 0
       - _field: open
@@ -2661,19 +2075,19 @@ MonoBehaviour:
         _recordChange: 1
         _changed: 0
       - _field: constraint
-        _currentValue: CyborgNinja != null && CyborgNinjaNear == null
+        _currentValue: CyborgNinjaTooClose == null
         _recordChange: 1
         _changed: 0
       _type: 5
-      _stateIndex: 51
-      _parent: 43
-      _lastUpdate: 635411344341114750
-      _children: 34000000
+      _stateIndex: 40
+      _parent: 41
+      _lastUpdate: 635411416087513540
+      _children: 27000000
       _variables: 
       _focused: 0
     - _fields:
       - _field: name
-        _currentValue: parallel
+        _currentValue: Retreat
         _recordChange: 1
         _changed: 0
       - _field: open
@@ -2704,23 +2118,179 @@ MonoBehaviour:
         _currentValue: 
         _recordChange: 1
         _changed: 0
-      - _field: fail
-        _currentValue: any
+      - _field: usepriorities
+        _currentValue: False
         _recordChange: 1
         _changed: 0
-      - _field: succeed
-        _currentValue: all
+      _type: 17
+      _stateIndex: 41
+      _parent: 46
+      _lastUpdate: 635411416087513890
+      _children: 2800000026000000
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: Start Attacking
         _recordChange: 1
         _changed: 0
-      - _field: tiebreaker
-        _currentValue: fail
+      - _field: repeatuntil
+        _currentValue: 
         _recordChange: 1
         _changed: 0
-      _type: 14
-      _stateIndex: 52
-      _parent: 51
-      _lastUpdate: 635411344341114720
-      _children: 35000000360000003700000038000000
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: parametername
+        _currentValue: attacking
+        _recordChange: 1
+        _changed: 0
+      - _field: valueexpression
+        _currentValue: true
+        _recordChange: 1
+        _changed: 0
+      - _field: damptime
+        _currentValue: 0
+        _recordChange: 1
+        _changed: 0
+      - _field: parametertype
+        _currentValue: boolean
+        _recordChange: 1
+        _changed: 0
+      _type: 12
+      _stateIndex: 42
+      _parent: 46
+      _lastUpdate: 0
+      _children: 
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: Raise Weapon
+        _recordChange: 1
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: running
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: namespace
+        _currentValue: (global)
+        _recordChange: 1
+        _changed: 0
+      - _field: classname
+        _currentValue: RaiseWeapon
+        _recordChange: 1
+        _changed: 0
+      - _field: parameters
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: parametervalues
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      _type: 1
+      _stateIndex: 43
+      _parent: 46
+      _lastUpdate: 0
+      _children: 
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: move
+        _recordChange: 1
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: running
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: movetarget
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: movespeed
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: facetarget
+        _currentValue: CyborgNinjaFuture
+        _recordChange: 1
+        _changed: 0
+      - _field: turnspeed
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: closeenoughdistance
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: closeenoughangle
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      _type: 13
+      _stateIndex: 44
+      _parent: 46
+      _lastUpdate: 0
+      _children: 
       _variables: 
       _focused: 0
     - _fields:
@@ -2769,8 +2339,400 @@ MonoBehaviour:
         _recordChange: 1
         _changed: 0
       _type: 1
-      _stateIndex: 53
+      _stateIndex: 45
+      _parent: 46
+      _lastUpdate: 0
+      _children: 
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: parallel
+        _recordChange: 1
+        _changed: 0
+      - _field: open
+        _currentValue: True
+        _recordChange: 0
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: fail
+        _currentValue: any
+        _recordChange: 1
+        _changed: 0
+      - _field: succeed
+        _currentValue: all
+        _recordChange: 1
+        _changed: 0
+      - _field: tiebreaker
+        _currentValue: fail
+        _recordChange: 1
+        _changed: 0
+      _type: 14
+      _stateIndex: 46
+      _parent: 47
+      _lastUpdate: 635411416087512570
+      _children: 2d0000002c0000002b0000002a00000029000000
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: Cyborg Ninja Near
+        _recordChange: 1
+        _changed: 0
+      - _field: open
+        _currentValue: True
+        _recordChange: 0
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: constraint
+        _currentValue: CyborgNinjaNear != null
+        _recordChange: 1
+        _changed: 0
+      _type: 5
+      _stateIndex: 47
+      _parent: 65
+      _lastUpdate: 635411416087509320
+      _children: 2e000000
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: Start Attacking
+        _recordChange: 1
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: parametername
+        _currentValue: attacking
+        _recordChange: 1
+        _changed: 0
+      - _field: valueexpression
+        _currentValue: true
+        _recordChange: 1
+        _changed: 0
+      - _field: damptime
+        _currentValue: 0
+        _recordChange: 1
+        _changed: 0
+      - _field: parametertype
+        _currentValue: boolean
+        _recordChange: 1
+        _changed: 0
+      _type: 12
+      _stateIndex: 48
+      _parent: 50
+      _lastUpdate: 0
+      _children: 
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: Raise Weapon
+        _recordChange: 1
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: running
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: namespace
+        _currentValue: (global)
+        _recordChange: 1
+        _changed: 0
+      - _field: classname
+        _currentValue: RaiseWeapon
+        _recordChange: 1
+        _changed: 0
+      - _field: parameters
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: parametervalues
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      _type: 1
+      _stateIndex: 49
+      _parent: 50
+      _lastUpdate: 0
+      _children: 
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: parallel
+        _recordChange: 1
+        _changed: 0
+      - _field: open
+        _currentValue: True
+        _recordChange: 0
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: fail
+        _currentValue: any
+        _recordChange: 1
+        _changed: 0
+      - _field: succeed
+        _currentValue: all
+        _recordChange: 1
+        _changed: 0
+      - _field: tiebreaker
+        _currentValue: fail
+        _recordChange: 1
+        _changed: 0
+      _type: 14
+      _stateIndex: 50
+      _parent: 51
+      _lastUpdate: 635411416087508430
+      _children: 3100000030000000
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: WIthin Attack Range
+        _recordChange: 1
+        _changed: 0
+      - _field: open
+        _currentValue: True
+        _recordChange: 0
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: constraint
+        _currentValue: CyborgNinjaAttackRange != null
+        _recordChange: 1
+        _changed: 0
+      _type: 5
+      _stateIndex: 51
       _parent: 52
+      _lastUpdate: 635411416087507090
+      _children: 32000000
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: Attack Range
+        _recordChange: 1
+        _changed: 0
+      - _field: open
+        _currentValue: True
+        _recordChange: 0
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: usepriorities
+        _currentValue: False
+        _recordChange: 1
+        _changed: 0
+      _type: 17
+      _stateIndex: 52
+      _parent: 56
+      _lastUpdate: 635411416087506500
+      _children: 33000000
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: Speed
+        _recordChange: 1
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: running
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: parametername
+        _currentValue: speed
+        _recordChange: 1
+        _changed: 0
+      - _field: valueexpression
+        _currentValue: 1
+        _recordChange: 1
+        _changed: 0
+      - _field: damptime
+        _currentValue: 1
+        _recordChange: 1
+        _changed: 0
+      - _field: parametertype
+        _currentValue: float
+        _recordChange: 1
+        _changed: 0
+      _type: 12
+      _stateIndex: 53
+      _parent: 56
       _lastUpdate: 0
       _children: 
       _variables: 
@@ -2830,401 +2792,9 @@ MonoBehaviour:
         _changed: 0
       _type: 13
       _stateIndex: 54
-      _parent: 52
-      _lastUpdate: 0
-      _children: 
-      _variables: 
-      _focused: 0
-    - _fields:
-      - _field: name
-        _currentValue: Speed
-        _recordChange: 1
-        _changed: 0
-      - _field: repeatuntil
-        _currentValue: running
-        _recordChange: 1
-        _changed: 0
-      - _field: pausewhenhit
-        _currentValue: False
-        _recordChange: 0
-        _changed: 0
-      - _field: startingpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: runningpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: priority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: weight
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: parametername
-        _currentValue: speed
-        _recordChange: 1
-        _changed: 0
-      - _field: valueexpression
-        _currentValue: 1
-        _recordChange: 1
-        _changed: 0
-      - _field: damptime
-        _currentValue: 1
-        _recordChange: 1
-        _changed: 0
-      - _field: parametertype
-        _currentValue: float
-        _recordChange: 1
-        _changed: 0
-      _type: 12
-      _stateIndex: 55
-      _parent: 52
-      _lastUpdate: 0
-      _children: 
-      _variables: 
-      _focused: 0
-    - _fields:
-      - _field: name
-        _currentValue: Attack Range
-        _recordChange: 1
-        _changed: 0
-      - _field: open
-        _currentValue: True
-        _recordChange: 0
-        _changed: 0
-      - _field: repeatuntil
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: pausewhenhit
-        _currentValue: False
-        _recordChange: 0
-        _changed: 0
-      - _field: startingpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: runningpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: priority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: weight
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: usepriorities
-        _currentValue: False
-        _recordChange: 1
-        _changed: 0
-      _type: 17
-      _stateIndex: 56
-      _parent: 52
-      _lastUpdate: 635411344341114700
-      _children: 39000000
-      _variables: 
-      _focused: 0
-    - _fields:
-      - _field: name
-        _currentValue: WIthin Attack Range
-        _recordChange: 1
-        _changed: 0
-      - _field: open
-        _currentValue: True
-        _recordChange: 0
-        _changed: 0
-      - _field: repeatuntil
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: pausewhenhit
-        _currentValue: False
-        _recordChange: 0
-        _changed: 0
-      - _field: startingpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: runningpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: priority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: weight
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: constraint
-        _currentValue: CyborgNinjaAttackRange != null
-        _recordChange: 1
-        _changed: 0
-      _type: 5
-      _stateIndex: 57
       _parent: 56
-      _lastUpdate: 635411344341114670
-      _children: 3a000000
-      _variables: 
-      _focused: 0
-    - _fields:
-      - _field: name
-        _currentValue: parallel
-        _recordChange: 1
-        _changed: 0
-      - _field: open
-        _currentValue: True
-        _recordChange: 0
-        _changed: 0
-      - _field: repeatuntil
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: pausewhenhit
-        _currentValue: False
-        _recordChange: 0
-        _changed: 0
-      - _field: startingpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: runningpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: priority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: weight
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: fail
-        _currentValue: any
-        _recordChange: 1
-        _changed: 0
-      - _field: succeed
-        _currentValue: all
-        _recordChange: 1
-        _changed: 0
-      - _field: tiebreaker
-        _currentValue: fail
-        _recordChange: 1
-        _changed: 0
-      _type: 14
-      _stateIndex: 58
-      _parent: 57
-      _lastUpdate: 635411344341114630
-      _children: 3b0000003c000000
-      _variables: 
-      _focused: 0
-    - _fields:
-      - _field: name
-        _currentValue: Raise Weapon
-        _recordChange: 1
-        _changed: 0
-      - _field: repeatuntil
-        _currentValue: running
-        _recordChange: 1
-        _changed: 0
-      - _field: pausewhenhit
-        _currentValue: False
-        _recordChange: 0
-        _changed: 0
-      - _field: startingpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: runningpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: priority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: weight
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: namespace
-        _currentValue: (global)
-        _recordChange: 1
-        _changed: 0
-      - _field: classname
-        _currentValue: RaiseWeapon
-        _recordChange: 1
-        _changed: 0
-      - _field: parameters
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: parametervalues
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      _type: 1
-      _stateIndex: 59
-      _parent: 58
       _lastUpdate: 0
       _children: 
-      _variables: 
-      _focused: 0
-    - _fields:
-      - _field: name
-        _currentValue: Start Attacking
-        _recordChange: 1
-        _changed: 0
-      - _field: repeatuntil
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: pausewhenhit
-        _currentValue: False
-        _recordChange: 0
-        _changed: 0
-      - _field: startingpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: runningpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: priority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: weight
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: parametername
-        _currentValue: attacking
-        _recordChange: 1
-        _changed: 0
-      - _field: valueexpression
-        _currentValue: true
-        _recordChange: 1
-        _changed: 0
-      - _field: damptime
-        _currentValue: 0
-        _recordChange: 1
-        _changed: 0
-      - _field: parametertype
-        _currentValue: boolean
-        _recordChange: 1
-        _changed: 0
-      _type: 12
-      _stateIndex: 60
-      _parent: 58
-      _lastUpdate: 0
-      _children: 
-      _variables: 
-      _focused: 0
-    - _fields:
-      - _field: name
-        _currentValue: Cyborg Ninja Near
-        _recordChange: 1
-        _changed: 0
-      - _field: open
-        _currentValue: True
-        _recordChange: 0
-        _changed: 0
-      - _field: repeatuntil
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: pausewhenhit
-        _currentValue: False
-        _recordChange: 0
-        _changed: 0
-      - _field: startingpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: runningpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: priority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: weight
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: constraint
-        _currentValue: CyborgNinjaNear != null
-        _recordChange: 1
-        _changed: 0
-      _type: 5
-      _stateIndex: 61
-      _parent: 43
-      _lastUpdate: 635411344341116280
-      _children: 3e000000
-      _variables: 
-      _focused: 0
-    - _fields:
-      - _field: name
-        _currentValue: parallel
-        _recordChange: 1
-        _changed: 0
-      - _field: open
-        _currentValue: True
-        _recordChange: 0
-        _changed: 0
-      - _field: repeatuntil
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: pausewhenhit
-        _currentValue: False
-        _recordChange: 0
-        _changed: 0
-      - _field: startingpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: runningpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: priority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: weight
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: fail
-        _currentValue: any
-        _recordChange: 1
-        _changed: 0
-      - _field: succeed
-        _currentValue: all
-        _recordChange: 1
-        _changed: 0
-      - _field: tiebreaker
-        _currentValue: fail
-        _recordChange: 1
-        _changed: 0
-      _type: 14
-      _stateIndex: 62
-      _parent: 61
-      _lastUpdate: 635411344341116250
-      _children: 3f00000040000000410000004200000043000000
       _variables: 
       _focused: 0
     - _fields:
@@ -3273,774 +2843,10 @@ MonoBehaviour:
         _recordChange: 1
         _changed: 0
       _type: 1
-      _stateIndex: 63
-      _parent: 62
+      _stateIndex: 55
+      _parent: 56
       _lastUpdate: 0
       _children: 
-      _variables: 
-      _focused: 0
-    - _fields:
-      - _field: name
-        _currentValue: move
-        _recordChange: 1
-        _changed: 0
-      - _field: repeatuntil
-        _currentValue: running
-        _recordChange: 1
-        _changed: 0
-      - _field: pausewhenhit
-        _currentValue: False
-        _recordChange: 0
-        _changed: 0
-      - _field: startingpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: runningpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: priority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: weight
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: movetarget
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: movespeed
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: facetarget
-        _currentValue: CyborgNinjaFuture
-        _recordChange: 1
-        _changed: 0
-      - _field: turnspeed
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: closeenoughdistance
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: closeenoughangle
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      _type: 13
-      _stateIndex: 64
-      _parent: 62
-      _lastUpdate: 0
-      _children: 
-      _variables: 
-      _focused: 0
-    - _fields:
-      - _field: name
-        _currentValue: Raise Weapon
-        _recordChange: 1
-        _changed: 0
-      - _field: repeatuntil
-        _currentValue: running
-        _recordChange: 1
-        _changed: 0
-      - _field: pausewhenhit
-        _currentValue: False
-        _recordChange: 0
-        _changed: 0
-      - _field: startingpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: runningpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: priority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: weight
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: namespace
-        _currentValue: (global)
-        _recordChange: 1
-        _changed: 0
-      - _field: classname
-        _currentValue: RaiseWeapon
-        _recordChange: 1
-        _changed: 0
-      - _field: parameters
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: parametervalues
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      _type: 1
-      _stateIndex: 65
-      _parent: 62
-      _lastUpdate: 0
-      _children: 
-      _variables: 
-      _focused: 0
-    - _fields:
-      - _field: name
-        _currentValue: Start Attacking
-        _recordChange: 1
-        _changed: 0
-      - _field: repeatuntil
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: pausewhenhit
-        _currentValue: False
-        _recordChange: 0
-        _changed: 0
-      - _field: startingpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: runningpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: priority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: weight
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: parametername
-        _currentValue: attacking
-        _recordChange: 1
-        _changed: 0
-      - _field: valueexpression
-        _currentValue: true
-        _recordChange: 1
-        _changed: 0
-      - _field: damptime
-        _currentValue: 0
-        _recordChange: 1
-        _changed: 0
-      - _field: parametertype
-        _currentValue: boolean
-        _recordChange: 1
-        _changed: 0
-      _type: 12
-      _stateIndex: 66
-      _parent: 62
-      _lastUpdate: 0
-      _children: 
-      _variables: 
-      _focused: 0
-    - _fields:
-      - _field: name
-        _currentValue: Retreat
-        _recordChange: 1
-        _changed: 0
-      - _field: open
-        _currentValue: True
-        _recordChange: 0
-        _changed: 0
-      - _field: repeatuntil
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: pausewhenhit
-        _currentValue: False
-        _recordChange: 0
-        _changed: 0
-      - _field: startingpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: runningpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: priority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: weight
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: usepriorities
-        _currentValue: False
-        _recordChange: 1
-        _changed: 0
-      _type: 17
-      _stateIndex: 67
-      _parent: 62
-      _lastUpdate: 635411344341116220
-      _children: 4400000046000000
-      _variables: 
-      _focused: 0
-    - _fields:
-      - _field: name
-        _currentValue: Is Not Too Close
-        _recordChange: 1
-        _changed: 0
-      - _field: open
-        _currentValue: True
-        _recordChange: 0
-        _changed: 0
-      - _field: repeatuntil
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: pausewhenhit
-        _currentValue: False
-        _recordChange: 0
-        _changed: 0
-      - _field: startingpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: runningpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: priority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: weight
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: constraint
-        _currentValue: CyborgNinjaTooClose == null
-        _recordChange: 1
-        _changed: 0
-      _type: 5
-      _stateIndex: 68
-      _parent: 67
-      _lastUpdate: 635411344341115930
-      _children: 45000000
-      _variables: 
-      _focused: 0
-    - _fields:
-      - _field: name
-        _currentValue: Speed
-        _recordChange: 1
-        _changed: 0
-      - _field: repeatuntil
-        _currentValue: running
-        _recordChange: 1
-        _changed: 0
-      - _field: pausewhenhit
-        _currentValue: False
-        _recordChange: 0
-        _changed: 0
-      - _field: startingpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: runningpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: priority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: weight
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: parametername
-        _currentValue: speed
-        _recordChange: 1
-        _changed: 0
-      - _field: valueexpression
-        _currentValue: 0
-        _recordChange: 1
-        _changed: 0
-      - _field: damptime
-        _currentValue: 1
-        _recordChange: 1
-        _changed: 0
-      - _field: parametertype
-        _currentValue: float
-        _recordChange: 1
-        _changed: 0
-      _type: 12
-      _stateIndex: 69
-      _parent: 68
-      _lastUpdate: 0
-      _children: 
-      _variables: 
-      _focused: 0
-    - _fields:
-      - _field: name
-        _currentValue: Is Too Close
-        _recordChange: 1
-        _changed: 0
-      - _field: open
-        _currentValue: True
-        _recordChange: 0
-        _changed: 0
-      - _field: repeatuntil
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: pausewhenhit
-        _currentValue: False
-        _recordChange: 0
-        _changed: 0
-      - _field: startingpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: runningpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: priority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: weight
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: constraint
-        _currentValue: CyborgNinjaTooClose != null
-        _recordChange: 1
-        _changed: 0
-      _type: 5
-      _stateIndex: 70
-      _parent: 67
-      _lastUpdate: 635411344341116200
-      _children: 47000000
-      _variables: 
-      _focused: 0
-    - _fields:
-      - _field: name
-        _currentValue: Speed
-        _recordChange: 1
-        _changed: 0
-      - _field: repeatuntil
-        _currentValue: running
-        _recordChange: 1
-        _changed: 0
-      - _field: pausewhenhit
-        _currentValue: False
-        _recordChange: 0
-        _changed: 0
-      - _field: startingpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: runningpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: priority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: weight
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: parametername
-        _currentValue: speed
-        _recordChange: 1
-        _changed: 0
-      - _field: valueexpression
-        _currentValue: -0.5
-        _recordChange: 1
-        _changed: 0
-      - _field: damptime
-        _currentValue: 0.5
-        _recordChange: 1
-        _changed: 0
-      - _field: parametertype
-        _currentValue: float
-        _recordChange: 1
-        _changed: 0
-      _type: 12
-      _stateIndex: 71
-      _parent: 70
-      _lastUpdate: 0
-      _children: 
-      _variables: 
-      _focused: 0
-    - _fields:
-      - _field: name
-        _currentValue: root
-        _recordChange: 1
-        _changed: 0
-      - _field: open
-        _currentValue: True
-        _recordChange: 0
-        _changed: 0
-      - _field: repeatuntil
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: pausewhenhit
-        _currentValue: False
-        _recordChange: 0
-        _changed: 0
-      - _field: startingpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: runningpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: priority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: weight
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: fail
-        _currentValue: any
-        _recordChange: 1
-        _changed: 0
-      - _field: succeed
-        _currentValue: all
-        _recordChange: 1
-        _changed: 0
-      - _field: tiebreaker
-        _currentValue: fail
-        _recordChange: 1
-        _changed: 0
-      _type: 14
-      _stateIndex: 72
-      _parent: 35
-      _lastUpdate: 635411344381319350
-      _children: 490000004a0000004b0000004c0000004d000000
-      _variables: 
-      _focused: 0
-    - _fields:
-      - _field: name
-        _currentValue: Ninja Detector
-        _recordChange: 1
-        _changed: 0
-      - _field: repeatuntil
-        _currentValue: running
-        _recordChange: 1
-        _changed: 0
-      - _field: pausewhenhit
-        _currentValue: False
-        _recordChange: 0
-        _changed: 0
-      - _field: startingpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: runningpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: priority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: weight
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: sensor
-        _currentValue: '"VisualSensor"'
-        _recordChange: 1
-        _changed: 0
-      - _field: aspect
-        _currentValue: '"CyborgNinja"'
-        _recordChange: 1
-        _changed: 0
-      - _field: entityobjectvariable
-        _currentValue: CyborgNinja
-        _recordChange: 1
-        _changed: 0
-      - _field: aspectvariable
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: aspectobjectvariable
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      _type: 6
-      _stateIndex: 73
-      _parent: 72
-      _lastUpdate: 0
-      _children: 
-      _variables: 
-      _focused: 0
-    - _fields:
-      - _field: name
-        _currentValue: Ninja Near Detector
-        _recordChange: 1
-        _changed: 0
-      - _field: repeatuntil
-        _currentValue: running
-        _recordChange: 1
-        _changed: 0
-      - _field: pausewhenhit
-        _currentValue: False
-        _recordChange: 0
-        _changed: 0
-      - _field: startingpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: runningpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: priority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: weight
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: sensor
-        _currentValue: '"NearSensor"'
-        _recordChange: 1
-        _changed: 0
-      - _field: aspect
-        _currentValue: '"CyborgNinja"'
-        _recordChange: 1
-        _changed: 0
-      - _field: entityobjectvariable
-        _currentValue: CyborgNinjaNear
-        _recordChange: 1
-        _changed: 0
-      - _field: aspectvariable
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: aspectobjectvariable
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      _type: 6
-      _stateIndex: 74
-      _parent: 72
-      _lastUpdate: 0
-      _children: 
-      _variables: 
-      _focused: 0
-    - _fields:
-      - _field: name
-        _currentValue: Ninja Attack Range Detector
-        _recordChange: 1
-        _changed: 0
-      - _field: repeatuntil
-        _currentValue: running
-        _recordChange: 1
-        _changed: 0
-      - _field: pausewhenhit
-        _currentValue: False
-        _recordChange: 0
-        _changed: 0
-      - _field: startingpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: runningpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: priority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: weight
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: sensor
-        _currentValue: '"AttackRange"'
-        _recordChange: 1
-        _changed: 0
-      - _field: aspect
-        _currentValue: '"CyborgNinja"'
-        _recordChange: 1
-        _changed: 0
-      - _field: entityobjectvariable
-        _currentValue: CyborgNinjaAttackRange
-        _recordChange: 1
-        _changed: 0
-      - _field: aspectvariable
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: aspectobjectvariable
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      _type: 6
-      _stateIndex: 75
-      _parent: 72
-      _lastUpdate: 0
-      _children: 
-      _variables: 
-      _focused: 0
-    - _fields:
-      - _field: name
-        _currentValue: Cyborg Ninja Too Close
-        _recordChange: 1
-        _changed: 0
-      - _field: repeatuntil
-        _currentValue: running
-        _recordChange: 1
-        _changed: 0
-      - _field: pausewhenhit
-        _currentValue: False
-        _recordChange: 0
-        _changed: 0
-      - _field: startingpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: runningpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: priority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: weight
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: sensor
-        _currentValue: '"TooCloseSensor"'
-        _recordChange: 1
-        _changed: 0
-      - _field: aspect
-        _currentValue: '"CyborgNinja"'
-        _recordChange: 1
-        _changed: 0
-      - _field: entityobjectvariable
-        _currentValue: CyborgNinjaTooClose
-        _recordChange: 1
-        _changed: 0
-      - _field: aspectvariable
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: aspectobjectvariable
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      _type: 6
-      _stateIndex: 76
-      _parent: 72
-      _lastUpdate: 0
-      _children: 
-      _variables: 
-      _focused: 0
-    - _fields:
-      - _field: name
-        _currentValue: Cyborg Ninja
-        _recordChange: 1
-        _changed: 0
-      - _field: open
-        _currentValue: True
-        _recordChange: 0
-        _changed: 0
-      - _field: repeatuntil
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: pausewhenhit
-        _currentValue: False
-        _recordChange: 0
-        _changed: 0
-      - _field: startingpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: runningpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: priority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: weight
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: usepriorities
-        _currentValue: False
-        _recordChange: 1
-        _changed: 0
-      _type: 17
-      _stateIndex: 77
-      _parent: 72
-      _lastUpdate: 635411344381319320
-      _children: 4e000000550000005f000000
-      _variables: 
-      _focused: 0
-    - _fields:
-      - _field: name
-        _currentValue: Cyborg Ninja Unknown
-        _recordChange: 1
-        _changed: 0
-      - _field: open
-        _currentValue: True
-        _recordChange: 0
-        _changed: 0
-      - _field: repeatuntil
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: pausewhenhit
-        _currentValue: False
-        _recordChange: 0
-        _changed: 0
-      - _field: startingpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: runningpriority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: priority
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: weight
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: constraint
-        _currentValue: CyborgNinja == null && CyborgNinjaNear == null
-        _recordChange: 1
-        _changed: 0
-      _type: 5
-      _stateIndex: 78
-      _parent: 77
-      _lastUpdate: 635411344381316180
-      _children: 4f000000
       _variables: 
       _focused: 0
     - _fields:
@@ -4089,19 +2895,23 @@ MonoBehaviour:
         _recordChange: 1
         _changed: 0
       _type: 14
-      _stateIndex: 79
-      _parent: 78
-      _lastUpdate: 635411344381316150
-      _children: 50000000510000005200000053000000
+      _stateIndex: 56
+      _parent: 57
+      _lastUpdate: 635411416087506040
+      _children: 37000000360000003500000034000000
       _variables: 
       _focused: 0
     - _fields:
       - _field: name
-        _currentValue: Lower Weapon
+        _currentValue: Cyborg Ninja Visible
         _recordChange: 1
         _changed: 0
+      - _field: open
+        _currentValue: True
+        _recordChange: 0
+        _changed: 0
       - _field: repeatuntil
-        _currentValue: running
+        _currentValue: 
         _recordChange: 1
         _changed: 0
       - _field: pausewhenhit
@@ -4124,32 +2934,20 @@ MonoBehaviour:
         _currentValue: 
         _recordChange: 1
         _changed: 0
-      - _field: namespace
-        _currentValue: (global)
+      - _field: constraint
+        _currentValue: CyborgNinja != null && CyborgNinjaNear == null
         _recordChange: 1
         _changed: 0
-      - _field: classname
-        _currentValue: LowerWeapon
-        _recordChange: 1
-        _changed: 0
-      - _field: parameters
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      - _field: parametervalues
-        _currentValue: 
-        _recordChange: 1
-        _changed: 0
-      _type: 1
-      _stateIndex: 80
-      _parent: 79
-      _lastUpdate: 0
-      _children: 
+      _type: 5
+      _stateIndex: 57
+      _parent: 65
+      _lastUpdate: 635411416087503190
+      _children: 38000000
       _variables: 
       _focused: 0
     - _fields:
       - _field: name
-        _currentValue: Stop Attacking
+        _currentValue: move
         _recordChange: 1
         _changed: 0
       - _field: repeatuntil
@@ -4176,77 +2974,33 @@ MonoBehaviour:
         _currentValue: 
         _recordChange: 1
         _changed: 0
-      - _field: parametername
-        _currentValue: attacking
+      - _field: movetarget
+        _currentValue: WayPoint
         _recordChange: 1
         _changed: 0
-      - _field: valueexpression
-        _currentValue: false
-        _recordChange: 1
-        _changed: 0
-      - _field: damptime
-        _currentValue: 0
-        _recordChange: 1
-        _changed: 0
-      - _field: parametertype
-        _currentValue: boolean
-        _recordChange: 1
-        _changed: 0
-      _type: 12
-      _stateIndex: 81
-      _parent: 79
-      _lastUpdate: 0
-      _children: 
-      _variables: 
-      _focused: 0
-    - _fields:
-      - _field: name
-        _currentValue: Speed
-        _recordChange: 1
-        _changed: 0
-      - _field: repeatuntil
-        _currentValue: running
-        _recordChange: 1
-        _changed: 0
-      - _field: pausewhenhit
-        _currentValue: False
-        _recordChange: 0
-        _changed: 0
-      - _field: startingpriority
+      - _field: movespeed
         _currentValue: 
         _recordChange: 1
         _changed: 0
-      - _field: runningpriority
+      - _field: facetarget
         _currentValue: 
         _recordChange: 1
         _changed: 0
-      - _field: priority
+      - _field: turnspeed
         _currentValue: 
         _recordChange: 1
         _changed: 0
-      - _field: weight
+      - _field: closeenoughdistance
         _currentValue: 
         _recordChange: 1
         _changed: 0
-      - _field: parametername
-        _currentValue: speed
+      - _field: closeenoughangle
+        _currentValue: 
         _recordChange: 1
         _changed: 0
-      - _field: valueexpression
-        _currentValue: 0.5
-        _recordChange: 1
-        _changed: 0
-      - _field: damptime
-        _currentValue: 1
-        _recordChange: 1
-        _changed: 0
-      - _field: parametertype
-        _currentValue: float
-        _recordChange: 1
-        _changed: 0
-      _type: 12
-      _stateIndex: 82
-      _parent: 79
+      _type: 13
+      _stateIndex: 58
+      _parent: 59
       _lastUpdate: 0
       _children: 
       _variables: 
@@ -4309,12 +3063,1304 @@ MonoBehaviour:
         _recordChange: 1
         _changed: 0
       _type: 21
-      _stateIndex: 83
-      _parent: 79
-      _lastUpdate: 635411344518757420
-      _children: 54000000
+      _stateIndex: 59
+      _parent: 63
+      _lastUpdate: 635411416087502020
+      _children: 3a000000
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: Speed
+        _recordChange: 1
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: running
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: parametername
+        _currentValue: speed
+        _recordChange: 1
+        _changed: 0
+      - _field: valueexpression
+        _currentValue: 0.5
+        _recordChange: 1
+        _changed: 0
+      - _field: damptime
+        _currentValue: 1
+        _recordChange: 1
+        _changed: 0
+      - _field: parametertype
+        _currentValue: float
+        _recordChange: 1
+        _changed: 0
+      _type: 12
+      _stateIndex: 60
+      _parent: 63
+      _lastUpdate: 0
+      _children: 
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: Stop Attacking
+        _recordChange: 1
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: parametername
+        _currentValue: attacking
+        _recordChange: 1
+        _changed: 0
+      - _field: valueexpression
+        _currentValue: false
+        _recordChange: 1
+        _changed: 0
+      - _field: damptime
+        _currentValue: 0
+        _recordChange: 1
+        _changed: 0
+      - _field: parametertype
+        _currentValue: boolean
+        _recordChange: 1
+        _changed: 0
+      _type: 12
+      _stateIndex: 61
+      _parent: 63
+      _lastUpdate: 0
+      _children: 
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: Lower Weapon
+        _recordChange: 1
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: running
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: namespace
+        _currentValue: (global)
+        _recordChange: 1
+        _changed: 0
+      - _field: classname
+        _currentValue: LowerWeapon
+        _recordChange: 1
+        _changed: 0
+      - _field: parameters
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: parametervalues
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      _type: 1
+      _stateIndex: 62
+      _parent: 63
+      _lastUpdate: 0
+      _children: 
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: parallel
+        _recordChange: 1
+        _changed: 0
+      - _field: open
+        _currentValue: True
+        _recordChange: 0
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: fail
+        _currentValue: any
+        _recordChange: 1
+        _changed: 0
+      - _field: succeed
+        _currentValue: all
+        _recordChange: 1
+        _changed: 0
+      - _field: tiebreaker
+        _currentValue: fail
+        _recordChange: 1
+        _changed: 0
+      _type: 14
+      _stateIndex: 63
+      _parent: 64
+      _lastUpdate: 635411416087500570
+      _children: 3e0000003d0000003c0000003b000000
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: Cyborg Ninja Unknown
+        _recordChange: 1
+        _changed: 0
+      - _field: open
+        _currentValue: True
+        _recordChange: 0
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: constraint
+        _currentValue: CyborgNinja == null && CyborgNinjaNear == null
+        _recordChange: 1
+        _changed: 0
+      _type: 5
+      _stateIndex: 64
+      _parent: 65
+      _lastUpdate: 635411416087496400
+      _children: 3f000000
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: Cyborg Ninja
+        _recordChange: 1
+        _changed: 0
+      - _field: open
+        _currentValue: True
+        _recordChange: 0
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: usepriorities
+        _currentValue: False
+        _recordChange: 1
+        _changed: 0
+      _type: 17
+      _stateIndex: 65
+      _parent: 70
+      _lastUpdate: 635411416087508780
+      _children: 40000000390000002f000000
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: Cyborg Ninja Too Close
+        _recordChange: 1
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: running
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: sensor
+        _currentValue: '"TooCloseSensor"'
+        _recordChange: 1
+        _changed: 0
+      - _field: aspect
+        _currentValue: '"CyborgNinja"'
+        _recordChange: 1
+        _changed: 0
+      - _field: entityobjectvariable
+        _currentValue: CyborgNinjaTooClose
+        _recordChange: 1
+        _changed: 0
+      - _field: aspectvariable
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: aspectobjectvariable
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      _type: 6
+      _stateIndex: 66
+      _parent: 70
+      _lastUpdate: 0
+      _children: 
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: Ninja Attack Range Detector
+        _recordChange: 1
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: running
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: sensor
+        _currentValue: '"AttackRange"'
+        _recordChange: 1
+        _changed: 0
+      - _field: aspect
+        _currentValue: '"CyborgNinja"'
+        _recordChange: 1
+        _changed: 0
+      - _field: entityobjectvariable
+        _currentValue: CyborgNinjaAttackRange
+        _recordChange: 1
+        _changed: 0
+      - _field: aspectvariable
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: aspectobjectvariable
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      _type: 6
+      _stateIndex: 67
+      _parent: 70
+      _lastUpdate: 0
+      _children: 
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: Ninja Near Detector
+        _recordChange: 1
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: running
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: sensor
+        _currentValue: '"NearSensor"'
+        _recordChange: 1
+        _changed: 0
+      - _field: aspect
+        _currentValue: '"CyborgNinja"'
+        _recordChange: 1
+        _changed: 0
+      - _field: entityobjectvariable
+        _currentValue: CyborgNinjaNear
+        _recordChange: 1
+        _changed: 0
+      - _field: aspectvariable
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: aspectobjectvariable
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      _type: 6
+      _stateIndex: 68
+      _parent: 70
+      _lastUpdate: 0
+      _children: 
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: Ninja Detector
+        _recordChange: 1
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: running
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: sensor
+        _currentValue: '"VisualSensor"'
+        _recordChange: 1
+        _changed: 0
+      - _field: aspect
+        _currentValue: '"CyborgNinja"'
+        _recordChange: 1
+        _changed: 0
+      - _field: entityobjectvariable
+        _currentValue: CyborgNinja
+        _recordChange: 1
+        _changed: 0
+      - _field: aspectvariable
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: aspectobjectvariable
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      _type: 6
+      _stateIndex: 69
+      _parent: 70
+      _lastUpdate: 0
+      _children: 
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: root
+        _recordChange: 1
+        _changed: 0
+      - _field: open
+        _currentValue: True
+        _recordChange: 0
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: fail
+        _currentValue: any
+        _recordChange: 1
+        _changed: 0
+      - _field: succeed
+        _currentValue: all
+        _recordChange: 1
+        _changed: 0
+      - _field: tiebreaker
+        _currentValue: fail
+        _recordChange: 1
+        _changed: 0
+      _type: 14
+      _stateIndex: 70
+      _parent: 71
+      _lastUpdate: 635411416087495370
+      _children: 4500000044000000430000004200000041000000
       _variables: 
       _focused: 1
+    - _fields:
+      - _field: name
+        _currentValue: WaterRoomCyborgTroop
+        _recordChange: 1
+        _changed: 0
+      - _field: open
+        _currentValue: True
+        _recordChange: 0
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      _type: 4
+      _stateIndex: 71
+      _parent: 0
+      _lastUpdate: 635411416087489480
+      _children: 46000000
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: root
+        _recordChange: 1
+        _changed: 0
+      - _field: open
+        _currentValue: True
+        _recordChange: 0
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: usepriorities
+        _currentValue: False
+        _recordChange: 1
+        _changed: 0
+      _type: 18
+      _stateIndex: 72
+      _parent: 0
+      _lastUpdate: 0
+      _children: 
+      _variables: 
+      _focused: 1
+    - _fields:
+      - _field: name
+        _currentValue: root
+        _recordChange: 1
+        _changed: 0
+      - _field: open
+        _currentValue: True
+        _recordChange: 0
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: fail
+        _currentValue: any
+        _recordChange: 1
+        _changed: 0
+      - _field: succeed
+        _currentValue: all
+        _recordChange: 1
+        _changed: 0
+      - _field: tiebreaker
+        _currentValue: fail
+        _recordChange: 1
+        _changed: 0
+      _type: 14
+      _stateIndex: 73
+      _parent: 0
+      _lastUpdate: 635411416248773380
+      _children: 4a0000004b0000004c0000004d0000004e000000
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: Ninja Detector
+        _recordChange: 1
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: running
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: sensor
+        _currentValue: '"VisualSensor"'
+        _recordChange: 1
+        _changed: 0
+      - _field: aspect
+        _currentValue: '"CyborgNinja"'
+        _recordChange: 1
+        _changed: 0
+      - _field: entityobjectvariable
+        _currentValue: CyborgNinja
+        _recordChange: 1
+        _changed: 0
+      - _field: aspectvariable
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: aspectobjectvariable
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      _type: 6
+      _stateIndex: 74
+      _parent: 73
+      _lastUpdate: 0
+      _children: 
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: Ninja Near Detector
+        _recordChange: 1
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: running
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: sensor
+        _currentValue: '"NearSensor"'
+        _recordChange: 1
+        _changed: 0
+      - _field: aspect
+        _currentValue: '"CyborgNinja"'
+        _recordChange: 1
+        _changed: 0
+      - _field: entityobjectvariable
+        _currentValue: CyborgNinjaNear
+        _recordChange: 1
+        _changed: 0
+      - _field: aspectvariable
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: aspectobjectvariable
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      _type: 6
+      _stateIndex: 75
+      _parent: 73
+      _lastUpdate: 0
+      _children: 
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: Ninja Attack Range Detector
+        _recordChange: 1
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: running
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: sensor
+        _currentValue: '"AttackRange"'
+        _recordChange: 1
+        _changed: 0
+      - _field: aspect
+        _currentValue: '"CyborgNinja"'
+        _recordChange: 1
+        _changed: 0
+      - _field: entityobjectvariable
+        _currentValue: CyborgNinjaAttackRange
+        _recordChange: 1
+        _changed: 0
+      - _field: aspectvariable
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: aspectobjectvariable
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      _type: 6
+      _stateIndex: 76
+      _parent: 73
+      _lastUpdate: 0
+      _children: 
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: Cyborg Ninja Too Close
+        _recordChange: 1
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: running
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: sensor
+        _currentValue: '"TooCloseSensor"'
+        _recordChange: 1
+        _changed: 0
+      - _field: aspect
+        _currentValue: '"CyborgNinja"'
+        _recordChange: 1
+        _changed: 0
+      - _field: entityobjectvariable
+        _currentValue: CyborgNinjaTooClose
+        _recordChange: 1
+        _changed: 0
+      - _field: aspectvariable
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: aspectobjectvariable
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      _type: 6
+      _stateIndex: 77
+      _parent: 73
+      _lastUpdate: 0
+      _children: 
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: Cyborg Ninja
+        _recordChange: 1
+        _changed: 0
+      - _field: open
+        _currentValue: True
+        _recordChange: 0
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: usepriorities
+        _currentValue: False
+        _recordChange: 1
+        _changed: 0
+      _type: 17
+      _stateIndex: 78
+      _parent: 73
+      _lastUpdate: 635411416248773370
+      _children: 4f0000005600000060000000
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: Cyborg Ninja Unknown
+        _recordChange: 1
+        _changed: 0
+      - _field: open
+        _currentValue: True
+        _recordChange: 0
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: constraint
+        _currentValue: CyborgNinja == null && CyborgNinjaNear == null
+        _recordChange: 1
+        _changed: 0
+      _type: 5
+      _stateIndex: 79
+      _parent: 78
+      _lastUpdate: 635411416248770500
+      _children: 50000000
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: parallel
+        _recordChange: 1
+        _changed: 0
+      - _field: open
+        _currentValue: True
+        _recordChange: 0
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: fail
+        _currentValue: any
+        _recordChange: 1
+        _changed: 0
+      - _field: succeed
+        _currentValue: all
+        _recordChange: 1
+        _changed: 0
+      - _field: tiebreaker
+        _currentValue: fail
+        _recordChange: 1
+        _changed: 0
+      _type: 14
+      _stateIndex: 80
+      _parent: 79
+      _lastUpdate: 635411416248770490
+      _children: 51000000520000005300000054000000
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: Lower Weapon
+        _recordChange: 1
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: running
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: namespace
+        _currentValue: (global)
+        _recordChange: 1
+        _changed: 0
+      - _field: classname
+        _currentValue: LowerWeapon
+        _recordChange: 1
+        _changed: 0
+      - _field: parameters
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: parametervalues
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      _type: 1
+      _stateIndex: 81
+      _parent: 80
+      _lastUpdate: 0
+      _children: 
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: Stop Attacking
+        _recordChange: 1
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: parametername
+        _currentValue: attacking
+        _recordChange: 1
+        _changed: 0
+      - _field: valueexpression
+        _currentValue: false
+        _recordChange: 1
+        _changed: 0
+      - _field: damptime
+        _currentValue: 0
+        _recordChange: 1
+        _changed: 0
+      - _field: parametertype
+        _currentValue: boolean
+        _recordChange: 1
+        _changed: 0
+      _type: 12
+      _stateIndex: 82
+      _parent: 80
+      _lastUpdate: 0
+      _children: 
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: Speed
+        _recordChange: 1
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: running
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: parametername
+        _currentValue: speed
+        _recordChange: 1
+        _changed: 0
+      - _field: valueexpression
+        _currentValue: 0.5
+        _recordChange: 1
+        _changed: 0
+      - _field: damptime
+        _currentValue: 1
+        _recordChange: 1
+        _changed: 0
+      - _field: parametertype
+        _currentValue: float
+        _recordChange: 1
+        _changed: 0
+      _type: 12
+      _stateIndex: 83
+      _parent: 80
+      _lastUpdate: 0
+      _children: 
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: waypointpatrol
+        _recordChange: 1
+        _changed: 0
+      - _field: open
+        _currentValue: True
+        _recordChange: 0
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: waypointactiontype
+        _currentValue: patrol
+        _recordChange: 1
+        _changed: 0
+      - _field: traversetype
+        _currentValue: loop
+        _recordChange: 1
+        _changed: 0
+      - _field: traverseorder
+        _currentValue: forward
+        _recordChange: 1
+        _changed: 0
+      - _field: waypointsetvariable
+        _currentValue: '"Water Patrol Route"'
+        _recordChange: 1
+        _changed: 0
+      - _field: pathtargetvariable
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: movetargetvariable
+        _currentValue: WayPoint
+        _recordChange: 1
+        _changed: 0
+      _type: 21
+      _stateIndex: 84
+      _parent: 80
+      _lastUpdate: 635411416248770470
+      _children: 55000000
+      _variables: 
+      _focused: 0
     - _fields:
       - _field: name
         _currentValue: move
@@ -4369,8 +4415,8 @@ MonoBehaviour:
         _recordChange: 1
         _changed: 0
       _type: 13
-      _stateIndex: 84
-      _parent: 83
+      _stateIndex: 85
+      _parent: 84
       _lastUpdate: 0
       _children: 
       _variables: 
@@ -4413,10 +4459,10 @@ MonoBehaviour:
         _recordChange: 1
         _changed: 0
       _type: 5
-      _stateIndex: 85
-      _parent: 77
-      _lastUpdate: 635411344381317610
-      _children: 56000000
+      _stateIndex: 86
+      _parent: 78
+      _lastUpdate: 635411416248771780
+      _children: 57000000
       _variables: 
       _focused: 0
     - _fields:
@@ -4465,10 +4511,10 @@ MonoBehaviour:
         _recordChange: 1
         _changed: 0
       _type: 14
-      _stateIndex: 86
-      _parent: 85
-      _lastUpdate: 635411344381317580
-      _children: 5700000058000000590000005a000000
+      _stateIndex: 87
+      _parent: 86
+      _lastUpdate: 635411416248771770
+      _children: 58000000590000005a0000005b000000
       _variables: 
       _focused: 0
     - _fields:
@@ -4517,8 +4563,8 @@ MonoBehaviour:
         _recordChange: 1
         _changed: 0
       _type: 1
-      _stateIndex: 87
-      _parent: 86
+      _stateIndex: 88
+      _parent: 87
       _lastUpdate: 0
       _children: 
       _variables: 
@@ -4577,8 +4623,8 @@ MonoBehaviour:
         _recordChange: 1
         _changed: 0
       _type: 13
-      _stateIndex: 88
-      _parent: 86
+      _stateIndex: 89
+      _parent: 87
       _lastUpdate: 0
       _children: 
       _variables: 
@@ -4629,8 +4675,8 @@ MonoBehaviour:
         _recordChange: 1
         _changed: 0
       _type: 12
-      _stateIndex: 89
-      _parent: 86
+      _stateIndex: 90
+      _parent: 87
       _lastUpdate: 0
       _children: 
       _variables: 
@@ -4673,10 +4719,10 @@ MonoBehaviour:
         _recordChange: 1
         _changed: 0
       _type: 17
-      _stateIndex: 90
-      _parent: 86
-      _lastUpdate: 635411344381317560
-      _children: 5b000000
+      _stateIndex: 91
+      _parent: 87
+      _lastUpdate: 635411416248771760
+      _children: 5c000000
       _variables: 
       _focused: 0
     - _fields:
@@ -4717,10 +4763,10 @@ MonoBehaviour:
         _recordChange: 1
         _changed: 0
       _type: 5
-      _stateIndex: 91
-      _parent: 90
-      _lastUpdate: 635411344381317530
-      _children: 5c000000
+      _stateIndex: 92
+      _parent: 91
+      _lastUpdate: 635411416248771740
+      _children: 5d000000
       _variables: 
       _focused: 0
     - _fields:
@@ -4769,10 +4815,10 @@ MonoBehaviour:
         _recordChange: 1
         _changed: 0
       _type: 14
-      _stateIndex: 92
-      _parent: 91
-      _lastUpdate: 635411344381317500
-      _children: 5d0000005e000000
+      _stateIndex: 93
+      _parent: 92
+      _lastUpdate: 635411416248771720
+      _children: 5e0000005f000000
       _variables: 
       _focused: 0
     - _fields:
@@ -4821,8 +4867,8 @@ MonoBehaviour:
         _recordChange: 1
         _changed: 0
       _type: 1
-      _stateIndex: 93
-      _parent: 92
+      _stateIndex: 94
+      _parent: 93
       _lastUpdate: 0
       _children: 
       _variables: 
@@ -4873,8 +4919,8 @@ MonoBehaviour:
         _recordChange: 1
         _changed: 0
       _type: 12
-      _stateIndex: 94
-      _parent: 92
+      _stateIndex: 95
+      _parent: 93
       _lastUpdate: 0
       _children: 
       _variables: 
@@ -4917,10 +4963,10 @@ MonoBehaviour:
         _recordChange: 1
         _changed: 0
       _type: 5
-      _stateIndex: 95
-      _parent: 77
-      _lastUpdate: 635411344381319300
-      _children: 60000000
+      _stateIndex: 96
+      _parent: 78
+      _lastUpdate: 635411416248773360
+      _children: 61000000
       _variables: 
       _focused: 0
     - _fields:
@@ -4969,10 +5015,10 @@ MonoBehaviour:
         _recordChange: 1
         _changed: 0
       _type: 14
-      _stateIndex: 96
-      _parent: 95
-      _lastUpdate: 635411344381319260
-      _children: 6100000062000000630000006400000065000000
+      _stateIndex: 97
+      _parent: 96
+      _lastUpdate: 635411416248773340
+      _children: 6200000063000000640000006500000066000000
       _variables: 
       _focused: 0
     - _fields:
@@ -5021,8 +5067,8 @@ MonoBehaviour:
         _recordChange: 1
         _changed: 0
       _type: 1
-      _stateIndex: 97
-      _parent: 96
+      _stateIndex: 98
+      _parent: 97
       _lastUpdate: 0
       _children: 
       _variables: 
@@ -5081,8 +5127,8 @@ MonoBehaviour:
         _recordChange: 1
         _changed: 0
       _type: 13
-      _stateIndex: 98
-      _parent: 96
+      _stateIndex: 99
+      _parent: 97
       _lastUpdate: 0
       _children: 
       _variables: 
@@ -5133,8 +5179,8 @@ MonoBehaviour:
         _recordChange: 1
         _changed: 0
       _type: 1
-      _stateIndex: 99
-      _parent: 96
+      _stateIndex: 100
+      _parent: 97
       _lastUpdate: 0
       _children: 
       _variables: 
@@ -5185,8 +5231,8 @@ MonoBehaviour:
         _recordChange: 1
         _changed: 0
       _type: 12
-      _stateIndex: 100
-      _parent: 96
+      _stateIndex: 101
+      _parent: 97
       _lastUpdate: 0
       _children: 
       _variables: 
@@ -5229,10 +5275,10 @@ MonoBehaviour:
         _recordChange: 1
         _changed: 0
       _type: 17
-      _stateIndex: 101
-      _parent: 96
-      _lastUpdate: 635411344381319230
-      _children: 6600000068000000
+      _stateIndex: 102
+      _parent: 97
+      _lastUpdate: 635411416248773330
+      _children: 6700000069000000
       _variables: 
       _focused: 0
     - _fields:
@@ -5273,10 +5319,10 @@ MonoBehaviour:
         _recordChange: 1
         _changed: 0
       _type: 5
-      _stateIndex: 102
-      _parent: 101
-      _lastUpdate: 635411344381318900
-      _children: 67000000
+      _stateIndex: 103
+      _parent: 102
+      _lastUpdate: 635411416248772870
+      _children: 68000000
       _variables: 
       _focused: 0
     - _fields:
@@ -5325,8 +5371,8 @@ MonoBehaviour:
         _recordChange: 1
         _changed: 0
       _type: 12
-      _stateIndex: 103
-      _parent: 102
+      _stateIndex: 104
+      _parent: 103
       _lastUpdate: 0
       _children: 
       _variables: 
@@ -5369,10 +5415,10 @@ MonoBehaviour:
         _recordChange: 1
         _changed: 0
       _type: 5
-      _stateIndex: 104
-      _parent: 101
-      _lastUpdate: 635411344381319200
-      _children: 69000000
+      _stateIndex: 105
+      _parent: 102
+      _lastUpdate: 635411416248773310
+      _children: 6a000000
       _variables: 
       _focused: 0
     - _fields:
@@ -5421,8 +5467,1756 @@ MonoBehaviour:
         _recordChange: 1
         _changed: 0
       _type: 12
-      _stateIndex: 105
-      _parent: 104
+      _stateIndex: 106
+      _parent: 105
+      _lastUpdate: 0
+      _children: 
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: root
+        _recordChange: 1
+        _changed: 0
+      - _field: open
+        _currentValue: True
+        _recordChange: 0
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: fail
+        _currentValue: any
+        _recordChange: 1
+        _changed: 0
+      - _field: succeed
+        _currentValue: all
+        _recordChange: 1
+        _changed: 0
+      - _field: tiebreaker
+        _currentValue: fail
+        _recordChange: 1
+        _changed: 0
+      _type: 14
+      _stateIndex: 107
+      _parent: 35
+      _lastUpdate: 635411416322025620
+      _children: 6c0000006d0000006e0000006f00000070000000
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: Ninja Detector
+        _recordChange: 1
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: running
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: sensor
+        _currentValue: '"VisualSensor"'
+        _recordChange: 1
+        _changed: 0
+      - _field: aspect
+        _currentValue: '"CyborgNinja"'
+        _recordChange: 1
+        _changed: 0
+      - _field: entityobjectvariable
+        _currentValue: CyborgNinja
+        _recordChange: 1
+        _changed: 0
+      - _field: aspectvariable
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: aspectobjectvariable
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      _type: 6
+      _stateIndex: 108
+      _parent: 107
+      _lastUpdate: 0
+      _children: 
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: Ninja Near Detector
+        _recordChange: 1
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: running
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: sensor
+        _currentValue: '"NearSensor"'
+        _recordChange: 1
+        _changed: 0
+      - _field: aspect
+        _currentValue: '"CyborgNinja"'
+        _recordChange: 1
+        _changed: 0
+      - _field: entityobjectvariable
+        _currentValue: CyborgNinjaNear
+        _recordChange: 1
+        _changed: 0
+      - _field: aspectvariable
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: aspectobjectvariable
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      _type: 6
+      _stateIndex: 109
+      _parent: 107
+      _lastUpdate: 0
+      _children: 
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: Ninja Attack Range Detector
+        _recordChange: 1
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: running
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: sensor
+        _currentValue: '"AttackRange"'
+        _recordChange: 1
+        _changed: 0
+      - _field: aspect
+        _currentValue: '"CyborgNinja"'
+        _recordChange: 1
+        _changed: 0
+      - _field: entityobjectvariable
+        _currentValue: CyborgNinjaAttackRange
+        _recordChange: 1
+        _changed: 0
+      - _field: aspectvariable
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: aspectobjectvariable
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      _type: 6
+      _stateIndex: 110
+      _parent: 107
+      _lastUpdate: 0
+      _children: 
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: Cyborg Ninja Too Close
+        _recordChange: 1
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: running
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: sensor
+        _currentValue: '"TooCloseSensor"'
+        _recordChange: 1
+        _changed: 0
+      - _field: aspect
+        _currentValue: '"CyborgNinja"'
+        _recordChange: 1
+        _changed: 0
+      - _field: entityobjectvariable
+        _currentValue: CyborgNinjaTooClose
+        _recordChange: 1
+        _changed: 0
+      - _field: aspectvariable
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: aspectobjectvariable
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      _type: 6
+      _stateIndex: 111
+      _parent: 107
+      _lastUpdate: 0
+      _children: 
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: Cyborg Ninja
+        _recordChange: 1
+        _changed: 0
+      - _field: open
+        _currentValue: True
+        _recordChange: 0
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: usepriorities
+        _currentValue: False
+        _recordChange: 1
+        _changed: 0
+      _type: 17
+      _stateIndex: 112
+      _parent: 107
+      _lastUpdate: 635411416322025610
+      _children: 710000007800000082000000
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: Cyborg Ninja Unknown
+        _recordChange: 1
+        _changed: 0
+      - _field: open
+        _currentValue: True
+        _recordChange: 0
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: constraint
+        _currentValue: CyborgNinja == null && CyborgNinjaNear == null
+        _recordChange: 1
+        _changed: 0
+      _type: 5
+      _stateIndex: 113
+      _parent: 112
+      _lastUpdate: 635411416322022380
+      _children: 72000000
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: parallel
+        _recordChange: 1
+        _changed: 0
+      - _field: open
+        _currentValue: True
+        _recordChange: 0
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: fail
+        _currentValue: any
+        _recordChange: 1
+        _changed: 0
+      - _field: succeed
+        _currentValue: all
+        _recordChange: 1
+        _changed: 0
+      - _field: tiebreaker
+        _currentValue: fail
+        _recordChange: 1
+        _changed: 0
+      _type: 14
+      _stateIndex: 114
+      _parent: 113
+      _lastUpdate: 635411416322022360
+      _children: 73000000740000007500000076000000
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: Lower Weapon
+        _recordChange: 1
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: running
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: namespace
+        _currentValue: (global)
+        _recordChange: 1
+        _changed: 0
+      - _field: classname
+        _currentValue: LowerWeapon
+        _recordChange: 1
+        _changed: 0
+      - _field: parameters
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: parametervalues
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      _type: 1
+      _stateIndex: 115
+      _parent: 114
+      _lastUpdate: 0
+      _children: 
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: Stop Attacking
+        _recordChange: 1
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: parametername
+        _currentValue: attacking
+        _recordChange: 1
+        _changed: 0
+      - _field: valueexpression
+        _currentValue: false
+        _recordChange: 1
+        _changed: 0
+      - _field: damptime
+        _currentValue: 0
+        _recordChange: 1
+        _changed: 0
+      - _field: parametertype
+        _currentValue: boolean
+        _recordChange: 1
+        _changed: 0
+      _type: 12
+      _stateIndex: 116
+      _parent: 114
+      _lastUpdate: 0
+      _children: 
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: Speed
+        _recordChange: 1
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: running
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: parametername
+        _currentValue: speed
+        _recordChange: 1
+        _changed: 0
+      - _field: valueexpression
+        _currentValue: 0.5
+        _recordChange: 1
+        _changed: 0
+      - _field: damptime
+        _currentValue: 1
+        _recordChange: 1
+        _changed: 0
+      - _field: parametertype
+        _currentValue: float
+        _recordChange: 1
+        _changed: 0
+      _type: 12
+      _stateIndex: 117
+      _parent: 114
+      _lastUpdate: 0
+      _children: 
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: waypointpatrol
+        _recordChange: 1
+        _changed: 0
+      - _field: open
+        _currentValue: True
+        _recordChange: 0
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: waypointactiontype
+        _currentValue: patrol
+        _recordChange: 1
+        _changed: 0
+      - _field: traversetype
+        _currentValue: loop
+        _recordChange: 1
+        _changed: 0
+      - _field: traverseorder
+        _currentValue: forward
+        _recordChange: 1
+        _changed: 0
+      - _field: waypointsetvariable
+        _currentValue: '"Air Patrol Route"'
+        _recordChange: 1
+        _changed: 0
+      - _field: pathtargetvariable
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: movetargetvariable
+        _currentValue: WayPoint
+        _recordChange: 1
+        _changed: 0
+      _type: 21
+      _stateIndex: 118
+      _parent: 114
+      _lastUpdate: 635411416383846020
+      _children: 77000000
+      _variables: 
+      _focused: 1
+    - _fields:
+      - _field: name
+        _currentValue: move
+        _recordChange: 1
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: movetarget
+        _currentValue: WayPoint
+        _recordChange: 1
+        _changed: 0
+      - _field: movespeed
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: facetarget
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: turnspeed
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: closeenoughdistance
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: closeenoughangle
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      _type: 13
+      _stateIndex: 119
+      _parent: 118
+      _lastUpdate: 0
+      _children: 
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: Cyborg Ninja Visible
+        _recordChange: 1
+        _changed: 0
+      - _field: open
+        _currentValue: True
+        _recordChange: 0
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: constraint
+        _currentValue: CyborgNinja != null && CyborgNinjaNear == null
+        _recordChange: 1
+        _changed: 0
+      _type: 5
+      _stateIndex: 120
+      _parent: 112
+      _lastUpdate: 635411416322024160
+      _children: 79000000
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: parallel
+        _recordChange: 1
+        _changed: 0
+      - _field: open
+        _currentValue: True
+        _recordChange: 0
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: fail
+        _currentValue: any
+        _recordChange: 1
+        _changed: 0
+      - _field: succeed
+        _currentValue: all
+        _recordChange: 1
+        _changed: 0
+      - _field: tiebreaker
+        _currentValue: fail
+        _recordChange: 1
+        _changed: 0
+      _type: 14
+      _stateIndex: 121
+      _parent: 120
+      _lastUpdate: 635411416322024140
+      _children: 7a0000007b0000007c0000007d000000
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: Predictive Aim
+        _recordChange: 1
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: running
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: namespace
+        _currentValue: (global)
+        _recordChange: 1
+        _changed: 0
+      - _field: classname
+        _currentValue: PredictiveAim
+        _recordChange: 1
+        _changed: 0
+      - _field: parameters
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: parametervalues
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      _type: 1
+      _stateIndex: 122
+      _parent: 121
+      _lastUpdate: 0
+      _children: 
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: move
+        _recordChange: 1
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: running
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: movetarget
+        _currentValue: CyborgNinja
+        _recordChange: 1
+        _changed: 0
+      - _field: movespeed
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: facetarget
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: turnspeed
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: closeenoughdistance
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: closeenoughangle
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      _type: 13
+      _stateIndex: 123
+      _parent: 121
+      _lastUpdate: 0
+      _children: 
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: Speed
+        _recordChange: 1
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: running
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: parametername
+        _currentValue: speed
+        _recordChange: 1
+        _changed: 0
+      - _field: valueexpression
+        _currentValue: 1
+        _recordChange: 1
+        _changed: 0
+      - _field: damptime
+        _currentValue: 1
+        _recordChange: 1
+        _changed: 0
+      - _field: parametertype
+        _currentValue: float
+        _recordChange: 1
+        _changed: 0
+      _type: 12
+      _stateIndex: 124
+      _parent: 121
+      _lastUpdate: 0
+      _children: 
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: Attack Range
+        _recordChange: 1
+        _changed: 0
+      - _field: open
+        _currentValue: True
+        _recordChange: 0
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: usepriorities
+        _currentValue: False
+        _recordChange: 1
+        _changed: 0
+      _type: 17
+      _stateIndex: 125
+      _parent: 121
+      _lastUpdate: 635411416322024130
+      _children: 7e000000
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: WIthin Attack Range
+        _recordChange: 1
+        _changed: 0
+      - _field: open
+        _currentValue: True
+        _recordChange: 0
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: constraint
+        _currentValue: CyborgNinjaAttackRange != null
+        _recordChange: 1
+        _changed: 0
+      _type: 5
+      _stateIndex: 126
+      _parent: 125
+      _lastUpdate: 635411416322024120
+      _children: 7f000000
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: parallel
+        _recordChange: 1
+        _changed: 0
+      - _field: open
+        _currentValue: True
+        _recordChange: 0
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: fail
+        _currentValue: any
+        _recordChange: 1
+        _changed: 0
+      - _field: succeed
+        _currentValue: all
+        _recordChange: 1
+        _changed: 0
+      - _field: tiebreaker
+        _currentValue: fail
+        _recordChange: 1
+        _changed: 0
+      _type: 14
+      _stateIndex: 127
+      _parent: 126
+      _lastUpdate: 635411416322024100
+      _children: 8000000081000000
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: Raise Weapon
+        _recordChange: 1
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: running
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: namespace
+        _currentValue: (global)
+        _recordChange: 1
+        _changed: 0
+      - _field: classname
+        _currentValue: RaiseWeapon
+        _recordChange: 1
+        _changed: 0
+      - _field: parameters
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: parametervalues
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      _type: 1
+      _stateIndex: 128
+      _parent: 127
+      _lastUpdate: 0
+      _children: 
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: Start Attacking
+        _recordChange: 1
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: parametername
+        _currentValue: attacking
+        _recordChange: 1
+        _changed: 0
+      - _field: valueexpression
+        _currentValue: true
+        _recordChange: 1
+        _changed: 0
+      - _field: damptime
+        _currentValue: 0
+        _recordChange: 1
+        _changed: 0
+      - _field: parametertype
+        _currentValue: boolean
+        _recordChange: 1
+        _changed: 0
+      _type: 12
+      _stateIndex: 129
+      _parent: 127
+      _lastUpdate: 0
+      _children: 
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: Cyborg Ninja Near
+        _recordChange: 1
+        _changed: 0
+      - _field: open
+        _currentValue: True
+        _recordChange: 0
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: constraint
+        _currentValue: CyborgNinjaNear != null
+        _recordChange: 1
+        _changed: 0
+      _type: 5
+      _stateIndex: 130
+      _parent: 112
+      _lastUpdate: 635411416322025600
+      _children: 83000000
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: parallel
+        _recordChange: 1
+        _changed: 0
+      - _field: open
+        _currentValue: True
+        _recordChange: 0
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: fail
+        _currentValue: any
+        _recordChange: 1
+        _changed: 0
+      - _field: succeed
+        _currentValue: all
+        _recordChange: 1
+        _changed: 0
+      - _field: tiebreaker
+        _currentValue: fail
+        _recordChange: 1
+        _changed: 0
+      _type: 14
+      _stateIndex: 131
+      _parent: 130
+      _lastUpdate: 635411416322025580
+      _children: 8400000085000000860000008700000088000000
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: Predictive Aim
+        _recordChange: 1
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: running
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: namespace
+        _currentValue: (global)
+        _recordChange: 1
+        _changed: 0
+      - _field: classname
+        _currentValue: PredictiveAim
+        _recordChange: 1
+        _changed: 0
+      - _field: parameters
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: parametervalues
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      _type: 1
+      _stateIndex: 132
+      _parent: 131
+      _lastUpdate: 0
+      _children: 
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: move
+        _recordChange: 1
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: running
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: movetarget
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: movespeed
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: facetarget
+        _currentValue: CyborgNinjaFuture
+        _recordChange: 1
+        _changed: 0
+      - _field: turnspeed
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: closeenoughdistance
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: closeenoughangle
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      _type: 13
+      _stateIndex: 133
+      _parent: 131
+      _lastUpdate: 0
+      _children: 
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: Raise Weapon
+        _recordChange: 1
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: running
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: namespace
+        _currentValue: (global)
+        _recordChange: 1
+        _changed: 0
+      - _field: classname
+        _currentValue: RaiseWeapon
+        _recordChange: 1
+        _changed: 0
+      - _field: parameters
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: parametervalues
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      _type: 1
+      _stateIndex: 134
+      _parent: 131
+      _lastUpdate: 0
+      _children: 
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: Start Attacking
+        _recordChange: 1
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: parametername
+        _currentValue: attacking
+        _recordChange: 1
+        _changed: 0
+      - _field: valueexpression
+        _currentValue: true
+        _recordChange: 1
+        _changed: 0
+      - _field: damptime
+        _currentValue: 0
+        _recordChange: 1
+        _changed: 0
+      - _field: parametertype
+        _currentValue: boolean
+        _recordChange: 1
+        _changed: 0
+      _type: 12
+      _stateIndex: 135
+      _parent: 131
+      _lastUpdate: 0
+      _children: 
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: Retreat
+        _recordChange: 1
+        _changed: 0
+      - _field: open
+        _currentValue: True
+        _recordChange: 0
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: usepriorities
+        _currentValue: False
+        _recordChange: 1
+        _changed: 0
+      _type: 17
+      _stateIndex: 136
+      _parent: 131
+      _lastUpdate: 635411416322025570
+      _children: 890000008b000000
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: Is Not Too Close
+        _recordChange: 1
+        _changed: 0
+      - _field: open
+        _currentValue: True
+        _recordChange: 0
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: constraint
+        _currentValue: CyborgNinjaTooClose == null
+        _recordChange: 1
+        _changed: 0
+      _type: 5
+      _stateIndex: 137
+      _parent: 136
+      _lastUpdate: 635411416322025290
+      _children: 8a000000
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: Speed
+        _recordChange: 1
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: running
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: parametername
+        _currentValue: speed
+        _recordChange: 1
+        _changed: 0
+      - _field: valueexpression
+        _currentValue: 0
+        _recordChange: 1
+        _changed: 0
+      - _field: damptime
+        _currentValue: 1
+        _recordChange: 1
+        _changed: 0
+      - _field: parametertype
+        _currentValue: float
+        _recordChange: 1
+        _changed: 0
+      _type: 12
+      _stateIndex: 138
+      _parent: 137
+      _lastUpdate: 0
+      _children: 
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: Is Too Close
+        _recordChange: 1
+        _changed: 0
+      - _field: open
+        _currentValue: True
+        _recordChange: 0
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: constraint
+        _currentValue: CyborgNinjaTooClose != null
+        _recordChange: 1
+        _changed: 0
+      _type: 5
+      _stateIndex: 139
+      _parent: 136
+      _lastUpdate: 635411416322025550
+      _children: 8c000000
+      _variables: 
+      _focused: 0
+    - _fields:
+      - _field: name
+        _currentValue: Speed
+        _recordChange: 1
+        _changed: 0
+      - _field: repeatuntil
+        _currentValue: running
+        _recordChange: 1
+        _changed: 0
+      - _field: pausewhenhit
+        _currentValue: False
+        _recordChange: 0
+        _changed: 0
+      - _field: startingpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: runningpriority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: priority
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: weight
+        _currentValue: 
+        _recordChange: 1
+        _changed: 0
+      - _field: parametername
+        _currentValue: speed
+        _recordChange: 1
+        _changed: 0
+      - _field: valueexpression
+        _currentValue: -0.5
+        _recordChange: 1
+        _changed: 0
+      - _field: damptime
+        _currentValue: 0.5
+        _recordChange: 1
+        _changed: 0
+      - _field: parametertype
+        _currentValue: float
+        _recordChange: 1
+        _changed: 0
+      _type: 12
+      _stateIndex: 140
+      _parent: 139
       _lastUpdate: 0
       _children: 
       _variables: 
