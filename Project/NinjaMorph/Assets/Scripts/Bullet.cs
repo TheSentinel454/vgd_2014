@@ -26,7 +26,7 @@ public class Bullet : MonoBehaviour {
 	void OnTriggerEnter (Collider collider) {
 		// Damage the player when they get hit
 		if (collider.tag == "Player") {
-			collider.GetComponent<NinjaController>().Damage(5.0f);
+			collider.GetComponent<NinjaController>().Damage(10.0f);
 		}
 
 		// Destroy the bullet
