@@ -21,10 +21,9 @@ public class CyborgNinjaController : MonoBehaviour {
 	// Determine what the ninja should be doing.
 	void FixedUpdate ()
 	{
-		//InputManager.Update ();
 		// ANIMATION TOGGLES
-		animationController.attacking = animationController.attacking || InputManager.ActiveDevice.RightTrigger.WasPressed;//Input.GetKey (attackKeyCode);
-		animationController.weapon ^= InputManager.ActiveDevice.RightBumper.WasPressed;//Input.GetKeyDown (toggleWeaponKeyCode);
+		animationController.attacking = animationController.attacking || InputManager.ActiveDevice.RightTrigger.WasPressed;
+		animationController.weapon ^= InputManager.ActiveDevice.RightBumper.WasPressed;
 		animationController.dead = ninjaController.getZen() <= 0;
 	}
 }
