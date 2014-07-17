@@ -372,7 +372,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 400048}
   - 95: {fileID: 9500000}
-  - 114: {fileID: 11400002}
   - 114: {fileID: 11400000}
   - 114: {fileID: 11400004}
   - 114: {fileID: 11400010}
@@ -1452,18 +1451,6 @@ MonoBehaviour:
   bullet: {fileID: 100060}
   muzzleVelocity: 30
   destroyAfter: 5
---- !u!114 &11400002
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100048}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66f132f043573440daf6aee7f4cb560c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 9500000}
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1695,7 +1682,6 @@ MonoBehaviour:
   rayMask:
     serializedVersion: 2
     m_Bits: 0
-  adjustment: 4
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1
