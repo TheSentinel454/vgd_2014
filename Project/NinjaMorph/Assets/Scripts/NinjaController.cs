@@ -348,14 +348,13 @@ public class NinjaController : MonoBehaviour
 		foreach(DamageObject obj in FindObjectsOfType<DamageObject> ())
 		{
 			// Make sure the object is alive
-			if (!obj.alive)
-				// Move on
-				continue;
+			if (!obj.alive) continue;
+
 			// See how close we are to the object
 			float dist = Vector3.Distance(transform.position, obj.transform.position);
+
 			// Are we close enough?
-			if (dist <= attackDistance)
-			{
+			if (dist <= attackDistance) {
 				// Let's check the direction now
 				Vector3 dir = (obj.transform.position - transform.position).normalized;
 				float direction = Vector3.Dot(dir, transform.forward);
@@ -380,7 +379,7 @@ public class NinjaController : MonoBehaviour
 		else
 			length = _animation[idleAttackAnimation.name].length;
 		*/
-		yield return new WaitForSeconds(5.0f);
+		yield return true;
 		attacking = false;
 	}
 	
