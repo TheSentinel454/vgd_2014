@@ -39,6 +39,9 @@ Alpha
 - Campfire Sound Effect
   - http://www.soundjay.com/nature/campfire-1.wav  (Fire Tree Sound Effect)
 
+- (AI)
+- RAIN
+  - https://www.assetstore.unity3d.com/en/#!/content/6563
 
 ### Game Features
 
