@@ -12,12 +12,8 @@ Milestone 4
 ### External Resources
 
 - (Models)
-- Ninja Model
-  - https://www.assetstore.unity3d.com/en/#!/content/12679
 - Cyborg Model
   - https://www.assetstore.unity3d.com/en/#!/content/10705
-- Wood Barrel
-  - https://www.assetstore.unity3d.com/en/#!/content/4427
 - Torch
   - https://www.assetstore.unity3d.com/en/#!/content/7275
 - Crates
@@ -26,25 +22,22 @@ Milestone 4
 - Fire, Flame, Dust, Bubble, Waterfall, Water Fountain, and Sparkle Particle Effects
   - Assets -> Import Package -> Particles
 
+- Elementals
+  - https://www.assetstore.unity3d.com/en/#!/content/11158
+
 - Water (Ponds)
   - Assets -> Import Package -> Water (Basic)
 
 - Rustic Door
   - https://www.assetstore.unity3d.com/en/#!/content/861
-- Terrain
-  - https://www.assetstore.unity3d.com/en/#!/content/6
 
 - (Audio)
-- Grass Footsteps
-  - http://www.freesfx.co.uk/sfx/footsteps (Footsteps Forest 01)
+- Footstep Audio
+  - http://www.freesound.org/
 - Water Footsteps
   - http://www.freesfx.co.uk/sfx/footsteps?p=3 (Footsteps In Water 1)
-- Wood Footsteps
-  - http://www.freesfx.co.uk/sfx/footsteps?p=2 (Footsteps on hollow wooden surface)
 - Campfire Sound Effect
   - http://www.soundjay.com/nature/campfire-1.wav  (Fire Tree Sound Effect)
-- Puzzle Solve Sound
-  - http://noproblo.dayjo.org/ZeldaSounds/OOT/OOT_Secret.wav
 
 - (AI)
 - RAIN
@@ -103,6 +96,10 @@ as you keep running away notice he blends into running.
 - Due to the fact that we use Mecanim animations, when moving close
   to the AI and he backs up, he can back through walls because he no
   longer pays attention to the nav mesh.
+
+### Starting Scene
+
+- Scenes/NinjaMorph
 
 ### Website
 
