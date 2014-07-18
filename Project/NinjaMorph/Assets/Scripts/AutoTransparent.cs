@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿/*
+* http://answers.unity3d.com/questions/44815/make-object-transparent-when-between-camera-and-pl.html
+*/
+using UnityEngine;
 using System.Collections;
 
 public class AutoTransparent : MonoBehaviour

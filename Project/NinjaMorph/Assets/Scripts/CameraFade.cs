@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿/*
+* http://wiki.unity3d.com/index.php?title=FadeInOut
+*/
+using UnityEngine;
 using System;
 
 public class CameraFade : MonoBehaviour

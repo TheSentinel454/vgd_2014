@@ -42,6 +42,12 @@ Alpha
 - (AI)
 - RAIN
   - https://www.assetstore.unity3d.com/en/#!/content/6563
+  
+- (Scripts)
+- AutoTransparent/ClearSight
+  - http://answers.unity3d.com/questions/44815/make-object-transparent-when-between-camera-and-pl.html
+- CameraFade
+  - http://wiki.unity3d.com/index.php?title=FadeInOut
 
 ### Game Features
 
