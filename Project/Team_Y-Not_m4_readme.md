@@ -77,7 +77,7 @@ Milestone 4
 
 ### Incomplete Requirements
 
-- We did not implement the extra credit (A Star Search Path Planning)
+- We had no incomplete requirements
 
 ### Known Issues
 
