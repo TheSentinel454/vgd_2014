@@ -54,9 +54,13 @@ Milestone 3
 
 #### Instructions
 
-
 **Controls:**
 - Move with WASD keys
+- '1' Changes to the Air Ninja
+- '2' Changes to the Fire Ninja
+- '3' Changes to the Water Ninja
+- Left Click to Attack
+- Moving the Mouse moves the camera
 - Hold SHIFT while moving to run
 - Press SPACE to jump
 
@@ -66,12 +70,12 @@ If you stay out of LoS (Line of Sight) of the soldier, then you can easily see t
 
 ### Incomplete Requirements
 
-- We did not implement the extra credit (A Star Search Path Planning)
+- None that we know of
 
 ### Known Issues
 
-- There are no known issues
+- https://github.com/TheSentinel454/vgd_2014/issues?milestone=3&state=open
 
 ### Website
 
-- http://unity.jonathantyates.com/milestone3
+- http://unity.jonathantyates.com/alpha
