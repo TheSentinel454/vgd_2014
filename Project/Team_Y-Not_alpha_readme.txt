@@ -1,4 +1,4 @@
-Milestone 3
+Alpha
 ------------
 
 **Luke Tornquist**  -  *luke.tornquist@gatech.edu* - *ltornquist3*
@@ -44,40 +44,96 @@ Milestone 3
 
 - Player
   - Element Changing Ninja
+  - XBox360 Controller Integration
   - Fire Ninja
     - Runs faster and jumps higher
     - Lights wooden objects on fire
+  - Water Ninja
+    - Runs faster and jumps higher
+    - Can fill objects with water
+    - Can put out fire (some, not all)
+  - Air Ninja
+    - Runs faster, and jumps higher than all others
+    - Affected less by gravity (falls slower after jumping)
+    - Can blow out fire (some, not all)
+    - Can traverse larger gaps
+  - Each element has unique particle effect to match theme
+  - Elements can be charged by standing in the corresponding element (e.g. Charge fire by standing in fire)
+  - Zen (Health) can be charged if you charge an element that is already at maximum
 
 - UI
   - Introduction screen with help screen
   - Textured bars for Health and Energy
   - Enemy Health bars display over enemy
+  - Fade In/Out on Level transitions
 
 - AI
-
-- Puzzle
-
-- 3 Element specific rooms
   - Soldier can be in one of 3 states
   - Patrol state is when there is no player in Line of Sight, and follows a set path of waypoints
   - Attack state is when there is a player in Line of Sight, and the soldier will pursue the player and attack when within attack range
   - If while in the Attack state the soldier catches up to the player, he will maintain a certain distance from the player and continue to fire since he has a ranged attack
-  - Flee state is whenever the soldier gets below 50 health, he will flee away whenever he sees the player
-- Added position prediction for firing, so that the soldier will try to lead his shots in such a way to predict the position of the player
+  - If the player gets closer than the maintain distance, the soldier will back away from the player
+  - Position prediction for firing
+  - Mecanim Animation
+    - 5 Blend trees
+    - 30+ Animations
+  - Soldier deals and takes damage
+  - When killed the soldier will decay and get destroyed after a short time
+
+- Puzzle
+  - Air Puzzle
+    - Platforms that can only be traversed using Air's low gravity
+    - Button that must be pressed to shift a platform in order to complete the puzzle
+  - Fire Puzzle
+    - Torches that can be lit on fire
+    - Torches must be lit in order
+    - If order is incorrect, the puzzle is reset
+    - Order is in order from smallest to largest pile
+  - Water Puzzle
+    - Buckets can be filled with water
+    - Once one bucket is filled, a 30 second timer is started
+    - All buckets must be filled within 30 seconds or the puzzle will reset
 
 #### Instructions
 
 **Controls:**
+
+The Xbox controller controls are detailed in the help screen of our game, but if you are using a keyboard and mouse, use the following controls:
+
 - Move with WASD keys
-- '1' Changes to the Air Ninja
-- '2' Changes to the Fire Ninja
-- '3' Changes to the Water Ninja
+- '1' Changes to the Air Ninja (or back to Base Ninja if already in Air Ninja form)
+- '2' Changes to the Fire Ninja (or back to Base Ninja if already in Fire Ninja form)
+- '3' Changes to the Water Ninja (or back to Base Ninja if already in Water Ninja form)
 - Left Click to Attack
 - Moving the Mouse moves the camera
 - Hold SHIFT while moving to run
 - Press SPACE to jump
 
-If you stay out of LoS (Line of Sight) of the soldier, then you can easily see the patrol state.  This is the default state for the soldier while there is no player in LoS.  You can see him follow a set of waypoints.  If you move within LoS of the solder, the soldier will purse the player.  The soldier will not fire until he is within a certain distance of the player.  You can also let the soldier get close to the player, and once he is within a certain cautionary distance, he will stop moving and just continue firing.  We mainly added this to make it more of a realistic behavior considering the soldier is firing a ranged weapon.  The flee state can be initiated by moving to the soldier and doing some damage to him.  Once he drops below a certain health threshold (50) he will transition into the flee state and run away whenever he sees the player.  Once the soldier cannot see the player, the soldier will attempt to go back to patrolling.  You will also notice that when the soldier is firing, he is predictively firing based on the player position and velocity. You should be able to see this relatively easily while running away from the soldier if you turn to the right or left.
+To charge your elements, you need to be standing in the particular element that you want to charge while in that elemental form or in the base state. For 
+example, to charge fire, you should be standing in fire while in the fire elemental form or while you're in the base form. To attack, click the left mouse button.
+
+The objective of the game is to solve the puzzles in all 3 rooms which are all themed based on the 3 elements that the ninja can change into. In each room 
+there is an enemy that you can kill by attacking it.
+ 
+The first room is the air room. To beat this puzzle you need to jump up the pillars and reach the exit. To jump across the pillars, you need to be in the
+air form, so change to that form. If you run out of air energy, you can charge it in the misty substance that is on the ground where you spawned. 
+While jumping, you should sprint and jump only once. Pressing jump repeatedly usually results in a double jump which makes you jump off the pillar. 
+Jump up the first 3 pillars, and you will hit a fork. Jump straight to reach the pillar with the red button, and walk into it to press it. 
+You will hear an obvious "puzzle complete" sound once you do so. Head back to the third pillar, and take the right path (if you're facing the button). 
+Now the pillar that was previously too far from the green way point will be close enough for you to make the jump. Jump across the rest of the pillars 
+to the exit with the green way point. We were trying to give a light, floating game feel for the air room, so we made the air ninja have a higher jump and lower
+gravity in order to be able to complete the pillar jumps. We added calm, mysterious ambient music to add to the game feel as well. In addition, the lighting in 
+this room is white, which matches the air ninja texture and effects.
+
+Now you will be in the fire room. You will need to light all 4 torches in the room in a specific order. Light the torch on the lowest stack of crates first, 
+and then light the rest in ascending order. You can charge your fire energy on any lit torch or in the torch in the center of the room. Once you light the highest
+torch by the door, the crates below it will fall down, revealing the exit. Cross through the exit over the green way point to continue. We tried to give the fire
+room a fast-paced feel, so we created a sense of urgency by adding fast adventure music to the room. The room is also tinted orange to go along with the fire theme.
+
+Now you will be in the water room. You must fill the buckets up before the timer runs out. Once you fill the first bucket up all the way, 
+you will have 30 seconds to jump in all of the remaining buckets and fill them up. Make sure to stay in the buckets until they stop filling. Once you complete
+this puzzle, the game is over. For the water room, we wanted a calm feel, so we added calm ambient music. We also gave the room blue lighting to match the water 
+theme.
 
 ---
 

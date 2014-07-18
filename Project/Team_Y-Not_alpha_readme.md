@@ -1,4 +1,4 @@
-Milestone 3
+Alpha
 ------------
 
 **Luke Tornquist**  -  *luke.tornquist@gatech.edu* - *ltornquist3*
