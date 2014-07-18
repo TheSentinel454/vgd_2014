@@ -43,6 +43,8 @@ Milestone 3
   - http://www.freesfx.co.uk/sfx/footsteps?p=2 (Footsteps on hollow wooden surface)
 - Campfire Sound Effect
   - http://www.soundjay.com/nature/campfire-1.wav  (Fire Tree Sound Effect)
+- Puzzle Solve Sound
+  - http://noproblo.dayjo.org/ZeldaSounds/OOT/OOT_Secret.wav
 
 
 ### Fulfilled Requirements
