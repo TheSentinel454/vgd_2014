@@ -1,4 +1,4 @@
-Milestone 3
+Alpha
 ------------
 
 **Luke Tornquist**  -  *luke.tornquist@gatech.edu* - *ltornquist3*
@@ -44,26 +44,56 @@ Milestone 3
 
 - Player
   - Element Changing Ninja
+  - XBox360 Controller Integration
   - Fire Ninja
     - Runs faster and jumps higher
     - Lights wooden objects on fire
+  - Water Ninja
+    - Runs faster and jumps higher
+    - Can fill objects with water
+    - Can put out fire (some, not all)
+  - Air Ninja
+    - Runs faster, and jumps higher than all others
+    - Affected less by gravity (falls slower after jumping)
+    - Can blow out fire (some, not all)
+    - Can traverse larger gaps
+    - Charging 
+  - Each element has unique particle effect to match theme
+  - Elements can be charged by standing in the corresponding element (e.g. Charge fire by standing in fire)
+  - Zen (Health) can be charged if you charge an element that is already at maximum
 
 - UI
   - Introduction screen with help screen
   - Textured bars for Health and Energy
   - Enemy Health bars display over enemy
+  - Fade In/Out on Level transitions
 
 - AI
-
-- Puzzle
-
-- 3 Element specific rooms
   - Soldier can be in one of 3 states
   - Patrol state is when there is no player in Line of Sight, and follows a set path of waypoints
   - Attack state is when there is a player in Line of Sight, and the soldier will pursue the player and attack when within attack range
   - If while in the Attack state the soldier catches up to the player, he will maintain a certain distance from the player and continue to fire since he has a ranged attack
-  - Flee state is whenever the soldier gets below 50 health, he will flee away whenever he sees the player
-- Added position prediction for firing, so that the soldier will try to lead his shots in such a way to predict the position of the player
+  - If the player gets closer than the maintain distance, the soldier will back away from the player
+  - Position prediction for firing
+  - Mecanim Animation
+    - 5 Blend trees
+    - 30+ Animations
+  - Soldier deals and takes damage
+  - When killed the soldier will decay and get destroyed after a short time
+
+- Puzzle
+  - Air Puzzle
+    - Platforms that can only be traversed using Air's low gravity
+    - Button that must be pressed to shift a platform in order to complete the puzzle
+  - Fire Puzzle
+    - Torches that can be lit on fire
+    - Torches must be lit in order
+    - If order is incorrect, the puzzle is reset
+    - Order is in order from smallest to largest pile
+  - Water Puzzle
+    - Buckets can be filled with water
+    - Once one bucket is filled, a 30 second timer is started
+    - All buckets must be filled within 30 seconds or the puzzle will reset
 
 #### Instructions
 
