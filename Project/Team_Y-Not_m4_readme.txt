@@ -69,10 +69,17 @@ Milestone 4
 #### Instructions
 
 **Controls:**
+
+The Xbox controller controls are detailed in the help screen of our game, but if you are using a keyboard and mouse, use the following controls:
+
 - Move with WASD keys
+- '1' Changes to the Air Ninja (or back to Base Ninja if already in Air Ninja form)
+- '2' Changes to the Fire Ninja (or back to Base Ninja if already in Fire Ninja form)
+- '3' Changes to the Water Ninja (or back to Base Ninja if already in Water Ninja form)
+- Left Click to Attack
+- Moving the Mouse moves the camera
 - Hold SHIFT while moving to run
 - Press SPACE to jump
-- Left click to attack
 
 To see our animation blend trees in action, after you entered the air, fire
 or water levels, there will be an Cyborg Troop roaming each of the levels.
