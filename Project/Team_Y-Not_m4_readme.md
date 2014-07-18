@@ -64,13 +64,21 @@ Milestone 4
 
 #### Instructions
 
-
 **Controls:**
 - Move with WASD keys
 - Hold SHIFT while moving to run
 - Press SPACE to jump
 - Left click to attack
 
+To see our animation blend trees in action, after you entered the air, fire
+or water levels, there will be an Cyborg Troop roaming each of the levels.
+He can be recognized by a glowing red light at his face. Walk up to the AI
+and he will sense your presence and start running after you.  You will notice that as he gets close to you he blends from running to walking
+to idle. Likewise, you will notice that he lifts his arm to aim his gun
+which is done by manually blending the layer weights.  Walk towards him
+as if you are trying to stand on top of him and you will notice he blends
+to walking backwards by setting the speed parameter.  Now start running away from him and notice that his speed is blended towards walking and
+as you keep running away notice he blends into running.
 
 
 ---
@@ -81,7 +89,9 @@ Milestone 4
 
 ### Known Issues
 
-- There are no known issues
+- Due to the fact that we use Mecanim animations, when moving close
+  to the AI and he backs up, he can back through walls because he no
+  longer pays attention to the nav mesh.
 
 ### Website
 
