@@ -38,13 +38,26 @@ Milestone 3
   - http://www.freesfx.co.uk/sfx/footsteps?p=3 (Footsteps In Water 1)
 - Campfire Sound Effect
   - http://www.soundjay.com/nature/campfire-1.wav  (Fire Tree Sound Effect)
-- Puzzle Solve Sound
-  - http://noproblo.dayjo.org/ZeldaSounds/OOT/OOT_Secret.wav
 
 
-### Fulfilled Requirements
+### Game Features
 
-- AI State Machine implemented 
+- Player
+  - Element Changing Ninja
+  - Fire Ninja
+    - Runs faster and jumps higher
+    - Lights wooden objects on fire
+
+- UI
+  - Introduction screen with help screen
+  - Textured bars for Health and Energy
+  - Enemy Health bars display over enemy
+
+- AI
+
+- Puzzle
+
+- 3 Element specific rooms
   - Soldier can be in one of 3 states
   - Patrol state is when there is no player in Line of Sight, and follows a set path of waypoints
   - Attack state is when there is a player in Line of Sight, and the soldier will pursue the player and attack when within attack range
