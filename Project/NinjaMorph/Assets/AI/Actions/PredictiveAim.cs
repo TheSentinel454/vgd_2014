@@ -1,3 +1,10 @@
+/*
+  Team Y-Not
+  
+  Evan LaHurd
+  Luke Tornquist
+  Jonathan Yates
+*/
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
