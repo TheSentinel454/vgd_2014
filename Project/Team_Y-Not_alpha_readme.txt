@@ -57,7 +57,6 @@ Alpha
     - Affected less by gravity (falls slower after jumping)
     - Can blow out fire (some, not all)
     - Can traverse larger gaps
-    - Charging 
   - Each element has unique particle effect to match theme
   - Elements can be charged by standing in the corresponding element (e.g. Charge fire by standing in fire)
   - Zen (Health) can be charged if you charge an element that is already at maximum
@@ -120,15 +119,15 @@ The first room is the air room. To beat this puzzle you need to jump up the pill
 air form, so change to that form. If you run out of air energy, you can charge it in the misty substance that is on the ground where you spawned. 
 While jumping, you should sprint and jump only once. Pressing jump repeatedly usually results in a double jump which makes you jump off the pillar. 
 Jump up the first 3 pillars, and you will hit a fork. Jump straight to reach the pillar with the red button, and walk into it to press it. 
-You will hear an obvious "puzzle complete" sound once vyou do so. Head back to the third pillar, and take the right path (if you're facing the button). 
-Now the pillar that was previously too far from the green waypoint will be close enough for you to make the jump. Jump across the rest of the pillars 
-to the exit with the green waypoint. We were trying to give a light, floating game feel for the air room, so we made the air ninja have a higher jump and lower
+You will hear an obvious "puzzle complete" sound once you do so. Head back to the third pillar, and take the right path (if you're facing the button). 
+Now the pillar that was previously too far from the green way point will be close enough for you to make the jump. Jump across the rest of the pillars 
+to the exit with the green way point. We were trying to give a light, floating game feel for the air room, so we made the air ninja have a higher jump and lower
 gravity in order to be able to complete the pillar jumps. We added calm, mysterious ambient music to add to the game feel as well. In addition, the lighting in 
 this room is white, which matches the air ninja texture and effects.
 
 Now you will be in the fire room. You will need to light all 4 torches in the room in a specific order. Light the torch on the lowest stack of crates first, 
 and then light the rest in ascending order. You can charge your fire energy on any lit torch or in the torch in the center of the room. Once you light the highest
-torch by the door, the crates below it will fall down, revealing the exit. Cross through the exit over the green waypoint to continue. We tried to give the fire
+torch by the door, the crates below it will fall down, revealing the exit. Cross through the exit over the green way point to continue. We tried to give the fire
 room a fast-paced feel, so we created a sense of urgency by adding fast adventure music to the room. The room is also tinted orange to go along with the fire theme.
 
 Now you will be in the water room. You must fill the buckets up before the timer runs out. Once you fill the first bucket up all the way, 
