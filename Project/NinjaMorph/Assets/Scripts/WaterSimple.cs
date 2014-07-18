@@ -1,3 +1,6 @@
+﻿/*
+* Built-In Unity
+*/
 using UnityEngine;
 
 // Sets up transformation matrices to scale&scroll water waves

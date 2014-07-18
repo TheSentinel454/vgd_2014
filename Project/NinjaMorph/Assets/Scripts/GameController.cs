@@ -1,4 +1,11 @@
-﻿// Comment the line below if not play testing
+﻿﻿/*
+  Team Y-Not
+  
+  Evan LaHurd
+  Luke Tornquist
+  Jonathan Yates
+*/
+// Comment the line below if not play testing
 //#define PLAY_TESTING
 
 using UnityEngine;
