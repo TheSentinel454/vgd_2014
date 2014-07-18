@@ -22,7 +22,7 @@ Alpha
 - Fire, Flame, Dust, Bubble, Waterfall, Water Fountain, and Sparkle Particle Effects
   - Assets -> Import Package -> Particles
 
--Elementals
+- Elementals
   - https://www.assetstore.unity3d.com/en/#!/content/11158
 
 - Water (Ponds)
