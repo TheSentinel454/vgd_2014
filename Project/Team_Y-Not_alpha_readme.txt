@@ -38,13 +38,26 @@ Milestone 3
   - http://www.freesfx.co.uk/sfx/footsteps?p=3 (Footsteps In Water 1)
 - Campfire Sound Effect
   - http://www.soundjay.com/nature/campfire-1.wav  (Fire Tree Sound Effect)
-- Puzzle Solve Sound
-  - http://noproblo.dayjo.org/ZeldaSounds/OOT/OOT_Secret.wav
 
 
-### Fulfilled Requirements
+### Game Features
 
-- AI State Machine implemented 
+- Player
+  - Element Changing Ninja
+  - Fire Ninja
+    - Runs faster and jumps higher
+    - Lights wooden objects on fire
+
+- UI
+  - Introduction screen with help screen
+  - Textured bars for Health and Energy
+  - Enemy Health bars display over enemy
+
+- AI
+
+- Puzzle
+
+- 3 Element specific rooms
   - Soldier can be in one of 3 states
   - Patrol state is when there is no player in Line of Sight, and follows a set path of waypoints
   - Attack state is when there is a player in Line of Sight, and the soldier will pursue the player and attack when within attack range
@@ -54,11 +67,20 @@ Milestone 3
 
 #### Instructions
 
+**Controls:**
+
 The Xbox controller controls are detailed in the help screen of our game, but if you are using a keyboard and mouse, use the following controls:
 
-To move the ninja around, use the WASD keys. Move the camera using the mouse. Hold SHIFT to sprint, and press SPACE to jump. Press "1" to change to Air form,
-press "2" to change to Fire form, and press "3" to change to "Water" form. Pressing "1", "2", or "3" again while in an elemental form changes you back to the base
-form. To charge your elements, you need to be standing in the particular element that you want to charge while in that elemental form or in the base state. For 
+- Move with WASD keys
+- '1' Changes to the Air Ninja (or back to Base Ninja if already in Air Ninja form)
+- '2' Changes to the Fire Ninja (or back to Base Ninja if already in Fire Ninja form)
+- '3' Changes to the Water Ninja (or back to Base Ninja if already in Water Ninja form)
+- Left Click to Attack
+- Moving the Mouse moves the camera
+- Hold SHIFT while moving to run
+- Press SPACE to jump
+
+To charge your elements, you need to be standing in the particular element that you want to charge while in that elemental form or in the base state. For 
 example, to charge fire, you should be standing in fire while in the fire elemental form or while you're in the base form. To attack, click the left mouse button.
 
 The objective of the game is to solve the puzzles in all 3 rooms which are all themed based on the 3 elements that the ninja can change into. In each room 
@@ -84,17 +106,16 @@ you will have 30 seconds to jump in all of the remaining buckets and fill them u
 this puzzle, the game is over. For the water room, we wanted a calm feel, so we added calm ambient music. We also gave the room blue lighting to match the water 
 theme.
 
-
 ---
 
 ### Incomplete Requirements
 
-- We did not implement the extra credit (A Star Search Path Planning)
+- None that we know of
 
 ### Known Issues
 
-- There are no known issues
+- https://github.com/TheSentinel454/vgd_2014/issues?milestone=3&state=open
 
 ### Website
 
-- http://unity.jonathantyates.com/milestone3
+- http://unity.jonathantyates.com/alpha
