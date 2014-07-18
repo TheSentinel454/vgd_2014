@@ -54,13 +54,36 @@ Milestone 3
 
 #### Instructions
 
+The Xbox controller controls are detailed in the help screen of our game, but if you are using a keyboard and mouse, use the following controls:
 
-**Controls:**
-- Move with WASD keys
-- Hold SHIFT while moving to run
-- Press SPACE to jump
+To move the ninja around, use the WASD keys. Move the camera using the mouse. Hold SHIFT to sprint, and press SPACE to jump. Press "1" to change to Air form,
+press "2" to change to Fire form, and press "3" to change to "Water" form. Pressing "1", "2", or "3" again while in an elemental form changes you back to the base
+form. To charge your elements, you need to be standing in the particular element that you want to charge while in that elemental form or in the base state. For 
+example, to charge fire, you should be standing in fire while in the fire elemental form or while you're in the base form. To attack, click the left mouse button.
 
-If you stay out of LoS (Line of Sight) of the soldier, then you can easily see the patrol state.  This is the default state for the soldier while there is no player in LoS.  You can see him follow a set of waypoints.  If you move within LoS of the solder, the soldier will purse the player.  The soldier will not fire until he is within a certain distance of the player.  You can also let the soldier get close to the player, and once he is within a certain cautionary distance, he will stop moving and just continue firing.  We mainly added this to make it more of a realistic behavior considering the soldier is firing a ranged weapon.  The flee state can be initiated by moving to the soldier and doing some damage to him.  Once he drops below a certain health threshold (50) he will transition into the flee state and run away whenever he sees the player.  Once the soldier cannot see the player, the soldier will attempt to go back to patrolling.  You will also notice that when the soldier is firing, he is predictively firing based on the player position and velocity. You should be able to see this relatively easily while running away from the soldier if you turn to the right or left.
+The objective of the game is to solve the puzzles in all 3 rooms which are all themed based on the 3 elements that the ninja can change into. In each room 
+there is an enemy that you can kill by attacking it.
+ 
+The first room is the air room. To beat this puzzle you need to jump up the pillars and reach the exit. To jump across the pillars, you need to be in the
+air form, so change to that form. If you run out of air energy, you can charge it in the misty substance that is on the ground where you spawned. 
+While jumping, you should sprint and jump only once. Pressing jump repeatedly usually results in a double jump which makes you jump off the pillar. 
+Jump up the first 3 pillars, and you will hit a fork. Jump straight to reach the pillar with the red button, and walk into it to press it. 
+You will hear an obvious "puzzle complete" sound once vyou do so. Head back to the third pillar, and take the right path (if you're facing the button). 
+Now the pillar that was previously too far from the green waypoint will be close enough for you to make the jump. Jump across the rest of the pillars 
+to the exit with the green waypoint. We were trying to give a light, floating game feel for the air room, so we made the air ninja have a higher jump and lower
+gravity in order to be able to complete the pillar jumps. We added calm, mysterious ambient music to add to the game feel as well. In addition, the lighting in 
+this room is white, which matches the air ninja texture and effects.
+
+Now you will be in the fire room. You will need to light all 4 torches in the room in a specific order. Light the torch on the lowest stack of crates first, 
+and then light the rest in ascending order. You can charge your fire energy on any lit torch or in the torch in the center of the room. Once you light the highest
+torch by the door, the crates below it will fall down, revealing the exit. Cross through the exit over the green waypoint to continue. We tried to give the fire
+room a fast-paced feel, so we created a sense of urgency by adding fast adventure music to the room. The room is also tinted orange to go along with the fire theme.
+
+Now you will be in the water room. You must fill the buckets up before the timer runs out. Once you fill the first bucket up all the way, 
+you will have 30 seconds to jump in all of the remaining buckets and fill them up. Make sure to stay in the buckets until they stop filling. Once you complete
+this puzzle, the game is over. For the water room, we wanted a calm feel, so we added calm ambient music. We also gave the room blue lighting to match the water 
+theme.
+
 
 ---
 
