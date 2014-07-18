@@ -46,6 +46,10 @@ Milestone 4
 - Puzzle Solve Sound
   - http://noproblo.dayjo.org/ZeldaSounds/OOT/OOT_Secret.wav
 
+- (AI)
+- RAIN
+  - https://www.assetstore.unity3d.com/en/#!/content/6563
+
 
 ### Fulfilled Requirements
 
