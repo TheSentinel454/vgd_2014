@@ -1,4 +1,4 @@
-﻿﻿/*
+﻿/*
   Team Y-Not
   
   Evan LaHurd
@@ -18,7 +18,6 @@ public class HoverHealth : MonoBehaviour
 	private Vector3 worldPosition = new Vector3();
 	private Vector3 screenPosition = new Vector3();
 	private Camera mainCamera;
-	private int healthBarHeight = 5;
 	private int healthBarLeft = 110;
 	private int barTop = 1;
 

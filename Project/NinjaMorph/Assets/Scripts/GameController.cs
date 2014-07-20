@@ -1,4 +1,4 @@
-﻿﻿/*
+﻿/*
   Team Y-Not
   
   Evan LaHurd
@@ -24,7 +24,6 @@ public class GameController : MonoBehaviour
 #endif
 
 	private bool airLevelComplete = false;
-	private GameObject airPuzzle;
 
 	private bool fireLevelComplete = false;
 	private GameObject firePuzzle;
@@ -58,9 +57,7 @@ public class GameController : MonoBehaviour
 		
 		if(puzzle!=null){
 			// Find the puzzles
-			if (puzzle.name.Equals("Air Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
-				airPuzzle = puzzle;
-			else if (puzzle.name.Equals("Fire Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
+			if (puzzle.name.Equals("Fire Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
 				firePuzzle = puzzle;
 			else if (puzzle.name.Equals("Water Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
 				waterPuzzle = puzzle;
@@ -93,11 +90,10 @@ public class GameController : MonoBehaviour
 		// Get the Puzzles
 		GameObject puzzle = GameObject.FindGameObjectWithTag("Puzzle");
 		
-		if(puzzle!=null){
+		if(puzzle != null)
+		{
 			// Find the puzzles
-			if (puzzle.name.Equals("Air Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
-				airPuzzle = puzzle;
-			else if (puzzle.name.Equals("Fire Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
+			if (puzzle.name.Equals("Fire Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
 				firePuzzle = puzzle;
 			else if (puzzle.name.Equals("Water Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
 				waterPuzzle = puzzle;
