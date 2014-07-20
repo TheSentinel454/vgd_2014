@@ -1649,7 +1649,7 @@ MonoBehaviour:
     landAnimationSpeed: 1
     gravity: 10
     speedSmoothing: 5
-    jumpRepeat: 1.75
+    jumpRepeat: 1.5
     transitionIn: {fileID: 0}
     transitionOut: {fileID: 0}
     effects:
