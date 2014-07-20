@@ -17,8 +17,6 @@ using InControl;
 [System.Serializable]
 public class NinjaSettings
 {
-	public Texture texture;
-
 	public float walkSpeed;
 	public float runSpeed;
 	public float jumpHeight;
@@ -30,7 +28,7 @@ public class NinjaSettings
 
 	public float gravity;
 	public float speedSmoothing;
-	public float rotateSpeed;
+	public float jumpRepeat;
 
 	public AudioSource transitionIn;
 	public AudioSource transitionOut;
@@ -84,15 +82,12 @@ public class NinjaController : MonoBehaviour
 	private float gravity;
 	// The gravity in controlled descent mode
 	private float speedSmoothing;
-	private float rotateSpeed;
 	
 	private float pushPower = 2.0f;
 
-    private float inAirControlAcceleration = 3.0f;
-
-    private float jumpRepeatTime = 0.05f;
-    private float jumpTimeout = 0.15f;
+    private float jumpRepeatTime = 0.25f;
     private float groundedTimeout = 0.25f;
+	private float jumpTimeout = 0.25f;
 
     // The camera doesnt start following the target immediately but waits for a split second to avoid too much waving around.
     private float lockCameraTimer = 0.0f;
@@ -186,7 +181,6 @@ public class NinjaController : MonoBehaviour
     void UpdateSmoothedMovementDirection()
     {
         Transform cameraTransform = Camera.main.transform;
-        bool grounded = IsGrounded();
 
         // Forward vector relative to the camera along the x-z plane	
         Vector3 forward = cameraTransform.TransformDirection(Vector3.forward);
@@ -212,52 +206,37 @@ public class NinjaController : MonoBehaviour
         // Target direction relative to the camera
         Vector3 targetDirection = h * right + v * forward;
 
-        // Grounded controls
-        if (grounded)
+        // Lock camera for short period when transitioning moving & standing still
+        lockCameraTimer += Time.deltaTime;
+        if (isMoving != wasMoving)
+            lockCameraTimer = 0.0f;
+
+        // We store speed and direction seperately,
+        // so that when the character stands still we still have a valid forward direction
+        // moveDirection is always normalized, and we only update it if there is user input.
+        if (targetDirection != Vector3.zero)
         {
-            // Lock camera for short period when transitioning moving & standing still
-            lockCameraTimer += Time.deltaTime;
-            if (isMoving != wasMoving)
-                lockCameraTimer = 0.0f;
-
-            // We store speed and direction seperately,
-            // so that when the character stands still we still have a valid forward direction
-            // moveDirection is always normalized, and we only update it if there is user input.
-            if (targetDirection != Vector3.zero)
-            {
-				moveDirection = Vector3.RotateTowards(moveDirection, targetDirection, rotateSpeed * Mathf.Deg2Rad * Time.deltaTime, 1000);
-                moveDirection = moveDirection.normalized;
-            }
-
-            // Smooth the speed based on the current target direction
-            float curSmooth = speedSmoothing * Time.deltaTime;
-
-            // Choose target speed
-            //* We want to support analog input but make sure you cant walk faster diagonally than just forward or sideways
-            float targetSpeed = Mathf.Min(targetDirection.magnitude, 1.0f);
-
-            // Pick speed modifier
-			if (inputDevice.LeftTrigger.IsPressed)//Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
-            {
-                targetSpeed *= runSpeed;
-            }
-            else
-            {
-                targetSpeed *= walkSpeed;
-            }
-
-            moveSpeed = Mathf.Lerp(moveSpeed, targetSpeed, curSmooth);
+			moveDirection = targetDirection.normalized;
         }
-        // In air controls
+
+        // Smooth the speed based on the current target direction
+        float curSmooth = speedSmoothing * Time.deltaTime;
+
+        // Choose target speed
+        // We want to support analog input but make sure you cant walk faster diagonally than just forward or sideways
+        float targetSpeed = Mathf.Min(targetDirection.magnitude, 1.0f);
+
+        // Pick speed modifier
+		if (inputDevice.LeftTrigger.IsPressed)
+        {
+            targetSpeed *= runSpeed;
+        }
         else
         {
-            // Lock camera while in air
-            if (jumping)
-                lockCameraTimer = 0.0f;
-
-            if (isMoving)
-                inAirVelocity += targetDirection.normalized * Time.deltaTime * inAirControlAcceleration;
+            targetSpeed *= walkSpeed;
         }
+
+        moveSpeed = Mathf.Lerp(moveSpeed, targetSpeed, curSmooth);
     }
 
 	void ApplyAttacking()
@@ -266,7 +245,7 @@ public class NinjaController : MonoBehaviour
 		if (attacking)
 			return;
 		
-		if (!IsAttacking() && inputDevice.RightTrigger.WasPressed)//Input.GetButtonDown("Fire1"))
+		if (!IsAttacking() && inputDevice.RightTrigger.WasPressed)
 		{
 			DidAttack();
 		}
@@ -278,12 +257,11 @@ public class NinjaController : MonoBehaviour
         if (lastJumpTime + jumpRepeatTime > Time.time)
             return;
 
-        if (IsGrounded())
-        {
+		if (IsGrounded())
+		{
             // Jump
-            // - Only when pressing the button down
-            // - With a timeout so you can press the button slightly before landing		
-            if (Time.time < lastJumpButtonTime + jumpTimeout)
+            // - Only when pressing the button down	
+			if (Time.time < lastJumpButtonTime + jumpTimeout)
             {
                 verticalSpeed = CalculateJumpVerticalSpeed(jumpHeight);
 				DidJump();
@@ -409,7 +387,7 @@ public class NinjaController : MonoBehaviour
             // kill all inputs if not controllable.
             Input.ResetInputAxes();
         }
-		if (inputDevice.Action1.IsPressed)//Input.GetButtonDown("Jump"))
+		if (inputDevice.Action1.IsPressed)
         {
             lastJumpButtonTime = Time.time;
         }
@@ -713,8 +691,8 @@ public class NinjaController : MonoBehaviour
 			// Destroy the effect
 			Destroy(effect.gameObject);
 		} 
-		// Set the texture
-		//ninjaRenderer.material.mainTexture = settings.texture;
+		// Set the jump repeat time
+		jumpRepeatTime = settings.jumpRepeat;
 		// Set the walk/run/jump values
 		walkSpeed = settings.walkSpeed;
 		runSpeed = settings.runSpeed;
@@ -722,7 +700,6 @@ public class NinjaController : MonoBehaviour
 		// Set gravity/speed smoothing/rotate speed
 		gravity = settings.gravity;
 		speedSmoothing = settings.speedSmoothing;
-		rotateSpeed = settings.rotateSpeed;
 		// Add the effects
 		for(int i = 0; i < settings.effects.Length; i++)
 		{
