@@ -74,6 +74,18 @@ namespace InControl
 					Target = InputControlType.LeftTrigger,
 					Source = KeyCodeButton( KeyCode.LeftShift )
 				},
+				new InputControlMapping
+				{
+					Handle = "Menu",
+					Target = InputControlType.Menu,
+					Source = KeyCodeButton( KeyCode.Escape )
+				},
+				new InputControlMapping
+				{
+					Handle = "Start",
+					Target = InputControlType.Start,
+					Source = KeyCodeButton( KeyCode.Escape )
+				},
 			};
 
 			AnalogMappings = new[]
