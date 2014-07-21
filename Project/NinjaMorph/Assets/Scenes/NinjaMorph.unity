@@ -2696,6 +2696,7 @@ GameObject:
   - 124: {fileID: 158637118}
   - 81: {fileID: 158637117}
   - 114: {fileID: 158637122}
+  - 114: {fileID: 158637123}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2779,6 +2780,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb80518309e544877b9a4cca847faf32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &158637123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 158637116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e6df159e3fdf854f86a130bcc66aeea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuItems:
+  - {fileID: 1689510781}
+  - {fileID: 1616502253}
+  - {fileID: 1116922766}
+  pulseTime: .25
+  minPulseSize: 160
+  maxPulseSize: 200
+  increasing: 1
+  currentItem: 0
 --- !u!1 &179045102
 GameObject:
   m_ObjectHideFlags: 0
@@ -3009,7 +3030,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDistance: 2.5
   baseSettings:
-    texture: {fileID: 2800000, guid: dd924b1904e29ae4680aaf675a5a1f17, type: 3}
     walkSpeed: 2
     runSpeed: 6
     jumpHeight: .5
@@ -3019,13 +3039,12 @@ MonoBehaviour:
     landAnimationSpeed: 1
     gravity: 20
     speedSmoothing: 10
-    rotateSpeed: 500
+    jumpRepeat: 0
     transitionIn: {fileID: 0}
     transitionOut: {fileID: 0}
     effects: []
     effectLocations: []
   airSettings:
-    texture: {fileID: 2800000, guid: 64bf55f5d260d47caaaf491beccebe0d, type: 3}
     walkSpeed: 6
     runSpeed: 10
     jumpHeight: 2.5
@@ -3035,7 +3054,7 @@ MonoBehaviour:
     landAnimationSpeed: 1
     gravity: 10
     speedSmoothing: 5
-    rotateSpeed: 500
+    jumpRepeat: 0
     transitionIn: {fileID: 0}
     transitionOut: {fileID: 0}
     effects:
@@ -3043,7 +3062,6 @@ MonoBehaviour:
     effectLocations:
     - {x: 0, y: .5, z: 0}
   fireSettings:
-    texture: {fileID: 2800000, guid: 9f8be0f6d426d4cc5a4e36f4833e5917, type: 3}
     walkSpeed: 4
     runSpeed: 12
     jumpHeight: 2
@@ -3053,7 +3071,7 @@ MonoBehaviour:
     landAnimationSpeed: 1
     gravity: 20
     speedSmoothing: 10
-    rotateSpeed: 500
+    jumpRepeat: 0
     transitionIn: {fileID: 0}
     transitionOut: {fileID: 0}
     effects:
@@ -3061,7 +3079,6 @@ MonoBehaviour:
     effectLocations:
     - {x: 0, y: 1, z: 0}
   waterSettings:
-    texture: {fileID: 2800000, guid: 1eb5e6e00874b47a984bc41b7a50060c, type: 3}
     walkSpeed: 4
     runSpeed: 8
     jumpHeight: 2
@@ -3071,7 +3088,7 @@ MonoBehaviour:
     landAnimationSpeed: 1
     gravity: 20
     speedSmoothing: 10
-    rotateSpeed: 500
+    jumpRepeat: 0
     transitionIn: {fileID: 0}
     transitionOut: {fileID: 0}
     effects:
