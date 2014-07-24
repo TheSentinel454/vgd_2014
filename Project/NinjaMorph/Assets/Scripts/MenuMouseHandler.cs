@@ -1,4 +1,4 @@
-﻿﻿/*
+﻿/*
   Team Y-Not
   
   Evan LaHurd
@@ -37,6 +37,7 @@ public class MenuMouseHandler : MonoBehaviour
 		// Setup the input manager
 		InputManager.Setup ();
 	}
+
 	void FixedUpdate()
 	{
 		InputManager.Update();
@@ -47,6 +48,8 @@ public class MenuMouseHandler : MonoBehaviour
 		switch(selected)
 		{
 		case Selected.Back:
+			gameObject.GetComponent<PulseText>().selected = this.name == "BackButton";
+			/*
 			if (this.name == "BackButton")
 			{
 				// Transition to gray
@@ -57,8 +60,11 @@ public class MenuMouseHandler : MonoBehaviour
 				// Transition to white
 				iTween.ColorTo (gameObject, Color.white, colorTransitionSpeed);
 			}
+			*/
 			break;
 		case Selected.Help:
+			gameObject.GetComponent<PulseText>().selected = this.name == "HelpButton";
+			/*
 			if (this.name == "HelpButton")
 			{
 				// Transition to gray
@@ -69,19 +75,25 @@ public class MenuMouseHandler : MonoBehaviour
 				// Transition to white
 				iTween.ColorTo (gameObject, Color.white, colorTransitionSpeed);
 			}
+			*/
 			break;
 		case Selected.Play:
 		default:
+			gameObject.GetComponent<PulseText>().selected = this.name == "PlayButton";
+			/*
 			if (this.name == "PlayButton")
 			{
 				// Transition to gray
-				iTween.ColorTo (gameObject, Color.gray, colorTransitionSpeed);
+				gameObject.GetComponent<PulseText>().selected = true;
+				//iTween.ColorTo (gameObject, Color.gray, colorTransitionSpeed);
 			}
 			else
 			{
 				// Transition to white
-				iTween.ColorTo (gameObject, Color.white, colorTransitionSpeed);
+				gameObject.GetComponent<PulseText>().selected = false;
+				//iTween.ColorTo (gameObject, Color.white, colorTransitionSpeed);
 			}
+			*/
 			break;
 		}
 		if (inputDevice.Action1.WasPressed)
@@ -110,7 +122,9 @@ public class MenuMouseHandler : MonoBehaviour
 		if (state == State.Main)
 		{
 			if (inputDevice.DPadDown.WasReleased ||
-			    inputDevice.DPadUp.WasReleased)
+			    inputDevice.DPadUp.WasReleased ||
+			    inputDevice.LeftStick.Up.WasReleased ||
+			    inputDevice.LeftStick.Down.WasReleased)
 			{
 				if (selected == Selected.Play)
 					selected = Selected.Help;
@@ -151,7 +165,8 @@ public class MenuMouseHandler : MonoBehaviour
 	void OnMouseEnter()
 	{
 		// Transition to gray
-		iTween.ColorTo (gameObject, Color.gray, colorTransitionSpeed);
+		gameObject.GetComponent<PulseText>().selected = true;
+		//iTween.ColorTo (gameObject, Color.gray, colorTransitionSpeed);
 	}
 
 	/// <summary>
@@ -160,6 +175,7 @@ public class MenuMouseHandler : MonoBehaviour
 	void OnMouseExit()
 	{
 		// Transition back to white
-		iTween.ColorTo (gameObject, Color.white, colorTransitionSpeed);
+		gameObject.GetComponent<PulseText>().selected = false;
+		//iTween.ColorTo (gameObject, Color.white, colorTransitionSpeed);
 	}
 }
