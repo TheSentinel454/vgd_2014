@@ -16,6 +16,7 @@ using InControl;
 public class GameController : MonoBehaviour
 {
 	public static GameObject instance;
+	public static GameController controller;
 
 	private GameObject player;
 
@@ -46,6 +47,7 @@ public class GameController : MonoBehaviour
 		{
 			// Set the singleton
 			instance = gameObject;
+			controller = this;
 			// Don't destroy this object
 			DontDestroyOnLoad(gameObject);
 		}
@@ -122,6 +124,15 @@ public class GameController : MonoBehaviour
 
 		// Check for Game Over
 		CheckGameOver ();
+	}
+
+	/// <summary>
+	/// Is the game paused?
+	/// </summary>
+	/// <returns><c>true</c>, if paused, <c>false</c> otherwise.</returns>
+	public bool isPaused()
+	{
+		return (Time.timeScale < 1.0f);
 	}
 
 	/// <summary>

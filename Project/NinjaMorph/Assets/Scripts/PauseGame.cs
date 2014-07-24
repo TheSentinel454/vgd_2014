@@ -32,7 +32,6 @@ public class PauseGame : MonoBehaviour
 			// See if the Start button was released
 			if (InputManager.ActiveDevice.GetControl(InputControlType.Start).WasReleased)
 			{
-				print("Unpaused: " + Time.time);
 				alterTime = Time.time;
 				// Unpause the game
 				paused = false;
@@ -58,7 +57,6 @@ public class PauseGame : MonoBehaviour
 			// Check for the menu press
 			if (InputManager.ActiveDevice.GetControl(InputControlType.Start).WasReleased)
 			{
-				print("Paused: " + Time.time);
 				alterTime = Time.time;
 				// Pause the game
 				paused = true;
