@@ -1,4 +1,4 @@
-﻿﻿/*
+﻿/*
   Team Y-Not
   
   Evan LaHurd
@@ -9,9 +9,8 @@ using UnityEngine;
 using System.Collections;
 using InControl;
 
-public class MenuMouseHandler : MonoBehaviour
+public class MainMenuHandler : MonoBehaviour
 {
-	public float colorTransitionSpeed = 0.15f;
 	public float rotateTransitionSpeed = 1.0f;
 	private InputDevice inputDevice;
 	public static State state;
@@ -37,6 +36,7 @@ public class MenuMouseHandler : MonoBehaviour
 		// Setup the input manager
 		InputManager.Setup ();
 	}
+
 	void FixedUpdate()
 	{
 		InputManager.Update();
@@ -44,46 +44,6 @@ public class MenuMouseHandler : MonoBehaviour
 		// Use last device which provided input.
 		inputDevice = InputManager.ActiveDevice;
 
-		switch(selected)
-		{
-		case Selected.Back:
-			if (this.name == "BackButton")
-			{
-				// Transition to gray
-				iTween.ColorTo (gameObject, Color.gray, colorTransitionSpeed);
-			}
-			else
-			{
-				// Transition to white
-				iTween.ColorTo (gameObject, Color.white, colorTransitionSpeed);
-			}
-			break;
-		case Selected.Help:
-			if (this.name == "HelpButton")
-			{
-				// Transition to gray
-				iTween.ColorTo (gameObject, Color.gray, colorTransitionSpeed);
-			}
-			else
-			{
-				// Transition to white
-				iTween.ColorTo (gameObject, Color.white, colorTransitionSpeed);
-			}
-			break;
-		case Selected.Play:
-		default:
-			if (this.name == "PlayButton")
-			{
-				// Transition to gray
-				iTween.ColorTo (gameObject, Color.gray, colorTransitionSpeed);
-			}
-			else
-			{
-				// Transition to white
-				iTween.ColorTo (gameObject, Color.white, colorTransitionSpeed);
-			}
-			break;
-		}
 		if (inputDevice.Action1.WasPressed)
 		{
 			switch(selected)
@@ -107,10 +67,25 @@ public class MenuMouseHandler : MonoBehaviour
 				break;
 			}
 		}
+		switch(selected)
+		{
+		case Selected.Back:
+			gameObject.GetComponent<PulseText>().selected = this.name == "BackButton";
+			break;
+		case Selected.Help:
+			gameObject.GetComponent<PulseText>().selected = this.name == "HelpButton";
+			break;
+		case Selected.Play:
+		default:
+			gameObject.GetComponent<PulseText>().selected = this.name == "PlayButton";
+			break;
+		}
 		if (state == State.Main)
 		{
 			if (inputDevice.DPadDown.WasReleased ||
-			    inputDevice.DPadUp.WasReleased)
+			    inputDevice.DPadUp.WasReleased ||
+			    inputDevice.LeftStick.Up.WasReleased ||
+			    inputDevice.LeftStick.Down.WasReleased)
 			{
 				if (selected == Selected.Play)
 					selected = Selected.Help;
@@ -150,8 +125,18 @@ public class MenuMouseHandler : MonoBehaviour
 	/// </summary>
 	void OnMouseEnter()
 	{
-		// Transition to gray
-		iTween.ColorTo (gameObject, Color.gray, colorTransitionSpeed);
+		if (this.name == "PlayButton")
+		{
+			selected = Selected.Play;
+		}
+		else if (this.name == "HelpButton")
+		{
+			selected = Selected.Help;
+		}
+		else if (this.name == "BackButton")
+		{
+			selected = Selected.Back;
+		}
 	}
 
 	/// <summary>
@@ -160,6 +145,6 @@ public class MenuMouseHandler : MonoBehaviour
 	void OnMouseExit()
 	{
 		// Transition back to white
-		iTween.ColorTo (gameObject, Color.white, colorTransitionSpeed);
+		gameObject.GetComponent<PulseText>().selected = false;
 	}
 }

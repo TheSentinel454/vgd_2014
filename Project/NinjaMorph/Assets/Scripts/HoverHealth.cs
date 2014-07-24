@@ -18,8 +18,11 @@ public class HoverHealth : MonoBehaviour
 	private Vector3 worldPosition = new Vector3();
 	private Vector3 screenPosition = new Vector3();
 	private Camera mainCamera;
-	private int healthBarLeft = 110;
-	private int barTop = 1;
+	private int healthBarLeft = 100;
+	private int barTop = 5;
+
+	private float textOffsetLeft = 38.0f;
+	private float textOffsetTop = -2.0f;
 
 	/// <summary>
 	/// Awake this instance.
@@ -47,7 +50,7 @@ public class HoverHealth : MonoBehaviour
 			GUI.color = Color.white;
 			GUI.contentColor = Color.white;
 			// Displays health in text format
-			GUI.Label(new Rect(screenPosition.x - healthBarLeft / 2, Screen.height - screenPosition.y - barTop + 5, 100, 100), "" + dmgObject.health + "/" + dmgObject.maxHealth);
+			GUI.Label(new Rect(screenPosition.x - healthBarLeft / 2 + textOffsetLeft, Screen.height - screenPosition.y - barTop + textOffsetTop, 100, 100), ((int)dmgObject.health).ToString());
 		}
 	}
 }

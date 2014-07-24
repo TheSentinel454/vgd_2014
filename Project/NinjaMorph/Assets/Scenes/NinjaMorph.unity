@@ -2696,7 +2696,6 @@ GameObject:
   - 124: {fileID: 158637118}
   - 81: {fileID: 158637117}
   - 114: {fileID: 158637122}
-  - 114: {fileID: 158637123}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2780,26 +2779,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb80518309e544877b9a4cca847faf32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &158637123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 158637116}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e6df159e3fdf854f86a130bcc66aeea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  menuItems:
-  - {fileID: 1689510781}
-  - {fileID: 1616502253}
-  - {fileID: 1116922766}
-  pulseTime: .25
-  minPulseSize: 160
-  maxPulseSize: 200
-  increasing: 1
-  currentItem: 0
 --- !u!1 &179045102
 GameObject:
   m_ObjectHideFlags: 0
@@ -16462,6 +16441,7 @@ GameObject:
   - 102: {fileID: 1116922769}
   - 65: {fileID: 1116922768}
   - 114: {fileID: 1116922767}
+  - 114: {fileID: 1116922772}
   m_Layer: 0
   m_Name: BackButton
   m_TagString: Untagged
@@ -16547,6 +16527,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &1116922772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1116922766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7d301cb709b3b148a51d27d467b0eff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pulseTime: .25
+  minPulseSize: 100
+  maxPulseSize: 140
+  increasing: 1
+  selected: 0
 --- !u!1 &1137255594
 GameObject:
   m_ObjectHideFlags: 0
@@ -21093,6 +21089,7 @@ GameObject:
   - 102: {fileID: 1616502256}
   - 114: {fileID: 1616502255}
   - 65: {fileID: 1616502254}
+  - 114: {fileID: 1616502259}
   m_Layer: 0
   m_Name: HelpButton
   m_TagString: Untagged
@@ -21178,6 +21175,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
+--- !u!114 &1616502259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1616502253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7d301cb709b3b148a51d27d467b0eff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pulseTime: .25
+  minPulseSize: 120
+  maxPulseSize: 160
+  increasing: 1
+  selected: 0
 --- !u!1 &1627224045
 GameObject:
   m_ObjectHideFlags: 0
@@ -22372,6 +22385,7 @@ GameObject:
   - 102: {fileID: 1689510784}
   - 114: {fileID: 1689510783}
   - 65: {fileID: 1689510782}
+  - 114: {fileID: 1689510787}
   m_Layer: 0
   m_Name: PlayButton
   m_TagString: Untagged
@@ -22457,6 +22471,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
+--- !u!114 &1689510787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1689510781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7d301cb709b3b148a51d27d467b0eff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pulseTime: .25
+  minPulseSize: 160
+  maxPulseSize: 200
+  increasing: 1
+  selected: 1
 --- !u!1 &1695056311
 GameObject:
   m_ObjectHideFlags: 0

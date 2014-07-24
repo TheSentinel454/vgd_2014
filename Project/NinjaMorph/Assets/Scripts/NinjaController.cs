@@ -277,7 +277,6 @@ public class NinjaController : MonoBehaviour
             if (jumping && !jumpingReachedApex && verticalSpeed <= 0.0f)
             {
                 jumpingReachedApex = true;
-				DidJumpReachApex();
             }
 
             if (IsGrounded())
@@ -362,14 +361,6 @@ public class NinjaController : MonoBehaviour
 		lastJumpButtonTime = -10;
 	}
 
-	public void DidJumpReachApex()
-	{
-	}
-
-	public void DidLand()
-	{
-	}
-
     void FixedUpdate()
 	{
 		InputManager.Update();
@@ -436,7 +427,6 @@ public class NinjaController : MonoBehaviour
             if (jumping)
             {
                 jumping = false;
-				DidLand();
             }
         }
     }
@@ -744,6 +734,10 @@ public class NinjaController : MonoBehaviour
 	/// <param name="collider">Collider.</param>
 	void OnTriggerStay(Collider collider)
 	{
+		// See if we are paused
+		if (GameController.controller.isPaused())
+			// Nothing to do
+			return;
 		// Check for the interactive object script
 		InteractiveObject obj = (InteractiveObject)collider.gameObject.GetComponentInChildren<InteractiveObject> ();
 		if (obj != null)
@@ -825,9 +819,12 @@ public class NinjaController : MonoBehaviour
 		// then you can also multiply the push velocity by that.
 
 		// open the door faster if they're running
-		if (inputDevice.LeftTrigger.IsPressed) {//Input.GetKey (KeyCode.LeftShift) || Input.GetKey (KeyCode.RightShift)) {
+		if (inputDevice.LeftTrigger.IsPressed)
+		{
 			pushPower = 4.0f;
-		} else {
+		}
+		else
+		{
 			pushPower = 2.0f;
 		}
 		// Apply the push
@@ -880,61 +877,56 @@ public class NinjaController : MonoBehaviour
 		float left = GUI.skin.box.padding.left;
 		float containerWidth = 80.0f;
 		float containerHeight = 30.0f;
+		float height = containerHeight - GUI.skin.box.padding.vertical;
+		float energyContainerTop = GUI.skin.window.padding.top + height + GUI.skin.window.padding.bottom;
+
 		// Zen Bar Container
 		float zenContainerWidth = 250.0f;
-		float zenContainerTop = GUI.skin.window.padding.top;
 		float zenContainerLeft = Screen.width - zenContainerWidth - GUI.skin.window.padding.right;
 		
 		// Zen Bar 
 		float zenWidth = (zenEnergy / MAX_BAR_VALUE) * (zenContainerWidth - GUI.skin.box.padding.horizontal);
-		float zenHeight = containerHeight - GUI.skin.box.padding.vertical;
 		
 		// Zen GUI
-		GUI.BeginGroup (new Rect (zenContainerLeft, zenContainerTop, zenContainerWidth, containerHeight));
-		GUI.Box(new Rect(0, 0, zenContainerWidth, containerHeight), "");
-		GUI.Box(new Rect(left, top, zenWidth, zenHeight), "", zenStyle);
+		GUI.BeginGroup (new Rect (zenContainerLeft, GUI.skin.window.padding.top, zenContainerWidth, containerHeight));
+		GUI.Box(new Rect(0, 0, zenContainerWidth, containerHeight), ((int)zenEnergy).ToString());
+		GUI.Box(new Rect(left, top, zenWidth, height), "", zenStyle);
 		GUI.EndGroup ();
 
 		// Fire Bar Container
-		float fireContainerTop = GUI.skin.window.padding.top + zenHeight + GUI.skin.window.padding.bottom;
 		float fireContainerLeft = Screen.width - containerWidth - GUI.skin.window.padding.right;
 		
 		// Fire Bar 
 		float fireWidth = (fireEnergy / MAX_BAR_VALUE) * (containerWidth - GUI.skin.box.padding.horizontal);
-		float fireHeight = containerHeight - GUI.skin.box.padding.vertical;
-		
+
 		// Fire GUI
-		GUI.BeginGroup (new Rect (fireContainerLeft, fireContainerTop, containerWidth, containerHeight));
-		GUI.Box(new Rect(0, 0, containerWidth, containerHeight), "");
-		GUI.Box(new Rect(left, top, fireWidth, fireHeight), "", fireStyle);
+		GUI.BeginGroup (new Rect (fireContainerLeft, energyContainerTop, containerWidth, containerHeight));
+		GUI.Box(new Rect(0, 0, containerWidth, containerHeight), ((int)fireEnergy).ToString());
+		GUI.Box(new Rect(left, top, fireWidth, height), "", fireStyle);
 		GUI.EndGroup ();
 
 		// Air Bar Container
-		float airContainerTop = GUI.skin.window.padding.top + zenHeight + GUI.skin.window.padding.bottom;
 		float airContainerLeft = fireContainerLeft - containerWidth - 5.0f;
 		
 		// Air Bar 
 		float airWidth = (airEnergy / MAX_BAR_VALUE) * (containerWidth - GUI.skin.box.padding.horizontal);
-		float airHeight = containerHeight - GUI.skin.box.padding.vertical;
-		
+
 		// Air GUI
-		GUI.BeginGroup (new Rect (airContainerLeft, airContainerTop, containerWidth, containerHeight));
-		GUI.Box(new Rect(0, 0, containerWidth, containerHeight), "");
-		GUI.Box(new Rect(left, top, airWidth, airHeight), "", airStyle);
+		GUI.BeginGroup (new Rect (airContainerLeft, energyContainerTop, containerWidth, containerHeight));
+		GUI.Box(new Rect(0, 0, containerWidth, containerHeight), ((int)airEnergy).ToString());
+		GUI.Box(new Rect(left, top, airWidth, height), "", airStyle);
 		GUI.EndGroup ();
 		
 		// Water Bar Container
-		float waterContainerTop = GUI.skin.window.padding.top + zenHeight + GUI.skin.window.padding.bottom;
 		float waterContainerLeft = airContainerLeft - containerWidth - 5.0f;
 		
 		// Water Bar 
 		float waterWidth = (waterEnergy / MAX_BAR_VALUE) * (containerWidth - GUI.skin.box.padding.horizontal);
-		float waterHeight = containerHeight - GUI.skin.box.padding.vertical;
 		
 		// Water GUI
-		GUI.BeginGroup (new Rect (waterContainerLeft, waterContainerTop, containerWidth, containerHeight));
-		GUI.Box(new Rect(0, 0, containerWidth, containerHeight), "");
-		GUI.Box(new Rect(left, top, waterWidth, waterHeight), "", waterStyle);
+		GUI.BeginGroup (new Rect (waterContainerLeft, energyContainerTop, containerWidth, containerHeight));
+		GUI.Box(new Rect(0, 0, containerWidth, containerHeight), ((int)waterEnergy).ToString());
+		GUI.Box(new Rect(left, top, waterWidth, height), "", waterStyle);
 		GUI.EndGroup ();
 	}
 
