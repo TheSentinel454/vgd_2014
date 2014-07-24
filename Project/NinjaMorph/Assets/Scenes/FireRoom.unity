@@ -2197,7 +2197,7 @@ Transform:
   - {fileID: 864482289}
   - {fileID: 599627715}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
 --- !u!1 &108941456
 GameObject:
   m_ObjectHideFlags: 0
@@ -5929,6 +5929,18 @@ Prefab:
       propertyPath: m_Name
       value: Spray
       objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 7f0d6f95be4f84fe5bf3cfd3ffb7dd12, type: 2}
+      propertyPath: CollisionModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 7f0d6f95be4f84fe5bf3cfd3ffb7dd12, type: 2}
+      propertyPath: CollisionModule.quality
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: 7f0d6f95be4f84fe5bf3cfd3ffb7dd12, type: 2}
+      propertyPath: CollisionModule.type
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7f0d6f95be4f84fe5bf3cfd3ffb7dd12, type: 2}
   m_RootGameObject: {fileID: 942659449}
@@ -8173,6 +8185,7 @@ GameObject:
   - 33: {fileID: 599627714}
   - 23: {fileID: 599627713}
   - 95: {fileID: 599627712}
+  - 64: {fileID: 599627716}
   m_Layer: 0
   m_Name: Computer
   m_TagString: Untagged
@@ -8237,6 +8250,19 @@ Transform:
   - {fileID: 942659452}
   m_Father: {fileID: 108763935}
   m_RootOrder: 18
+--- !u!64 &599627716
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 599627711}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_SmoothSphereCollisions: 0
+  m_Convex: 0
+  m_Mesh: {fileID: 4300002, guid: fabbeb3ba6dd00b44a5a36cbd8b3a78e, type: 3}
 --- !u!1001 &603329126
 Prefab:
   m_ObjectHideFlags: 0
@@ -12917,7 +12943,7 @@ ParticleSystem:
       minMaxState: 1
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 0
+    enabled: 1
     type: 1
     plane0: {fileID: 0}
     plane1: {fileID: 0}
@@ -14356,7 +14382,7 @@ Transform:
   m_Children:
   - {fileID: 1652752899}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 2
 --- !u!1001 &990193528
 Prefab:
   m_ObjectHideFlags: 0
@@ -15522,7 +15548,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
 --- !u!1 &1199347512
 GameObject:
   m_ObjectHideFlags: 0
@@ -19292,7 +19318,7 @@ Transform:
   - {fileID: 339697790}
   - {fileID: 514167456}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
 --- !u!82 &1519303930
 AudioSource:
   m_ObjectHideFlags: 0
