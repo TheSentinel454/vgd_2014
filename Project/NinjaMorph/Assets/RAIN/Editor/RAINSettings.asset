@@ -15,18 +15,14 @@ MonoBehaviour:
   _cacheDirectory: Assets/AI/Cache/
   _btSaveDirectory: Assets/AI/BehaviorTrees/
   _btEditorSearchDirectory: Assets/AI/BehaviorTrees/
-  _lastLoadSaveDirectory: /Users/Jonathan/Desktop
+  _lastLoadSaveDirectory: 
   _btInspectorPaneWidth: 300
   _btInspectorFieldWidth: 120
   _navMeshGenerationThreads: 4
   _useSkin: 1
   _skin: {fileID: 11400000, guid: 1cc6173ca6a844f129775a650e9f7f66, type: 2}
-  _showAdvanced: 1
+  _showAdvanced: 0
   _allowAutoUpdateCheck: 1
-<<<<<<< HEAD
-  _lastUpdateCheck: 7/23/2014 11:02:00 PM
-=======
-  _lastUpdateCheck: 7/23/2014 11:26:42 PM
->>>>>>> 8b44c0b458f801e407ee6930e5c2625fd8f70868
+  _lastUpdateCheck: 7/24/2014 12:49:27 AM
   _updateFrequencyHours: 24
   _updateMetaformRequired: 0
