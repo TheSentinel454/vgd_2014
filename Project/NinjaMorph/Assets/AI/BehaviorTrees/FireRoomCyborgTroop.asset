@@ -60,7 +60,9 @@ MonoBehaviour:
       name=&quot;waypointpatrol&quot; movetargetvariable=&quot;WayPoint&quot;&gt;&lt;move
       turnspeed=&quot;&quot; repeatuntil=&quot;&quot; name=&quot;move&quot; movetarget=&quot;WayPoint&quot;
       movespeed=&quot;&quot; facetarget=&quot;&quot; closeenoughdistance=&quot;&quot;
-      closeenoughangle=&quot;&quot; /&gt;&lt;/waypointpatrol&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;constraint
+      closeenoughangle=&quot;&quot; /&gt;&lt;/waypointpatrol&gt;&lt;action repeatuntil=&quot;&quot;
+      parametervalues=&quot;&quot; parameters=&quot;&quot; namespace=&quot;(global)&quot;
+      name=&quot;Search Color Blue&quot; classname=&quot;SearchColorBlue&quot; /&gt;&lt;/parallel&gt;&lt;/constraint&gt;&lt;constraint
       repeatuntil=&quot;&quot; priority=&quot;&quot; name=&quot;Cyborg Ninja Visible&quot;
       constraint=&quot;CyborgNinja != null &amp;amp;&amp;amp; CyborgNinjaNear == null&quot;&gt;&lt;parallel
       tiebreaker=&quot;fail&quot; succeed=&quot;all&quot; repeatuntil=&quot;&quot;
@@ -72,6 +74,8 @@ MonoBehaviour:
       closeenoughdistance=&quot;&quot; closeenoughangle=&quot;&quot; /&gt;&lt;mecparam
       valueexpression=&quot;1&quot; repeatuntil=&quot;running&quot; parametertype=&quot;float&quot;
       parametername=&quot;speed&quot; name=&quot;Speed&quot; damptime=&quot;1&quot;
+      /&gt;&lt;action repeatuntil=&quot;&quot; parametervalues=&quot;&quot; parameters=&quot;&quot;
+      namespace=&quot;(global)&quot; name=&quot;Search Color Red&quot; classname=&quot;SearchColorRed&quot;
       /&gt;&lt;selector usepriorities=&quot;False&quot; repeatuntil=&quot;&quot; name=&quot;Attack
       Range&quot;&gt;&lt;constraint repeatuntil=&quot;&quot; priority=&quot;&quot;
       name=&quot;WIthin Attack Range&quot; constraint=&quot;CyborgNinjaAttackRange
@@ -94,15 +98,17 @@ MonoBehaviour:
       namespace=&quot;(global)&quot; name=&quot;Raise Weapon&quot; classname=&quot;RaiseWeapon&quot;
       /&gt;&lt;mecparam valueexpression=&quot;true&quot; repeatuntil=&quot;&quot;
       parametertype=&quot;boolean&quot; parametername=&quot;attacking&quot; name=&quot;Start
-      Attacking&quot; damptime=&quot;0&quot; /&gt;&lt;selector usepriorities=&quot;False&quot;
-      repeatuntil=&quot;&quot; name=&quot;Retreat&quot;&gt;&lt;constraint repeatuntil=&quot;&quot;
-      priority=&quot;&quot; name=&quot;Is Not Too Close&quot; constraint=&quot;CyborgNinjaTooClose
-      == null&quot;&gt;&lt;mecparam valueexpression=&quot;0&quot; repeatuntil=&quot;running&quot;
-      parametertype=&quot;float&quot; parametername=&quot;speed&quot; name=&quot;Speed&quot;
-      damptime=&quot;1&quot; /&gt;&lt;/constraint&gt;&lt;constraint repeatuntil=&quot;&quot;
-      priority=&quot;&quot; name=&quot;Is Too Close&quot; constraint=&quot;CyborgNinjaTooClose
-      != null&quot;&gt;&lt;parallel tiebreaker=&quot;fail&quot; succeed=&quot;all&quot;
-      repeatuntil=&quot;&quot; name=&quot;parallel&quot; fail=&quot;any&quot;&gt;&lt;action
+      Attacking&quot; damptime=&quot;0&quot; /&gt;&lt;action repeatuntil=&quot;&quot;
+      parametervalues=&quot;&quot; parameters=&quot;&quot; namespace=&quot;(global)&quot;
+      name=&quot;Search Color Red&quot; classname=&quot;SearchColorRed&quot; /&gt;&lt;selector
+      usepriorities=&quot;False&quot; repeatuntil=&quot;&quot; name=&quot;Retreat&quot;&gt;&lt;constraint
+      repeatuntil=&quot;&quot; priority=&quot;&quot; name=&quot;Is Not Too Close&quot;
+      constraint=&quot;CyborgNinjaTooClose == null&quot;&gt;&lt;mecparam valueexpression=&quot;0&quot;
+      repeatuntil=&quot;running&quot; parametertype=&quot;float&quot; parametername=&quot;speed&quot;
+      name=&quot;Speed&quot; damptime=&quot;1&quot; /&gt;&lt;/constraint&gt;&lt;constraint
+      repeatuntil=&quot;&quot; priority=&quot;&quot; name=&quot;Is Too Close&quot;
+      constraint=&quot;CyborgNinjaTooClose != null&quot;&gt;&lt;parallel tiebreaker=&quot;fail&quot;
+      succeed=&quot;all&quot; repeatuntil=&quot;&quot; name=&quot;parallel&quot; fail=&quot;any&quot;&gt;&lt;action
       repeatuntil=&quot;running&quot; parametervalues=&quot;&quot; parameters=&quot;&quot;
       namespace=&quot;(global)&quot; name=&quot;Detect Walls&quot; classname=&quot;DetectWallsBehind&quot;
       /&gt;&lt;selector usepriorities=&quot;False&quot; repeatuntil=&quot;&quot; name=&quot;Wall
