@@ -19,8 +19,8 @@ public class DetectWallsBehind : RAINAction
 
     public override ActionResult Execute(AI ai)
     {
-		
-		ai.WorkingMemory.SetItem<bool>("WallBehind", !ai.Navigator.CurrentGraph.IsPointOnGraph(ai.Body.transform.position + -ai.Body.transform.forward, 5));
+		if (ai.Navigator.CurrentGraph != null)
+			ai.WorkingMemory.SetItem<bool>("WallBehind", !ai.Navigator.CurrentGraph.IsPointOnGraph(ai.Body.transform.position + -ai.Body.transform.forward, 5));
         return ActionResult.SUCCESS;
     }
 
