@@ -1,7 +1,7 @@
 class WaterInteractions extends MonoBehaviour
 {
 	public var soldier : Transform;
-	private var controller : SoldierController;
+	//private var controller : SoldierController;
 	
 	private var emitMovement : boolean;
 	public var movementContainer : Transform;
@@ -46,10 +46,11 @@ class WaterInteractions extends MonoBehaviour
 	
 	function Start()
 	{
-		controller = soldier.GetComponent("SoldierController");
+		//controller = soldier.GetComponent("SoldierController");
 		
 		currentAmount = 1.0;
 		
+		/*
 		runSpeed = controller.runSpeed;
 		runStrafeSpeed = controller.runStrafeSpeed;
 		walkSpeed = controller.walkSpeed;
@@ -58,6 +59,7 @@ class WaterInteractions extends MonoBehaviour
 		crouchRunStrafeSpeed = controller.crouchRunStrafeSpeed;
 		crouchWalkSpeed = controller.crouchWalkSpeed;
 		crouchWalkStrafeSpeed = controller.crouchWalkStrafeSpeed;
+		*/
 		
 		jumpTimer = 0.0;	 
 		emitMovement = false;
@@ -92,7 +94,7 @@ class WaterInteractions extends MonoBehaviour
 		var dir = (currentPosition - lastPositon).normalized;
 		
 		thisT.position = soldier.position + new Vector3(0, 1.8, 0);
-		
+		/*
 		if(!GameManager.pause)
 		{
 			jumped = Input.GetButtonDown("Jump");
@@ -197,10 +199,12 @@ class WaterInteractions extends MonoBehaviour
 				}
 			}
 		}
+		*/
 	}
 	
 	function ChangeSpeed(amount : float)
 	{
+		/*
 		if(currentAmount == amount) return;
 		
 		currentAmount = amount;
@@ -213,6 +217,7 @@ class WaterInteractions extends MonoBehaviour
 		controller.crouchRunStrafeSpeed = crouchRunStrafeSpeed * amount;
 		controller.crouchWalkSpeed = crouchWalkSpeed * amount;
 		controller.crouchWalkStrafeSpeed = crouchWalkStrafeSpeed * amount;
+		*/
 	}
 	
 	function EmitJumpParticles(b : boolean, hitInfo : RaycastHit)

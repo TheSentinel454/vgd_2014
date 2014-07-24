@@ -10,7 +10,6 @@ using System.Collections;
 using InControl;
 
 [RequireComponent (typeof(CyborgNinjaAnimationController))]
-[RequireComponent (typeof(NinjaController))]
 public class CyborgNinjaController : MonoBehaviour {
 
 	// ANIMATIONS
@@ -34,6 +33,6 @@ public class CyborgNinjaController : MonoBehaviour {
 			InputManager.ActiveDevice.RightTrigger.IsPressed ||
 			InputManager.ActiveDevice.RightTrigger.WasReleased;
 		animationController.weapon ^= InputManager.ActiveDevice.RightBumper.WasPressed;
-		animationController.dead = ninjaController.getZen() <= 0;
+		animationController.dead = (ninjaController != null ? ninjaController.getZen() <= 0 : false);
 	}
 }
