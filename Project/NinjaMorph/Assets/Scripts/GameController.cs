@@ -15,6 +15,8 @@ using InControl;
 
 public class GameController : MonoBehaviour
 {
+	public static GameObject instance;
+
 	private GameObject player;
 
 	private NinjaController ninjaController;
@@ -37,10 +39,27 @@ public class GameController : MonoBehaviour
 
 	private bool gameActive = true;
 
+	void Awake()
+	{
+		// See if we don't have the singleton yet
+		if (!instance)
+		{
+			// Set the singleton
+			instance = gameObject;
+			// Don't destroy this object
+			DontDestroyOnLoad(gameObject);
+		}
+		// We have the singleton already
+		else
+		{
+			// Destroy the new object
+			Destroy(gameObject);
+		}
+	}
+
 	// Use this for initialization
 	void Start ()
 	{
-		DontDestroyOnLoad(gameObject);
 #if PLAY_TESTING
 		playTest = new PlayTesting ();
 		testInfo = new PlayTestInfo ();
