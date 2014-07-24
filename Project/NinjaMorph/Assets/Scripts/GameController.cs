@@ -12,13 +12,13 @@ using UnityEngine;
 using System.Collections;
 using InControl;
 
-
 public class GameController : MonoBehaviour
 {
 	public static GameObject instance;
 	public static GameController controller;
 
 	private GameObject player;
+	public GameObject pauseUI;
 
 	private NinjaController ninjaController;
 	private MessageManager msgManager;
@@ -40,6 +40,9 @@ public class GameController : MonoBehaviour
 
 	private bool gameActive = true;
 
+	/// <summary>
+	/// Awake this instance.
+	/// </summary>
 	void Awake()
 	{
 		// See if we don't have the singleton yet
@@ -85,6 +88,20 @@ public class GameController : MonoBehaviour
 			else if (puzzle.name.Equals("Water Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
 				waterPuzzle = puzzle;
 		}
+		// See if we need to find the pause UI
+		if (pauseUI == null)
+		{
+			// Get the Pause UI
+			pauseUI = GameObject.FindGameObjectWithTag("PauseUI");
+		}
+	}
+
+	void Update()
+	{
+		if (pauseUI != null)
+		{
+			pauseUI.SetActive(isPaused());
+		}
 	}
 
 	/// <summary>
@@ -96,6 +113,12 @@ public class GameController : MonoBehaviour
 		if (!gameActive)
 			return;
 
+		// See if we need to find the pause UI
+		if (pauseUI == null)
+		{
+			// Get the Pause UI
+			pauseUI = GameObject.FindGameObjectWithTag("PauseUI");
+		}
 		// See if we need to find the ninja controller again
 		if (player == null)
 		{

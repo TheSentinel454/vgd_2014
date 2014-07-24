@@ -14,6 +14,11 @@ public class PulseText : MonoBehaviour
 	private float timePassed;
 	private TextMesh textMesh;
 
+	// Variables for calculating delta time
+	private float timeLastFrame = 0.0f;
+	private float timeCurrentFrame = 0.0f;
+	private float deltaTime = 0.0f;
+
 	/// <summary>
 	/// Start this instance.
 	/// </summary>
@@ -30,18 +35,22 @@ public class PulseText : MonoBehaviour
 	/// </summary>
 	void Update ()
 	{
+		// Create our own delta time based on realtime since startup
+		timeCurrentFrame = Time.realtimeSinceStartup;
+		deltaTime = timeCurrentFrame - timeLastFrame;
+		timeLastFrame = timeCurrentFrame; 
 		// Make sure we are selected
 		if (selected)
 		{
 			if (increasing)
 			{
-				timePassed += Time.deltaTime;
+				timePassed += deltaTime;
 				if (timePassed >= pulseTime)
 					increasing = false;
 			}
 			else
 			{
-				timePassed -= Time.deltaTime;
+				timePassed -= deltaTime;
 				if (timePassed <= 0.0f)
 					increasing = true;
 			}

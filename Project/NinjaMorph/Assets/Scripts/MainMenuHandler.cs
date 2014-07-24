@@ -9,9 +9,8 @@ using UnityEngine;
 using System.Collections;
 using InControl;
 
-public class MenuMouseHandler : MonoBehaviour
+public class MainMenuHandler : MonoBehaviour
 {
-	public float colorTransitionSpeed = 0.15f;
 	public float rotateTransitionSpeed = 1.0f;
 	private InputDevice inputDevice;
 	public static State state;
@@ -45,57 +44,6 @@ public class MenuMouseHandler : MonoBehaviour
 		// Use last device which provided input.
 		inputDevice = InputManager.ActiveDevice;
 
-		switch(selected)
-		{
-		case Selected.Back:
-			gameObject.GetComponent<PulseText>().selected = this.name == "BackButton";
-			/*
-			if (this.name == "BackButton")
-			{
-				// Transition to gray
-				iTween.ColorTo (gameObject, Color.gray, colorTransitionSpeed);
-			}
-			else
-			{
-				// Transition to white
-				iTween.ColorTo (gameObject, Color.white, colorTransitionSpeed);
-			}
-			*/
-			break;
-		case Selected.Help:
-			gameObject.GetComponent<PulseText>().selected = this.name == "HelpButton";
-			/*
-			if (this.name == "HelpButton")
-			{
-				// Transition to gray
-				iTween.ColorTo (gameObject, Color.gray, colorTransitionSpeed);
-			}
-			else
-			{
-				// Transition to white
-				iTween.ColorTo (gameObject, Color.white, colorTransitionSpeed);
-			}
-			*/
-			break;
-		case Selected.Play:
-		default:
-			gameObject.GetComponent<PulseText>().selected = this.name == "PlayButton";
-			/*
-			if (this.name == "PlayButton")
-			{
-				// Transition to gray
-				gameObject.GetComponent<PulseText>().selected = true;
-				//iTween.ColorTo (gameObject, Color.gray, colorTransitionSpeed);
-			}
-			else
-			{
-				// Transition to white
-				gameObject.GetComponent<PulseText>().selected = false;
-				//iTween.ColorTo (gameObject, Color.white, colorTransitionSpeed);
-			}
-			*/
-			break;
-		}
 		if (inputDevice.Action1.WasPressed)
 		{
 			switch(selected)
@@ -118,6 +66,19 @@ public class MenuMouseHandler : MonoBehaviour
 				CameraFade.StartAlphaFade( Color.black, false, 1.5f, 0.0f, () => { Application.LoadLevel("AirRoom"); } );
 				break;
 			}
+		}
+		switch(selected)
+		{
+		case Selected.Back:
+			gameObject.GetComponent<PulseText>().selected = this.name == "BackButton";
+			break;
+		case Selected.Help:
+			gameObject.GetComponent<PulseText>().selected = this.name == "HelpButton";
+			break;
+		case Selected.Play:
+		default:
+			gameObject.GetComponent<PulseText>().selected = this.name == "PlayButton";
+			break;
 		}
 		if (state == State.Main)
 		{
@@ -164,9 +125,18 @@ public class MenuMouseHandler : MonoBehaviour
 	/// </summary>
 	void OnMouseEnter()
 	{
-		// Transition to gray
-		gameObject.GetComponent<PulseText>().selected = true;
-		//iTween.ColorTo (gameObject, Color.gray, colorTransitionSpeed);
+		if (this.name == "PlayButton")
+		{
+			selected = Selected.Play;
+		}
+		else if (this.name == "HelpButton")
+		{
+			selected = Selected.Help;
+		}
+		else if (this.name == "BackButton")
+		{
+			selected = Selected.Back;
+		}
 	}
 
 	/// <summary>
@@ -176,6 +146,5 @@ public class MenuMouseHandler : MonoBehaviour
 	{
 		// Transition back to white
 		gameObject.GetComponent<PulseText>().selected = false;
-		//iTween.ColorTo (gameObject, Color.white, colorTransitionSpeed);
 	}
 }

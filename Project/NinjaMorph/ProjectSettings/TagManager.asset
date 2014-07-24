@@ -8,6 +8,7 @@ TagManager:
   - Crates
   - Cannon Ball
   - Enemy
+  - PauseUI
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
