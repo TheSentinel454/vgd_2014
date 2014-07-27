@@ -3048,7 +3048,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400044, guid: c1629d0c148dc1c44a69360ac88cabfc, type: 2}
   m_PrefabInternal: {fileID: 1592140779}
   m_GameObject: {fileID: 297718330}
-  m_LocalRotation: {x: .628667712, y: -.543137074, z: -.0229188837, w: .556106031}
+  m_LocalRotation: {x: .628667653, y: -.543137014, z: -.0229188818, w: .556105971}
   m_LocalPosition: {x: -.0561961345, y: -.0106436154, z: -.0406058878}
   m_LocalScale: {x: 1.00000024, y: 1, z: 1}
   m_Children:
@@ -5002,6 +5002,8 @@ MonoBehaviour:
     - {x: -1, y: 4, z: 0}
   waterWalkingAudio: {fileID: 579353861}
   metalWalkingAudio: {fileID: 579353863}
+  attackAudio: {fileID: 0}
+  attackHitAudio: {fileID: 0}
   msgManager: {fileID: 0}
 --- !u!143 &579353859
 CharacterController:
