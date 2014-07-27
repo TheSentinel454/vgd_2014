@@ -57,6 +57,8 @@ public class NinjaController : MonoBehaviour
 
 	public AudioSource waterWalkingAudio;
 	public AudioSource metalWalkingAudio;
+	public AudioSource attackAudio;
+	public AudioSource attackHitAudio;
 	private AudioSource walkingAudio;
 
 	public MessageManager msgManager;
@@ -339,14 +341,19 @@ public class NinjaController : MonoBehaviour
 				{
 					// Deal damage to the object
 					obj.DealDamage(15.0f);
-#if PLAY_TESTING
+					attackHitAudio.Play();
+#if PLAY_TESTING	
 					// Check for death
 					if (!obj.alive)
 					{
 						numKills++;
 					}
 #endif
+				} else {
+					attackAudio.Play();
 				}
+			} else {
+				attackAudio.Play();
 			}
 		}
 		yield return true;
