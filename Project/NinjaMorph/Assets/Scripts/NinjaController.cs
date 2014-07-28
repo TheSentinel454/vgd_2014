@@ -150,7 +150,12 @@ public class NinjaController : MonoBehaviour
 	public float avgHealth(){ return (sumHealth / numHealthPoints); }
 #endif
 
-    private bool isControllable = true;
+	private bool isControllable = true;
+
+	public void setControl(bool controllable)
+	{
+		isControllable = controllable;
+	}
 
     void Awake()
     {
@@ -373,6 +378,11 @@ public class NinjaController : MonoBehaviour
 		InputManager.Update();
 		// Use last device which provided input.
 		inputDevice = InputManager.ActiveDevice;
+		if (!isControllable)
+		{
+			return;
+		}
+
 #if PLAY_TESTING
 		sumHealth += zenEnergy;
 		numHealthPoints += 1.0f;
@@ -380,11 +390,6 @@ public class NinjaController : MonoBehaviour
 		updateEnergyValues ();
 		handleNinjaChange ();
 
-        if (!isControllable)
-        {
-            // kill all inputs if not controllable.
-            Input.ResetInputAxes();
-        }
 		if (inputDevice.Action1.IsPressed)
         {
             lastJumpButtonTime = Time.time;
@@ -444,7 +449,7 @@ public class NinjaController : MonoBehaviour
 	void handleNinjaChange()
 	{
 		// Air Ninja
-		if (InputManager.ActiveDevice.Action4.WasPressed)// Input.GetKeyDown ("1"))
+		if (InputManager.ActiveDevice.Action4.WasPressed)
 		{
 			// See if we are currently the air ninja
 			if (ninjaType == NinjaType.Air)

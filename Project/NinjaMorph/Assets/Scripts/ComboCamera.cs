@@ -27,21 +27,26 @@ public class ComboCamera : MonoBehaviour
 	public float yMaxLimit = 80.0f;
 	private float x = 0.0f;
 	private float y = 0.0f;
+	private bool controllable = false;
 	/** END **/
+
+	public void setControllable(int state)
+	{
+		print ("Controllable: " + state);
+		controllable = (state == 1);
+		GameController.controller.setControllable (state == 1);
+	}
 
 	void LateUpdate ()
 	{
 		// Make sure we have a target
 		if (!target)
 			return;
+
+		if (!controllable)
+			return;
 		
 		var inputDevice = InputManager.ActiveDevice;
-		/*
-		// Check for mouse scroll
-		float scroll = Input.GetAxis("Mouse ScrollWheel");
-		// Alter the distance if there was any scrolling
-		distance = Mathf.Clamp(distance + scroll * (-zoomSpeed), minDistance, maxDistance);
-		*/
 		// Make the rigid body does not change rotation
 		if (rigidbody && !rigidbody.freezeRotation)
 			rigidbody.freezeRotation = true;

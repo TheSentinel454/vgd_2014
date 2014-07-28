@@ -39,6 +39,7 @@ public class GameController : MonoBehaviour
 	private int timerThreshhold = 5;
 
 	private bool gameActive = true;
+	private bool controllable = false;
 
 	/// <summary>
 	/// Awake this instance.
@@ -98,6 +99,8 @@ public class GameController : MonoBehaviour
 
 	void Update()
 	{
+		if (pauseUI == null)
+			pauseUI = GameObject.FindGameObjectWithTag("PauseUI");
 		if (pauseUI != null)
 		{
 			pauseUI.SetActive(isPaused());
@@ -111,6 +114,9 @@ public class GameController : MonoBehaviour
 	{
 		// Only update if active
 		if (!gameActive)
+			return;
+		
+		if (!controllable)
 			return;
 
 		// See if we need to find the pause UI
@@ -156,6 +162,17 @@ public class GameController : MonoBehaviour
 	public bool isPaused()
 	{
 		return (Time.timeScale < 1.0f);
+	}
+
+	/// <summary>
+	/// Sets the controllable.
+	/// </summary>
+	/// <param name="control">If set to <c>true</c> controllable.</param>
+	public void setControllable(bool control)
+	{
+		if (ninjaController != null)
+			ninjaController.setControl(control);
+		controllable = control;
 	}
 
 	/// <summary>
