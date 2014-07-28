@@ -27,7 +27,7 @@ public class ComboCamera : MonoBehaviour
 	public float yMaxLimit = 80.0f;
 	private float x = 0.0f;
 	private float y = 0.0f;
-	private bool controllable = false;
+	private bool controllable = true;
 	/** END **/
 
 	public void setControllable(int state)

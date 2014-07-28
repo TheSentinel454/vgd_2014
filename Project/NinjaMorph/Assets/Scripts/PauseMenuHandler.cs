@@ -15,10 +15,10 @@ public class PauseMenuHandler : MonoBehaviour
 	public static Selected selected;
 	
 	// Variables for calculating delta time
-	private float timeLastFrame = 0.0f;
-	private float timeCurrentFrame = 0.0f;
-	private float deltaTime = 0.0f;
-	private float movementTrigger = Time.time;
+	private float timeLastFrame;
+	private float timeCurrentFrame;
+	private float deltaTime;
+	private float movementTrigger;
 
 	public enum Selected
 	{
@@ -32,6 +32,10 @@ public class PauseMenuHandler : MonoBehaviour
 		selected = Selected.Restart;
 		// Setup the input manager
 		InputManager.Setup ();
+		timeLastFrame = 0.0f;
+		timeCurrentFrame = 0.0f;
+		deltaTime = 0.0f;
+		movementTrigger = Time.time;
 	}
 	void Update()
 	{

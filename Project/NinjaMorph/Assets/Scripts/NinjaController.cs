@@ -376,6 +376,7 @@ public class NinjaController : MonoBehaviour
     void FixedUpdate()
 	{
 		InputManager.Update();
+		print ("Air: " + airCharging + ", Fire: " + fireCharging + ", Water: " + waterCharging);
 		// Use last device which provided input.
 		inputDevice = InputManager.ActiveDevice;
 		if (!isControllable)
@@ -740,6 +741,10 @@ public class NinjaController : MonoBehaviour
 		}
 	}
 
+	bool airCharging = false;
+	bool fireCharging = false;
+	bool waterCharging = false;
+
 	/// <summary>
 	/// Raises the trigger stay event.
 	/// </summary>
@@ -766,6 +771,7 @@ public class NinjaController : MonoBehaviour
 #if PLAY_TESTING
 					totalAirCharging += 0.2f;
 #endif
+					airCharging = true;
 					airEnergy += 0.2f;
 					if (airEnergy > 100.0f)
 					{
@@ -779,6 +785,7 @@ public class NinjaController : MonoBehaviour
 #if PLAY_TESTING
 					totalFireCharging += 0.2f;
 #endif
+					fireCharging = true;
 					fireEnergy += 0.2f;
 					if (fireEnergy > 100.0f)
 					{
@@ -792,6 +799,7 @@ public class NinjaController : MonoBehaviour
 #if PLAY_TESTING
 					totalWaterCharging += 0.2f;
 #endif
+					waterCharging = true;
 					waterEnergy += 0.2f;
 					if (waterEnergy > 100.0f)
 					{
@@ -814,6 +822,30 @@ public class NinjaController : MonoBehaviour
 	{
 		walkingAudio.Stop ();
 		walkingAudio = metalWalkingAudio;
+		// Check for the interactive object script
+		InteractiveObject obj = (InteractiveObject)collider.gameObject.GetComponentInChildren<InteractiveObject> ();
+		if (obj != null)
+		{
+			obj.PlayerCollisionStay(new InteractiveCollision(collider, ninjaType));
+			if (ninjaType == NinjaType.Base || 
+			    (ninjaType == NinjaType.Air && obj.getObjectType() == ObjectType.Air) ||
+			    (ninjaType == NinjaType.Fire && obj.getObjectType() == ObjectType.Fire) ||
+			    (ninjaType == NinjaType.Water && obj.getObjectType() == ObjectType.Water))
+			{
+				switch(obj.getObjectType())
+				{
+				case ObjectType.Air:
+					airCharging = false;
+					break;
+				case ObjectType.Fire:
+					fireCharging = false;
+					break;
+				case ObjectType.Water:
+					waterCharging = false;
+					break;
+				}
+			}
+		}
 	}
 
     void OnControllerColliderHit(ControllerColliderHit hit)
@@ -848,12 +880,14 @@ public class NinjaController : MonoBehaviour
 	GUIStyle airStyle = new GUIStyle ();
 	GUIStyle fireStyle = new GUIStyle ();
 	GUIStyle waterStyle = new GUIStyle ();
+	GUIStyle pulseStyle = new GUIStyle ();
 	
 	// TEXTURES
 	Texture2D zenTexture;
 	Texture2D airTexture;
 	Texture2D fireTexture;
 	Texture2D waterTexture;
+	Texture2D pulseTexture;
 
 	void initializeGUI()
 	{
@@ -877,8 +911,15 @@ public class NinjaController : MonoBehaviour
 		waterTexture.SetPixel (0, 0, new Color(0.0f, 0.0f, 1.0f, 0.2f));
 		waterTexture.Apply ();
 		waterStyle.normal.background = waterTexture;
+		// Pulse Texture
+		pulseTexture = new Texture2D (1, 1);
+		pulseTexture.SetPixel (0, 0, new Color(0.0f, 1.0f, 0.0f, 0.2f));
+		pulseTexture.Apply ();
+		pulseStyle.normal.background = pulseTexture;
+		airStyle.active.background = pulseTexture;
 	}
-
+	float timePassed = 0.0f;
+	bool increasing = true;
 	/// <summary>
 	/// Raises the GUI event.
 	/// </summary>
@@ -914,6 +955,30 @@ public class NinjaController : MonoBehaviour
 		// Fire GUI
 		GUI.BeginGroup (new Rect (fireContainerLeft, energyContainerTop, containerWidth, containerHeight));
 		GUI.Box(new Rect(0, 0, containerWidth, containerHeight), ((int)fireEnergy).ToString());
+		if (fireCharging)
+		{
+			if (increasing)
+			{
+				timePassed += Time.deltaTime;
+				if (timePassed > 1.0f)
+				{
+					increasing = false;
+					timePassed = 1.0f;
+				}
+			}
+			else
+			{
+				timePassed -= Time.deltaTime;
+				if (timePassed < 0.0f)
+				{
+					increasing = true;
+					timePassed = 0.0f;
+				}
+			}
+			pulseTexture.SetPixel (0, 0, new Color(0.0f, 1.0f, 0.0f, timePassed * 0.2f));
+			pulseTexture.Apply();
+			GUI.Box(new Rect(0, 0, containerWidth, containerHeight), "", pulseStyle);
+		}
 		GUI.Box(new Rect(left, top, fireWidth, height), "", fireStyle);
 		GUI.EndGroup ();
 
@@ -924,8 +989,32 @@ public class NinjaController : MonoBehaviour
 		float airWidth = (airEnergy / MAX_BAR_VALUE) * (containerWidth - GUI.skin.box.padding.horizontal);
 
 		// Air GUI
-		GUI.BeginGroup (new Rect (airContainerLeft, energyContainerTop, containerWidth, containerHeight));
+		GUI.BeginGroup (new Rect (airContainerLeft, energyContainerTop, containerWidth, containerHeight), GUIStyle.none);
 		GUI.Box(new Rect(0, 0, containerWidth, containerHeight), ((int)airEnergy).ToString());
+		if (airCharging)
+		{
+			if (increasing)
+			{
+				timePassed += Time.deltaTime;
+				if (timePassed > 1.0f)
+				{
+					increasing = false;
+					timePassed = 1.0f;
+				}
+			}
+			else
+			{
+				timePassed -= Time.deltaTime;
+				if (timePassed < 0.0f)
+				{
+					increasing = true;
+					timePassed = 0.0f;
+				}
+			}
+			pulseTexture.SetPixel (0, 0, new Color(0.0f, 1.0f, 0.0f, timePassed * 0.2f));
+			pulseTexture.Apply();
+			GUI.Box(new Rect(0, 0, containerWidth, containerHeight), "", pulseStyle);
+		}
 		GUI.Box(new Rect(left, top, airWidth, height), "", airStyle);
 		GUI.EndGroup ();
 		
@@ -938,6 +1027,30 @@ public class NinjaController : MonoBehaviour
 		// Water GUI
 		GUI.BeginGroup (new Rect (waterContainerLeft, energyContainerTop, containerWidth, containerHeight));
 		GUI.Box(new Rect(0, 0, containerWidth, containerHeight), ((int)waterEnergy).ToString());
+		if (waterCharging)
+		{
+			if (increasing)
+			{
+				timePassed += Time.deltaTime;
+				if (timePassed > 1.0f)
+				{
+					increasing = false;
+					timePassed = 1.0f;
+				}
+			}
+			else
+			{
+				timePassed -= Time.deltaTime;
+				if (timePassed < 0.0f)
+				{
+					increasing = true;
+					timePassed = 0.0f;
+				}
+			}
+			pulseTexture.SetPixel (0, 0, new Color(0.0f, 1.0f, 0.0f, timePassed * 0.2f));
+			pulseTexture.Apply();
+			GUI.Box(new Rect(0, 0, containerWidth, containerHeight), "", pulseStyle);
+		}
 		GUI.Box(new Rect(left, top, waterWidth, height), "", waterStyle);
 		GUI.EndGroup ();
 	}
