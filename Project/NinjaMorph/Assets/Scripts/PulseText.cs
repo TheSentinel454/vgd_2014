@@ -38,7 +38,8 @@ public class PulseText : MonoBehaviour
 		// Create our own delta time based on realtime since startup
 		timeCurrentFrame = Time.realtimeSinceStartup;
 		deltaTime = timeCurrentFrame - timeLastFrame;
-		timeLastFrame = timeCurrentFrame; 
+		timeLastFrame = timeCurrentFrame;
+		//print ("Current: " + timeCurrentFrame + ", Delta: " + deltaTime + ", Last: " + timeLastFrame);
 		// Make sure we are selected
 		if (selected)
 		{
@@ -64,7 +65,7 @@ public class PulseText : MonoBehaviour
 		// Not selected
 		else
 		{
-			timePassed -= Time.deltaTime;
+			timePassed -= deltaTime;
 			if (timePassed <= 0.0f)
 				timePassed = 0.0f;
 			// Make sure we have one to work with

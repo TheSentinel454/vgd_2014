@@ -13,6 +13,12 @@ public class PauseMenuHandler : MonoBehaviour
 {
 	private InputDevice inputDevice;
 	public static Selected selected;
+	
+	// Variables for calculating delta time
+	private float timeLastFrame = 0.0f;
+	private float timeCurrentFrame = 0.0f;
+	private float deltaTime = 0.0f;
+	private float movementTrigger = Time.time;
 
 	public enum Selected
 	{
@@ -22,32 +28,39 @@ public class PauseMenuHandler : MonoBehaviour
 
 	void Awake()
 	{
+		// Set the default to restart
 		selected = Selected.Restart;
 		// Setup the input manager
 		InputManager.Setup ();
 	}
-
 	void Update()
 	{
-		//InputManager.Setup();
-		//InputManager.Update();
-		print ("Update: " + selected);
+		// Create our own delta time based on realtime since startup
+		timeCurrentFrame = Time.realtimeSinceStartup;
+		deltaTime = timeCurrentFrame - timeLastFrame;
+		timeLastFrame = timeCurrentFrame;
 
 		// Use last device which provided input.
 		inputDevice = InputManager.ActiveDevice;
-
 		if (inputDevice.Action1.WasPressed)
 		{
 			switch(selected)
 			{
 			case Selected.MainMenu:
 				// Load the ninja morph scene
-				CameraFade.StartAlphaFade( Color.black, false, 0.5f, 0.0f, () => { Application.LoadLevel("NinjaMorph"); } );
+				CameraFade.StartAlphaFade( Color.black, false, 0.5f, 0.0f, () =>
+				{
+					Destroy (GameController.instance);
+					Application.LoadLevel("NinjaMorph");
+				} );
 				break;
 			case Selected.Restart:
 			default:
 				// Load the current level
-				CameraFade.StartAlphaFade( Color.black, false, 0.5f, 0.0f, () => { Application.LoadLevel(Application.loadedLevelName); } );
+				CameraFade.StartAlphaFade( Color.black, false, 0.5f, 0.0f, () =>
+				{
+					Application.LoadLevel(Application.loadedLevelName);
+				} );
 				break;
 			}
 			Time.timeScale = 1.0f;
@@ -63,59 +76,23 @@ public class PauseMenuHandler : MonoBehaviour
 			gameObject.GetComponent<PulseText>().selected = this.name == "RestartButton";
 			break;
 		}
+		movementTrigger += deltaTime;
 		// Handle transitioning between the selected menu items
-		if (inputDevice.DPadDown.WasReleased ||
-			inputDevice.DPadUp.WasReleased ||
-			inputDevice.LeftStick.Up.WasReleased ||
-			inputDevice.LeftStick.Down.WasReleased)
+		if (movementTrigger < 0.25f)
+			return;
+		if (inputDevice.DPadDown.WasPressed ||
+		    inputDevice.LeftStick.Down.WasPressed)
 		{
+			movementTrigger = 0.0f;
 			if (selected == Selected.Restart)
 				selected = Selected.MainMenu;
-			else
+		}
+		if (inputDevice.DPadUp.WasPressed ||
+		    inputDevice.LeftStick.Up.WasPressed)
+		{
+			movementTrigger = 0.0f;
+			if (selected == Selected.MainMenu)
 				selected = Selected.Restart;
 		}
-	}
-	
-	/// <summary>
-	/// Raises the mouse down event.
-	/// </summary>
-	void OnMouseDown()
-	{
-		print ("Mouse Down!");
-		if (this.name == "RestartButton")
-		{
-			// Load the current level
-			CameraFade.StartAlphaFade( Color.black, false, 0.5f, 0.0f, () => { Application.LoadLevel(Application.loadedLevelName); } );
-		}
-		else if (this.name == "MainMenuButton")
-		{
-			// Load the ninja morph scene
-			CameraFade.StartAlphaFade( Color.black, false, 0.5f, 0.0f, () => { Application.LoadLevel("NinjaMorph"); } );
-		}
-	}
-	
-	/// <summary>
-	/// Raises the mouse enter event.
-	/// </summary>
-	void OnMouseEnter()
-	{
-		print ("Mouse Enter!");
-		if (this.name == "RestartButton")
-		{
-			selected = Selected.Restart;
-		}
-		else if (this.name == "MainMenuButton")
-		{
-			selected = Selected.MainMenu;
-		}
-	}
-
-	/// <summary>
-	/// Raises the mouse exit event.
-	/// </summary>
-	void OnMouseExit()
-	{
-		print ("Mouse Exit!");
-		gameObject.GetComponent<PulseText>().selected = false;
 	}
 }

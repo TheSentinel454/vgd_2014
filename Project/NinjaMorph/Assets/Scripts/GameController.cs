@@ -395,7 +395,12 @@ public class GameController : MonoBehaviour
 			timeDelay = 5.0f;
 		}
 		// Load the next level
-		CameraFade.StartAlphaFade( Color.black, false, timeDelay, 0.0f, () => { Application.LoadLevel(nextLevel); } );
+		CameraFade.StartAlphaFade( Color.black, false, timeDelay, 0.0f, () =>
+		{
+			if (nextLevel == "NinjaMorph")
+				Destroy(gameObject);
+			Application.LoadLevel(nextLevel);
+		} );
 	}
 
 	/// <summary>

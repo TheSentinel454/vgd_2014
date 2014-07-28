@@ -46,6 +46,12 @@ namespace InControl
 				},
 				new InputControlMapping
 				{
+					Handle = "Fire - Keyboard2",
+					Target = InputControlType.RightTrigger,
+					Source = KeyCodeButton( KeyCode.Return )
+				},
+				new InputControlMapping
+				{
 					Handle = "Jump",
 					Target = InputControlType.Action1,
 					Source = KeyCodeButton( KeyCode.Space )

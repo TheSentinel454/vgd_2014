@@ -82,69 +82,18 @@ public class MainMenuHandler : MonoBehaviour
 		}
 		if (state == State.Main)
 		{
+			if (inputDevice.DPadUp.WasReleased ||
+			    inputDevice.LeftStick.Up.WasReleased)
+			{
+				if (selected == Selected.Help)
+					selected = Selected.Play;
+			}
 			if (inputDevice.DPadDown.WasReleased ||
-			    inputDevice.DPadUp.WasReleased ||
-			    inputDevice.LeftStick.Up.WasReleased ||
 			    inputDevice.LeftStick.Down.WasReleased)
 			{
 				if (selected == Selected.Play)
 					selected = Selected.Help;
-				else
-					selected = Selected.Play;
 			}
 		}
-	}
-	
-	/// <summary>
-	/// Raises the mouse down event.
-	/// </summary>
-	void OnMouseDown()
-	{
-		//print ("MouseTrigger: " + this.name);
-		if (this.name == "PlayButton")
-		{
-			// Load the air level
-			CameraFade.StartAlphaFade( Color.black, false, 1.5f, 0.0f, () => { Application.LoadLevel("AirRoom"); } );
-		}
-		else if (this.name == "HelpButton")
-		{
-			state = State.Help;
-			// Rotate towards the help page
-			iTween.RotateTo(Camera.main.gameObject, new Vector3(0, 90, 0), rotateTransitionSpeed);
-		}
-		else if (this.name == "BackButton")
-		{
-			state = State.Main;
-			// Rotate back towards the main menu
-			iTween.RotateTo(Camera.main.gameObject, new Vector3(0, 0, 0), rotateTransitionSpeed);
-		}
-	}
-	
-	/// <summary>
-	/// Raises the mouse enter event.
-	/// </summary>
-	void OnMouseEnter()
-	{
-		if (this.name == "PlayButton")
-		{
-			selected = Selected.Play;
-		}
-		else if (this.name == "HelpButton")
-		{
-			selected = Selected.Help;
-		}
-		else if (this.name == "BackButton")
-		{
-			selected = Selected.Back;
-		}
-	}
-
-	/// <summary>
-	/// Raises the mouse exit event.
-	/// </summary>
-	void OnMouseExit()
-	{
-		// Transition back to white
-		gameObject.GetComponent<PulseText>().selected = false;
 	}
 }
