@@ -38,6 +38,9 @@ public class GameController : MonoBehaviour
 	private bool firstWaterMessage = false;
 	private int timerThreshhold = 5;
 
+	private bool comboLevelComplete = false;
+	private GameObject comboPuzzle;
+
 	private bool gameActive = true;
 	private bool controllable = false;
 	private bool showStats = false;
@@ -98,6 +101,8 @@ public class GameController : MonoBehaviour
 				firePuzzle = puzzle;
 			else if (puzzle.name.Equals("Water Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
 				waterPuzzle = puzzle;
+			else if (puzzle.name.Equals("Combo Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
+				comboPuzzle = puzzle;
 		}
 		// See if we need to find the pause UI
 		if (pauseUI == null)
@@ -190,6 +195,8 @@ public class GameController : MonoBehaviour
 				firePuzzle = puzzle;
 			else if (puzzle.name.Equals("Water Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
 				waterPuzzle = puzzle;
+			else if (puzzle.name.Equals("Combo Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
+				comboPuzzle = puzzle;
 		}
 
 		// Check for Game Over
@@ -370,16 +377,30 @@ public class GameController : MonoBehaviour
 					} 
 				}
 			}
+			else if (!comboLevelComplete)
+			{
+				if (totalStats.startComboTime < 0.0f)
+					totalStats.startComboTime = Time.time;
+				
+				if (Application.loadedLevelName == "ComboRoom")
+				{
+					if (comboPuzzle == null)
+						return;
+
+					// TODO: Create combo level puzzle
+					comboLevelComplete = true;
+				}
+			}
 			else
 			{
 				// Create a message
 				ninjaController.createMessage("Level Complete!");
-				//gameActive = false;
-				triggerEndLevel("Water");
+				triggerEndLevel("Combo");
 				// Reset the puzzles
 				waterLevelComplete = false;
 				airLevelComplete = false;
 				fireLevelComplete = false;
+				comboLevelComplete = false;
 			}
 		}
 	}
@@ -405,10 +426,18 @@ public class GameController : MonoBehaviour
 			totalStats.endFireTime = Time.time;
 			nextLevel = "WaterRoom";
 		}
-		else if (triggerName.Contains("Water") && waterLevelComplete)
+		else if (triggerName.Contains("Water"))
 		{
+			waterLevelComplete = true;
 			// Track the end water time
 			totalStats.endWaterTime = Time.time;
+			nextLevel = "ComboRoom";
+		}
+		else if (triggerName.Contains("Combo"))
+		{
+			comboLevelComplete = true;
+			// Track the end combo time
+			totalStats.endComboTime = Time.time;
 			// Track the end time
 			totalStats.endTime = Time.time;
 			nextLevel = "NinjaMorph";
