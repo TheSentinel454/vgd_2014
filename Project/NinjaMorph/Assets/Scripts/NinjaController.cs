@@ -136,22 +136,15 @@ public class NinjaController : MonoBehaviour
 	public float getWaterEnergy(){return waterEnergy;}
 	private float MAX_BAR_VALUE = 100.0f;
 
-#if PLAY_TESTING
-	public int numAttacks = 0;
-	public int numKills = 0;
-	public float totalAirTime = 0.0f;
-	public float totalFireTime = 0.0f;
-	public float totalWaterTime = 0.0f;
-	public float totalAirCharging = 0.0f;
-	public float totalFireCharging = 0.0f;
-	public float totalWaterCharging = 0.0f;
-	private float sumHealth = 0.0f;
-	private float numHealthPoints = 0.0f;
-	public float avgHealth(){ return (sumHealth / numHealthPoints); }
-#endif
+	public StatsInfo currentStats;
+	public StatsInfo totalStats;
 
 	private bool isControllable = true;
 
+	/// <summary>
+	/// Sets the control.
+	/// </summary>
+	/// <param name="controllable">If set to <c>true</c> controllable.</param>
 	public void setControl(bool controllable)
 	{
 		isControllable = controllable;
@@ -159,6 +152,7 @@ public class NinjaController : MonoBehaviour
 
     void Awake()
     {
+		currentStats = new StatsInfo ();
 		// Setup the input manager
 		InputManager.Setup ();
 		// Get the ninja renderer
@@ -249,7 +243,7 @@ public class NinjaController : MonoBehaviour
 	void ApplyAttacking()
 	{
 		// Prevent attacking too fast after each other
-		if (attacking)
+		if (attacking || !isControllable)
 			return;
 		
 		if (!IsAttacking() && inputDevice.RightTrigger.WasPressed)
@@ -320,9 +314,7 @@ public class NinjaController : MonoBehaviour
 
 	public void DidAttack()
 	{
-#if PLAY_TESTING
-		numAttacks++;
-#endif
+		currentStats.numberAttacks++;
 		attacking = true;
 		StartCoroutine(Attack());
 	}
@@ -347,14 +339,15 @@ public class NinjaController : MonoBehaviour
 					// Deal damage to the object
 					obj.DealDamage(15.0f);
 					attackHitAudio.Play();
-#if PLAY_TESTING	
+
 					// Check for death
 					if (!obj.alive)
 					{
-						numKills++;
+						currentStats.numberTroopsKilled++;
 					}
-#endif
-				} else {
+				}
+				else
+				{
 					attackAudio.Play();
 				}
 			} else {
@@ -376,7 +369,6 @@ public class NinjaController : MonoBehaviour
     void FixedUpdate()
 	{
 		InputManager.Update();
-		print ("Air: " + airCharging + ", Fire: " + fireCharging + ", Water: " + waterCharging);
 		// Use last device which provided input.
 		inputDevice = InputManager.ActiveDevice;
 		if (!isControllable)
@@ -384,10 +376,8 @@ public class NinjaController : MonoBehaviour
 			return;
 		}
 
-#if PLAY_TESTING
-		sumHealth += zenEnergy;
-		numHealthPoints += 1.0f;
-#endif
+		currentStats.addHealthPoint (zenEnergy);
+
 		updateEnergyValues ();
 		handleNinjaChange ();
 
@@ -476,7 +466,7 @@ public class NinjaController : MonoBehaviour
 			}
 		}
 		// Fire Ninja
-		else if (inputDevice.Action2.WasPressed)//Input.GetKeyDown ("2"))
+		else if (inputDevice.Action2.WasPressed)
 		{
 			// See if we are currently the fire ninja
 			if (ninjaType == NinjaType.Fire)
@@ -502,7 +492,7 @@ public class NinjaController : MonoBehaviour
 			}
 		}
 		// Water Ninja
-		else if (inputDevice.Action3.WasPressed)//Input.GetKeyDown ("3"))
+		else if (inputDevice.Action3.WasPressed)
 		{
 			// See if we are currently the water ninja
 			if (ninjaType == NinjaType.Water)
@@ -567,9 +557,7 @@ public class NinjaController : MonoBehaviour
 		// Check the air type
 		if (ninjaType == NinjaType.Air)
 		{
-#if PLAY_TESTING
-			totalAirTime += 0.05f;
-#endif
+			currentStats.totalAirTime += 0.05f;
 			// Decrement the energy level
 			airEnergy -= 0.05f;
 			// Make sure we don't fall below zero
@@ -579,9 +567,7 @@ public class NinjaController : MonoBehaviour
 		// Check the fire type
 		else if (ninjaType == NinjaType.Fire)
 		{
-#if PLAY_TESTING
-			totalFireTime += 0.05f;
-#endif
+			currentStats.totalFireTime += 0.05f;
 			// Decrement the energy level
 			fireEnergy -= 0.05f;
 			// Make sure we don't fall below zero
@@ -591,9 +577,7 @@ public class NinjaController : MonoBehaviour
 		// Check the water type
 		else if (ninjaType == NinjaType.Water)
 		{
-#if PLAY_TESTING
-			totalWaterTime += 0.05f;
-#endif
+			currentStats.totalWaterTime += 0.05f;
 			// Decrement the energy level
 			waterEnergy -= 0.05f;
 			// Make sure we don't fall below zero
@@ -741,6 +725,7 @@ public class NinjaController : MonoBehaviour
 		}
 	}
 
+	bool zenCharging = false;
 	bool airCharging = false;
 	bool fireCharging = false;
 	bool waterCharging = false;
@@ -768,13 +753,12 @@ public class NinjaController : MonoBehaviour
 				switch(obj.getObjectType())
 				{
 				case ObjectType.Air:
-#if PLAY_TESTING
-					totalAirCharging += 0.2f;
-#endif
+					currentStats.totalAirCharging += 0.2f;
 					airCharging = true;
 					airEnergy += 0.2f;
 					if (airEnergy > 100.0f)
 					{
+						zenCharging = true;
 						zenEnergy += 0.1f;
 						if (zenEnergy > 100.0f)
 							zenEnergy = 100.0f;
@@ -782,13 +766,12 @@ public class NinjaController : MonoBehaviour
 					}
 					break;
 				case ObjectType.Fire:
-#if PLAY_TESTING
-					totalFireCharging += 0.2f;
-#endif
+					currentStats.totalFireCharging += 0.2f;
 					fireCharging = true;
 					fireEnergy += 0.2f;
 					if (fireEnergy > 100.0f)
 					{
+						zenCharging = true;
 						zenEnergy += 0.1f;
 						if (zenEnergy > 100.0f)
 							zenEnergy = 100.0f;
@@ -796,13 +779,12 @@ public class NinjaController : MonoBehaviour
 					}
 					break;
 				case ObjectType.Water:
-#if PLAY_TESTING
-					totalWaterCharging += 0.2f;
-#endif
+					currentStats.totalWaterCharging += 0.2f;
 					waterCharging = true;
 					waterEnergy += 0.2f;
 					if (waterEnergy > 100.0f)
 					{
+						zenCharging = true;
 						zenEnergy += 0.1f;
 						if (zenEnergy > 100.0f)
 							zenEnergy = 100.0f;
@@ -836,12 +818,15 @@ public class NinjaController : MonoBehaviour
 				{
 				case ObjectType.Air:
 					airCharging = false;
+					zenCharging = false;
 					break;
 				case ObjectType.Fire:
 					fireCharging = false;
+					zenCharging = false;
 					break;
 				case ObjectType.Water:
 					waterCharging = false;
+					zenCharging = false;
 					break;
 				}
 			}
@@ -916,7 +901,6 @@ public class NinjaController : MonoBehaviour
 		pulseTexture.SetPixel (0, 0, new Color(0.0f, 1.0f, 0.0f, 0.2f));
 		pulseTexture.Apply ();
 		pulseStyle.normal.background = pulseTexture;
-		airStyle.active.background = pulseTexture;
 	}
 	float timePassed = 0.0f;
 	bool increasing = true;
@@ -943,6 +927,30 @@ public class NinjaController : MonoBehaviour
 		// Zen GUI
 		GUI.BeginGroup (new Rect (zenContainerLeft, GUI.skin.window.padding.top, zenContainerWidth, containerHeight));
 		GUI.Box(new Rect(0, 0, zenContainerWidth, containerHeight), ((int)zenEnergy).ToString());
+		if (zenCharging)
+		{
+			if (increasing)
+			{
+				timePassed += Time.deltaTime;
+				if (timePassed > 1.0f)
+				{
+					increasing = false;
+					timePassed = 1.0f;
+				}
+			}
+			else
+			{
+				timePassed -= Time.deltaTime;
+				if (timePassed < 0.0f)
+				{
+					increasing = true;
+					timePassed = 0.0f;
+				}
+			}
+			pulseTexture.SetPixel (0, 0, new Color(0.0f, 1.0f, 0.0f, timePassed * 0.2f));
+			pulseTexture.Apply();
+			GUI.Box(new Rect(0, 0, zenContainerWidth, containerHeight), "", pulseStyle);
+		}
 		GUI.Box(new Rect(left, top, zenWidth, height), "", zenStyle);
 		GUI.EndGroup ();
 

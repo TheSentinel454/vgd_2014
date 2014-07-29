@@ -17,10 +17,13 @@ using System.IO;
 /// Play test info.
 /// </summary>
 [System.Serializable]
-public class PlayTestInfo
+public class StatsInfo
 {
 	public float startTime = -1.0f;			// Done
 	public float endTime = -1.0f;			// Done
+	
+	public float startAirTime = -1.0f;		// Done
+	public float endAirTime = -1.0f;		// Done
 
 	public float startFireTime = -1.0f;		// Done
 	public float endFireTime = -1.0f;		// Done
@@ -40,9 +43,16 @@ public class PlayTestInfo
 
 	public int numberAttacks = 0;			// Done
 	public int numberTroopsKilled = 0;		// Done
-	public float averageHealth = 100.0f;	// Done
 
 	public bool success = false;
+
+	private float sumHealth = 0.0f;
+	private float numHealthPoints = 0.0f;
+
+	public float getAvgHealth()
+	{
+		return (sumHealth / numHealthPoints);
+	}
 
 	/// <summary>
 	/// Gets the data.
@@ -51,13 +61,85 @@ public class PlayTestInfo
 	public string getData()
 	{
 		return (startTime + "," + endTime + "," + (endTime - startTime) + "," + 
+		        startAirTime + "," + endAirTime + "," + (endAirTime - startAirTime) + "," + 
 		        startFireTime + "," + endFireTime + "," + (endFireTime - startFireTime) + "," + 
 		        startWaterTime + "," + endWaterTime + "," + (endWaterTime - startWaterTime) + "," +
 		        totalAirTime + "," + totalWaterTime + "," + totalFireTime + "," +
 		        totalAirCharging + "," + totalWaterCharging + "," + totalFireCharging + "," +
 		        failedFirePuzzles + "," + failedWaterPuzzles + "," +
-		        numberAttacks + "," + numberTroopsKilled + "," + averageHealth + "," + success + 
+		        numberAttacks + "," + numberTroopsKilled + "," + getAvgHealth() + "," + success + 
 		        "\n");
+	}
+
+	/// <summary>
+	/// Adds the health point.
+	/// </summary>
+	/// <param name="health">Health.</param>
+	public void addHealthPoint(float health)
+	{
+		sumHealth += health;
+		numHealthPoints += 1.0f;
+	}
+
+	/// <summary>
+	/// Sets the avg health.
+	/// </summary>
+	/// <param name="info">Info.</param>
+	public void setAvgHealth(StatsInfo info)
+	{
+		this.sumHealth = info.sumHealth;
+		this.numHealthPoints = info.numHealthPoints;
+	}
+
+	/// <summary>
+	/// Transfers the level specific stats.
+	/// Should only be passed the current stats object, and only
+	/// be called from the total stats.
+	/// </summary>
+	/// <param name="info">Info.</param>
+	public void transferLevelSpecificStats(StatsInfo info)
+	{
+		// Add the energy times
+		totalAirTime += info.totalAirTime;
+		totalFireTime += info.totalFireTime;
+		totalWaterTime += info.totalWaterTime;
+
+		// Add the charging times
+		totalAirCharging += info.totalAirCharging;
+		totalFireCharging += info.totalFireCharging;
+		totalWaterCharging += info.totalWaterCharging;
+
+		// Add the attack stats
+		numberAttacks += info.numberAttacks;
+		numberTroopsKilled += info.numberTroopsKilled;
+
+		// Add the health stats
+		sumHealth += info.sumHealth;
+		numHealthPoints += info.numHealthPoints;
+	}
+
+	/// <summary>
+	/// Resets the level specific stats.
+	/// </summary>
+	public void resetLevelSpecificStats()
+	{
+		// Clear energy times
+		totalAirTime = 0.0f;
+		totalFireTime = 0.0f;
+		totalWaterTime = 0.0f;
+
+		// Clear charging times
+		totalAirCharging = 0.0f;
+		totalFireCharging = 0.0f;
+		totalWaterCharging = 0.0f;
+
+		// Clear attack stats
+		numberAttacks = 0;
+		numberTroopsKilled = 0;
+
+		// Clear health stats
+		sumHealth = 0.0f;
+		numHealthPoints = 0.0f;
 	}
 }
 
@@ -70,7 +152,7 @@ public class PlayTesting
 	/// Save the specified info.
 	/// </summary>
 	/// <param name="info">Info.</param>
-	public void Save(PlayTestInfo info)
+	public void Save(StatsInfo info)
 	{
 #if PLAY_TESTING
 		// Set the file path

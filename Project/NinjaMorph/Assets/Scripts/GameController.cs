@@ -1,12 +1,10 @@
-﻿/*
+/*
   Team Y-Not
   
   Evan LaHurd
   Luke Tornquist
   Jonathan Yates
 */
-// Comment the line below if not play testing
-//#define PLAY_TESTING
 
 using UnityEngine;
 using System.Collections;
@@ -18,14 +16,14 @@ public class GameController : MonoBehaviour
 	public static GameController controller;
 
 	private GameObject player;
-	public GameObject pauseUI;
+	private GameObject pauseUI;
+	private GameObject statsUI;
 
 	private NinjaController ninjaController;
 	private MessageManager msgManager;
-#if PLAY_TESTING
-	private PlayTestInfo testInfo;
-	private PlayTesting playTest;
-#endif
+
+	private StatsInfo currentStats;
+	private StatsInfo totalStats;
 
 	private bool airLevelComplete = false;
 
@@ -40,6 +38,12 @@ public class GameController : MonoBehaviour
 
 	private bool gameActive = true;
 	private bool controllable = false;
+	private bool showStats = false;
+
+	public void hideStats()
+	{
+		showStats = false;
+	}
 
 	/// <summary>
 	/// Awake this instance.
@@ -66,11 +70,11 @@ public class GameController : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-#if PLAY_TESTING
-		playTest = new PlayTesting ();
-		testInfo = new PlayTestInfo ();
-		testInfo.startTime = Time.time;
-#endif
+		// Initialize stats info
+		currentStats = new StatsInfo();
+		currentStats.startTime = Time.time;
+		totalStats = new StatsInfo();
+		totalStats.startTime = Time.time;
 		// Get the Message Manager
 		msgManager = GetComponent<MessageManager> ();
 		// Get the Player
@@ -95,12 +99,29 @@ public class GameController : MonoBehaviour
 			// Get the Pause UI
 			pauseUI = GameObject.FindGameObjectWithTag("PauseUI");
 		}
+		// See if we need to find the stats UI
+		if (statsUI == null)
+		{
+			// Get the Stats UI
+			statsUI = GameObject.FindGameObjectWithTag("StatsUI");
+			// Disable it for now
+			statsUI.SetActive(false);
+		}
 	}
 
+	/// <summary>
+	/// Update this instance.
+	/// </summary>
 	void Update()
 	{
 		if (pauseUI == null)
 			pauseUI = GameObject.FindGameObjectWithTag("PauseUI");
+		if (statsUI == null)
+			statsUI = GameObject.FindGameObjectWithTag("StatsUI");
+		if (statsUI != null)
+		{
+			statsUI.SetActive(showStats);
+		}
 		if (pauseUI != null)
 		{
 			pauseUI.SetActive(isPaused());
@@ -184,22 +205,10 @@ public class GameController : MonoBehaviour
 		if (ninjaController.getZen() <= 0.0f)
 		{
 			gameActive = false;
-#if PLAY_TESTING
-			// Set the test data
-			testInfo.endTime = Time.time;
-			testInfo.numberAttacks = ninjaController.numAttacks;
-			testInfo.averageHealth = ninjaController.avgHealth();
-			testInfo.totalAirTime = ninjaController.totalAirTime;
-			testInfo.totalFireTime = ninjaController.totalFireTime;
-			testInfo.totalWaterTime = ninjaController.totalWaterTime;
-			testInfo.totalAirCharging = ninjaController.totalAirCharging;
-			testInfo.totalFireCharging = ninjaController.totalFireCharging;
-			testInfo.totalWaterCharging = ninjaController.totalWaterCharging;
-			testInfo.numberTroopsKilled = ninjaController.numKills;
-			testInfo.success = false;
-			// Save the play test data
-			playTest.Save(testInfo);
-#endif
+			// Set the stats data
+			currentStats.endTime = Time.time;
+			currentStats.transferLevelSpecificStats(ninjaController.currentStats);
+			ninjaController.currentStats = new StatsInfo();
 			StartCoroutine(GameOver());
 		}
 		// Still alive
@@ -208,25 +217,20 @@ public class GameController : MonoBehaviour
 			// Check for level completion
 			if (!airLevelComplete)
 			{
-#if PLAY_TESTING
-				if (testInfo.startAirTime < 0.0f)
-					testInfo.startAirTime = Time.time;
-#endif
+				if (totalStats.startAirTime < 0.0f)
+					totalStats.startAirTime = Time.time;
+
 				if (airLevelComplete)
 				{
 					ninjaController.createMessage("Air Room complete!");
-#if PLAY_TESTING
-					// Track the end air time
-					testInfo.endAirTime = Time.time;
-#endif
 				}
 			}
 			else if (!fireLevelComplete)
 			{
-#if PLAY_TESTING
-				if (testInfo.startFireTime < 0.0f)
-					testInfo.startFireTime = Time.time;
-#endif
+				print ("Checking fire room!");
+				if (totalStats.startFireTime < 0.0f)
+					totalStats.startFireTime = Time.time;
+
 				if (Application.loadedLevelName == "FireRoom")
 				{
 					if (firePuzzle == null)
@@ -242,6 +246,7 @@ public class GameController : MonoBehaviour
 								torchOrder.Add(io.gameObject.name);
 						}
 					}
+					print ("Number Lit: " + numberLit);
 					if (numberLit == objects.Length)
 					{
 						fireLevelComplete = true;
@@ -269,10 +274,7 @@ public class GameController : MonoBehaviour
 							cannonBall.speed = 0.3f;
 
 							ninjaController.createMessage("Fire Room complete!");
-	#if PLAY_TESTING
-							// Track the end fire time
-							testInfo.endFireTime = Time.time;
-	#endif
+
 						}
 						else
 						{
@@ -281,20 +283,17 @@ public class GameController : MonoBehaviour
 								io.removeFire();
 							// Clear the order
 							torchOrder.Clear();
-	#if PLAY_TESTING
 							// Increment the failure count
-							testInfo.failedFirePuzzles++;
-	#endif
+							totalStats.failedFirePuzzles++;
 						}
 					}
 				}
 			}
 			else if (!waterLevelComplete)
 			{
-#if PLAY_TESTING
-				if (testInfo.startWaterTime < 0.0f)
-					testInfo.startWaterTime = Time.time;
-#endif
+				if (totalStats.startWaterTime < 0.0f)
+					totalStats.startWaterTime = Time.time;
+
 				if (Application.loadedLevelName == "WaterRoom")
 				{
 					int numberFilled = 0;
@@ -337,9 +336,7 @@ public class GameController : MonoBehaviour
 						timerThreshhold = 5;
 						//tell user he/she ran out of time
 						ninjaController.createMessage("You ran out of time!");
-	#if PLAY_TESTING
-						testInfo.failedWaterPuzzles++;
-	#endif
+						totalStats.failedWaterPuzzles++;
 					}
 					else if(wptimer.getStarted() && wptimer.getTimer() > timerThreshhold)
 					{
@@ -351,31 +348,11 @@ public class GameController : MonoBehaviour
 						//tell them they've completed the room
 						ninjaController.createMessage("Water Room complete!");
 						waterLevelComplete = true;
-	#if PLAY_TESTING
-						// Track the end water time
-						testInfo.endWaterTime = Time.time;
-	#endif
 					} 
 				}
 			}
 			else
 			{
-#if PLAY_TESTING
-				// Set the test data
-				testInfo.endTime = Time.time;
-				testInfo.numberAttacks = ninjaController.numAttacks;
-				testInfo.averageHealth = ninjaController.avgHealth();
-				testInfo.totalAirTime = ninjaController.totalAirTime;
-				testInfo.totalFireTime = ninjaController.totalFireTime;
-				testInfo.totalWaterTime = ninjaController.totalWaterTime;
-				testInfo.totalAirCharging = ninjaController.totalAirCharging;
-				testInfo.totalFireCharging = ninjaController.totalFireCharging;
-				testInfo.totalWaterCharging = ninjaController.totalWaterCharging;
-				testInfo.numberTroopsKilled = ninjaController.numKills;
-				testInfo.success = true;
-				// Save the play test data
-				playTest.Save(testInfo);
-#endif
 				// Create a message
 				ninjaController.createMessage("Level Complete!");
 				//gameActive = false;
@@ -395,29 +372,42 @@ public class GameController : MonoBehaviour
 	public void triggerEndLevel(string triggerName)
 	{
 		string nextLevel = "";
-		float timeDelay = 2.5f;
 		if (triggerName.Contains("Air"))
 		{
 			airLevelComplete = true;
+			// Track the end air time
+			totalStats.endAirTime = Time.time;
 			nextLevel = "FireRoom";
 		}
 		else if (triggerName.Contains("Fire"))
 		{
 			fireLevelComplete = true;
+			// Track the end fire time
+			totalStats.endFireTime = Time.time;
 			nextLevel = "WaterRoom";
 		}
 		else if (triggerName.Contains("Water") && waterLevelComplete)
 		{
+			// Track the end water time
+			totalStats.endWaterTime = Time.time;
+			// Track the end time
+			totalStats.endTime = Time.time;
 			nextLevel = "NinjaMorph";
-			timeDelay = 5.0f;
 		}
-		// Load the next level
-		CameraFade.StartAlphaFade( Color.black, false, timeDelay, 0.0f, () =>
-		{
-			if (nextLevel == "NinjaMorph")
-				Destroy(gameObject);
-			Application.LoadLevel(nextLevel);
-		} );
+		// Disable control for the time being
+		setControllable(false);
+		// Enable the Stats UI
+		statsUI.SetActive (true);
+		// Set the next level
+		statsUI.GetComponentInChildren<StatsMenuHandler> ().nextLevel = nextLevel;
+		// Transfer relevant stats to the total stats
+		totalStats.transferLevelSpecificStats (ninjaController.currentStats);
+		// Set the stats
+		statsUI.GetComponentInChildren<ShowStats> ().setStats (nextLevel, ninjaController.currentStats, totalStats);
+		// Reset the ninja controller stats
+		ninjaController.currentStats = new StatsInfo ();
+		// Enable the Stats UI
+		showStats = true;
 	}
 
 	/// <summary>
@@ -429,10 +419,27 @@ public class GameController : MonoBehaviour
 		// Create a message
 		ninjaController.createMessage("Game Over!");
 		// Reset the scene
-		CameraFade.StartAlphaFade( Color.black, false, 5.0f, 0.0f, () => { Application.LoadLevel(Application.loadedLevelName); } );
+		CameraFade.StartAlphaFade( Color.black, false, 5.0f, 0.0f, () =>
+		{
+			// Reset the puzzle state
+			resetPuzzleState();
+			// Reset the stats
+			currentStats.resetLevelSpecificStats();
+			// Reload the scene
+			Application.LoadLevel(Application.loadedLevelName);
+		} );
 		// Hold out for 5 seconds
 		yield return new WaitForSeconds(5.0f);
 		// Set the game back to active
 		gameActive = true;
+	}
+
+	/// <summary>
+	/// Resets the state of the puzzles.
+	/// </summary>
+	private void resetPuzzleState()
+	{
+		// Reset the torch order queue
+		torchOrder.Clear ();
 	}
 }

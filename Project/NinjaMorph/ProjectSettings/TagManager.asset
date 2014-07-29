@@ -9,6 +9,7 @@ TagManager:
   - Cannon Ball
   - Enemy
   - PauseUI
+  - StatsUI
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
