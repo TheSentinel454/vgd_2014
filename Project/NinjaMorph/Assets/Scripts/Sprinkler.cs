@@ -5,37 +5,33 @@ public class Sprinkler : MonoBehaviour
 {
 	public float fireRateReduction;
 	public float sparksExtraReduction;
-	
-	
+
 	private float heightAboveFloor;
-	private ParticleSystem.CollisionEvent[][] collisionEvents;
 	private GameObject barrel;
 	private ParticleSystem[] sprinklers;
 	private GameObject floor;
-	
-	
+
+	/// <summary>
+	/// Awake this instance.
+	/// </summary>
 	void Awake ()
 	{
 		sprinklers = GetComponentsInChildren<ParticleSystem>();
 	}
 	
-	
+	/// <summary>
+	/// Start this instance.
+	/// </summary>
 	void Start ()
 	{
 		heightAboveFloor = transform.position.y;
-		collisionEvents = new ParticleSystem.CollisionEvent[sprinklers.Length][];
 	}
-	
-	
-	void OnParticleCollision(GameObject other)
-	{
 
-	}
-	
-	
+	/// <summary>
+	/// Update this instance.
+	/// </summary>
 	void Update ()
 	{
-
 		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 		RaycastHit[] hits;
 			

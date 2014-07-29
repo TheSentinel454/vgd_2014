@@ -56,8 +56,10 @@ public class ShowStats : MonoBehaviour
 			ttc = totalStats.endAirTime - totalStats.startAirTime;
 		else if (nextLvl.Contains("Water"))
 			ttc = totalStats.endFireTime - totalStats.startFireTime;
-		else if (nextLvl.Contains("NinjaMorph"))
+		else if (nextLvl.Contains("Combo"))
 			ttc = totalStats.endWaterTime - totalStats.startWaterTime;
+		else if (nextLvl.Contains("NinjaMorph"))
+			ttc = totalStats.endComboTime - totalStats.startComboTime;
 		GUI.Label (new Rect (textLeft, top, containerWidth, textHeight), "Time to complete: " + ttc + " seconds");
 		top += space;
 		GUI.Label (new Rect (textLeft, top, containerWidth, textHeight), "Average Health: " + levelStats.getAvgHealth());

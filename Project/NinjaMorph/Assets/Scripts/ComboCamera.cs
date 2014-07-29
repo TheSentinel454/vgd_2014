@@ -32,7 +32,6 @@ public class ComboCamera : MonoBehaviour
 
 	public void setControllable(int state)
 	{
-		print ("Controllable: " + state);
 		controllable = (state == 1);
 		GameController.controller.setControllable (state == 1);
 	}

@@ -32,6 +32,9 @@ public class StatsInfo
 	public float startWaterTime = -1.0f;	// Done
 	public float endWaterTime = -1.0f;		// Done
 	public int failedWaterPuzzles = 0;		// Done
+
+	public float startComboTime = -1.0f;
+	public float endComboTime = -1.0f;
 	
 	public float totalAirTime = 0.0f;		// Done
 	public float totalWaterTime = 0.0f;		// Done
@@ -64,6 +67,7 @@ public class StatsInfo
 		        startAirTime + "," + endAirTime + "," + (endAirTime - startAirTime) + "," + 
 		        startFireTime + "," + endFireTime + "," + (endFireTime - startFireTime) + "," + 
 		        startWaterTime + "," + endWaterTime + "," + (endWaterTime - startWaterTime) + "," +
+		        startComboTime + "," + endComboTime + "," + (endComboTime - startComboTime) + "," +
 		        totalAirTime + "," + totalWaterTime + "," + totalFireTime + "," +
 		        totalAirCharging + "," + totalWaterCharging + "," + totalFireCharging + "," +
 		        failedFirePuzzles + "," + failedWaterPuzzles + "," +

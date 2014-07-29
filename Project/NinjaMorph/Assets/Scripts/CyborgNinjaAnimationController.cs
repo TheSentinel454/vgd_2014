@@ -1,4 +1,4 @@
-﻿﻿/*
+﻿/*
   Team Y-Not
   
   Evan LaHurd
@@ -15,6 +15,7 @@ public class CyborgNinjaAnimationController : MonoBehaviour {
 	public bool grounded = true;
 	public bool weapon = false;
 	public bool dead = false;
+	public bool controllable = false;
 
 	// ANIMATION FLAGS
 	bool weaponOut = false;
@@ -33,11 +34,9 @@ public class CyborgNinjaAnimationController : MonoBehaviour {
 	float distanceToGround = 0;
 	float colliderRadius = 0.5f;
 
-	// Hit
-	RaycastHit hit;
-
 	// Initialize Animations and Positions
-	void Start () {
+	void Start ()
+	{
 		cyborgAnimation = GetComponent<Animation>();
 		previousPosition = transform.position;
 		distanceToGround = collider.bounds.center.y - collider.bounds.min.y;
@@ -45,9 +44,11 @@ public class CyborgNinjaAnimationController : MonoBehaviour {
 	}
 
 	// Updating Animation States
-	void FixedUpdate () {
+	void FixedUpdate ()
+	{
 		// Determine if we are currently grounded.
 		previouslyGrounded = grounded;
+		RaycastHit hit;
 		grounded = Physics.CapsuleCast (collider.bounds.center, collider.bounds.center, colliderRadius, Vector3.down, out hit, distanceToGround + 0.1f);
 
 		// Update position information
@@ -87,6 +88,8 @@ public class CyborgNinjaAnimationController : MonoBehaviour {
 
 		// ATTACK ANIMATIONS
 		// -----------------
+		if (!controllable)
+			return;
 		if (attacking == true && weaponOut == false) {
 			cyborgAnimation["getSword"].layer = 1;
 			cyborgAnimation["getSword"].weight = 1;

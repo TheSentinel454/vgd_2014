@@ -5,6 +5,7 @@ using InControl;
 public class PauseGame : MonoBehaviour
 {
 	public string homeSceneName;
+	public bool allowed;
 	private bool paused;
 	private float alterTime;
 
@@ -17,6 +18,7 @@ public class PauseGame : MonoBehaviour
 		paused = false;
 		AudioListener.volume = 1.0f;
 		alterTime = Time.time;
+		allowed = true;
 	}
 
 	/// <summary>
@@ -46,6 +48,8 @@ public class PauseGame : MonoBehaviour
 	/// </summary>
 	void FixedUpdate()
 	{
+		if (!allowed)
+			return;
 		// See if the game is not paused
 		if (!paused)
 		{

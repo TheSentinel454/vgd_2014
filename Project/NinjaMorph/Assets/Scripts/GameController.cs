@@ -20,7 +20,9 @@ public class GameController : MonoBehaviour
 	private GameObject statsUI;
 
 	private NinjaController ninjaController;
+	private CyborgNinjaAnimationController ninjaAnimationController;
 	private MessageManager msgManager;
+	private PauseGame pauseScript;
 
 	private StatsInfo currentStats;
 	private StatsInfo totalStats;
@@ -36,6 +38,9 @@ public class GameController : MonoBehaviour
 	private bool firstWaterMessage = false;
 	private int timerThreshhold = 5;
 
+	private bool comboLevelComplete = false;
+	private GameObject comboPuzzle;
+
 	private bool gameActive = true;
 	private bool controllable = false;
 	private bool showStats = false;
@@ -43,6 +48,10 @@ public class GameController : MonoBehaviour
 	public void hideStats()
 	{
 		showStats = false;
+	}
+	public void enablePause()
+	{
+		pauseScript.allowed = true;
 	}
 
 	/// <summary>
@@ -92,6 +101,8 @@ public class GameController : MonoBehaviour
 				firePuzzle = puzzle;
 			else if (puzzle.name.Equals("Water Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
 				waterPuzzle = puzzle;
+			else if (puzzle.name.Equals("Combo Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
+				comboPuzzle = puzzle;
 		}
 		// See if we need to find the pause UI
 		if (pauseUI == null)
@@ -107,6 +118,14 @@ public class GameController : MonoBehaviour
 			// Disable it for now
 			statsUI.SetActive(false);
 		}
+		// See if we need to find the ninja animation controller again
+		if (ninjaAnimationController == null)
+		{
+			// Get the Ninja Animation Controller
+			ninjaAnimationController = player.GetComponent<CyborgNinjaAnimationController> ();
+		}
+		// Get the pause script
+		pauseScript = GetComponent<PauseGame> ();
 	}
 
 	/// <summary>
@@ -160,6 +179,12 @@ public class GameController : MonoBehaviour
 			// Set the message manager
 			ninjaController.setMessageManager(msgManager);
 		}
+		// See if we need to find the ninja animation controller again
+		if (ninjaAnimationController == null)
+		{
+			// Get the Ninja Animation Controller
+			ninjaAnimationController = player.GetComponent<CyborgNinjaAnimationController> ();
+		}
 		// Get the Puzzles
 		GameObject puzzle = GameObject.FindGameObjectWithTag("Puzzle");
 		
@@ -170,6 +195,8 @@ public class GameController : MonoBehaviour
 				firePuzzle = puzzle;
 			else if (puzzle.name.Equals("Water Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
 				waterPuzzle = puzzle;
+			else if (puzzle.name.Equals("Combo Puzzle", System.StringComparison.CurrentCultureIgnoreCase))
+				comboPuzzle = puzzle;
 		}
 
 		// Check for Game Over
@@ -193,6 +220,8 @@ public class GameController : MonoBehaviour
 	{
 		if (ninjaController != null)
 			ninjaController.setControl(control);
+		if (ninjaAnimationController != null)
+			ninjaAnimationController.controllable = control;
 		controllable = control;
 	}
 
@@ -227,7 +256,6 @@ public class GameController : MonoBehaviour
 			}
 			else if (!fireLevelComplete)
 			{
-				print ("Checking fire room!");
 				if (totalStats.startFireTime < 0.0f)
 					totalStats.startFireTime = Time.time;
 
@@ -246,7 +274,6 @@ public class GameController : MonoBehaviour
 								torchOrder.Add(io.gameObject.name);
 						}
 					}
-					print ("Number Lit: " + numberLit);
 					if (numberLit == objects.Length)
 					{
 						fireLevelComplete = true;
@@ -274,7 +301,6 @@ public class GameController : MonoBehaviour
 							cannonBall.speed = 0.3f;
 
 							ninjaController.createMessage("Fire Room complete!");
-
 						}
 						else
 						{
@@ -351,16 +377,30 @@ public class GameController : MonoBehaviour
 					} 
 				}
 			}
+			else if (!comboLevelComplete)
+			{
+				if (totalStats.startComboTime < 0.0f)
+					totalStats.startComboTime = Time.time;
+				
+				if (Application.loadedLevelName == "ComboRoom")
+				{
+					if (comboPuzzle == null)
+						return;
+
+					// TODO: Create combo level puzzle
+					comboLevelComplete = true;
+				}
+			}
 			else
 			{
 				// Create a message
 				ninjaController.createMessage("Level Complete!");
-				//gameActive = false;
-				triggerEndLevel("Water");
+				triggerEndLevel("Combo");
 				// Reset the puzzles
 				waterLevelComplete = false;
 				airLevelComplete = false;
 				fireLevelComplete = false;
+				comboLevelComplete = false;
 			}
 		}
 	}
@@ -386,10 +426,18 @@ public class GameController : MonoBehaviour
 			totalStats.endFireTime = Time.time;
 			nextLevel = "WaterRoom";
 		}
-		else if (triggerName.Contains("Water") && waterLevelComplete)
+		else if (triggerName.Contains("Water"))
 		{
+			waterLevelComplete = true;
 			// Track the end water time
 			totalStats.endWaterTime = Time.time;
+			nextLevel = "ComboRoom";
+		}
+		else if (triggerName.Contains("Combo"))
+		{
+			comboLevelComplete = true;
+			// Track the end combo time
+			totalStats.endComboTime = Time.time;
 			// Track the end time
 			totalStats.endTime = Time.time;
 			nextLevel = "NinjaMorph";
@@ -408,6 +456,8 @@ public class GameController : MonoBehaviour
 		ninjaController.currentStats = new StatsInfo ();
 		// Enable the Stats UI
 		showStats = true;
+		// Disable the ability to pause
+		pauseScript.allowed = false;
 	}
 
 	/// <summary>

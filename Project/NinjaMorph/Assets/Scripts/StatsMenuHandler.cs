@@ -14,12 +14,6 @@ public class StatsMenuHandler : MonoBehaviour
 	private InputDevice inputDevice;
 	public string nextLevel;
 	public static Selected selected;
-	
-	// Variables for calculating delta time
-	private float timeLastFrame;
-	private float timeCurrentFrame;
-	private float deltaTime;
-	private float movementTrigger;
 
 	public enum Selected
 	{
@@ -35,10 +29,6 @@ public class StatsMenuHandler : MonoBehaviour
 		selected = Selected.Done;
 		// Setup the input manager
 		InputManager.Setup ();
-		timeLastFrame = 0.0f;
-		timeCurrentFrame = 0.0f;
-		deltaTime = 0.0f;
-		movementTrigger = Time.time;
 	}
 
 	/// <summary>
@@ -46,11 +36,6 @@ public class StatsMenuHandler : MonoBehaviour
 	/// </summary>
 	void Update()
 	{
-		// Create our own delta time based on realtime since startup
-		timeCurrentFrame = Time.realtimeSinceStartup;
-		deltaTime = timeCurrentFrame - timeLastFrame;
-		timeLastFrame = timeCurrentFrame;
-
 		// Use last device which provided input.
 		inputDevice = InputManager.ActiveDevice;
 		if (inputDevice.Action1.WasPressed)
@@ -64,6 +49,8 @@ public class StatsMenuHandler : MonoBehaviour
 				{
 					// Hide the stats UI
 					GameController.controller.hideStats();
+					// Enable the ability to pause
+					GameController.controller.enablePause();
 					// Enable control again
 					GameController.controller.setControllable(true);
 					if (nextLevel == "NinjaMorph")
