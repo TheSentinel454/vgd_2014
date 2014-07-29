@@ -22,6 +22,7 @@ public class GameController : MonoBehaviour
 	private NinjaController ninjaController;
 	private CyborgNinjaAnimationController ninjaAnimationController;
 	private MessageManager msgManager;
+	private PauseGame pauseScript;
 
 	private StatsInfo currentStats;
 	private StatsInfo totalStats;
@@ -44,6 +45,10 @@ public class GameController : MonoBehaviour
 	public void hideStats()
 	{
 		showStats = false;
+	}
+	public void enablePause()
+	{
+		pauseScript.allowed = true;
 	}
 
 	/// <summary>
@@ -114,6 +119,8 @@ public class GameController : MonoBehaviour
 			// Get the Ninja Animation Controller
 			ninjaAnimationController = player.GetComponent<CyborgNinjaAnimationController> ();
 		}
+		// Get the pause script
+		pauseScript = GetComponent<PauseGame> ();
 	}
 
 	/// <summary>
@@ -242,7 +249,6 @@ public class GameController : MonoBehaviour
 			}
 			else if (!fireLevelComplete)
 			{
-				print ("Checking fire room!");
 				if (totalStats.startFireTime < 0.0f)
 					totalStats.startFireTime = Time.time;
 
@@ -261,7 +267,6 @@ public class GameController : MonoBehaviour
 								torchOrder.Add(io.gameObject.name);
 						}
 					}
-					print ("Number Lit: " + numberLit);
 					if (numberLit == objects.Length)
 					{
 						fireLevelComplete = true;
@@ -422,6 +427,8 @@ public class GameController : MonoBehaviour
 		ninjaController.currentStats = new StatsInfo ();
 		// Enable the Stats UI
 		showStats = true;
+		// Disable the ability to pause
+		pauseScript.allowed = false;
 	}
 
 	/// <summary>

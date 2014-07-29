@@ -5060,6 +5060,7 @@ MonoBehaviour:
   grounded: 1
   weapon: 0
   dead: 0
+  controllable: 1
 --- !u!114 &579353856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21189,6 +21190,10 @@ Prefab:
       propertyPath: attackHitAudio
       value: 
       objectReference: {fileID: 579353862}
+    - target: {fileID: 11400010, guid: c1629d0c148dc1c44a69360ac88cabfc, type: 2}
+      propertyPath: controllable
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c1629d0c148dc1c44a69360ac88cabfc, type: 2}
   m_RootGameObject: {fileID: 630831339}

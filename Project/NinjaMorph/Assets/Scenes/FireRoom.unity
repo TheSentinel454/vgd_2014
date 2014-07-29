@@ -19843,6 +19843,7 @@ MonoBehaviour:
   grounded: 1
   weapon: 0
   dead: 0
+  controllable: 1
 --- !u!114 &1519303936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26912,6 +26913,10 @@ Prefab:
     - target: {fileID: 400072, guid: d0cfe9de5f3e74c2f8313809afe6ff2d, type: 2}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: d0cfe9de5f3e74c2f8313809afe6ff2d, type: 2}
+      propertyPath: controllable
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d0cfe9de5f3e74c2f8313809afe6ff2d, type: 2}

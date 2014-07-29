@@ -49,6 +49,8 @@ public class StatsMenuHandler : MonoBehaviour
 				{
 					// Hide the stats UI
 					GameController.controller.hideStats();
+					// Enable the ability to pause
+					GameController.controller.enablePause();
 					// Enable control again
 					GameController.controller.setControllable(true);
 					if (nextLevel == "NinjaMorph")
