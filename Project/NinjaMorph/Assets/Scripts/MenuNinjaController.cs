@@ -5,8 +5,6 @@
   Luke Tornquist
   Jonathan Yates
 */
-//#define PLAY_TESTING
-
 using UnityEngine;
 using System.Collections;
 using InControl;
@@ -31,22 +29,6 @@ public class MenuNinjaController : MonoBehaviour
 
 	private bool attacking = false;
 	private InputDevice inputDevice;
-
-#if PLAY_TESTING
-	public int numAttacks = 0;
-	public int numKills = 0;
-	public float totalAirTime = 0.0f;
-	public float totalFireTime = 0.0f;
-	public float totalWaterTime = 0.0f;
-	public float totalAirCharging = 0.0f;
-	public float totalFireCharging = 0.0f;
-	public float totalWaterCharging = 0.0f;
-	private float sumHealth = 0.0f;
-	private float numHealthPoints = 0.0f;
-	public float avgHealth(){ return (sumHealth / numHealthPoints); }
-#endif
-
-    private bool isControllable = true;
 
     void Awake()
     {
@@ -76,7 +58,7 @@ public class MenuNinjaController : MonoBehaviour
 		if (attacking)
 			return;
 		
-		if (!IsAttacking() && inputDevice.RightTrigger.WasPressed)
+		if (!attacking && inputDevice.RightTrigger.WasPressed)
 		{
 			DidAttack();
 		}
@@ -84,9 +66,6 @@ public class MenuNinjaController : MonoBehaviour
 
 	public void DidAttack()
 	{
-#if PLAY_TESTING
-		numAttacks++;
-#endif
 		attacking = true;
 		StartCoroutine(Attack());
 	}
@@ -99,23 +78,9 @@ public class MenuNinjaController : MonoBehaviour
 
     void FixedUpdate()
 	{
-		//InputManager.Update();
 		// Use last device which provided input.
 		inputDevice = InputManager.ActiveDevice;
-#if PLAY_TESTING
-		sumHealth += zenEnergy;
-		numHealthPoints += 1.0f;
-#endif
-		//updateEnergyValues ();
 		handleNinjaChange ();
-
-		/*
-        if (!isControllable)
-        {
-            // kill all inputs if not controllable.
-            Input.ResetInputAxes();
-        }
-		*/
 
 		// Apply jumping logic
 		ApplyAttacking ();
@@ -143,7 +108,7 @@ public class MenuNinjaController : MonoBehaviour
 			}
 		}
 		// Fire Ninja
-		else if (inputDevice.Action2.WasPressed)//Input.GetKeyDown ("2"))
+		else if (inputDevice.Action2.WasPressed)
 		{
 			// See if we are currently the fire ninja
 			if (ninjaType == NinjaType.Fire)
@@ -159,7 +124,7 @@ public class MenuNinjaController : MonoBehaviour
 			}
 		}
 		// Water Ninja
-		else if (inputDevice.Action3.WasPressed)//Input.GetKeyDown ("3"))
+		else if (inputDevice.Action3.WasPressed)
 		{
 			// See if we are currently the water ninja
 			if (ninjaType == NinjaType.Water)
@@ -281,19 +246,4 @@ public class MenuNinjaController : MonoBehaviour
 			newEffect.transform.parent = ninjaEffects.transform;
 		}
 	}
-
-	public bool IsAttacking()
-	{
-		return attacking;
-	}
-
-    public bool IsMoving()
-    {
-        return Mathf.Abs(Input.GetAxisRaw("Vertical")) + Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0.5f;
-    }
-
-    public void Reset()
-    {
-        gameObject.tag = "Player";
-    }
 }

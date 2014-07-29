@@ -1,4 +1,4 @@
-﻿﻿/*
+﻿/*
   Team Y-Not
   
   Evan LaHurd
@@ -33,9 +33,6 @@ public class CyborgNinjaAnimationController : MonoBehaviour {
 	float distanceToGround = 0;
 	float colliderRadius = 0.5f;
 
-	// Hit
-	RaycastHit hit;
-
 	// Initialize Animations and Positions
 	void Start () {
 		cyborgAnimation = GetComponent<Animation>();
@@ -48,6 +45,7 @@ public class CyborgNinjaAnimationController : MonoBehaviour {
 	void FixedUpdate () {
 		// Determine if we are currently grounded.
 		previouslyGrounded = grounded;
+		RaycastHit hit;
 		grounded = Physics.CapsuleCast (collider.bounds.center, collider.bounds.center, colliderRadius, Vector3.down, out hit, distanceToGround + 0.1f);
 
 		// Update position information
