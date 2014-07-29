@@ -20,6 +20,7 @@ public class GameController : MonoBehaviour
 	private GameObject statsUI;
 
 	private NinjaController ninjaController;
+	private CyborgNinjaAnimationController ninjaAnimationController;
 	private MessageManager msgManager;
 
 	private StatsInfo currentStats;
@@ -107,6 +108,12 @@ public class GameController : MonoBehaviour
 			// Disable it for now
 			statsUI.SetActive(false);
 		}
+		// See if we need to find the ninja animation controller again
+		if (ninjaAnimationController == null)
+		{
+			// Get the Ninja Animation Controller
+			ninjaAnimationController = player.GetComponent<CyborgNinjaAnimationController> ();
+		}
 	}
 
 	/// <summary>
@@ -160,6 +167,12 @@ public class GameController : MonoBehaviour
 			// Set the message manager
 			ninjaController.setMessageManager(msgManager);
 		}
+		// See if we need to find the ninja animation controller again
+		if (ninjaAnimationController == null)
+		{
+			// Get the Ninja Animation Controller
+			ninjaAnimationController = player.GetComponent<CyborgNinjaAnimationController> ();
+		}
 		// Get the Puzzles
 		GameObject puzzle = GameObject.FindGameObjectWithTag("Puzzle");
 		
@@ -193,6 +206,8 @@ public class GameController : MonoBehaviour
 	{
 		if (ninjaController != null)
 			ninjaController.setControl(control);
+		if (ninjaAnimationController != null)
+			ninjaAnimationController.controllable = control;
 		controllable = control;
 	}
 
@@ -274,7 +289,6 @@ public class GameController : MonoBehaviour
 							cannonBall.speed = 0.3f;
 
 							ninjaController.createMessage("Fire Room complete!");
-
 						}
 						else
 						{
