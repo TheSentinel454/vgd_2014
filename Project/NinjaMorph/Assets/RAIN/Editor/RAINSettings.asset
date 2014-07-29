@@ -20,7 +20,7 @@ MonoBehaviour:
   _btInspectorFieldWidth: 120
   _navMeshGenerationThreads: 4
   _useSkin: 1
-  _skin: {fileID: 0}
+  _skin: {fileID: 11400000, guid: 1cc6173ca6a844f129775a650e9f7f66, type: 2}
   _showAdvanced: 0
   _allowAutoUpdateCheck: 1
   _lastUpdateCheck: 7/28/2014 10:32:52 PM

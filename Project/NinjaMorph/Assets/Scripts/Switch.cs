@@ -1,4 +1,4 @@
-﻿﻿/*
+﻿/*
   Team Y-Not
   
   Evan LaHurd
@@ -37,8 +37,10 @@ public class Switch : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 		if (other.tag == "Player") {
-			if(!timerStarted)
+			if(!timerStarted) {
 				audio.Play ();
+				GameObject.Find ("Brick Sound").audio.Play ();
+			}
 			timerStarted = true;
 		}
 	}
