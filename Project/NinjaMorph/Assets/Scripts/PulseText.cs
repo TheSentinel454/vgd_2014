@@ -39,18 +39,25 @@ public class PulseText : MonoBehaviour
 		timeCurrentFrame = Time.realtimeSinceStartup;
 		deltaTime = timeCurrentFrame - timeLastFrame;
 		timeLastFrame = timeCurrentFrame;
-		//print ("Current: " + timeCurrentFrame + ", Delta: " + deltaTime + ", Last: " + timeLastFrame);
+		// Handle any loading frames
+		if (deltaTime > 10.0f)
+			return;
 		// Make sure we are selected
 		if (selected)
 		{
+		
 			if (increasing)
 			{
+				if (timePassed < 0.0f)
+					timePassed = 0.0f;
 				timePassed += deltaTime;
 				if (timePassed >= pulseTime)
 					increasing = false;
 			}
 			else
 			{
+				if (timePassed > pulseTime)
+					timePassed = pulseTime;
 				timePassed -= deltaTime;
 				if (timePassed <= 0.0f)
 					increasing = true;
