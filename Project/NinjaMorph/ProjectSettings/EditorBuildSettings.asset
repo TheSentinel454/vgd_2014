@@ -13,3 +13,5 @@ EditorBuildSettings:
     path: Assets/Scenes/FireRoom.unity
   - enabled: 1
     path: Assets/Scenes/WaterRoom.unity
+  - enabled: 1
+    path: Assets/Scenes/ComboRoom.unity
