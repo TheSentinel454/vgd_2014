@@ -843,7 +843,7 @@ public class NinjaController : MonoBehaviour
 		
 		// Calculate push direction from move direction, 
 		// we only push objects to the sides never up and down
-		Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
+		Vector3 pushDir = new Vector3(hit.moveDirection.x, hit.moveDirection.y, hit.moveDirection.z);
 		// If you know how fast your character is trying to move,
 		// then you can also multiply the push velocity by that.
 
