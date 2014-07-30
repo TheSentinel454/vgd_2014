@@ -4135,6 +4135,7 @@ MonoBehaviour:
   grounded: 1
   weapon: 0
   dead: 0
+  controllable: 1
 --- !u!114 &579353856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4250,6 +4251,8 @@ MonoBehaviour:
     startWaterTime: -1
     endWaterTime: -1
     failedWaterPuzzles: 0
+    startComboTime: -1
+    endComboTime: -1
     totalAirTime: 0
     totalWaterTime: 0
     totalFireTime: 0
@@ -4270,6 +4273,8 @@ MonoBehaviour:
     startWaterTime: -1
     endWaterTime: -1
     failedWaterPuzzles: 0
+    startComboTime: -1
+    endComboTime: -1
     totalAirTime: 0
     totalWaterTime: 0
     totalFireTime: 0
@@ -8202,6 +8207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   homeSceneName: NinjaMorph
+  allowed: 0
 --- !u!1 &992080638
 GameObject:
   m_ObjectHideFlags: 0
@@ -8620,7 +8626,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400072, guid: d0cfe9de5f3e74c2f8313809afe6ff2d, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: d0cfe9de5f3e74c2f8313809afe6ff2d, type: 2}
       propertyPath: msgManager
@@ -17441,7 +17447,7 @@ AudioSource:
   m_GameObject: {fileID: 2137981703}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: db108af9ad588f442b61c69ee1e5ad9e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e1454265829bc0347ad8c7c1d713334a, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: .699999988
