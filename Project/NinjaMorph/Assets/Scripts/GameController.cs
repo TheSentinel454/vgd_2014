@@ -9,6 +9,8 @@
 using UnityEngine;
 using System.Collections;
 using InControl;
+using RAIN.Entities;
+using RAIN.Core;
 
 public class GameController : MonoBehaviour
 {
@@ -222,6 +224,9 @@ public class GameController : MonoBehaviour
 			ninjaController.setControl(control);
 		if (ninjaAnimationController != null)
 			ninjaAnimationController.controllable = control;
+		GameObject enemy = GameObject.FindGameObjectWithTag ("Enemy");
+		if (enemy != null)
+			enemy.GetComponentInChildren<AIRig> ().enabled = control;
 		controllable = control;
 	}
 
