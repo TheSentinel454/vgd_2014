@@ -6460,6 +6460,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11400008, guid: 9025f0c3257bc49e895ee498b04ad5cd, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9025f0c3257bc49e895ee498b04ad5cd, type: 2}
   m_RootGameObject: {fileID: 1161281747}
@@ -8172,7 +8176,7 @@ GameObject:
   - 114: {fileID: 514167457}
   m_Layer: 0
   m_Name: Entity
-  m_TagString: Untagged
+  m_TagString: PlayerEntity
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37736,7 +37740,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 335798816}
   m_GameObject: {fileID: 1870061150}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 157053555, guid: 9fa2ecd1ff2ad394281dd3bf72c5b76e, type: 3}
   m_Name: 
@@ -43432,6 +43436,10 @@ Prefab:
     - target: {fileID: 11400002, guid: d0cfe9de5f3e74c2f8313809afe6ff2d, type: 2}
       propertyPath: controllable
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100082, guid: d0cfe9de5f3e74c2f8313809afe6ff2d, type: 2}
+      propertyPath: m_TagString
+      value: PlayerEntity
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d0cfe9de5f3e74c2f8313809afe6ff2d, type: 2}
