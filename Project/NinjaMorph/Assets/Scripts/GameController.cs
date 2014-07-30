@@ -379,6 +379,7 @@ public class GameController : MonoBehaviour
 						//tell them they've completed the room
 						ninjaController.createMessage("Water Room complete!");
 						waterLevelComplete = true;
+						GameObject.Destroy(GameObject.Find ("Exit Door"));
 					} 
 				}
 			}
