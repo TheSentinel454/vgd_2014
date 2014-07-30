@@ -15,7 +15,7 @@ public class CyborgNinjaAnimationController : MonoBehaviour {
 	public bool grounded = true;
 	public bool weapon = false;
 	public bool dead = false;
-	public bool controllable = false;
+	public bool controllable = true;
 
 	// ANIMATION FLAGS
 	bool weaponOut = false;
