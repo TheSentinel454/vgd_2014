@@ -25,9 +25,9 @@ public class Switch : MonoBehaviour {
 	void Update () {
 		if(timerStarted && !disabled) {
 			timer += Time.deltaTime;
-			if(timer <= 0.5f) {
-				transform.Translate(new Vector3(0,-0.005f,0));
-				GameObject.Find ("Platform 5").transform.Translate(new Vector3(0.188f,0,0));
+			if(timer <= 2.0f) {
+				transform.Translate(new Vector3(0,-0.0008f,0));
+				GameObject.Find ("Platform 5").transform.Translate(new Vector3(0.05f,0,0));
 			} else {
 				disabled = true;
 			}

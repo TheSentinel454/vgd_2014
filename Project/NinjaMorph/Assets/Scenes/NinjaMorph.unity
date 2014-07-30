@@ -346,7 +346,7 @@ Transform:
   - {fileID: 1230339192}
   - {fileID: 1701084847}
   m_Father: {fileID: 1490282331}
-  m_RootOrder: 0
+  m_RootOrder: 2
 --- !u!199 &63470606
 ParticleSystemRenderer:
   m_ObjectHideFlags: 0
@@ -1478,7 +1478,7 @@ Transform:
   - {fileID: 1633971556}
   - {fileID: 954287486}
   m_Father: {fileID: 1490282331}
-  m_RootOrder: 1
+  m_RootOrder: 3
 --- !u!199 &110179379
 ParticleSystemRenderer:
   m_ObjectHideFlags: 0
@@ -2922,6 +2922,7 @@ MonoBehaviour:
   grounded: 1
   weapon: 0
   dead: 0
+  controllable: 0
 --- !u!114 &179045110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4041,7 +4042,7 @@ Transform:
   m_Children:
   - {fileID: 1950021565}
   m_Father: {fileID: 1490282331}
-  m_RootOrder: 3
+  m_RootOrder: 1
 --- !u!199 &462284862
 ParticleSystemRenderer:
   m_ObjectHideFlags: 0
@@ -13998,10 +13999,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 3.53448296, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 63470605}
-  - {fileID: 110179378}
   - {fileID: 1600443831}
   - {fileID: 462284861}
+  - {fileID: 63470605}
+  - {fileID: 110179378}
   m_Father: {fileID: 0}
   m_RootOrder: 3
 --- !u!114 &1490282332
@@ -14380,7 +14381,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1490282331}
-  m_RootOrder: 2
+  m_RootOrder: 0
 --- !u!102 &1600443832
 TextMesh:
   serializedVersion: 3
