@@ -390,7 +390,6 @@ public class GameController : MonoBehaviour
 			}
 			else if (!comboLevelComplete)
 			{
-				print ("Checking combo level!");
 				if (totalStats.startComboTime < 0.0f)
 					totalStats.startComboTime = Time.time;
 				
@@ -402,7 +401,6 @@ public class GameController : MonoBehaviour
 					// Check the buckets if not complete already
 					if (!bucketsComplete)
 					{
-						print("Checking buckets!");
 						int filledBuckets = 0;
 						// Find all fillable objects
 						FillableObject[] objects = comboPuzzle.GetComponentsInChildren<FillableObject>();
@@ -413,11 +411,9 @@ public class GameController : MonoBehaviour
 								filledBuckets++;
 							}
 						}
-						print ("Filled buckets: " + filledBuckets);
 						// Buckets complete
 						if (filledBuckets == 2)
 						{
-							print ("Buckets complete!");
 							bucketsComplete = true;
 							// Find crane
 							GameObject crane = null;
@@ -431,7 +427,6 @@ public class GameController : MonoBehaviour
 							}
 							// Transition the crane into position
 							iTween.RotateTo(crane, new Vector3(270.0f, 160.0f, 0.0f), 5.0f);
-							print ("Buckets done!");
 						}
 					}
 
@@ -464,12 +459,8 @@ public class GameController : MonoBehaviour
 							torchesComplete = true;
 							// Transition the elevator into position (from -33,60,-22 to -33,35,-22)
 							StartCoroutine(MoveElevator(elevator, new Vector3(-33.0f, 35.0f, -22.0f), 5.0f));
-							print ("Torches complete!");
 						}
 					}
-
-					// TODO: Create combo level puzzle
-					//comboLevelComplete = true;
 				}
 			}
 			else
@@ -492,7 +483,6 @@ public class GameController : MonoBehaviour
 		float timePassed = 0.0f;
 		while(!elevator.transform.localPosition.Equals(finalPosition))
 		{
-			print ("Elevator Position: " + elevator.transform.localPosition);
 			elevator.transform.localPosition = Vector3.Lerp(start, finalPosition, timePassed / time);
 			yield return new WaitForSeconds(0.01f);
 			timePassed += 0.01f;
