@@ -16,10 +16,13 @@ public class FillableObject : InteractiveObject
 	private float fillAmount = 0.0f;
 	private bool didPlay; //did the note play already for the given puzzle attempt
 	private WaterSounds waterSounds;
+	private GameObject waterSoundsObject;
 
 	void Start() {
 		originalPosition = transform.parent.FindChild("bucket_water").transform.position;
-		waterSounds = GameObject.Find ("Water Sounds").GetComponent<WaterSounds> ();
+		waterSoundsObject = GameObject.Find ("Water Sounds");
+		if (waterSoundsObject != null)
+			waterSounds = waterSoundsObject.GetComponent<WaterSounds> ();
 		didPlay = false;
 	}
 
