@@ -33313,11 +33313,12 @@ Animation:
     type: 2}
   m_PrefabInternal: {fileID: 1873651469}
   m_GameObject: {fileID: 1693129837}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: d8d3d334d497fb745b968f8eda3499f2, type: 2}
+  m_Animation: {fileID: 7400000, guid: 206c9db0ba6359047937c5535941b3a8, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: d8d3d334d497fb745b968f8eda3499f2, type: 2}
+  - {fileID: 7400000, guid: 206c9db0ba6359047937c5535941b3a8, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -36813,6 +36814,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11100000, guid: aabda61ff22184ed3919ee8bb7d80314, type: 2}
+      propertyPath: m_Animations.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: aabda61ff22184ed3919ee8bb7d80314, type: 2}
       propertyPath: m_LocalPosition.x
       value: 34.3654327
@@ -36855,7 +36860,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11100000, guid: aabda61ff22184ed3919ee8bb7d80314, type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: aabda61ff22184ed3919ee8bb7d80314, type: 2}
       propertyPath: m_IsActive
@@ -36865,6 +36870,14 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11100000, guid: aabda61ff22184ed3919ee8bb7d80314, type: 2}
+      propertyPath: m_Animations.Array.data[1]
+      value: 
+      objectReference: {fileID: 7400000, guid: 206c9db0ba6359047937c5535941b3a8, type: 2}
+    - target: {fileID: 11100000, guid: aabda61ff22184ed3919ee8bb7d80314, type: 2}
+      propertyPath: m_Animation
+      value: 
+      objectReference: {fileID: 7400000, guid: 206c9db0ba6359047937c5535941b3a8, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aabda61ff22184ed3919ee8bb7d80314, type: 2}
   m_RootGameObject: {fileID: 1693129837}
@@ -39644,7 +39657,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1983700269}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 149.509186, y: 40.2075233, z: 288.603851}
+  m_LocalPosition: {x: 149.509186, y: 40.2075233, z: 281.274811}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1923554199}
