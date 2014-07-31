@@ -12,14 +12,19 @@ Final Game
 ### External Resources
 
 - (Models)
+
 - Cyborg Model
   - https://www.assetstore.unity3d.com/en/#!/content/10705
+
 - Torch
   - https://www.assetstore.unity3d.com/en/#!/content/7275
+
 - Crates
   - https://www.assetstore.unity3d.com/en/#!/content/8836
+
 - Truck
   - http://tf3dm.com/3d-model/truck-9178.html
+
 - Dump Truck
   - http://tf3dm.com/3d-model/dump-truck-79822.html
 
@@ -41,43 +46,66 @@ Final Game
 - Pipes
   - https://www.assetstore.unity3d.com/en/#!/content/4142
 
+- Hangar
+  - https://www.assetstore.unity3d.com/en/#!/content/679
+
+
 - (Audio)
+
 - Footstep Audio
   - http://www.freesound.org/
+
 - Water Footsteps
   - http://www.freesfx.co.uk/sfx/footsteps?p=3 (Footsteps In Water 1)
+
 - Campfire Sound Effect
   - http://www.soundjay.com/nature/campfire-1.wav  (Fire Tree Sound Effect)
+
 - Steel Swords Hit Effect
   - http://www.soundsnap.com/files/tmp-stream/1406443260/24/transcode/Steel%20swords%20hit-%20glancing%201.mp3
+
 - Sword Swoosh
   - http://www.freesound.org/data/previews/59/59992_71257-lq.mp3
+
 - Pistol Shot
   - http://freesound.org/people/Tito%20Lahaye/sounds/76093/
+
 - Torch Lighting Sound
   - https://www.freesound.org/people/Nic3_one/sounds/166542/
+
 - Filling Bucket Xylophone Sound
   - https://www.freesound.org/people/morgantj/sounds/58634/
+
 - Moving Air Room Platform
   - http://freesound.org/people/Benboncan/sounds/77112/
+
 - Button Pressing Sound in Air Room
   - http://noproblo.dayjo.org/ZeldaSounds/OOT/OOT_Secret.wav
+
 - Air Room Ambient Music
   - http://freesound.org/people/Dredile/sounds/164272/
+
 - Water Room Ambient Music
   - http://freesound.org/people/orangefreesounds/sounds/242080/
+
 - Fire Room Ambient Music
   - http://freesound.org/people/burning-mir/sounds/155139/
+
 - Water Pouring From Tank in Water Room (from Particle Callback package)
   - https://www.assetstore.unity3d.com/en/#!/content/11903
 
+
 - (AI)
+
 - RAIN
   - https://www.assetstore.unity3d.com/en/#!/content/6563
 
+
 - (Scripts)
+
 - AutoTransparent/ClearSight
   - http://answers.unity3d.com/questions/44815/make-object-transparent-when-between-camera-and-pl.html
+
 - CameraFade
   - http://wiki.unity3d.com/index.php?title=FadeInOut
 
