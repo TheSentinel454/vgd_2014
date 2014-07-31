@@ -238,7 +238,7 @@ Transform:
   - {fileID: 770195775}
   - {fileID: 1634765623}
   m_Father: {fileID: 204133846}
-  m_RootOrder: 2
+  m_RootOrder: 0
 --- !u!54 &13170187
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4573,9 +4573,9 @@ Transform:
   m_LocalPosition: {x: 41.1374435, y: -43.2396126, z: -23.324625}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 13170186}
   - {fileID: 1373698512}
   - {fileID: 686996998}
-  - {fileID: 13170186}
   m_Father: {fileID: 565451542}
   m_RootOrder: 2
 --- !u!1 &210108048
@@ -7572,6 +7572,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 14
+  fireSound: {fileID: 0}
   fireGameObject: {fileID: 100006, guid: 479f61ba326de4ff7ba771e9abdd17e8, type: 2}
   smokeGameObject: {fileID: 100000, guid: 9b74bcaf943b34eca836142b61fca2ea, type: 2}
 --- !u!1 &284533331
@@ -8323,6 +8324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 14
+  fireSound: {fileID: 0}
   fireGameObject: {fileID: 100006, guid: ba1890e53e92f40dab7c64be4d2667ff, type: 2}
   smokeGameObject: {fileID: 100000, guid: 9b74bcaf943b34eca836142b61fca2ea, type: 2}
 --- !u!136 &332220584
@@ -11348,7 +11350,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 1afeb40fd9883ff4d84a0b0eb84e85da, type: 2}
+  - {fileID: 2100000, guid: ff183be36834ad3458a586dd394cc719, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -11573,9 +11575,9 @@ Transform:
   m_LocalPosition: {x: 41.1374435, y: -43.2396126, z: -23.324625}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1355865451}
   - {fileID: 1164584933}
   - {fileID: 1456689146}
+  - {fileID: 1355865451}
   m_Father: {fileID: 565451542}
   m_RootOrder: 1
 --- !u!1001 &528870069
@@ -11754,6 +11756,7 @@ GameObject:
   - 23: {fileID: 540711056}
   - 114: {fileID: 540711055}
   - 136: {fileID: 540711054}
+  - 82: {fileID: 540711058}
   m_Layer: 0
   m_Name: Torch1
   m_TagString: Untagged
@@ -11800,6 +11803,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
+  fireSound: {fileID: 540711058}
   fireGameObject: {fileID: 100000, guid: 7a188c22e10b64955add56de8af5d9c4, type: 2}
   smokeGameObject: {fileID: 100000, guid: 9b74bcaf943b34eca836142b61fca2ea, type: 2}
 --- !u!23 &540711056
@@ -11831,6 +11835,64 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 540711052}
   m_Mesh: {fileID: 4300000, guid: 622107dd3c4416a4d9fcc501f396d549, type: 3}
+--- !u!82 &540711058
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 540711052}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: 2ce483daf1471c34a817c08169b5418f, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &551239316
 GameObject:
   m_ObjectHideFlags: 0
@@ -12573,6 +12635,7 @@ GameObject:
   - 23: {fileID: 613002646}
   - 114: {fileID: 613002645}
   - 136: {fileID: 613002644}
+  - 82: {fileID: 613002648}
   m_Layer: 0
   m_Name: Torch3
   m_TagString: Untagged
@@ -12619,6 +12682,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
+  fireSound: {fileID: 613002648}
   fireGameObject: {fileID: 100000, guid: 7a188c22e10b64955add56de8af5d9c4, type: 2}
   smokeGameObject: {fileID: 100000, guid: 9b74bcaf943b34eca836142b61fca2ea, type: 2}
 --- !u!23 &613002646
@@ -12650,6 +12714,64 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 613002642}
   m_Mesh: {fileID: 4300000, guid: 622107dd3c4416a4d9fcc501f396d549, type: 3}
+--- !u!82 &613002648
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 613002642}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: 2ce483daf1471c34a817c08169b5418f, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &620231587
 GameObject:
   m_ObjectHideFlags: 0
@@ -13322,7 +13444,7 @@ Transform:
   - {fileID: 985338897}
   - {fileID: 1663598483}
   m_Father: {fileID: 204133846}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!95 &686996999
 Animator:
   serializedVersion: 3
@@ -14552,7 +14674,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1714728852}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!136 &714568355
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14578,6 +14700,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 14
+  fireSound: {fileID: 0}
   fireGameObject: {fileID: 100006, guid: 479f61ba326de4ff7ba771e9abdd17e8, type: 2}
   smokeGameObject: {fileID: 100000, guid: 9b74bcaf943b34eca836142b61fca2ea, type: 2}
 --- !u!1 &720672927
@@ -18009,6 +18132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 14
+  fireSound: {fileID: 0}
   fireGameObject: {fileID: 100006, guid: 479f61ba326de4ff7ba771e9abdd17e8, type: 2}
   smokeGameObject: {fileID: 100000, guid: 9b74bcaf943b34eca836142b61fca2ea, type: 2}
 --- !u!1 &936405418
@@ -22390,7 +22514,7 @@ Transform:
   - {fileID: 284533332}
   - {fileID: 1293687232}
   m_Father: {fileID: 528229650}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!95 &1164584934
 Animator:
   serializedVersion: 3
@@ -25172,7 +25296,7 @@ Transform:
   - {fileID: 996043217}
   - {fileID: 1769781324}
   m_Father: {fileID: 1714728852}
-  m_RootOrder: 0
+  m_RootOrder: 2
 --- !u!199 &1216695576
 ParticleSystemRenderer:
   m_ObjectHideFlags: 0
@@ -29410,6 +29534,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 14
+  fireSound: {fileID: 0}
   fireGameObject: {fileID: 100006, guid: 479f61ba326de4ff7ba771e9abdd17e8, type: 2}
   smokeGameObject: {fileID: 100000, guid: 9b74bcaf943b34eca836142b61fca2ea, type: 2}
 --- !u!1001 &1341584700
@@ -29679,7 +29804,7 @@ Transform:
   - {fileID: 79939948}
   - {fileID: 1765928568}
   m_Father: {fileID: 528229650}
-  m_RootOrder: 0
+  m_RootOrder: 2
 --- !u!95 &1355865452
 Animator:
   serializedVersion: 3
@@ -30059,7 +30184,7 @@ Transform:
   - {fileID: 1622523331}
   - {fileID: 499698460}
   m_Father: {fileID: 204133846}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!95 &1373698513
 Animator:
   serializedVersion: 3
@@ -30169,7 +30294,7 @@ Transform:
   - {fileID: 2082908848}
   - {fileID: 1491219721}
   m_Father: {fileID: 1714728852}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!1 &1389426398
 GameObject:
   m_ObjectHideFlags: 0
@@ -32830,7 +32955,7 @@ Transform:
   - {fileID: 894618837}
   - {fileID: 815978798}
   m_Father: {fileID: 528229650}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!95 &1456689147
 Animator:
   serializedVersion: 3
@@ -38302,6 +38427,7 @@ GameObject:
   - 23: {fileID: 1691164810}
   - 114: {fileID: 1691164809}
   - 136: {fileID: 1691164808}
+  - 82: {fileID: 1691164812}
   m_Layer: 0
   m_Name: Torch2
   m_TagString: Untagged
@@ -38348,6 +38474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
+  fireSound: {fileID: 1691164812}
   fireGameObject: {fileID: 100000, guid: 7a188c22e10b64955add56de8af5d9c4, type: 2}
   smokeGameObject: {fileID: 100000, guid: 9b74bcaf943b34eca836142b61fca2ea, type: 2}
 --- !u!23 &1691164810
@@ -38379,6 +38506,64 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1691164806}
   m_Mesh: {fileID: 4300000, guid: 622107dd3c4416a4d9fcc501f396d549, type: 3}
+--- !u!82 &1691164812
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1691164806}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: 2ce483daf1471c34a817c08169b5418f, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &1698852548
 GameObject:
   m_ObjectHideFlags: 0
@@ -39627,9 +39812,9 @@ Transform:
   m_LocalPosition: {x: -25.1988831, y: -.192724437, z: -13.2918625}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1216695575}
   - {fileID: 1387161050}
   - {fileID: 714568354}
+  - {fileID: 1216695575}
   m_Father: {fileID: 1604249248}
   m_RootOrder: 3
 --- !u!95 &1714728853
@@ -41126,7 +41311,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 1afeb40fd9883ff4d84a0b0eb84e85da, type: 2}
+  - {fileID: 2100000, guid: ff183be36834ad3458a586dd394cc719, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -45191,6 +45376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 14
+  fireSound: {fileID: 0}
   fireGameObject: {fileID: 100006, guid: 479f61ba326de4ff7ba771e9abdd17e8, type: 2}
   smokeGameObject: {fileID: 100000, guid: 9b74bcaf943b34eca836142b61fca2ea, type: 2}
 --- !u!1 &1827054840
@@ -46306,6 +46492,7 @@ GameObject:
   - 23: {fileID: 1886620541}
   - 114: {fileID: 1886620540}
   - 136: {fileID: 1886620539}
+  - 82: {fileID: 1886620543}
   m_Layer: 0
   m_Name: Torch0
   m_TagString: Untagged
@@ -46352,6 +46539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
+  fireSound: {fileID: 1886620543}
   fireGameObject: {fileID: 100000, guid: 7a188c22e10b64955add56de8af5d9c4, type: 2}
   smokeGameObject: {fileID: 100000, guid: 9b74bcaf943b34eca836142b61fca2ea, type: 2}
 --- !u!23 &1886620541
@@ -46383,6 +46571,64 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1886620537}
   m_Mesh: {fileID: 4300000, guid: 622107dd3c4416a4d9fcc501f396d549, type: 3}
+--- !u!82 &1886620543
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1886620537}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: 2ce483daf1471c34a817c08169b5418f, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &1919251465
 GameObject:
   m_ObjectHideFlags: 0

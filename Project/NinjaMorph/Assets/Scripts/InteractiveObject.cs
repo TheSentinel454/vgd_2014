@@ -58,7 +58,9 @@ public class InteractiveObject : MonoBehaviour
 	private ObjectType currentType;
 	private GameObject fire;
 	private GameObject smoke;
+	private bool playedSound;
 
+	public AudioSource fireSound;
 	public GameObject fireGameObject;
 	public GameObject smokeGameObject;
 
@@ -69,6 +71,8 @@ public class InteractiveObject : MonoBehaviour
 	{
 		// Set the current type
 		currentType = type;
+
+		playedSound = false;
 	}
 
 	/// <summary>
@@ -117,6 +121,7 @@ public class InteractiveObject : MonoBehaviour
 			currentType = type;
 			// Destroy the fire prefab
 			Destroy(fire);
+			playedSound = false;
 			// Instantiate the smoke prefab
 			smoke = (GameObject)Instantiate(smokeGameObject, transform.position, transform.rotation);
 			smoke.transform.parent = transform;
@@ -139,6 +144,10 @@ public class InteractiveObject : MonoBehaviour
 			// Instantiate the fire prefab
 			fire = (GameObject)Instantiate(fireGameObject, transform.position + new Vector3(0.0f, 1.2f, 0.0f), transform.rotation);
 			fire.transform.parent = transform;
+			if (fireSound != null) {
+				fireSound.Play ();
+				playedSound = true;
+			}
 			break;
 		}
 	}
@@ -171,5 +180,6 @@ public class InteractiveObject : MonoBehaviour
 		currentType = type;
 		// Destroy the fire prefab
 		Destroy(fire);
+		playedSound = false;
 	}
 }
