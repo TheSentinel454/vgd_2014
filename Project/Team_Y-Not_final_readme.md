@@ -112,7 +112,7 @@ Final Game
 
 ### Fulfilled Requirements
 
-** Game Polish: **
+**Game Polish:**
 - Themed and integrated the air room into the overall game feel
 - Updated the theme of the fire room
 - Improved the character controls by preventing users from jumping too many times when in the air ninja state
