@@ -48,6 +48,8 @@ Final Game
   - http://www.freesound.org/data/previews/59/59992_71257-lq.mp3
 - Pistol Shot
   - http://freesound.org/people/Tito%20Lahaye/sounds/76093/
+- Torch Lighting Sound
+  - https://www.freesound.org/people/Nic3_one/sounds/166542/
 - Filling Bucket Xylophone Sound
   - https://www.freesound.org/people/morgantj/sounds/58634/
 - Moving Air Room Platform
