@@ -144,6 +144,24 @@ The Xbox controller controls are detailed in the help screen of our game, but if
 
 ---
 
+### Who Did What
+
+**Luke Tornquist**
+- User Interface
+- Intro animations
+- Level/Puzzle Design (Final/Fire Room)
+- XBOX 360 controller integration
+
+**Jonathan Yates**
+- Enemy AI
+- Player/Enemy Animations
+- Video creation
+- User Interface
+
+**Evan LaHurd**
+- Level/Puzzle Design (Water/Air Room)
+- Audio/Sounds Effects
+
 ### Incomplete Requirements
 
 - We had no incomplete requirements

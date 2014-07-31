@@ -1,5 +1,9 @@
 ﻿/*
-* Built-In Unity
+  Team Y-Not
+  
+  Evan LaHurd
+  Luke Tornquist
+  Jonathan Yates
 */
 using UnityEngine;
 
