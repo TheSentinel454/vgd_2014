@@ -34,7 +34,10 @@ Final Game
 - Elementals
   - https://www.assetstore.unity3d.com/en/#!/content/11158
 
-- Water (Ponds)
+- Puddle in Water Room
+  - https://www.assetstore.unity3d.com/en/#!/content/11158
+
+- Bucket Water
   - Assets -> Import Package -> Water (Basic)
 
 - Rustic Door
