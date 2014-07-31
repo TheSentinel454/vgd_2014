@@ -36,6 +36,24 @@ public class ComboCamera : MonoBehaviour
 		GameController.controller.setControllable (state == 1);
 	}
 
+	public void disableClearSight()
+	{
+		ClearSight sight = GetComponent<ClearSight> ();
+		if (sight != null)
+		{
+			sight.enabled = false;
+		}
+	}
+
+	public void enableClearSight()
+	{
+		ClearSight sight = GetComponent<ClearSight> ();
+		if (sight != null)
+		{
+			sight.enabled = true;
+		}
+	}
+
 	void LateUpdate ()
 	{
 		// Make sure we have a target

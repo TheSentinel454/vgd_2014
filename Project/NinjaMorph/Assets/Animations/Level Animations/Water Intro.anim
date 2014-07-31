@@ -21546,8 +21546,15 @@ AnimationClip:
     classID: 4
     script: {fileID: 0}
   m_Events:
-  - time: .0166666675
+  - time: 0
     functionName: setControllable
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0
+    functionName: disableClearSight
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -21559,4 +21566,11 @@ AnimationClip:
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 1
+    messageOptions: 0
+  - time: 14
+    functionName: enableClearSight
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
     messageOptions: 0
