@@ -35,6 +35,12 @@ Final Game
 - Rustic Door
   - https://www.assetstore.unity3d.com/en/#!/content/861
 
+- Elevator
+  - http://www.freebie3d.com/en/model/8529/elevator-model-cage-lift/
+
+- Pipes
+  - https://www.assetstore.unity3d.com/en/#!/content/4142
+
 - (Audio)
 - Footstep Audio
   - http://www.freesound.org/
