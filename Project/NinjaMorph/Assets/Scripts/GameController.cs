@@ -557,6 +557,9 @@ public class GameController : MonoBehaviour
 		{
 			// Reset the puzzle state
 			resetPuzzleState();
+			fireLevelComplete = false;
+			airLevelComplete = false;
+			waterLevelComplete = false;
 			// Reset the stats
 			currentStats.resetLevelSpecificStats();
 			// Reload the scene
@@ -577,6 +580,9 @@ public class GameController : MonoBehaviour
 		torchOrder.Clear ();
 	}
 
+	/// <summary>
+	/// Restarts the level.
+	/// </summary>
 	public void restartLevel()
 	{
 		if (Application.loadedLevelName.Contains("Fire"))
