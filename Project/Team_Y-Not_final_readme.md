@@ -46,6 +46,22 @@ Final Game
   - http://www.soundsnap.com/files/tmp-stream/1406443260/24/transcode/Steel%20swords%20hit-%20glancing%201.mp3
 - Sword Swoosh
   - http://www.freesound.org/data/previews/59/59992_71257-lq.mp3
+- Pistol Shot
+  - http://freesound.org/people/Tito%20Lahaye/sounds/76093/
+- Filling Bucket Xylophone Sound
+  - https://www.freesound.org/people/morgantj/sounds/58634/
+- Moving Air Room Platform
+  - http://freesound.org/people/Benboncan/sounds/77112/
+- Button Pressing Sound in Air Room
+  - http://noproblo.dayjo.org/ZeldaSounds/OOT/OOT_Secret.wav
+- Air Room Ambient Music
+  - http://freesound.org/people/Dredile/sounds/164272/
+- Water Room Ambient Music
+  - http://freesound.org/people/orangefreesounds/sounds/242080/
+- Fire Room Ambient Music
+  - http://freesound.org/people/burning-mir/sounds/155139/
+- Water Pouring From Tank in Water Room (from Particle Callback package)
+  - https://www.assetstore.unity3d.com/en/#!/content/11903
 
 - (AI)
 - RAIN
