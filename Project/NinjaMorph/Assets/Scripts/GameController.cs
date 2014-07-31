@@ -29,13 +29,13 @@ public class GameController : MonoBehaviour
 	private StatsInfo currentStats;
 	private StatsInfo totalStats;
 
-	private bool airLevelComplete = true;
+	private bool airLevelComplete = false;
 
-	private bool fireLevelComplete = true;
+	private bool fireLevelComplete = false;
 	private GameObject firePuzzle;
 	private ArrayList torchOrder = new ArrayList(4);
 
-	private bool waterLevelComplete = true;
+	private bool waterLevelComplete = false;
 	private GameObject waterPuzzle;
 	private bool firstWaterMessage = false;
 	private int timerThreshhold = 5;

@@ -998,6 +998,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 3
+  fireSound: {fileID: 0}
   fireGameObject: {fileID: 100006, guid: ba1890e53e92f40dab7c64be4d2667ff, type: 2}
   smokeGameObject: {fileID: 100000, guid: 9b74bcaf943b34eca836142b61fca2ea, type: 2}
 --- !u!64 &68655564
@@ -2297,7 +2298,7 @@ Transform:
   m_Children:
   - {fileID: 954126707}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!65 &130790639
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5717,6 +5718,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 4
+  fireSound: {fileID: 0}
   fireGameObject: {fileID: 0}
   smokeGameObject: {fileID: 0}
   filled: 0
@@ -6143,6 +6145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 14
+  fireSound: {fileID: 0}
   fireGameObject: {fileID: 100006, guid: 479f61ba326de4ff7ba771e9abdd17e8, type: 2}
   smokeGameObject: {fileID: 100000, guid: 9b74bcaf943b34eca836142b61fca2ea, type: 2}
 --- !u!1 &317061084
@@ -6531,6 +6534,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 4
+  fireSound: {fileID: 0}
   fireGameObject: {fileID: 0}
   smokeGameObject: {fileID: 0}
   filled: 0
@@ -9633,7 +9637,7 @@ Transform:
   m_Children:
   - {fileID: 1700690994}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
 --- !u!65 &501575703
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11561,7 +11565,7 @@ Transform:
   - {fileID: 902023967}
   - {fileID: 903847373}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
 --- !u!1 &633068345
 GameObject:
   m_ObjectHideFlags: 0
@@ -12936,7 +12940,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!1 &725157728
 GameObject:
   m_ObjectHideFlags: 0
@@ -15118,6 +15122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 3
+  fireSound: {fileID: 0}
   fireGameObject: {fileID: 100006, guid: ba1890e53e92f40dab7c64be4d2667ff, type: 2}
   smokeGameObject: {fileID: 100000, guid: 9b74bcaf943b34eca836142b61fca2ea, type: 2}
 --- !u!64 &819657614
@@ -16160,6 +16165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 3
+  fireSound: {fileID: 0}
   fireGameObject: {fileID: 100006, guid: ba1890e53e92f40dab7c64be4d2667ff, type: 2}
   smokeGameObject: {fileID: 100000, guid: 9b74bcaf943b34eca836142b61fca2ea, type: 2}
 --- !u!64 &907726136
@@ -17270,6 +17276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
+  fireSound: {fileID: 0}
   fireGameObject: {fileID: 100000, guid: 7a188c22e10b64955add56de8af5d9c4, type: 2}
   smokeGameObject: {fileID: 100000, guid: 9b74bcaf943b34eca836142b61fca2ea, type: 2}
 --- !u!23 &970516961
@@ -17632,6 +17639,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 4
+  fireSound: {fileID: 0}
   fireGameObject: {fileID: 0}
   smokeGameObject: {fileID: 0}
   filled: 0
@@ -21574,6 +21582,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 3
+  fireSound: {fileID: 0}
   fireGameObject: {fileID: 100006, guid: ba1890e53e92f40dab7c64be4d2667ff, type: 2}
   smokeGameObject: {fileID: 100000, guid: 9b74bcaf943b34eca836142b61fca2ea, type: 2}
 --- !u!64 &1176493399
@@ -27142,6 +27151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 4
+  fireSound: {fileID: 0}
   fireGameObject: {fileID: 0}
   smokeGameObject: {fileID: 0}
   filled: 0
@@ -30192,6 +30202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 4
+  fireSound: {fileID: 0}
   fireGameObject: {fileID: 0}
   smokeGameObject: {fileID: 0}
   filled: 0
@@ -31130,7 +31141,7 @@ Transform:
   - {fileID: 566290632}
   - {fileID: 111458388}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!114 &1693129843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33336,7 +33347,7 @@ Transform:
   - {fileID: 1228080659}
   - {fileID: 1889382383}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!1 &1795712910
 GameObject:
   m_ObjectHideFlags: 0
@@ -35314,6 +35325,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
+  fireSound: {fileID: 0}
   fireGameObject: {fileID: 100000, guid: 7a188c22e10b64955add56de8af5d9c4, type: 2}
   smokeGameObject: {fileID: 100000, guid: 9b74bcaf943b34eca836142b61fca2ea, type: 2}
 --- !u!23 &1908852523
@@ -38187,6 +38199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 4
+  fireSound: {fileID: 0}
   fireGameObject: {fileID: 0}
   smokeGameObject: {fileID: 0}
   filled: 0
@@ -38853,6 +38866,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 3
+  fireSound: {fileID: 0}
   fireGameObject: {fileID: 100006, guid: ba1890e53e92f40dab7c64be4d2667ff, type: 2}
   smokeGameObject: {fileID: 100000, guid: 9b74bcaf943b34eca836142b61fca2ea, type: 2}
 --- !u!64 &2092168378
@@ -39265,6 +39279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 3
+  fireSound: {fileID: 0}
   fireGameObject: {fileID: 100006, guid: ba1890e53e92f40dab7c64be4d2667ff, type: 2}
   smokeGameObject: {fileID: 100000, guid: 9b74bcaf943b34eca836142b61fca2ea, type: 2}
 --- !u!64 &2113259297
