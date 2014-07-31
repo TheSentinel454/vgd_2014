@@ -11,7 +11,7 @@ Final Game
 
 ### External Resources
 
-- (Models)
+###### Models
 
 - Cyborg Model
   - https://www.assetstore.unity3d.com/en/#!/content/10705
@@ -50,7 +50,7 @@ Final Game
   - https://www.assetstore.unity3d.com/en/#!/content/679
 
 
-- (Audio)
+###### Audio
 
 - Footstep Audio
   - http://www.freesound.org/
@@ -95,13 +95,13 @@ Final Game
   - https://www.assetstore.unity3d.com/en/#!/content/11903
 
 
-- (AI)
+###### AI
 
 - RAIN
   - https://www.assetstore.unity3d.com/en/#!/content/6563
 
 
-- (Scripts)
+###### Scripts
 
 - AutoTransparent/ClearSight
   - http://answers.unity3d.com/questions/44815/make-object-transparent-when-between-camera-and-pl.html
