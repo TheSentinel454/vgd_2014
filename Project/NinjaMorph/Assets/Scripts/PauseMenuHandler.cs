@@ -63,6 +63,7 @@ public class PauseMenuHandler : MonoBehaviour
 				// Load the current level
 				CameraFade.StartAlphaFade( Color.black, false, 0.5f, 0.0f, () =>
 				{
+					GameController.controller.restartLevel();
 					Application.LoadLevel(Application.loadedLevelName);
 				} );
 				break;

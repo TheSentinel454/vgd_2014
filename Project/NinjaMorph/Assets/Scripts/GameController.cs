@@ -571,9 +571,22 @@ public class GameController : MonoBehaviour
 	/// <summary>
 	/// Resets the state of the puzzles.
 	/// </summary>
-	private void resetPuzzleState()
+	public void resetPuzzleState()
 	{
 		// Reset the torch order queue
 		torchOrder.Clear ();
+	}
+
+	public void restartLevel()
+	{
+		if (Application.loadedLevelName.Contains("Fire"))
+		{
+			torchOrder.Clear();
+			fireLevelComplete = false;
+		}
+		else if (Application.loadedLevelName.Contains("Water"))
+		{
+			waterLevelComplete = false;
+		}
 	}
 }
