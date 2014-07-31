@@ -35,7 +35,8 @@ public class FillableObject : InteractiveObject
 		}
 		if (fillAmount >= 1.0 && !didPlay) {
 			filled = true;
-			waterSounds.playNextWaterSound();
+			if (waterSounds != null)
+				waterSounds.playNextWaterSound();
 			didPlay = true;
 		}
 	}
@@ -44,16 +45,10 @@ public class FillableObject : InteractiveObject
 		transform.parent.FindChild("bucket_water").transform.position = originalPosition;
 		fillAmount = 0.0f;
 		didPlay = false;
-		waterSounds.getQueue().Clear();
-		waterSounds.fillQueue ();
-	}
-
-	public void setDidPlay(bool didPlay) {
-		this.didPlay = didPlay;
-	}
-
-	public bool getDidPlay() {
-		return didPlay;
+		if (waterSounds != null) {
+			waterSounds.getQueue().Clear();
+			waterSounds.fillQueue ();
+		}
 	}
 
 }
